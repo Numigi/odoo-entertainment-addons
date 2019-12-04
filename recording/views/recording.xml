@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_list" model="ir.ui.view">
+        <field name="name">Recording List</field>
+        <field name="model">recording</field>
+        <field name="arch" type="xml">
+            <tree string="Recordings">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="recording_form" model="ir.ui.view">
+        <field name="name">Recording Form</field>
+        <field name="model">recording</field>
+        <field name="arch" type="xml">
+            <form string="Recording">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="group_1">
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group name="group_2">
+                        </group>
+                    </group>
+                    <notebook>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="recording_search" model="ir.ui.view">
+        <field name="name">Recording Search</field>
+        <field name="model">recording</field>
+        <field name="arch" type="xml">
+            <search string="Search Recordings">
+                <field name="name"/>
+           </search>
+        </field>
+    </record>
+
+    <record id="action_recording" model="ir.actions.act_window">
+        <field name="name">Recordings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">recording</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="recording_list"/>
+        <field name="search_view_id" ref="recording_search"/>
+    </record>
+
+</odoo>

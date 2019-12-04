@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_recording_root"
+        name="Recording"
+        web_icon="fa fa-music,#000000,#FFFFFF"
+        sequence="500"
+        groups="group_user"
+        />
+
+    <menuitem
+        id="menu_recording"
+        name="Recordings"
+        parent="menu_recording_root"
+        action="action_recording"
+        sequence="100"
+        />
+
+    <menuitem
+        id="menu_config"
+        name="Configuration"
+        parent="menu_recording_root"
+        sequence="500"
+        />
+
+</odoo>

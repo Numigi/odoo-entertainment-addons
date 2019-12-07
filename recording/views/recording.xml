@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+    <record id="related_video_recordings_action" model="ir.actions.act_window">
+        <field name="name">Related Videos</field>
+        <field name="res_model">recording</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            ('sound_recording_id', '=', context.get('active_id')),
+            ('ttype', '=', 'video'),
+        ]</field>
+    </record>
+
     <record id="recording_list" model="ir.ui.view">
         <field name="name">Recording List</field>
         <field name="model">recording</field>
         <field name="arch" type="xml">
             <tree string="Recordings">
                 <field name="name"/>
+                <field name="number_of_tracks" string="Related Recordings"/>
+                <field name="group_type" string="Group Type"/>
             </tree>
         </field>
     </record>
@@ -19,19 +31,75 @@
                 <header>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(related_video_recordings_action)d" type="action"
+                            class="oe_stat_button" icon="fa-file-video-o"
+                            attrs="{'invisible': [('ttype', '!=', 'sound')]}"
+                            >
+                            <field string="Related Videos" name="related_video_count" widget="statinfo"/>
+                        </button>
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
                     <div class="oe_title">
                         <h1>
                             <field name="name"/>
                         </h1>
                     </div>
                     <group>
-                        <group name="group_1">
+                        <field name="ttype" required="1" widget="radio" options="{'horizontal': true}"/>
+                    </group>
+                    <group>
+                        <group name="recording" string="Recording">
                             <field name="company_id" groups="base.group_multi_company"/>
-                        </group>
-                        <group name="group_2">
+                            <field name="sound_recording_id" string="Related Recording"
+                                attrs="{'invisible': [('ttype', '!=', 'video')], 'required': [('ttype', '=', 'video')]}"
+                                domain="[('ttype', '=', 'sound')]"
+                                />
+                            <field name="group_type" string="Type"
+                                attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
+                                />
+                            <field name="duration" widget="float_time"
+                                attrs="{'invisible': [('ttype', 'not in', ('sound', 'video'))], 'required': [('ttype', 'in', ('sound', 'video'))]}"
+                            />
+                            <field name="group_duration" widget="float_time" string="Duration"
+                                attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
+                                />
+                            <field name="production_start_date"/>
+                            <field name="release_date"
+                                attrs="{'required': [('ttype', '=', 'group')]}"
+                                />
+                            <field name="filming_location"
+                                attrs="{'invisible': [('ttype', '!=', 'video')]}"
+                                />
+                            <field name="publication_country_id"
+                                attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
+                                />
                         </group>
                     </group>
                     <notebook>
+                        <page name="tracks" string="Related Recordings" attrs="{'invisible': [('ttype', '!=', 'group')]}">
+                            <group>
+                                <field name="next_volume_number" invisible="1"/>
+                                <field name="next_track_number" invisible="1"/>
+                                <field name="track_ids" nolabel="1" colspan="2"
+                                        context="{'default_volume': next_volume_number, 'default_track': next_track_number}">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="volume" required="1"/>
+                                        <field name="track" required="1"/>
+                                        <field name="recording_id" domain="[('ttype', '=', 'sound')]" required="1"/>
+                                    </tree>
+                                </field>
+                                <field name="number_of_tracks"/>
+                            </group>
+                        </page>
+                        <page name="notes" string="Notes">
+                            <field name="note" colspan="2"/>
+                        </page>
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
@@ -49,6 +117,13 @@
         <field name="arch" type="xml">
             <search string="Search Recordings">
                 <field name="name"/>
+                <field name="track_ids" filter_domain="[('track_ids.recording_id', 'ilike', self)]"/>
+                <separator/>
+                <filter string="Sound" name="ttype_sound" domain="[('ttype', '=', 'sound')]"/>
+                <filter string="Video" name="ttype_video" domain="[('ttype', '=', 'video')]"/>
+                <filter string="Group of Recordings" name="ttype_group" domain="[('ttype', '=', 'group')]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
            </search>
         </field>
     </record>

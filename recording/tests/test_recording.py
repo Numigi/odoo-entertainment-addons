@@ -1,0 +1,79 @@
+# © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+
+from ddt import ddt, data, unpack
+from odoo.tests.common import SavepointCase
+
+
+@ddt
+class TestRecording(SavepointCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
+        cls.sound_1 = cls.env['recording'].create({
+            'name': 'Sound 1',
+            'ttype': 'sound',
+        })
+        cls.sound_2 = cls.env['recording'].create({
+            'name': 'Sound 2',
+            'ttype': 'sound',
+        })
+        cls.video_1 = cls.env['recording'].create({
+            'name': 'Video 1',
+            'ttype': 'video',
+        })
+        cls.video_2 = cls.env['recording'].create({
+            'name': 'Video 1',
+            'ttype': 'video',
+        })
+        cls.group_1 = cls.env['recording'].create({
+            'name': 'Group 1',
+            'ttype': 'group',
+            'track_ids': [
+                (0, 0, {
+                    'sequence': 1,
+                    'recording_id': cls.sound_1.id,
+                }),
+                (0, 0, {
+                    'sequence': 2,
+                    'recording_id': cls.sound_2.id,
+                }),
+            ]
+        })
+
+    def test_number_of_related_video(self):
+        self.video_1.sound_recording_id = self.sound_1
+        assert self.sound_1.related_video_count == 1
+
+    def test_number_of_tracks(self):
+        assert self.group_1.number_of_tracks == 2
+
+    def test_group_duration(self):
+        self.sound_1.duration = 8
+        self.sound_2.duration = 2
+        assert self.group_1.group_duration == 10
+
+    @data('0', '1', '1A')
+    def test_next_volume(self, volume):
+        self.group_1.track_ids[1].volume = volume
+        assert self.group_1.next_volume_number == volume
+
+    @data(
+        ('0', '1'),
+        ('2', '3'),
+        (' 2 ', '3'),
+    )
+    @unpack
+    def test_next_track(self, last_track, expected_next_track):
+        self.group_1.track_ids[1].track = last_track
+        assert self.group_1.next_track_number == expected_next_track
+
+    def test_if_no_track_next_volume_is_1(self):
+        self.group_1.track_ids.unlink()
+        assert self.group_1.next_volume_number == '1'
+
+    def test_if_no_track_next_track_is_1(self):
+        self.group_1.track_ids.unlink()
+        assert self.group_1.next_track_number == '1'

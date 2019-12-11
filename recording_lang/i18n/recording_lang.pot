@@ -16,59 +16,59 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__active
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__active
 msgid "Active"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__code
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__code
 msgid "Code"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__create_uid
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__create_uid
 msgid "Created by"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__create_date
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__create_date
 msgid "Created on"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__display_name
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__display_name
 msgid "Display Name"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__id
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__id
 msgid "ID"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.actions.act_window,name:recording_lang.music_language_action
-#: model:ir.model,name:recording_lang.model_music_language
-#: model:ir.ui.menu,name:recording_lang.music_language_menu
+#: model:ir.actions.act_window,name:recording_lang.recording_language_action
+#: model:ir.model,name:recording_lang.model_recording_language
+#: model:ir.ui.menu,name:recording_lang.recording_language_menu
 msgid "Language"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language____last_update
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language____last_update
 msgid "Last Modified on"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__write_uid
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__write_uid
 msgid "Last Updated by"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__write_date
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__write_date
 msgid "Last Updated on"
 msgstr ""
 
 #. module: recording_lang
-#: model:ir.model.fields,field_description:recording_lang.field_music_language__name
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__name
 msgid "Name"
 msgstr ""
 

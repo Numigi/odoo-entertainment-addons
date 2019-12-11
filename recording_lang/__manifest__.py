@@ -12,6 +12,6 @@
     'summary': 'Languages management for the recording application.',
     'depends': ['recording'],
     'data': ['security/ir.model.access.csv',
-             'views/music_language_views.xml'],
+             'views/recording_language_views.xml'],
     'installable': True,
 }

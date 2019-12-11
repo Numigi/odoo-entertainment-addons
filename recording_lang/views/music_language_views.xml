@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="music_language_view_search" model="ir.ui.view">
+        <field name="name">music.language.view.search</field>
+        <field name="model">music.language</field>
+        <field name="arch" type="xml">
+            <search>
+               <field name="code"/>
+               <field name="name"/>
+            </search>
+        </field>
+    </record>
+    
+    <record id="music_language_view_tree" model="ir.ui.view">
+        <field name="name">music.language.view.tree</field>
+        <field name="model">music.language</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="music_language_action" model="ir.actions.act_window">
+        <field name="name">Languages</field>
+        <field name="res_model">music.language</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+     </record>
+
+    <menuitem id="music_language_menu"
+              name="Languages"
+              action="music_language_action"
+              parent="recording.menu_config"
+              sequence="8"
+              groups="recording.group_manager"/>
+
+
+</odoo>

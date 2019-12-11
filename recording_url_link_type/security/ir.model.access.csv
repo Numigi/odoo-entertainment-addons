@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_music_record_url_type_user,name_music_record_url_type_user,model_music_record_url_type,base.group_user,1,0,0,0
+access_music_record_url_type_manager,name_music_record_url_type_manager,model_music_record_url_type,recording.group_manager,1,1,1,0

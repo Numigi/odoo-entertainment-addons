@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* recording_lang
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-11 22:33+0000\n"
+"PO-Revision-Date: 2019-12-11 17:36-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__id
+msgid "ID"
+msgstr ""
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__language_id
+msgid "Language"
+msgstr "Langue"
+
+#. module: recording_lyrics
+#: model:ir.model,name:recording_lyrics.model_recording_language_rate
+msgid "Language Rate (Recording)"
+msgstr "Proportion de langues (sur enregistrement)"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording__lyrics_language_ids
+msgid "Languages"
+msgstr "Langues"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording__lyrics
+#: model_terms:ir.ui.view,arch_db:recording_lyrics.recording_form_with_lyrics
+msgid "Lyrics"
+msgstr "Paroles"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__rate
+msgid "Rate"
+msgstr "Proportion"
+
+#. module: recording_lyrics
+#: model:ir.model,name:recording_lyrics.model_recording
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__recording_id
+msgid "Recording"
+msgstr "Enregistrement"

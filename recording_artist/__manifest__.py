@@ -2,18 +2,24 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Main Module',
+    'name': 'Recording Artist',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Other',
-    'summary': 'Install all addons required for testing.',
+    'category': 'Entertainment',
+    'summary': 'Add artists to the recording application',
     'depends': [
         'artist',
         'recording',
-        'recording_artist',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/recording.xml',
+        'views/recording_company.xml',
+        'views/menu.xml',
     ],
     'installable': True,
+    'auto_install': True,
 }

@@ -1,0 +1,380 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_warranty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-11 16:41+0000\n"
+"PO-Revision-Date: 2019-12-11 11:49-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_needaction
+msgid "Action Needed"
+msgstr "Nécessite une action"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__active
+#: model:ir.model.fields,field_description:artist.field_artist_member__active
+#: model:ir.model.fields,field_description:artist.field_artist_role__active
+#: model:ir.model.fields,field_description:artist.field_artist_tag__active
+msgid "Active"
+msgstr "Active"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__activity_state
+msgid "Activity State"
+msgstr "Status de l'Activité"
+
+#. module: artist
+#: model_terms:ir.ui.view,arch_db:artist.artist_role_search
+#: model_terms:ir.ui.view,arch_db:artist.artist_search
+#: model_terms:ir.ui.view,arch_db:artist.artist_tag_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: artist
+#: model:ir.model,name:artist.model_artist
+#: model:ir.model.fields,field_description:artist.field_artist_member__artist_id
+#: model_terms:ir.ui.view,arch_db:artist.artist_form
+msgid "Artist"
+msgstr "Artiste"
+
+#. module: artist
+#: model:ir.model,name:artist.model_artist_member
+msgid "Artist Member"
+msgstr "Membre (artistes)"
+
+#. module: artist
+#: model:ir.model,name:artist.model_artist_role
+#: model_terms:ir.ui.view,arch_db:artist.artist_role_form
+msgid "Artist Role"
+msgstr "Rôle d'artiste"
+
+#. module: artist
+#: model:ir.actions.act_window,name:artist.action_artist_role
+#: model_terms:ir.ui.view,arch_db:artist.artist_role_list
+msgid "Artist Roles"
+msgstr "Rôles d'artistes"
+
+#. module: artist
+#: model:ir.model,name:artist.model_artist_tag
+#: model_terms:ir.ui.view,arch_db:artist.artist_tag_form
+msgid "Artist Tag"
+msgstr "Étiquettes d'artistes"
+
+#. module: artist
+#: model:ir.actions.act_window,name:artist.action_artist_tag
+#: model_terms:ir.ui.view,arch_db:artist.artist_tag_list
+msgid "Artist Tags"
+msgstr "Étiquettes d'artistes"
+
+#. module: artist
+#: model:ir.actions.act_window,name:artist.action_artist
+#: model_terms:ir.ui.view,arch_db:artist.artist_list
+msgid "Artists"
+msgstr "Artistes"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist_tag__color
+msgid "Color Index"
+msgstr "Numéro de la couleur"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__create_uid
+#: model:ir.model.fields,field_description:artist.field_artist_member__create_uid
+#: model:ir.model.fields,field_description:artist.field_artist_role__create_uid
+#: model:ir.model.fields,field_description:artist.field_artist_tag__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__create_date
+#: model:ir.model.fields,field_description:artist.field_artist_member__create_date
+#: model:ir.model.fields,field_description:artist.field_artist_role__create_date
+#: model:ir.model.fields,field_description:artist.field_artist_tag__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist_member__date_from
+msgid "Date From"
+msgstr "Date de début"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist_member__date_to
+msgid "Date To"
+msgstr "Date de fin"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__display_name
+#: model:ir.model.fields,field_description:artist.field_artist_member__display_name
+#: model:ir.model.fields,field_description:artist.field_artist_role__display_name
+#: model:ir.model.fields,field_description:artist.field_artist_tag__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_follower_ids
+msgid "Followers"
+msgstr "Abonnés"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Abonnés (Canaux)"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Abonnés (Partenaires)"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__id
+#: model:ir.model.fields,field_description:artist.field_artist_member__id
+#: model:ir.model.fields,field_description:artist.field_artist_role__id
+#: model:ir.model.fields,field_description:artist.field_artist_tag__id
+msgid "ID"
+msgstr "ID"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__isni
+msgid "ISNI"
+msgstr "ISNI"
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__message_unread
+msgid "If checked new messages require your attention."
+msgstr "Si coché, de nouveaux messages demandent votre attention."
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si coché, de nouveaux messages demandent votre attention."
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si actif, certains messages ont une erreur de livraison."
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__isni
+msgid "International Standard Name Identifier (ISO 27729)"
+msgstr "International Standard Name Identifier (ISO 27729)"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_is_follower
+msgid "Is Follower"
+msgstr "Est un abonné"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist____last_update
+#: model:ir.model.fields,field_description:artist.field_artist_member____last_update
+#: model:ir.model.fields,field_description:artist.field_artist_role____last_update
+#: model:ir.model.fields,field_description:artist.field_artist_tag____last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__write_uid
+#: model:ir.model.fields,field_description:artist.field_artist_member__write_uid
+#: model:ir.model.fields,field_description:artist.field_artist_role__write_uid
+#: model:ir.model.fields,field_description:artist.field_artist_tag__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__write_date
+#: model:ir.model.fields,field_description:artist.field_artist_member__write_date
+#: model:ir.model.fields,field_description:artist.field_artist_role__write_date
+#: model:ir.model.fields,field_description:artist.field_artist_tag__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Pièce jointe principale"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__member_ids
+#: model_terms:ir.ui.view,arch_db:artist.artist_form
+msgid "Members"
+msgstr "Membres"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_has_error
+msgid "Message Delivery error"
+msgstr "Erreur d'envoi du message"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_ids
+msgid "Messages"
+msgstr "Messages"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__name
+#: model:ir.model.fields,field_description:artist.field_artist_role__name
+#: model:ir.model.fields,field_description:artist.field_artist_tag__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Date limite de l'Activité à Venir"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__activity_summary
+msgid "Next Activity Summary"
+msgstr "Résumé d'activité suivant"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__activity_type_id
+msgid "Next Activity Type"
+msgstr "Type d'Activités à Venir"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__note
+msgid "Note"
+msgstr "Note"
+
+#. module: artist
+#: model_terms:ir.ui.view,arch_db:artist.artist_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Nombre d'actions"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_has_error_counter
+msgid "Number of error"
+msgstr "Nombre d'erreurs"
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Nombre de messages exigeant une action"
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec des erreurs d'envoi"
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Nombre de messages non lus"
+
+#. module: artist
+#: selection:artist,activity_state:0
+msgid "Overdue"
+msgstr "Retard"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__partner_id
+#: model:ir.model.fields,field_description:artist.field_artist_member__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: artist
+#: selection:artist,activity_state:0
+msgid "Planned"
+msgstr "Planifié"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__activity_user_id
+msgid "Responsible User"
+msgstr "Responsable"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist_member__role_id
+msgid "Role"
+msgstr "Rôle"
+
+#. module: artist
+#: model_terms:ir.ui.view,arch_db:artist.artist_role_search
+msgid "Search Artist Roles"
+msgstr "Chercher des rôles d'artistes"
+
+#. module: artist
+#: model_terms:ir.ui.view,arch_db:artist.artist_tag_search
+msgid "Search Artist Tags"
+msgstr "Chercher des étiquettes d'artistes"
+
+#. module: artist
+#: model_terms:ir.ui.view,arch_db:artist.artist_search
+msgid "Search Artists"
+msgstr "Chercher des artistes"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist_member__sequence
+#: model:ir.model.fields,field_description:artist.field_artist_role__sequence
+#: model:ir.model.fields,field_description:artist.field_artist_tag__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: artist
+#: model:ir.model.fields,help:artist.field_artist__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités\n"
+"En retard : la date d'échéance est déjà dépassée\n"
+"Aujourd'hui : la date d'activité est aujourd'hui\n"
+"Planifiée : activités futures"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__tag_ids
+msgid "Tags"
+msgstr "Étiquettes"
+
+#. module: artist
+#: selection:artist,activity_state:0
+msgid "Today"
+msgstr "Aujourd'hui"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_unread
+msgid "Unread Messages"
+msgstr "Messages non lus"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Compteur de messages non lus"
+
+#. module: artist
+#: model:ir.model.fields,field_description:artist.field_artist__website
+msgid "Website"
+msgstr "Site web"

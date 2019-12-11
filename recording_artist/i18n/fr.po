@@ -1,0 +1,124 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_warranty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-11 16:43+0000\n"
+"PO-Revision-Date: 2019-12-11 11:45-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__active
+msgid "Active"
+msgstr "Active"
+
+#. module: recording_artist
+#: model_terms:ir.ui.view,arch_db:recording_artist.recording_company_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording__artist_id
+#: model_terms:ir.ui.view,arch_db:recording_artist.recording_form_with_artist
+msgid "Artist"
+msgstr "Artiste"
+
+#. module: recording_artist
+#: model:ir.ui.menu,name:recording_artist.menu_artists
+#: model:ir.ui.menu,name:recording_artist.menu_config_artist
+msgid "Artists"
+msgstr "Artistes"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__id
+msgid "ID"
+msgstr "ID"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company____last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: recording_artist
+#: model:ir.actions.act_window,name:recording_artist.action_recording_company
+#: model:ir.ui.menu,name:recording_artist.menu_config_recording_company
+#: model_terms:ir.ui.view,arch_db:recording_artist.recording_company_list
+msgid "Record Companies"
+msgstr "Maisons de disques"
+
+#. module: recording_artist
+#: model:ir.model,name:recording_artist.model_recording_company
+#: model:ir.model.fields,field_description:recording_artist.field_recording__record_company_id
+#: model_terms:ir.ui.view,arch_db:recording_artist.recording_company_form
+msgid "Record Company"
+msgstr "Maison de disques"
+
+#. module: recording_artist
+#: model:ir.model,name:recording_artist.model_recording
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: recording_artist
+#: model:ir.ui.menu,name:recording_artist.menu_config_artist_role
+msgid "Roles"
+msgstr "Rôles"
+
+#. module: recording_artist
+#: model_terms:ir.ui.view,arch_db:recording_artist.recording_company_search
+msgid "Search Record Companies"
+msgstr "Chercher des maisons de disques"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording__secondary_artist_id
+msgid "Secondary Artist"
+msgstr "Artiste secondaire"
+
+#. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_recording_company__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: recording_artist
+#: model:ir.ui.menu,name:recording_artist.menu_config_artist_tag
+msgid "Tags"
+msgstr "Étiquettes"

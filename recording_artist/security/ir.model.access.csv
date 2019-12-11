@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+recording_company_user_access,Recording / User: Access Recording Companies,model_recording_company,recording.group_user,1,0,0,0
+recording_company_manager_access,Recording / Manager: Access Recording Companies,model_recording_company,recording.group_manager,1,1,1,1

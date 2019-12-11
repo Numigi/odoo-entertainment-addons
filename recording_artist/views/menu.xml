@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_artists"
+        name="Artists"
+        parent="recording.menu_recording_root"
+        action="artist.action_artist"
+        sequence="200"
+        />
+
+    <menuitem
+        id="menu_config_artist"
+        name="Artists"
+        parent="recording.menu_config"
+        sequence="500"
+        />
+
+    <menuitem
+        id="menu_config_artist_tag"
+        name="Tags"
+        parent="menu_config_artist"
+        action="artist.action_artist_tag"
+        sequence="100"
+        />
+
+    <menuitem
+        id="menu_config_artist_role"
+        name="Roles"
+        parent="menu_config_artist"
+        action="artist.action_artist_role"
+        sequence="200"
+        />
+
+    <menuitem
+        id="menu_config_recording_company"
+        name="Record Companies"
+        parent="recording.menu_config"
+        action="action_recording_company"
+        sequence="400"
+        />
+
+</odoo>

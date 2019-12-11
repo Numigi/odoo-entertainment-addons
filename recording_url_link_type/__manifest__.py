@@ -2,21 +2,16 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Main Module',
+    'name': 'Recording Type of links​',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Other',
-    'summary': 'Install all addons required for testing.',
-    'depends': [
-        'artist',
-        'recording',
-        'recording_artist',
-        'recording_lang',
-        'recording_url_link_type',
-        'show',
-    ],
+    'category': 'Recording',
+    'summary': 'Type of links​ management',
+    'depends': ['recording'],
+    'data': ['security/ir.model.access.csv',
+             'views/music_record_url_type_views.xml'],
     'installable': True,
 }

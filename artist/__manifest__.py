@@ -2,21 +2,24 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Main Module',
+    'name': 'Artist',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Other',
-    'summary': 'Install all addons required for testing.',
+    'category': 'Entertainment',
+    'summary': 'Manage artists',
     'depends': [
-        'artist',
-        'recording',
-        'recording_artist',
-        'recording_lang',
-        'recording_url_link_type',
-        'show',
+        'base',
+        'mail',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'security/ir_rule.xml',
+        'views/artist.xml',
+        'views/artist_role.xml',
+        'views/artist_tag.xml',
     ],
     'installable': True,
 }

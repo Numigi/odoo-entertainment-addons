@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+artist_user_access,User: Access Artists,model_artist,base.group_user,1,0,0,0
+artist_admin_access,Admin: Access Artists,model_artist,base.group_system,1,1,1,0
+artist_member_user_access,User: Access Artist Members,model_artist_member,base.group_user,1,0,0,0
+artist_member_admin_access,Admin: Access Artist Members,model_artist_member,base.group_system,1,1,1,1
+artist_role_user_access,User: Access Artist Roles,model_artist_role,base.group_user,1,0,0,0
+artist_role_admin_access,Admin: Access Artist Roles,model_artist_role,base.group_system,1,1,1,1
+artist_tag_user_access,User: Access Artist Tags,model_artist_tag,base.group_user,1,0,0,0
+artist_tag_admin_access,Admin: Access Artist Tags,model_artist_tag,base.group_system,1,1,1,1

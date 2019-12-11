@@ -8,7 +8,7 @@
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Recording',
+    'category': 'Entertainment',
     'summary': 'The base module for the recording application',
     'depends': [
         'base',

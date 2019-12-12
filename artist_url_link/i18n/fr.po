@@ -1,0 +1,90 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* artist_url_link_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-12 09:27+0000\n"
+"PO-Revision-Date: 2019-12-12 04:29-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__id
+msgid "ID"
+msgstr ""
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__type_id
+msgid "Link Type"
+msgstr "Type de lien"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__notes
+msgid "Notes"
+msgstr "Notes"
+
+#. module: artist_url_link
+#: model:ir.model,name:artist_url_link.model_artist
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__artist_id
+msgid "Artist"
+msgstr "Artiste"
+
+#. module: artist_url_link
+#: model:ir.model,name:artist_url_link.model_artist_url_link
+msgid "Artist URL Link"
+msgstr "Lien URL sur artistes"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist_url_link__url
+msgid "URL"
+msgstr "URL"
+
+#. module: artist_url_link
+#: model:ir.ui.menu,name:artist_url_link.url_link_type_menu
+msgid "URL Link Types"
+msgstr "Type de lien URL"
+
+#. module: artist_url_link
+#: model:ir.model.fields,field_description:artist_url_link.field_artist__url_link_ids
+#: model_terms:ir.ui.view,arch_db:artist_url_link.artist_form_with_url_links
+msgid "URL Links"
+msgstr "Liens URL"

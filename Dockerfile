@@ -14,10 +14,11 @@ RUN gitoo install-all --conf_file /gitoo.yml --destination "${THIRD_PARTY_ADDONS
 USER odoo
 
 COPY artist /mnt/extra-addons/artist
+COPY artist_url_link /mnt/extra-addons/artist_url_link
 COPY recording /mnt/extra-addons/recording
 COPY recording_artist /mnt/extra-addons/recording_artist
 COPY recording_lang /mnt/extra-addons/recording_lang
-COPY recording_url_link_type /mnt/extra-addons/recording_url_link_type
+COPY recording_url_link /mnt/extra-addons/recording_url_link
 COPY show /mnt/extra-addons/show
 
 COPY .docker_files/main /mnt/extra-addons/main

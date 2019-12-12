@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_form_with_lyrics" model="ir.ui.view">
+        <field name="name">Recording Form: Add lyrics</field>
+        <field name="model">recording</field>
+        <field name="inherit_id" ref="recording.recording_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="lyrics" string="Lyrics" attrs="{'invisible': [('ttype', '!=', 'sound')]}">
+                    <group>
+                        <group>
+                            <field name="lyrics_language_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="language_id"/>
+                                    <field name="rate" string="%"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <field name="lyrics" nolabel="1" colspan="2"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

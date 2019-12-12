@@ -4,11 +4,11 @@
 from odoo import fields, models
 
 
-class MusicLanguage(models.Model):
+class RecordLanguage(models.Model):
 
-    _name = 'music.language'
+    _name = 'recording.language'
     _description = 'Language'
 
-    name = fields.Char(string='Name', required=1)
-    code = fields.Char(string='Code', required=1)
+    name = fields.Char(string='Name', required=True, translate=True)
+    code = fields.Char(string='Code', required=True)
     active = fields.Boolean(default=True)

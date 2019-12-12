@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="show_place_type_view_search" model="ir.ui.view">
+        <field name="name">show.place.type.view.search</field>
+        <field name="model">show.place.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="show_place_type_view_tree" model="ir.ui.view">
+        <field name="name">show.place.type.view.tree</field>
+        <field name="model">show.place.type</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="show_place_type_action" model="ir.actions.act_window">
+        <field name="name">Show Place Types</field>
+        <field name="res_model">show.place.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem id="show_place_type_menu"
+              name="Show Place Types"
+              action="show_place_type_action"
+              parent="contacts.res_partner_menu_config"
+              sequence="9"
+              groups="sales_team.group_sale_salesman"/>
+
+</odoo>

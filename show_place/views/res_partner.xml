@@ -6,27 +6,33 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[@name='sales_purchases']" position="after">
-                <page string="Show"
+            <notebook position="inside">
+                <page name="show" string="Show"
                       attrs="{'invisible': ['|', ('company_type','=','company'),  ('type','!=','show_site')]}">
                     <group>
                         <group>
                             <field name="show_place_type_id"
+                                   string="Place Type"
                                    attrs="{'required': [('type','=','show_site')]}"
-                                   options="{'no_open':True, 'no_create': True, 'no_edit': True}"/>
+                                   />
                             <field name="show_place_configuration_id"
+                                   string="Configuration"
                                    attrs="{'required': [('type','=','show_site')]}"
-                                   options="{'no_open':True, 'no_create': True, 'no_edit': True}"/>
-                            <field name="maximum_capacity" attrs="{'required': [('type','=','show_site')]}"/>
-                            <field name="linked_product_id"
-                                   options="{'no_open':True, 'no_create': True, 'no_edit': True}"/>
-                            <field name="minor_restriction"/>
+                                   />
+                            <field name="show_place_maximum_capacity"
+                                   string="Maximum Capacity"
+                                   attrs="{'required': [('type','=','show_site')]}"
+                                   />
+                            <field name="show_place_minor_restriction"
+                                   string="Restricted to Minors"
+                                   />
                         </group>
                         <group/>
-                        <field name="notes"/>
+                        <label for="show_place_notes"  string="Notes"/>
+                        <field name="show_place_notes"/>
                     </group>
                 </page>
-            </xpath>
+            </notebook>
         </field>
     </record>
 

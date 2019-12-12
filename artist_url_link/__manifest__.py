@@ -2,22 +2,21 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Main Module',
+    'name': 'Artist URL Links',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Other',
-    'summary': 'Install all addons required for testing.',
+    'category': 'Artist',
+    'summary': 'Add URL links to artists',
     'depends': [
         'artist',
-        'artist_url_link',
-        'recording',
-        'recording_artist',
-        'recording_lang',
-        'recording_url_link',
-        'show_place',
+        'url_link_type',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/artist.xml',
     ],
     'installable': True,
 }

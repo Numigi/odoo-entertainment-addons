@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="artist_form_with_url_links" model="ir.ui.view">
+        <field name="name">Artist Form: Add URL Links</field>
+        <field name="model">artist</field>
+        <field name="inherit_id" ref="artist.artist_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="url_links" string="URL Links">
+                    <group>
+                        <field name="url_link_ids" nolabel="1">
+                            <tree editable="top">
+                                <field name="type_id"/>
+                                <field name="url" widget="url"/>
+                                <field name="notes"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

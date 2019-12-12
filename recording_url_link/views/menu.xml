@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="url_link_type_menu"
+              name="URL Link Types"
+              action="url_link_type.url_link_type_action"
+              parent="recording.menu_config"
+              sequence="500"
+              />
+
+</odoo>

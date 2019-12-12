@@ -2,21 +2,23 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Main Module',
+    'name': 'Show Place',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Other',
-    'summary': 'Install all addons required for testing.',
+    'category': 'Entertainment',
+    'summary': 'Add Show Place Types/Configuration',
     'depends': [
-        'artist',
-        'recording',
-        'recording_artist',
-        'recording_lang',
-        'recording_url_link_type',
-        'show_place',
+        'contacts',
+        'sales_team',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/res_partner.xml',
+        'views/show_place_configuration.xml',
+        'views/show_place_type.xml',
     ],
     'installable': True,
 }

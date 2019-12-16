@@ -14,6 +14,7 @@
         'artist',
         'artist_url_link',
         'musical_artwork',  # TA#16242
+        'product_musical_relation',  # TA#16692
         'recording',
         'recording_artist',
         'recording_contributor',

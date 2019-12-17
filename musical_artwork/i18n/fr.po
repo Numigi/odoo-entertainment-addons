@@ -1,0 +1,75 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* musical_artwork
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-17 20:41+0000\n"
+"PO-Revision-Date: 2019-12-17 20:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
+msgid "Artist"
+msgstr "Artiste"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
+msgid "Lyrics"
+msgstr "Paroles"
+
+#. module: musical_artwork
+#: model:ir.model,name:musical_artwork.model_musical_artwork
+msgid "Musical Artwork"
+msgstr "Oeuvre"
+
+#. module: musical_artwork
+#: model:ir.model,name:musical_artwork.model_musical_artwork_external_catalogue_reference
+msgid "Musical Artwork External Catalogue Reference"
+msgstr "Catalogue externe d'oeuvre"
+
+#. module: musical_artwork
+#: model:ir.model,name:musical_artwork.model_musical_artwork_language
+msgid "Musical Artwork Language"
+msgstr "Language d'oeuvre"
+
+#. module: musical_artwork
+#: model:ir.actions.act_window,name:musical_artwork.action_musical_artwork
+#: model:ir.ui.menu,name:musical_artwork.menu_musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_list
+msgid "Musical Artworks"
+msgstr "Oeuvres"
+
+#. module: musical_artwork
+#: model:ir.model,name:musical_artwork.model_recording
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: musical_artwork
+#: model:ir.actions.act_window,name:musical_artwork.related_recordings_action
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
+msgid "Related Recordings"
+msgstr "Enregistrés associés"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_search
+msgid "Search Musical Artworks"
+msgstr "Recherche d'oeuvres"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
+msgid "Title"
+msgstr "Titre"
+

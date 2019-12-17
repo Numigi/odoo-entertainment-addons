@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="musical_artwork_hotel_california" model="musical.artwork">
+        <field name="title">Hotel California</field>
+        <field name="iswc">T-902.788.451-1</field>
+        <field name="catalogue_reference">HCalifornia</field>
+        <field name="lyrics">On a dark desert highway, cool wind in my hair
+            Warm smell of colitas, rising up through the air
+            Up ahead in the distance, I saw a shimmering light
+            My head grew heavy and my sight grew dim
+            I had to stop for the night.
+            ...
+        </field>
+    </record>
+
+    <record id="recording_language_hotel_california_en" model="musical.artwork.language">
+        <field name="language_id"
+               ref="recording_lang.recording_language_en"/>
+        <field name="percentage">100</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_hotel_california"/>
+    </record>
+
+    <record id="record_hotel_california_1977" model="recording">
+        <field name="name">February 22, 1977</field>
+        <field name="ttype">sound</field>
+        <field name="duration">6.5</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_hotel_california"/>
+    </record>
+
+
+    <record id="musical_artwork_money_for_nothing" model="musical.artwork">
+        <field name="title">Money for Nothing</field>
+        <field name="iswc">T-072.406.914-0</field>
+        <field name="catalogue_reference">MFNothing</field>
+        <field name="lyrics">I want my MTV
+
+            Now look at them yo-yo's
+            That's the way you do it
+            You play the guitar on the MTV
+            That ain't workin', that's the way you do it
+            Money for nothin' and your chicks for free
+            ...
+        </field>
+    </record>
+
+    <record id="recording_language_money_for_nothing_en" model="musical.artwork.language">
+        <field name="language_id"
+               ref="recording_lang.recording_language_en"/>
+        <field name="percentage">100</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_money_for_nothing"/>
+    </record>
+
+
+    <record id="record_money_for_nothing_album" model="recording">
+        <field name="name">Album version</field>
+        <field name="ttype">sound</field>
+        <field name="duration">8.42</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_money_for_nothing"/>
+    </record>
+    <record id="record_money_for_nothing_vinyl" model="recording">
+        <field name="name">Vinyl LP Edit</field>
+        <field name="ttype">sound</field>
+        <field name="duration">7.04</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_money_for_nothing"/>
+    </record>
+    <record id="record_money_for_nothing_single" model="recording">
+        <field name="name">Official Single Edit</field>
+        <field name="ttype">sound</field>
+        <field name="duration">4.63</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_money_for_nothing"/>
+    </record>
+    <record id="record_money_for_nothing_single_promo" model="recording">
+        <field name="name">Promo Single Edit</field>
+        <field name="ttype">sound</field>
+        <field name="duration">4.10</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_money_for_nothing"/>
+    </record>
+
+    <record id="musical_artwork_external_catalogue_reference_hotel_california"
+            model="musical.artwork.external.catalogue.reference">
+        <field name="code">NUM123</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_hotel_california"/>
+    </record>
+    <record id="musical_artwork_external_catalogue_reference_money_for_nothing"
+            model="musical.artwork.external.catalogue.reference">
+        <field name="code">NUM456</field>
+        <field name="musical_artwork_id"
+               ref="musical_artwork_money_for_nothing"/>
+    </record>
+
+</odoo>

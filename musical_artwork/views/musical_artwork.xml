@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="related_recordings_action" model="ir.actions.act_window">
+        <field name="name">Related Recordings</field>
+        <field name="res_model">recording</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            ('musical_artwork_id', '=', context.get('active_id')),
+            ]
+        </field>
+    </record>
+
+    <record id="musical_artwork_form" model="ir.ui.view">
+        <field name="name">Musical Artwork Form</field>
+        <field name="model">musical.artwork</field>
+        <field name="arch" type="xml">
+            <form string="Artist">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(related_recordings_action)d"
+                                type="action"
+                                class="oe_stat_button"
+                                icon="fa-headphones">
+                            <field string="Related Recordings"
+                                   name="related_recording_count"
+                                   widget="statinfo"/>
+                        </button>
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="title" placeholder="Title"/>
+                        </h1>
+                    </div>
+                    <group name="group_1">
+                        <field name="iswc"/>
+                        <field name="catalogue_reference"/>
+                    </group>
+                    <group name="group_2">
+                        <field name="external_catalogue_reference_ids" widget="many2many"/>
+                    </group>
+                    <notebook>
+                        <page name="lyrics" string="Lyrics">
+                            <group name="languages">
+                                <field name="language_ids"
+                                       nolabel="1"
+                                >
+                                    <tree editable="bottom">
+                                        <field name="language_id"/>
+                                        <field name="percentage"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group name="lyrics">
+                                <field name="lyrics" nolabel="1" placeholder="Lyrics"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="musical_artwork_list" model="ir.ui.view">
+        <field name="name">Musical Artwork List</field>
+        <field name="model">musical.artwork</field>
+        <field name="arch" type="xml">
+            <tree string="Musical Artworks">
+                <field name="title"/>
+                <field name="iswc"/>
+                <field name="catalogue_reference"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="musical_artwork_search" model="ir.ui.view">
+        <field name="name">Musical Artwork Search</field>
+        <field name="model">musical.artwork</field>
+        <field name="arch" type="xml">
+            <search string="Search Musical Artworks">
+                <field name="title"/>
+                <field name="iswc"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_musical_artwork" model="ir.actions.act_window">
+        <field name="name">Musical Artworks</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">musical.artwork</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="musical_artwork_list"/>
+        <field name="search_view_id" ref="musical_artwork_search"/>
+    </record>
+
+    <menuitem
+            id="menu_musical_artwork"
+            name="Musical Artworks"
+            parent="recording.menu_recording_root"
+            action="action_musical_artwork"
+            sequence="50"
+    />
+</odoo>

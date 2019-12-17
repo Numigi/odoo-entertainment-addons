@@ -15,6 +15,7 @@ USER odoo
 
 COPY artist /mnt/extra-addons/artist
 COPY artist_url_link /mnt/extra-addons/artist_url_link
+COPY musical_artwork /mnt/extra-addons/musical_artwork
 COPY recording /mnt/extra-addons/recording
 COPY recording_artist /mnt/extra-addons/recording_artist
 COPY recording_lang /mnt/extra-addons/recording_lang

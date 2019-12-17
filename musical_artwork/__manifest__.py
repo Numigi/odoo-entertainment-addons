@@ -2,23 +2,26 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Main Module',
+    'name': 'Musical Artwork',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Other',
-    'summary': 'Install all addons required for testing.',
+    'category': 'Entertainment',
+    'summary': 'Manage musical artwork',
     'depends': [
-        'artist',
-        'artist_url_link',
-        'musical_artwork',  # TA#16242
+        'contacts',
         'recording',
-        'recording_artist',
         'recording_lang',
-        'recording_url_link',
-        'show_place',
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/musical_artwork.xml',
+        'views/recording.xml',
+    ],
+    'demo': [
+        'demo/musical_artwork.xml',
     ],
     'installable': True,
 }

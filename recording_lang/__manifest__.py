@@ -15,5 +15,8 @@
         'security/ir.model.access.csv',
         'views/recording_language.xml',
     ],
+    'demo': [
+        'demo/recording_language.xml',
+    ],
     'installable': True,
 }

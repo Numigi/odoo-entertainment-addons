@@ -20,7 +20,7 @@ class MusicalArtworkLanguage(models.Model):
 
     language_id = fields.Many2one("recording.language", required=True)
     percentage = fields.Integer("%", required=True)
-    musical_artwork_id = fields.Many2one('musical.artwork')
+    musical_artwork_id = fields.Many2one('musical.artwork', ondelete='cascade', required=True)
 
     _sql_constraints = [
         (

@@ -4,3 +4,5 @@ musical_artwork_manager,Musical Artwork / Manager: Access Musical Artworks,model
 musical_artwork_external_catalogue_reference_user,Musical Artwork External Catalogue Reference / User: Access,model_musical_artwork_external_catalogue_reference,recording.group_user,1,1,1,0
 musical_artwork_external_catalogue_reference_manager,Musical Artwork External Catalogue Reference / Manager: Access,model_musical_artwork_external_catalogue_reference,recording.group_manager,1,1,1,1
 musical_artwork_language_user_access,Musical Artwork / User: Access Language,model_musical_artwork_language,recording.group_user,1,1,1,1
+musical_artwork_role_manager_access,Musical Artwork Role / Manager: Access,model_musical_artwork_role,recording.group_manager,1,1,1,1
+musical_artwork_role_user_access,Musical Artwork Role / User: Access,model_musical_artwork_role,recording.group_user,0,0,0,0

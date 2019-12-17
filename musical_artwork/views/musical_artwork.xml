@@ -102,11 +102,4 @@
         <field name="search_view_id" ref="musical_artwork_search"/>
     </record>
 
-    <menuitem
-            id="menu_musical_artwork"
-            name="Musical Artworks"
-            parent="recording.menu_recording_root"
-            action="action_musical_artwork"
-            sequence="50"
-    />
 </odoo>

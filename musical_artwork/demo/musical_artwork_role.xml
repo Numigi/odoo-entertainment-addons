@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="musical_artwork_role_author" model="musical.artwork.role">
+        <field name="name">Author</field>
+        <field name="code">A</field>
+    </record>
+
+    <record id="musical_artwork_role_composer" model="musical.artwork.role">
+        <field name="name">Composer</field>
+        <field name="code">C</field>
+    </record>
+
+    <record id="musical_artwork_role_author_composer" model="musical.artwork.role">
+        <field name="name">Author-Composer</field>
+        <field name="code">AC</field>
+    </record>
+
+</odoo>

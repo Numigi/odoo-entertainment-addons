@@ -17,10 +17,14 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'security/res_groups.xml',
         'views/musical_artwork.xml',
         'views/recording.xml',
+        'views/musical_artwork_role.xml',
+        'views/menu.xml',
     ],
     'demo': [
+        'demo/musical_artwork_role.xml',
         'demo/musical_artwork.xml',
     ],
     'installable': True,

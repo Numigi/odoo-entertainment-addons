@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="musical_artwork_distribution_hotel_california" model="musical.artwork.distribution">
+        <field name="musical_artwork_id"
+               ref="musical_artwork_hotel_california"/>
+        <field name="country_group_id"
+               ref="base.europe"/>
+    </record>
+
+    <record id="musical_artwork_distribution_line1" model="musical.artwork.distribution.line">
+        <field name="partner_id"
+               ref="base.res_partner_1"/>
+        <field name="distribution_id"
+               ref="musical_artwork_distribution_hotel_california"/>
+        <field name="role_id"
+               ref="musical_artwork_role_author"/>
+        <field name="percentage">50</field>
+    </record>
+    <record id="musical_artwork_distribution_line2" model="musical.artwork.distribution.line">
+        <field name="partner_id"
+               ref="base.res_partner_1"/>
+        <field name="distribution_id"
+               ref="musical_artwork_distribution_hotel_california"/>
+        <field name="role_id"
+               ref="musical_artwork_role_author"/>
+        <field name="percentage">25</field>
+    </record>
+    <record id="musical_artwork_distribution_line3" model="musical.artwork.distribution.line">
+        <field name="partner_id"
+               ref="base.res_partner_1"/>
+        <field name="distribution_id"
+               ref="musical_artwork_distribution_hotel_california"/>
+        <field name="role_id"
+               ref="musical_artwork_role_composer"/>
+        <field name="percentage">25</field>
+    </record>
+</odoo>

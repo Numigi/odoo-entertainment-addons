@@ -4,9 +4,9 @@
     <menuitem
         id="menu_config_recording_tag"
         name="Tags"
-        parent="recording.menu_config"
+        parent="recording.menu_config_recording"
         action="action_recording_tag"
-        sequence="500"
+        sequence="100"
         />
 
 </odoo>

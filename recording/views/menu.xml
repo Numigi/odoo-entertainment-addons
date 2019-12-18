@@ -24,4 +24,11 @@
         sequence="500"
         />
 
+    <menuitem
+        id="menu_config_recording"
+        name="Recordings"
+        parent="menu_config"
+        sequence="0"
+        />
+
 </odoo>

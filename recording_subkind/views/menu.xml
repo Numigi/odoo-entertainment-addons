@@ -4,9 +4,9 @@
     <menuitem
         id="menu_config_recording_subkind"
         name="Subkinds"
-        parent="recording.menu_config"
+        parent="recording.menu_config_recording"
         action="action_recording_subkind"
-        sequence="401"
+        sequence="51"
         />
 
 </odoo>

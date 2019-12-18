@@ -34,8 +34,8 @@
     <menuitem id="recording_language_menu"
               name="Languages"
               action="recording_language_action"
-              parent="recording.menu_config"
-              sequence="8"
+              parent="recording.menu_config_recording"
+              sequence="200"
               groups="recording.group_manager"/>
 
 

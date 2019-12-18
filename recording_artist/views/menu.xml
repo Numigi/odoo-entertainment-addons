@@ -37,7 +37,7 @@
         name="Record Companies"
         parent="recording.menu_config"
         action="action_recording_company"
-        sequence="400"
+        sequence="1000"
         />
 
 </odoo>

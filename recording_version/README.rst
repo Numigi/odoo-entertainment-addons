@@ -1,7 +1,7 @@
-Recording Version
-===================
+Recording Versions
+==================
 
-This module allows to manage versions for the recording application.
+This module adds recording versions.
 
 Usage
 -----
@@ -14,6 +14,12 @@ It shows the list of versions.
 .. image:: static/description/versions.png
 
 By clicking on a create button you can create a new version.
+
+Recording
+---------
+On the form view of a recording, a field is added to select the version of the recording.
+
+.. image:: static/description/recording_form.png
 
 Contributors
 ------------

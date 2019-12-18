@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_recording_contributor_role_user,name_recording_contributor_role_user,model_recording_contributor_role,recording.group_user,1,0,0,0
+access_recording_contributor_role_manager,name_recording_contributor_role_manager,model_recording_contributor_role,recording.group_manager,1,1,1,0
+access_recording_contributor_user,name_recording_contributor_user,model_recording_contributor,recording.group_user,1,1,1,1

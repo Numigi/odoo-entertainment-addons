@@ -18,6 +18,7 @@ COPY artist_url_link /mnt/extra-addons/artist_url_link
 COPY recording /mnt/extra-addons/recording
 COPY recording_artist /mnt/extra-addons/recording_artist
 COPY recording_lang /mnt/extra-addons/recording_lang
+COPY recording_role /mnt/extra-addons/recording_role
 COPY recording_url_link /mnt/extra-addons/recording_url_link
 COPY show_place /mnt/extra-addons/show_place
 

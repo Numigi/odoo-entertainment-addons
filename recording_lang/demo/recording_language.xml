@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_language_en" model="recording.language">
+        <field name="name">English</field>
+        <field name="code">EN</field>
+    </record>
+
+    <record id="recording_language_fr" model="recording.language">
+        <field name="name">French</field>
+        <field name="code">FR</field>
+    </record>
+</odoo>

@@ -13,6 +13,7 @@
     'depends': [
         'artist',
         'artist_url_link',
+        'musical_artwork',  # TA#16242
         'recording',
         'recording_artist',
         'recording_contributor',

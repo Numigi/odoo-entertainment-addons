@@ -19,6 +19,7 @@
         'recording_lang',
         'recording_role',
         'recording_url_link',
+        'recording_version',
         'partner_organization_membership',
         'show_place',
     ],

@@ -21,6 +21,7 @@ COPY recording_category /mnt/extra-addons/recording_category
 COPY recording_lang /mnt/extra-addons/recording_lang
 COPY recording_role /mnt/extra-addons/recording_role
 COPY recording_url_link /mnt/extra-addons/recording_url_link
+COPY recording_version /mnt/extra-addons/recording_version
 COPY partner_organization_membership /mnt/extra-addons/partner_organization_membership
 COPY show_place /mnt/extra-addons/show_place
 

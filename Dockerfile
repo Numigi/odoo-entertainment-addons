@@ -19,6 +19,7 @@ COPY recording /mnt/extra-addons/recording
 COPY recording_artist /mnt/extra-addons/recording_artist
 COPY recording_lang /mnt/extra-addons/recording_lang
 COPY recording_url_link /mnt/extra-addons/recording_url_link
+COPY partner_gst_qst /mnt/extra-addons/partner_gst_qst
 COPY show_place /mnt/extra-addons/show_place
 
 COPY .docker_files/main /mnt/extra-addons/main

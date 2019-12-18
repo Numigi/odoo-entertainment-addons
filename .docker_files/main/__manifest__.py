@@ -17,6 +17,7 @@
         'recording_artist',
         'recording_lang',
         'recording_url_link',
+        'partner_gst_qst',
         'show_place',
     ],
     'installable': True,

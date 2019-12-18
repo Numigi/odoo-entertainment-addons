@@ -15,6 +15,7 @@
         'artist_url_link',
         'recording',
         'recording_artist',
+        'recording_category',
         'recording_lang',
         'recording_role',
         'recording_url_link',

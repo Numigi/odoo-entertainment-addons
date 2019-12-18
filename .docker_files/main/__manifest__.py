@@ -17,6 +17,7 @@
         'recording_artist',
         'recording_lang',
         'recording_url_link',
+        'recording_version',
         'show_place',
     ],
     'installable': True,

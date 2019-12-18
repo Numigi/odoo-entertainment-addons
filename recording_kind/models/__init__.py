@@ -2,6 +2,6 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from . import (
-    recording_version,
+    recording_kind,
     recording,
 )

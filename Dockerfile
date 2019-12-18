@@ -17,12 +17,13 @@ COPY artist /mnt/extra-addons/artist
 COPY artist_url_link /mnt/extra-addons/artist_url_link
 COPY recording /mnt/extra-addons/recording
 COPY recording_artist /mnt/extra-addons/recording_artist
-COPY recording_category /mnt/extra-addons/recording_category
+COPY recording_contributor /mnt/extra-addons/recording_contributor
+COPY recording_kind /mnt/extra-addons/recording_kind
 COPY recording_lang /mnt/extra-addons/recording_lang
-COPY recording_role /mnt/extra-addons/recording_role
+COPY recording_subkind /mnt/extra-addons/recording_subkind
+COPY recording_tag /mnt/extra-addons/recording_tag
 COPY recording_url_link /mnt/extra-addons/recording_url_link
 COPY recording_version /mnt/extra-addons/recording_version
-COPY partner_organization_membership /mnt/extra-addons/partner_organization_membership
 COPY show_place /mnt/extra-addons/show_place
 
 COPY .docker_files/main /mnt/extra-addons/main

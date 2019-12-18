@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_config_recording_subkind"
+        name="Subkinds"
+        parent="recording.menu_config"
+        action="action_recording_subkind"
+        sequence="401"
+        />
+
+</odoo>

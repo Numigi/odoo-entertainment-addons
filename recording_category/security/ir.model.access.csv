@@ -1,7 +1,0 @@
-id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_music_type_user,name_music_type_user,model_music_type,base.group_user,1,0,0,0
-access_music_type_manager,name_music_type_manager,model_music_type,recording.group_manager,1,1,1,0
-access_music_subtype_user,name_music_subtype_user,model_music_subtype,base.group_user,1,0,0,0
-access_music_subtype_manager,name_music_subtype_manager,model_music_subtype,recording.group_manager,1,1,1,0
-access_music_tag_user,name_music_tag_user,model_music_tag,base.group_user,1,0,0,0
-access_music_tag_manager,name_music_tag_manager,model_music_tag,recording.group_manager,1,1,1,0

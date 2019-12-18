@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* recording_tag
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-18 18:35+0000\n"
+"PO-Revision-Date: 2019-12-18 13:35-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Tag: Odoo Server 12.0\n"
+"MIME-Tag: 1.0\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: recording_tag
+#: model_terms:ir.ui.view,arch_db:recording_tag.recording_tag_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__color
+msgid "Color Index"
+msgstr "Numéro de la couleur"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__create_uid
+msgid "Created by"
+msgstr "Crée par"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__create_date
+msgid "Created on"
+msgstr "Crée le"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__id
+msgid "ID"
+msgstr "ID"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: recording_tag
+#: model_terms:ir.ui.view,arch_db:recording_tag.recording_tag_form
+msgid "Record Tag"
+msgstr "Étiquette d'enregistrement"
+
+#. module: recording_tag
+#: model:ir.actions.act_window,name:recording_tag.action_recording_tag
+#: model_terms:ir.ui.view,arch_db:recording_tag.recording_tag_list
+msgid "Record Tags"
+msgstr "Étiquettes d'enregistrements"
+
+#. module: recording_tag
+#: model:ir.model,name:recording_tag.model_recording
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: recording_tag
+#: model_terms:ir.ui.view,arch_db:recording_tag.recording_tag_search
+msgid "Search Record Tags"
+msgstr "Chercher des étiquette d'enregistrements"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording_tag__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: recording_tag
+#: model:ir.model,name:recording_tag.model_recording_tag
+msgid "Tag"
+msgstr "Étiquette"
+
+#. module: recording_tag
+#: model:ir.model.fields,field_description:recording_tag.field_recording__tag_ids
+#: model:ir.ui.menu,name:recording_tag.menu_config_recording_tag
+msgid "Tags"
+msgstr "Étiquettes"

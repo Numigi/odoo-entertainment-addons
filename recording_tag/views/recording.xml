@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_form_with_tags" model="ir.ui.view">
+        <field name="name">Recording Form: Add record tags</field>
+        <field name="model">recording</field>
+        <field name="inherit_id" ref="recording.recording_form"/>
+        <field name="arch" type="xml">
+            <group name="recording" position="inside">
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+            </group>
+        </field>
+    </record>
+
+</odoo>

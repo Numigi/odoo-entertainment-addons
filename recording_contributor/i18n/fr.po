@@ -1,0 +1,159 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* recording_role
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-18 17:17+0000\n"
+"PO-Revision-Date: 2019-12-18 12:20-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: recording_contributor
+#: model_terms:ir.ui.view,arch_db:recording_contributor.recording_contributor_role_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: recording_contributor
+#: model_terms:ir.ui.view,arch_db:recording_contributor.recording_contributor_role_form
+msgid "Contributor Role"
+msgstr "Rôle Contributeur"
+
+#. module: recording_contributor
+#: model:ir.actions.act_window,name:recording_contributor.action_recording_contributor_role
+#: model:ir.ui.menu,name:recording_contributor.menu_config_contributor_role
+#: model_terms:ir.ui.view,arch_db:recording_contributor.recording_contributor_role_list
+msgid "Contributor Roles"
+msgstr "Rôles Contributeurs"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording__contributor_ids
+msgid "Contributors"
+msgstr "Contributeurs"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording__copyright
+msgid "Copyright"
+msgstr "Copyright"
+
+#. module: recording_contributor
+#: model_terms:ir.ui.view,arch_db:recording_contributor.recording_form_with_version
+msgid "Copyright ©"
+msgstr "Copyright ©"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__create_uid
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__create_uid
+msgid "Created by"
+msgstr "Crée par"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__create_date
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__create_date
+msgid "Created on"
+msgstr "Crée le"
+
+#. module: recording_contributor
+#: model_terms:ir.ui.view,arch_db:recording_contributor.recording_form_with_version
+msgid "Credits and Contributors"
+msgstr "Crédits et contributeurs"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__date
+msgid "Date"
+msgstr "Date"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__display_name
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__id
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__id
+msgid "ID"
+msgstr "ID"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor____last_update
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__write_uid
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__write_date
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: recording_contributor
+#: model_terms:ir.ui.view,arch_db:recording_contributor.recording_form_with_version
+msgid "Production ℗"
+msgstr "Production ℗"
+
+#. module: recording_contributor
+#: model:ir.model,name:recording_contributor.model_recording
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__recording_id
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: recording_contributor
+#: model:ir.model,name:recording_contributor.model_recording_contributor
+msgid "Recording Contributor"
+msgstr "Contributeur Enregistrements"
+
+#. module: recording_contributor
+#: model:ir.model,name:recording_contributor.model_recording_contributor_role
+msgid "Recording Contributor Role"
+msgstr "Rôles Contributeurs Enregistrements"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__role_id
+msgid "Role"
+msgstr "Rôle"
+
+#. module: recording_contributor
+#: model_terms:ir.ui.view,arch_db:recording_contributor.recording_contributor_role_search
+msgid "Search Contributor Roles"
+msgstr "Chercher des rôles de contributeurs"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__sequence
+#: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor_role__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: recording_contributor
+#: model:ir.model.fields,field_description:recording_contributor.field_recording__sound_copyright
+msgid "Sound Copyright"
+msgstr "Copyright enregistrements sonores"

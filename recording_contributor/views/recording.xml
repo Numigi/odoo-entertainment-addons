@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_form_with_version" model="ir.ui.view">
+        <field name="name">Recording Form: Add contributors</field>
+        <field name="model">recording</field>
+        <field name="inherit_id" ref="recording.recording_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="contributors" string="Credits and Contributors">
+                    <group>
+                        <group name="contributors_group_1">
+                            <field name="sound_copyright" string="Production ℗"/>
+                            <field name="copyright" string="Copyright ©"/>
+                        </group>
+                        <group name="contributors_group_2">
+                        </group>
+                    </group>
+                    <field name="contributor_ids" nolabel="1" colspan="2">
+                        <tree editable="bottom">
+                            <field name="sequence" widget="handle"/>
+                            <field name="partner_id"/>
+                            <field name="role_id"/>
+                            <field name="date"/>
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="recording_search_with_contributors" model="ir.ui.view">
+        <field name="name">Recording Search: Add contributors</field>
+        <field name="model">recording</field>
+        <field name="inherit_id" ref="recording.recording_search"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="contributor_ids" filter_domain="[('contributor_ids.partner_id', 'ilike', self)]"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -16,8 +16,8 @@
         'recording_lang',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'security/res_groups.xml',
+        'security/ir.model.access.csv',
         'views/musical_artwork.xml',
         'views/recording.xml',
         'views/musical_artwork_role.xml',

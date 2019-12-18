@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_musical_artwork"
+              name="Musical Artworks"
+              parent="recording.menu_recording_root"
+              action="musical_artwork.action_musical_artwork"
+              sequence="300"
+    />
+
+    <menuitem id="menu_config_musical_artwork"
+              name="Musical Artworks"
+              parent="recording.menu_config"
+              sequence="300"
+    />
+
+    <menuitem id="menu_musical_artwork_role"
+              name="Roles"
+              parent="menu_config_musical_artwork"
+              action="musical_artwork.action_musical_artwork_role"
+              sequence="0"
+    />
+
+</odoo>

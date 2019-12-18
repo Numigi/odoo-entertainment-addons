@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="related_recordings_action" model="ir.actions.act_window">
-        <field name="name">Related Recordings</field>
-        <field name="res_model">recording</field>
-        <field name="view_mode">tree,form</field>
-        <field name="domain">[
-            ('musical_artwork_id', '=', context.get('active_id')),
-            ]
-        </field>
-    </record>
 
     <record id="musical_artwork_form" model="ir.ui.view">
         <field name="name">Musical Artwork Form</field>
@@ -19,14 +10,6 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
-                        <button name="%(related_recordings_action)d"
-                                type="action"
-                                class="oe_stat_button"
-                                icon="fa-headphones">
-                            <field string="Related Recordings"
-                                   name="related_recording_count"
-                                   widget="statinfo"/>
-                        </button>
                         <button name="toggle_active" type="object"
                                 class="oe_stat_button" icon="fa-archive">
                             <field name="active" widget="boolean_button"
@@ -52,6 +35,7 @@
                                        nolabel="1"
                                 >
                                     <tree editable="bottom">
+                                        <field name="sequence" widget="handle"/>
                                         <field name="language_id"/>
                                         <field name="percentage"/>
                                     </tree>

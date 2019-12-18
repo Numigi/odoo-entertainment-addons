@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 recording_user_access,Recording / User: Access Recordings,model_recording,group_user,1,1,1,0
 recording_track_user_access,Recording / User: Access Recording Tracks,model_recording_track,group_user,1,1,1,1
+recording_lang_manager_access,Recording / Manager: Access Recording Languages,recording_lang.model_recording_language,group_manager,1,1,1,1

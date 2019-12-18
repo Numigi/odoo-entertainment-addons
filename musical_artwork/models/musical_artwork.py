@@ -17,7 +17,9 @@ class ExternalCatalogueReference(models.Model):
 class MusicalArtworkLanguage(models.Model):
     _name = 'musical.artwork.language'
     _description = 'Musical Artwork Language'
+    _order = 'sequence'
 
+    sequence = fields.Integer()
     language_id = fields.Many2one("recording.language", required=True)
     percentage = fields.Integer("%", required=True)
     musical_artwork_id = fields.Many2one('musical.artwork', ondelete='cascade', required=True)
@@ -31,12 +33,6 @@ class MusicalArtworkLanguage(models.Model):
     ]
 
 
-class RecordingMusicalArtwork(models.Model):
-    _inherit = 'recording'
-
-    musical_artwork_id = fields.Many2one('musical.artwork')
-
-
 class MusicalArtwork(models.Model):
     _name = 'musical.artwork'
     _description = 'Musical Artwork'
@@ -45,7 +41,6 @@ class MusicalArtwork(models.Model):
     title = fields.Char(required=True)
     active = fields.Boolean(default=True)
     iswc = fields.Char('ISWC', required=True)
-    recording_ids = fields.One2many('recording', 'musical_artwork_id', string='Recordings')
     catalogue_reference = fields.Char(required=True)
     external_catalogue_reference_ids = fields.One2many(
         'musical.artwork.external.catalogue.reference',
@@ -70,12 +65,3 @@ class MusicalArtwork(models.Model):
             'A work already has this ISWC. A ISWC can only be linked to a single work.'
         ),
     ]
-
-    related_recording_count = fields.Integer(compute='_compute_related_recording_count')
-
-    def _compute_related_recording_count(self):
-        for rec in self:
-            rec.related_recording_count = self.env['recording'].search(
-                [('musical_artwork_id', '=', rec.id)],
-                count=True
-            )

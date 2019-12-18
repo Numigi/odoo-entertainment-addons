@@ -2,26 +2,26 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Recording',
+    'name': 'Recording / Musical Artwork',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
     'category': 'Entertainment',
-    'summary': 'The base module for the recording application',
+    'summary': 'Binding between recordings and musical artworks',
     'depends': [
-        'base',
-        'mail',
-        'recording_lang',
+        'musical_artwork',
+        'recording',
     ],
     'data': [
-        'security/res_groups.xml',
         'security/ir.model.access.csv',
-        'security/ir_rule.xml',
+        'views/musical_artwork.xml',
         'views/recording.xml',
         'views/menu.xml',
     ],
+    'demo': [
+        'demo/recording.xml',
+    ],
     'installable': True,
-    'application': True,
 }

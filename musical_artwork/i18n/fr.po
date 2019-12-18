@@ -1,21 +1,43 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* musical_artwork
+# 	* musical_artwork
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 20:41+0000\n"
-"PO-Revision-Date: 2019-12-17 20:41+0000\n"
+"POT-Creation-Date: 2019-12-18 20:37+0000\n"
+"PO-Revision-Date: 2019-12-18 15:46-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. module: musical_artwork
+#: sql_constraint:musical.artwork.language:0
+msgid "A language can be selected only once for a given musical artwork."
+msgstr ""
+
+#. module: musical_artwork
+#: sql_constraint:musical.artwork:0
+msgid "A work already has this ISWC. A ISWC can only be linked to a single work."
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__active
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__active
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__active
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__active
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__active
+msgid "Active"
+msgstr ""
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_search
 msgid "Archived"
 msgstr "Archivé"
@@ -26,50 +48,238 @@ msgid "Artist"
 msgstr "Artiste"
 
 #. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__catalogue_reference
+msgid "Catalogue Reference"
+msgstr "Référence de catalogue"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__code
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__code
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
+msgid "Code"
+msgstr "Code"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__country_group_id
+msgid "Country Group"
+msgstr "Groupe de pays"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__create_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__create_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__create_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__create_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__create_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__create_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__create_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__create_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__create_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__create_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__display_name
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__display_name
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__display_name
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__display_name
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__display_name
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__distribution_id
+msgid "Distribution"
+msgstr "Distribution"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__external_catalogue_reference_ids
+msgid "External Catalogue References"
+msgstr "Références de catalogue externe"
+
+#. module: musical_artwork
+#: model:res.groups,comment:musical_artwork.group_musical_artwork_distribution_manager
+msgid "Grants configuration rights of the distribution details."
+msgstr "Donne les droits d'accès à la configuration du détail de distribution des œuvres."
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
+msgid "Group by..."
+msgstr "Grouper par..."
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__id
+msgid "ID"
+msgstr "ID"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__iswc
+msgid "ISWC"
+msgstr "ISWC"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__language_id
+msgid "Language"
+msgstr "Langue"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__language_ids
+msgid "Languages"
+msgstr "Langues"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork____last_update
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution____last_update
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line____last_update
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference____last_update
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language____last_update
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__write_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__write_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__write_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__write_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__write_uid
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__write_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__write_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__write_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__write_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__write_date
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__line_ids
+msgid "Line"
+msgstr "Ligne"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__lyrics
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Lyrics"
 msgstr "Paroles"
 
 #. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__is_managed
+msgid "Managed"
+msgstr "Géré"
+
+#. module: musical_artwork
+#: model:ir.module.category,description:musical_artwork.module_category_musical_artwork_distribution
+msgid "Management of musical artwork distribution details"
+msgstr "Gestion de la distribution des œuvres musicales."
+
+#. module: musical_artwork
+#: model:res.groups,name:musical_artwork.group_musical_artwork_distribution_manager
+msgid "Manager"
+msgstr "Gestionnaire"
+
+#. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__musical_artwork_id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__musical_artwork_id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__musical_artwork_id
+#, fuzzy
 msgid "Musical Artwork"
-msgstr "Oeuvre"
+msgstr "Œuvre musicale"
+
+#. module: musical_artwork
+#: model:ir.model,name:musical_artwork.model_musical_artwork_distribution
+#: model:ir.module.category,name:musical_artwork.module_category_musical_artwork_distribution
+msgid "Musical Artwork Distribution"
+msgstr "Distribution d'œuvres musicale"
+
+#. module: musical_artwork
+#: model:ir.model,name:musical_artwork.model_musical_artwork_distribution_line
+msgid "Musical Artwork Distribution Line"
+msgstr "Ligne de distribution d'œuvres musicale"
 
 #. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork_external_catalogue_reference
 msgid "Musical Artwork External Catalogue Reference"
-msgstr "Catalogue externe d'oeuvre"
+msgstr "Référence de catalogue externe d'œuvres musicale"
 
 #. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork_language
 msgid "Musical Artwork Language"
-msgstr "Language d'oeuvre"
+msgstr "Language d'œuvres"
+
+#. module: musical_artwork
+#: model:ir.model,name:musical_artwork.model_musical_artwork_role
+msgid "Musical Artwork Role"
+msgstr "Rôle œuvres musicale"
+
+#. module: musical_artwork
+#: model:ir.actions.act_window,name:musical_artwork.action_musical_artwork_role
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_list
+msgid "Musical Artwork Roles"
+msgstr "Rôle œuvres musicales"
 
 #. module: musical_artwork
 #: model:ir.actions.act_window,name:musical_artwork.action_musical_artwork
-#: model:ir.ui.menu,name:musical_artwork.menu_musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_list
 msgid "Musical Artworks"
-msgstr "Oeuvres"
+msgstr "Œuvres musicales"
 
 #. module: musical_artwork
-#: model:ir.model,name:musical_artwork.model_recording
-msgid "Recording"
-msgstr "Enregistrement"
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__name
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
+msgid "Name"
+msgstr "Nom"
 
 #. module: musical_artwork
-#: model:ir.actions.act_window,name:musical_artwork.related_recordings_action
-#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
-msgid "Related Recordings"
-msgstr "Enregistrés associés"
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__role_id
+msgid "Role"
+msgstr "Rôle"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
+msgid "Search Musical Artwork Roles"
+msgstr "Recherche de rôles d'œuvres musicales"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_search
 msgid "Search Musical Artworks"
-msgstr "Recherche d'oeuvres"
+msgstr "Recherche d'œuvres musicales"
 
 #. module: musical_artwork
+#: sql_constraint:musical.artwork:0
+msgid "The catalogue reference has to be unique."
+msgstr "Cette référence de catalogue doit être unique."
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__title
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Title"
 msgstr "Titre"
 
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__total_distribution_key
+msgid "Total Distribution Key"
+msgstr "Total des clés de distribution"

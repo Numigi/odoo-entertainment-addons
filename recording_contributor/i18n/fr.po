@@ -30,14 +30,14 @@ msgstr "Archivé"
 #. module: recording_contributor
 #: model_terms:ir.ui.view,arch_db:recording_contributor.recording_contributor_role_form
 msgid "Contributor Role"
-msgstr "Rôle Contributeur"
+msgstr "Rôle de contributeur"
 
 #. module: recording_contributor
 #: model:ir.actions.act_window,name:recording_contributor.action_recording_contributor_role
 #: model:ir.ui.menu,name:recording_contributor.menu_config_contributor_role
 #: model_terms:ir.ui.view,arch_db:recording_contributor.recording_contributor_role_list
 msgid "Contributor Roles"
-msgstr "Rôles Contributeurs"
+msgstr "Rôles de contributeurs"
 
 #. module: recording_contributor
 #: model:ir.model.fields,field_description:recording_contributor.field_recording__contributor_ids
@@ -130,12 +130,12 @@ msgstr "Enregistrement"
 #. module: recording_contributor
 #: model:ir.model,name:recording_contributor.model_recording_contributor
 msgid "Recording Contributor"
-msgstr "Contributeur Enregistrements"
+msgstr "Contributeur enregistrements"
 
 #. module: recording_contributor
 #: model:ir.model,name:recording_contributor.model_recording_contributor_role
 msgid "Recording Contributor Role"
-msgstr "Rôles Contributeurs Enregistrements"
+msgstr "Rôles contributeurs enregistrements"
 
 #. module: recording_contributor
 #: model:ir.model.fields,field_description:recording_contributor.field_recording_contributor__role_id

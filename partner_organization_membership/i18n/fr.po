@@ -1,0 +1,241 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* partner_organization_membership
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-18 14:10+0000\n"
+"PO-Revision-Date: 2019-12-18 14:10+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: partner_organization_membership
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "53234OKL090-9KXX"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__artisti
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__artisti
+msgid "ARTISTI"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__is_artist
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__is_artist
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Artist/Musician"
+msgstr "Artiste/Musicien"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__is_autochthon
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__is_autochthon
+msgid "Autochthon"
+msgstr "Autochtone"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__is_closm
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__is_closm
+msgid "CLOSM"
+msgstr "CLOSM - Minorité linguistique"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__is_canadian_artist
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__is_canadian_artist
+msgid "Canadian artist"
+msgstr "Artiste Canadien"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__birth_city_id
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__birth_city_id
+msgid "City of birth"
+msgstr "Ville de naissance"
+
+#. module: partner_organization_membership
+#: model:ir.model,name:partner_organization_membership.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: partner_organization_membership
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Creator Identifiers"
+msgstr "Identifiant créateur"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__is_emerging_artist
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__is_emerging_artist
+msgid "Emerging artist"
+msgstr "Artiste émergent"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__guild
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__guild
+msgid "GUILD"
+msgstr "GUILDE"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__id
+msgid "ID"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__ipi
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__ipi
+msgid "IPI"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__ipn
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__ipn
+msgid "IPN"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__isni
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__isni
+msgid "ISNI"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Identifiers"
+msgstr "Identifiants"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization____last_update
+msgid "Last Modified on"
+msgstr "Dernière Modification le"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: partner_organization_membership
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Management Organization"
+msgstr "Organisme de gestion"
+
+#. module: partner_organization_membership
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Management Organizations"
+msgstr "Organismes de gestion"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__number
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Member number"
+msgstr "N° de membre"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__name
+msgid "Name"
+msgstr "Nom de l’étiquette"
+
+#. module: partner_organization_membership
+#: model:ir.model,name:partner_organization_membership.model_partner_management_organization_other
+#: model:ir.model,name:partner_organization_membership.model_res_partner_organization
+msgid "Other Management Organizations"
+msgstr "Autres organismes"
+
+#. module: partner_organization_membership
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Other Organizations"
+msgstr "Autres organismes"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__organization_ids
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__organization_ids
+msgid "Other organizations"
+msgstr "Autres organismes"
+
+#. module: partner_organization_membership
+#: model_terms:ir.ui.view,arch_db:partner_organization_membership.res_partner_view_form_inherit_partner_artist
+msgid "Others Informations"
+msgstr "Autres informations"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner_organization__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__is_resident_qc
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__is_resident_qc
+msgid "Resident of Quebec"
+msgstr "Résident du Québec"
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__sacem
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__sacem
+msgid "SACEM"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__socan
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__socan
+msgid "SOCAN"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__sodrac
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__sodrac
+msgid "SODRAC"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__soproq
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__soproq
+msgid "SOPROQ"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__sound_ex
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__sound_ex
+msgid "SOUND EX."
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__spacq
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__spacq
+msgid "SPACQ"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__uda
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__uda
+msgid "UDA"
+msgstr ""
+
+#. module: partner_organization_membership
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_partner__is_visible_minority
+#: model:ir.model.fields,field_description:partner_organization_membership.field_res_users__is_visible_minority
+msgid "Visible minority"
+msgstr "Minorité visible"
+

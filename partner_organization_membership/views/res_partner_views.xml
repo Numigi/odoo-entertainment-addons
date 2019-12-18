@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="res_partner_view_form_inherit_partner_artist" model="ir.ui.view">
+        <field name="name">res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_row')]" position="after">
+                <div>
+                    <field name="is_artist" attrs="{'invisible': [('company_type', '=', 'company')]}"/>
+                    <label for="is_artist" string="Artist/Musician"
+                           attrs="{'invisible': [('company_type', '=', 'company')]}"/>
+                </div>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="after">
+                <page string="Management Organization" attrs="{'invisible': [('is_artist', '=', False)]}">
+                    <group>
+                        <group string="Management Organizations">
+                            <field name="artisti" placeholder="53234OKL090-9KXX"/>
+                            <field name="guild" placeholder="Member number"/>
+                            <field name="sacem" placeholder="Member number"/>
+                            <field name="socan" placeholder="Member number"/>
+                            <field name="sodrac" placeholder="Member number"/>
+                            <field name="sound_ex" placeholder="Member number"/>
+                            <field name="soproq" placeholder="Member number"/>
+                            <field name="spacq" placeholder="Member number"/>
+                            <field name="uda" placeholder="Member number"/>
+                        </group>
+                        <group string="Other Organizations">
+                            <field name="organization_ids" nolabel="1">
+                                <tree editable="top">
+                                    <field name="name"/>
+                                    <field name="number"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </page>
+                <page string="Creator Identifiers" attrs="{'invisible': [('is_artist', '=', False)]}">
+                    <group>
+                        <group string="Identifiers">
+                            <field name="isni" placeholder="Member number"/>
+                            <field name="ipi" placeholder="Member number"/>
+                            <field name="ipn" placeholder="Member number"/>
+                        </group>
+                        <group></group>
+                        <group string="Others Informations">
+                            <group>
+                                <field name="is_canadian_artist"/>
+                                <field name="is_closm"/>
+                                <field name="is_autochthon"/>
+                            </group>
+                            <group>
+                                <field name="is_emerging_artist"/>
+                                <field name="is_resident_qc"/>
+                                <field name="is_visible_minority"/>
+                            </group>
+                        </group>
+                        <group></group>
+                        <group>
+                            <field name="birth_city_id" options="{'no_open':True, 'no_create': True, 'no_edit': True}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

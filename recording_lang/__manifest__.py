@@ -10,7 +10,9 @@
     'license': 'LGPL-3',
     'category': 'Recording',
     'summary': 'Languages management for the recording application.',
-    'depends': ['recording'],
+    'depends': [
+        'base',
+    ],
     'data': [
         'security/ir.model.access.csv',
         'views/recording_language.xml',

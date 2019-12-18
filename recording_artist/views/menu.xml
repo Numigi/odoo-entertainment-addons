@@ -13,7 +13,7 @@
         id="menu_config_artist"
         name="Artists"
         parent="recording.menu_config"
-        sequence="500"
+        sequence="200"
         />
 
     <menuitem

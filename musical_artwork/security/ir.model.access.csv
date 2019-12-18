@@ -1,12 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-musical_artwork_user_access,Musical Artwork / User: Access Musical Artworks,model_musical_artwork,recording.group_user,1,1,1,0
-musical_artwork_manager,Musical Artwork / Manager: Access Musical Artworks,model_musical_artwork,recording.group_manager,1,1,1,1
-musical_artwork_external_catalogue_reference_user,Musical Artwork External Catalogue Reference / User: Access,model_musical_artwork_external_catalogue_reference,recording.group_user,1,1,1,0
-musical_artwork_external_catalogue_reference_manager,Musical Artwork External Catalogue Reference / Manager: Access,model_musical_artwork_external_catalogue_reference,recording.group_manager,1,1,1,1
-musical_artwork_language_user_access,Musical Artwork / User: Access Language,model_musical_artwork_language,recording.group_user,1,1,1,1
-musical_artwork_role_manager_access,Musical Artwork Role / Manager: Access,model_musical_artwork_role,recording.group_manager,1,1,1,1
-musical_artwork_role_user_access,Musical Artwork Role / User: Access,model_musical_artwork_role,recording.group_user,0,0,0,0
 musical_artwork_distribution_manager_access, Musical Artwork Distribution / Manager: Configuration Rights,model_musical_artwork_distribution,group_musical_artwork_distribution_manager,1,1,1,1
-musical_artwork_distribution_user_access, Musical Artwork / User: Access Distribution,model_musical_artwork_distribution,recording.group_user,1,0,0,0
 musical_artwork_distribution_line_manager_access, Musical Artwork Distribution Line / Manager: Configuration Rights,model_musical_artwork_distribution_line,group_musical_artwork_distribution_manager,1,1,1,1
-musical_artwork_distribution_line_user_access, Musical Artwork / User: Access Distribution Line,model_musical_artwork_distribution_line,recording.group_user,1,0,0,0
+musical_artwork_external_catalogue_reference_manager_access, Musical Artwork External Catalog Reference / Admin: Configuration Rights,model_musical_artwork_external_catalogue_reference,base.group_system,1,1,1,1
+musical_artwork_language_manager_access, Musical Artwork Language / Admin: Configuration Rights,model_musical_artwork_language,base.group_system,1,1,1,1
+musical_artwork_role_manager_access, Musical Artwork Role / Admin: Configuration Rights,model_musical_artwork_role,base.group_system,1,1,1,1
+musical_artwork_manager_access, Musical Artwork / Admin: Configuration Rights,model_musical_artwork,base.group_system,1,1,1,1

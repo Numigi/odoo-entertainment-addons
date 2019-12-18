@@ -21,6 +21,7 @@
         id="menu_config"
         name="Configuration"
         parent="menu_recording_root"
+        groups="group_manager"
         sequence="500"
         />
 
@@ -29,6 +30,13 @@
         name="Recordings"
         parent="menu_config"
         sequence="0"
+        />
+
+    <menuitem id="recording_language_menu"
+        name="Languages"
+        action="recording_lang.action_recording_language"
+        parent="menu_config_recording"
+        sequence="200"
         />
 
 </odoo>

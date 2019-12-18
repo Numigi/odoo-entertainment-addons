@@ -4,9 +4,9 @@
     <menuitem
         id="menu_config_contributor_role"
         name="Contributor Roles"
-        parent="recording.menu_config"
+        parent="recording.menu_config_recording"
         action="action_recording_contributor_role"
-        sequence="500"
+        sequence="150"
         />
 
 </odoo>

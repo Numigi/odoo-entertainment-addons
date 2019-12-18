@@ -5,7 +5,7 @@
               name="URL Link Types"
               action="url_link_type.url_link_type_action"
               parent="recording.menu_config"
-              sequence="500"
+              sequence="2000"
               />
 
 </odoo>

@@ -4,9 +4,9 @@
     <menuitem
         id="menu_config_recording_version"
         name="Versions"
-        parent="recording.menu_config"
+        parent="recording.menu_config_recording"
         action="action_recording_version"
-        sequence="500"
+        sequence="200"
         />
 
 </odoo>

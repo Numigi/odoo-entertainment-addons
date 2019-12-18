@@ -16,6 +16,7 @@
         'recording',
         'recording_artist',
         'recording_lang',
+        'recording_role',
         'recording_url_link',
         'partner_organization_membership',
         'show_place',

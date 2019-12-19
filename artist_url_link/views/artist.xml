@@ -6,7 +6,7 @@
         <field name="model">artist</field>
         <field name="inherit_id" ref="artist.artist_form"/>
         <field name="arch" type="xml">
-            <notebook position="inside">
+            <page name="notes" position="before">
                 <page name="url_links" string="URL Links">
                     <group>
                         <field name="url_link_ids" nolabel="1">
@@ -18,7 +18,7 @@
                         </field>
                     </group>
                 </page>
-            </notebook>
+            </page>
         </field>
     </record>
 

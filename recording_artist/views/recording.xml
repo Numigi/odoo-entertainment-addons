@@ -16,4 +16,26 @@
         </field>
     </record>
 
+    <record id="recording_list_with_artist" model="ir.ui.view">
+        <field name="name">Recording List: Add artist</field>
+        <field name="model">recording</field>
+        <field name="inherit_id" ref="recording.recording_list"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="artist_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="recording_search_with_artist" model="ir.ui.view">
+        <field name="name">Recording Search: Add artist</field>
+        <field name="model">recording</field>
+        <field name="inherit_id" ref="recording.recording_search"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="artist_id"/>
+            </field>
+        </field>
+    </record>
+
 </odoo>

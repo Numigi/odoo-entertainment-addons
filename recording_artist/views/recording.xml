@@ -6,13 +6,13 @@
         <field name="model">recording</field>
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
-            <group name="recording" position="after">
+            <div name="right_column" position="inside">
                 <group name="artist" string="Artist">
                     <field name="artist_id"/>
                     <field name="secondary_artist_id"/>
                     <field name="record_company_id"/>
                 </group>
-            </group>
+            </div>
         </field>
     </record>
 

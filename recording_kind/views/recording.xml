@@ -6,11 +6,11 @@
         <field name="model">recording</field>
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
-            <group name="recording" position="after">
+            <div name="right_column" position="inside">
                 <group name="kind" string="Kind">
                     <field name="kind_id"/>
                 </group>
-            </group>
+            </div>
         </field>
     </record>
 

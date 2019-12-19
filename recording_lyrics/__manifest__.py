@@ -11,6 +11,7 @@
     'category': 'Recording',
     'summary': 'Languages management for the recording application.',
     'depends': [
+        'recording',
         'recording_lang',
     ],
     'data': [

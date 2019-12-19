@@ -6,7 +6,7 @@
         <field name="model">recording</field>
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
-            <notebook position="inside">
+            <xpath expr="//page[1]" position="before">
                 <page name="lyrics" string="Lyrics" attrs="{'invisible': [('ttype', '!=', 'sound')]}">
                     <group>
                         <group>
@@ -20,7 +20,7 @@
                         <field name="lyrics" nolabel="1" colspan="2"/>
                     </group>
                 </page>
-            </notebook>
+            </xpath>
         </field>
     </record>
 

@@ -79,6 +79,8 @@
                                 attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
                                 />
                         </group>
+                        <div name="right_column">
+                        </div>
                     </group>
                     <notebook>
                         <page name="tracks" string="Related Recordings" attrs="{'invisible': [('ttype', '!=', 'group')]}">

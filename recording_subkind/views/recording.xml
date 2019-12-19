@@ -4,7 +4,7 @@
     <record id="recording_form_with_subkind" model="ir.ui.view">
         <field name="name">Recording Form: Add record subkind</field>
         <field name="model">recording</field>
-        <field name="inherit_id" ref="recording.recording_form"/>
+        <field name="inherit_id" ref="recording_kind.recording_form_with_kind"/>
         <field name="arch" type="xml">
             <field name="kind_id" position="after">
                 <field name="subkind_id"/>

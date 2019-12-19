@@ -12,7 +12,9 @@ class ExternalCatalogueReference(models.Model):
 
     sequence = fields.Integer()
     code = fields.Char(required=True)
-    musical_artwork_id = fields.Many2one('musical.artwork', ondelete='cascade', required=True)
+    musical_artwork_id = fields.Many2one(
+        'musical.artwork', ondelete='cascade', required=True, index=True,
+    )
 
 
 class MusicalArtworkLanguage(models.Model):
@@ -23,7 +25,9 @@ class MusicalArtworkLanguage(models.Model):
     sequence = fields.Integer()
     language_id = fields.Many2one("recording.language", required=True)
     percentage = fields.Integer("%", required=True)
-    musical_artwork_id = fields.Many2one('musical.artwork', ondelete='cascade', required=True)
+    musical_artwork_id = fields.Many2one(
+        'musical.artwork', ondelete='cascade', required=True, index=True,
+    )
 
     _sql_constraints = [
         (
@@ -55,7 +59,8 @@ class MusicalArtwork(models.Model):
     language_ids = fields.One2many(
         'musical.artwork.language',
         'musical_artwork_id',
-        string='Languages'
+        string='Languages',
+        copy=True,
     )
     lyrics = fields.Text()
 

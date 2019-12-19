@@ -18,7 +18,9 @@ class MusicalArtworkDistributionLine(models.Model):
     role_id = fields.Many2one('musical.artwork.role', ondelete='restrict')
     percentage = fields.Float('%', digits=decimal_precision)
     is_managed = fields.Boolean('Managed', default=True)
-    distribution_id = fields.Many2one('musical.artwork.distribution', index=True)
+    distribution_id = fields.Many2one(
+        'musical.artwork.distribution', required=True, ondelete='cascade', index=True
+    )
 
 
 class MusicalArtworkDistribution(models.Model):

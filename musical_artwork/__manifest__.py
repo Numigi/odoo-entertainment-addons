@@ -17,7 +17,10 @@
     'data': [
         'security/res_groups.xml',
         'security/ir.model.access.csv',
+        'security/ir_rule.xml',
+        'data/ir_sequence.xml',
         'views/musical_artwork.xml',
+        'views/musical_artwork_distribution.xml',
         'views/musical_artwork_role.xml',
     ],
     'demo': [

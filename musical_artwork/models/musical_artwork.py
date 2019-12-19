@@ -8,10 +8,11 @@ class ExternalCatalogueReference(models.Model):
     _name = 'musical.artwork.external.catalogue.reference'
     _description = 'Musical Artwork External Catalogue Reference'
     _rec_name = 'code'
+    _order = 'sequence'
 
+    sequence = fields.Integer()
     code = fields.Char(required=True)
-    active = fields.Boolean(default=True)
-    musical_artwork_id = fields.Many2one('musical.artwork')
+    musical_artwork_id = fields.Many2one('musical.artwork', ondelete='cascade', required=True)
 
 
 class MusicalArtworkLanguage(models.Model):
@@ -38,6 +39,10 @@ class MusicalArtwork(models.Model):
     _description = 'Musical Artwork'
     _rec_name = 'title'
 
+    company_id = fields.Many2one(
+        'res.company', 'Company',
+        default=lambda s: s.env.user.company_id
+    )
     title = fields.Char(required=True)
     active = fields.Boolean(default=True)
     iswc = fields.Char('ISWC', required=True)
@@ -65,3 +70,16 @@ class MusicalArtwork(models.Model):
             'A work already has this ISWC. A ISWC can only be linked to a single work.'
         ),
     ]
+
+
+class MusicalArtworkWithDistributionKeys(models.Model):
+
+    _inherit = 'musical.artwork'
+
+    distribution_key_count = fields.Integer(compute='_compute_distribution_key_count')
+
+    def _compute_distribution_key_count(self):
+        for artwork in self:
+            artwork.distribution_key_count = self.env['musical.artwork.distribution'].search([
+                ('musical_artwork_id', '=', artwork.id),
+            ], count=True)

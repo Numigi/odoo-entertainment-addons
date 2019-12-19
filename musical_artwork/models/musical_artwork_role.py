@@ -8,7 +8,9 @@ class MusicalArtworkRole(models.Model):
     _name = 'musical.artwork.role'
     _description = 'Musical Artwork Role'
     _rec_name = "name"
+    _order = 'sequence'
 
+    sequence = fields.Integer()
     active = fields.Boolean(default=True)
     name = fields.Char(required=True)
     code = fields.Char(required=True)

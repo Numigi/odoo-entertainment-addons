@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-18 20:37+0000\n"
-"PO-Revision-Date: 2019-12-18 15:46-0500\n"
+"POT-Creation-Date: 2019-12-19 21:57+0000\n"
+"PO-Revision-Date: 2019-12-19 17:00-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -21,22 +21,26 @@ msgstr ""
 #: sql_constraint:musical.artwork.language:0
 msgid "A language can be selected only once for a given musical artwork."
 msgstr ""
+"Un langue ne peut être sélectionnée qu'une seule fois sur une œuvre "
+"musicale."
 
 #. module: musical_artwork
 #: sql_constraint:musical.artwork:0
-msgid "A work already has this ISWC. A ISWC can only be linked to a single work."
+msgid ""
+"A work already has this ISWC. A ISWC can only be linked to a single work."
 msgstr ""
+"Une œuvre a déjà cette référence ISWC. Une référence ISWC ne peut être lié "
+"qu'à une seule œuvre."
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__active
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__active
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__active
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__active
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__active
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_search
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_search
 msgid "Archived"
@@ -58,6 +62,11 @@ msgstr "Référence de catalogue"
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
 msgid "Code"
 msgstr "Code"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__company_id
+msgid "Company"
+msgstr "Société"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__country_group_id
@@ -97,7 +106,30 @@ msgstr "Nom affiché"
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__distribution_id
 msgid "Distribution"
-msgstr "Distribution"
+msgstr "Répartition"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_form
+msgid "Distribution Key"
+msgstr "Clé de répartition"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__distribution_key_count
+msgid "Distribution Key Count"
+msgstr "Nombre de clés de répartition"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__total_distribution_key
+msgid "Distribution Key Total"
+msgstr "Total des clés de répartition"
+
+#. module: musical_artwork
+#: model:ir.actions.act_window,name:musical_artwork.action_musical_artwork_distribution
+#: model:ir.actions.act_window,name:musical_artwork.related_distribution_keys_action
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_list
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
+msgid "Distribution Keys"
+msgstr "Clés de distribution"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__external_catalogue_reference_ids
@@ -107,7 +139,9 @@ msgstr "Références de catalogue externe"
 #. module: musical_artwork
 #: model:res.groups,comment:musical_artwork.group_musical_artwork_distribution_manager
 msgid "Grants configuration rights of the distribution details."
-msgstr "Donne les droits d'accès à la configuration du détail de distribution des œuvres."
+msgstr ""
+"Donne les droits d'accès à la configuration du détail de distribution des "
+"œuvres."
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
@@ -254,9 +288,30 @@ msgid "Partner"
 msgstr "Partenaire"
 
 #. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_search
+#, fuzzy
+#| msgid "Partner"
+msgid "Partners"
+msgstr "Partenaire"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__name
+#, fuzzy
+#| msgid "Catalogue Reference"
+msgid "Reference"
+msgstr "Référence de catalogue"
+
+#. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__role_id
 msgid "Role"
 msgstr "Rôle"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_search
+#, fuzzy
+#| msgid "Total Distribution Key"
+msgid "Search Distribution Keys"
+msgstr "Total des clés de distribution"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
@@ -269,17 +324,28 @@ msgid "Search Musical Artworks"
 msgstr "Recherche d'œuvres musicales"
 
 #. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__sequence
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__sequence
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__sequence
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: musical_artwork
 #: sql_constraint:musical.artwork:0
 msgid "The catalogue reference has to be unique."
 msgstr "Cette référence de catalogue doit être unique."
+
+#. module: musical_artwork
+#: code:addons/musical_artwork/models/musical_artwork_distribution.py:66
+#, python-format
+msgid ""
+"The sum of the distribution key lines is not equal to 100. The distribution "
+"key must have a total of 100%."
+msgstr ""
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__title
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Title"
 msgstr "Titre"
-
-#. module: musical_artwork
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__total_distribution_key
-msgid "Total Distribution Key"
-msgstr "Total des clés de distribution"

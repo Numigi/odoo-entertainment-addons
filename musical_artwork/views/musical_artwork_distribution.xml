@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="musical_artwork_distribution_form" model="ir.ui.view">
+        <field name="name">Musical Artwork Distribution Form</field>
+        <field name="model">musical.artwork.distribution</field>
+        <field name="arch" type="xml">
+            <form string="Distribution Key">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                   options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="group_1">
+                            <field name="musical_artwork_id"/>
+                            <field name="country_group_id"/>
+                        </group>
+                        <group name="group_2">
+                        </group>
+                    </group>
+                    <group>
+                        <field name="line_ids" nolabel="1" colspan="2">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="partner_id"/>
+                                <field name="role_id"/>
+                                <field name="percentage"/>
+                                <field name="is_managed"/>
+                            </tree>
+                        </field>
+                        <group>
+                        </group>
+                        <group>
+                            <field name="total_distribution_key"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="musical_artwork_distribution_list" model="ir.ui.view">
+        <field name="name">Musical Artwork Distribution List</field>
+        <field name="model">musical.artwork.distribution</field>
+        <field name="arch" type="xml">
+            <tree string="Distribution Keys">
+                <field name="name"/>
+                <field name="musical_artwork_id"/>
+                <field name="country_group_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="musical_artwork_distribution_search" model="ir.ui.view">
+        <field name="name">Musical Artwork Distribution Search</field>
+        <field name="model">musical.artwork.distribution</field>
+        <field name="arch" type="xml">
+            <search string="Search Distribution Keys">
+                <field name="name"/>
+                <field name="musical_artwork_id"/>
+                <field name="country_group_id"/>
+                <field name="line_ids" string="Partners" filter_domain="[('line_ids.partner_id', 'ilike', self)]"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_musical_artwork_distribution" model="ir.actions.act_window">
+        <field name="name">Distribution Keys</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">musical.artwork.distribution</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="musical_artwork_distribution_list"/>
+        <field name="search_view_id" ref="musical_artwork_distribution_search"/>
+    </record>
+
+</odoo>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-19 21:57+0000\n"
-"PO-Revision-Date: 2019-12-19 17:00-0500\n"
+"POT-Creation-Date: 2019-12-19 22:08+0000\n"
+"PO-Revision-Date: 2019-12-19 17:10-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -21,8 +21,7 @@ msgstr ""
 #: sql_constraint:musical.artwork.language:0
 msgid "A language can be selected only once for a given musical artwork."
 msgstr ""
-"Un langue ne peut être sélectionnée qu'une seule fois sur une œuvre "
-"musicale."
+"Un langue ne peut être sélectionnée qu'une seule fois sur une œuvre musicale."
 
 #. module: musical_artwork
 #: sql_constraint:musical.artwork:0
@@ -261,6 +260,7 @@ msgstr "Language d'œuvres"
 
 #. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork_role
+#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_form
 msgid "Musical Artwork Role"
 msgstr "Rôle œuvres musicale"
 
@@ -289,17 +289,13 @@ msgstr "Partenaire"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_search
-#, fuzzy
-#| msgid "Partner"
 msgid "Partners"
-msgstr "Partenaire"
+msgstr "Partenaires"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__name
-#, fuzzy
-#| msgid "Catalogue Reference"
 msgid "Reference"
-msgstr "Référence de catalogue"
+msgstr "Référence"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__role_id
@@ -308,10 +304,8 @@ msgstr "Rôle"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_search
-#, fuzzy
-#| msgid "Total Distribution Key"
 msgid "Search Distribution Keys"
-msgstr "Total des clés de distribution"
+msgstr "Recherche de clés de distribution"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
@@ -329,7 +323,7 @@ msgstr "Recherche d'œuvres musicales"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__sequence
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Séquence"
 
 #. module: musical_artwork
 #: sql_constraint:musical.artwork:0
@@ -337,12 +331,14 @@ msgid "The catalogue reference has to be unique."
 msgstr "Cette référence de catalogue doit être unique."
 
 #. module: musical_artwork
-#: code:addons/musical_artwork/models/musical_artwork_distribution.py:66
+#: code:addons/musical_artwork/models/musical_artwork_distribution.py:68
 #, python-format
 msgid ""
 "The sum of the distribution key lines is not equal to 100. The distribution "
 "key must have a total of 100%."
 msgstr ""
+"Le total des lignes de la clé de répartition est différent de 100. La clé de "
+"répartition doit avoir un total de 100 %."
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__title

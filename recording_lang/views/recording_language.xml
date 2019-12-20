@@ -42,6 +42,7 @@
             <tree string="Record Languages" editable="top">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="code"/>
                 <field name="active"/>
             </tree>
         </field>

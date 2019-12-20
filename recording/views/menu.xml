@@ -4,8 +4,8 @@
     <menuitem
         id="menu_recording_root"
         name="Recording"
-        web_icon="fa fa-music,#000000,#FFFFFF"
-        sequence="500"
+        web_icon="recording,static/description/icon.png"
+        sequence="100"
         groups="group_user"
         />
 

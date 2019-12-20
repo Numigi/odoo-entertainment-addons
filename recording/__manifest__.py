@@ -22,6 +22,9 @@
         'views/recording.xml',
         'views/menu.xml',
     ],
+    'demo': [
+        'demo/recording.xml',
+    ],
     'installable': True,
     'application': True,
 }

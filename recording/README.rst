@@ -17,10 +17,6 @@ Recordings
 ~~~~~~~~~~
 This menu item is available to members of the group ``Recording / User``.
 
-.. image:: static/description/recording_menu.png
-
-It shows the list of recordings.
-
 .. image:: static/description/recording_list.png
 
 By clicking on a recording, the form view is opened.
@@ -36,13 +32,13 @@ It contains relevant configuration objects for the application.
 When installing only the recording application any optional addon,
 it contains the following submenus.
 
-Link Types
-**********
-See the module `xxx <yyy>`_ for details.
-
 Languages
 *********
-See the module `xxx <yyy>`_ for details.
+This menu entry allows to configure recording languages.
+
+.. image:: static/description/language_list.png
+
+See the module `recording_lang <https://github.com/Numigi/odoo-entertainment-addons/tree/12.0/recording_lang>`_ for details.
 
 Contributors
 ------------

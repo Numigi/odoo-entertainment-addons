@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_recording_genre_user,name_recording_genre_user,model_recording_genre,recording.group_user,1,0,0,0
+access_recording_genre_manager,name_recording_genre_manager,model_recording_genre,recording.group_manager,1,1,1,0

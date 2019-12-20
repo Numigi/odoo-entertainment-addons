@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 10:17+0000\n"
-"PO-Revision-Date: 2019-12-12 05:21-0500\n"
+"POT-Creation-Date: 2019-12-20 19:46+0000\n"
+"PO-Revision-Date: 2019-12-20 14:47-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -101,8 +101,6 @@ msgstr "Dernière mise à jour le"
 
 #. module: show_place
 #: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-#, fuzzy
-#| msgid "Maximum capacity"
 msgid "Maximum Capacity"
 msgstr "Capacité maximale​"
 
@@ -124,8 +122,6 @@ msgstr "Autre adresse"
 
 #. module: show_place
 #: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-#, fuzzy
-#| msgid "Place type"
 msgid "Place Type"
 msgstr "Type de lieu"
 
@@ -136,8 +132,8 @@ msgstr "Adresse personnelle"
 
 #. module: show_place
 #: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-msgid "Restricted to Minors"
-msgstr "Restraint aux mineurs"
+msgid "Minor Restriction"
+msgstr "Restriction mineurs"
 
 #. module: show_place
 #: selection:res.partner,type:0
@@ -154,7 +150,7 @@ msgstr "Spectacle"
 #: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_configuration_id
 #: model:ir.model.fields,field_description:show_place.field_res_users__show_place_configuration_id
 msgid "Show Place Configuration"
-msgstr "Lieux de spectable - "
+msgstr "Configuration lieux de spectable"
 
 #. module: show_place
 #: model:ir.actions.act_window,name:show_place.show_place_configuration_action

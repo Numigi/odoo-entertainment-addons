@@ -24,7 +24,7 @@
                                    attrs="{'required': [('type','=','show_site')]}"
                                    />
                             <field name="show_place_minor_restriction"
-                                   string="Restricted to Minors"
+                                   string="Minor Restriction"
                                    />
                         </group>
                         <group/>

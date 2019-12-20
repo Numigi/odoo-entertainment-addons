@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
+    <record id="musical_artwork_role_form" model="ir.ui.view">
+        <field name="name">Musical Artwork Role Form</field>
+        <field name="model">musical.artwork.role</field>
+        <field name="arch" type="xml">
+            <form string="Musical Artwork Role">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="group_1">
+                            <field name="sequence"/>
+                            <field name="code"/>
+                        </group>
+                        <group name="group_2">
+                        </group>
+                    </group>
+                    <notebook>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="musical_artwork_role_list" model="ir.ui.view">
         <field name="name">Musical Artwork Role List</field>
         <field name="model">musical.artwork.role</field>
         <field name="arch" type="xml">
             <tree string="Musical Artwork Roles" editable="top">
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
                 <field name="code"/>
                 <field name="active"/>

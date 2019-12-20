@@ -1,8 +1,10 @@
 # © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
+import pytest
 from ddt import ddt, data, unpack
 from odoo.tests.common import SavepointCase
+from odoo.exceptions import ValidationError
 
 
 @ddt
@@ -12,26 +14,30 @@ class TestMusicalArtworkDistribution(SavepointCase):
     def setUpClass(cls):
         super().setUpClass()
 
-        artwork = cls.env['musical.artwork'].create({
+        cls.artwork = cls.env['musical.artwork'].create({
             'title': 'ttitle',
             'iswc': 'tiswc',
             'catalogue_reference': 'tcatalogue_reference'
         })
 
+        cls.role = cls.env.ref('musical_artwork.musical_artwork_role_author')
+        cls.partner = cls.env.ref('base.res_partner_1')
+
         cls.distribution = cls.env['musical.artwork.distribution'].create({
-            'musical_artwork_id': artwork.id,
+            'musical_artwork_id': cls.artwork.id,
             'country_group_id': cls.env.ref('base.europe').id,
+            'line_ids': [(0, 0, {
+                'partner_id': cls.partner.id,
+                'role_id': cls.role.id,
+                'percentage': 100,
+            })]
         })
 
-    def create_line(self, distribution, percentage):
-        partner_id = self.env.ref('base.res_partner_1').id
-        role_id = self.env.ref('musical_artwork.musical_artwork_role_author').id
-
-        return self.env['musical.artwork.distribution.line'].create({
-            'partner_id': partner_id,
-            'role_id': role_id,
+    def _new_line(self, percentage):
+        return self.env['musical.artwork.distribution.line'].new({
+            'partner_id': self.partner.id,
+            'role_id': self.role.id,
             'percentage': percentage,
-            'distribution_id': distribution.id,
         })
 
     @data(
@@ -41,7 +47,21 @@ class TestMusicalArtworkDistribution(SavepointCase):
     )
     @unpack
     def test_total_distribution_key(self, values, expected):
-        for value in values:
-            self.create_line(self.distribution, value)
+        with self.env.do_in_onchange():
+            self.distribution.update({'line_ids': [(5, 0)]})
 
-        assert expected == self.distribution.total_distribution_key
+            for value in values:
+                self.distribution.line_ids |= self._new_line(value)
+
+            assert expected == self.distribution.total_distribution_key
+
+    def test_on_create_sequence_number_assigned(self):
+        assert self.distribution.name
+
+    def test_if_distribution_not_100__raise_error(self):
+        with pytest.raises(ValidationError):
+            self.distribution.line_ids |= self._new_line(0.01)
+
+    def test_musical_artwork_count(self):
+        self.distribution.copy({})
+        assert self.artwork.distribution_key_count == 2

@@ -19,9 +19,9 @@ COPY musical_artwork /mnt/extra-addons/musical_artwork
 COPY recording /mnt/extra-addons/recording
 COPY recording_artist /mnt/extra-addons/recording_artist
 COPY recording_contributor /mnt/extra-addons/recording_contributor
-COPY recording_kind /mnt/extra-addons/recording_kind
+COPY recording_genre /mnt/extra-addons/recording_genre
 COPY recording_lang /mnt/extra-addons/recording_lang
-COPY recording_subkind /mnt/extra-addons/recording_subkind
+COPY recording_subgenre /mnt/extra-addons/recording_subgenre
 COPY recording_tag /mnt/extra-addons/recording_tag
 COPY recording_url_link /mnt/extra-addons/recording_url_link
 COPY recording_version /mnt/extra-addons/recording_version

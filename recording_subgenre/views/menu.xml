@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_config_recording_subgenre"
+        name="Subgenres"
+        parent="recording.menu_config_recording"
+        action="action_recording_subgenre"
+        sequence="51"
+        />
+
+</odoo>

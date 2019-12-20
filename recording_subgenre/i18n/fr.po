@@ -1,0 +1,111 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* recording_subgenre
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-18 20:58+0000\n"
+"PO-Revision-Date: 2019-12-18 15:59-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Type: Odoo Server 12.0\n"
+"MIME-Type: 1.0\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: recording_subgenre
+#: model_terms:ir.ui.view,arch_db:recording_subgenre.recording_subgenre_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__create_uid
+msgid "Created by"
+msgstr "Crée par"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__create_date
+msgid "Created on"
+msgstr "Crée le"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__id
+msgid "ID"
+msgstr "ID"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: recording_subgenre
+#: model_terms:ir.ui.view,arch_db:recording_subgenre.recording_subgenre_form
+msgid "Record Subgenre"
+msgstr "Sous-genre d'enregistrement"
+
+#. module: recording_subgenre
+#: model:ir.actions.act_window,name:recording_subgenre.action_recording_subgenre
+#: model_terms:ir.ui.view,arch_db:recording_subgenre.recording_subgenre_list
+msgid "Record Subgenres"
+msgstr "Sous-genres d'enregistrements"
+
+#. module: recording_subgenre
+#: model:ir.model,name:recording_subgenre.model_recording
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: recording_subgenre
+#: model_terms:ir.ui.view,arch_db:recording_subgenre.recording_subgenre_search
+msgid "Search Record Subgenres"
+msgstr "Chercher des sous-genres d'enregistrements"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording_subgenre__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: recording_subgenre
+#: model:ir.model.fields,field_description:recording_subgenre.field_recording__subgenre_id
+msgid "Subgenre"
+msgstr "Sous-genre"
+
+#. module: recording_subgenre
+#: model:ir.model,name:recording_subgenre.model_recording_subgenre
+msgid "Subgenre of Recording"
+msgstr "Sous-genre d'enregistrement"
+
+#. module: recording_subgenre
+#: model:ir.ui.menu,name:recording_subgenre.menu_config_recording_subgenre
+msgid "Subgenres"
+msgstr "Sous-genres"

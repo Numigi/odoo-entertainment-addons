@@ -1,3 +1,0 @@
-id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-access_recording_subkind_user,name_recording_subkind_user,model_recording_subkind,recording.group_user,1,0,0,0
-access_recording_subkind_manager,name_recording_subkind_manager,model_recording_subkind,recording.group_manager,1,1,1,0

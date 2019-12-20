@@ -1,0 +1,112 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* recording_genre
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-18 20:57+0000\n"
+"PO-Revision-Date: 2019-12-18 15:58-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Type: Odoo Server 12.0\n"
+"MIME-Type: 1.0\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: recording_genre
+#: model_terms:ir.ui.view,arch_db:recording_genre.recording_genre_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__create_uid
+msgid "Created by"
+msgstr "Crée par"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__create_date
+msgid "Created on"
+msgstr "Crée le"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__id
+msgid "ID"
+msgstr "ID"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording__genre_id
+#: model_terms:ir.ui.view,arch_db:recording_genre.recording_form_with_genre
+msgid "Genre"
+msgstr "Genre"
+
+#. module: recording_genre
+#: model:ir.model,name:recording_genre.model_recording_genre
+msgid "Genre of Recording"
+msgstr "Genre d'enregistrement"
+
+#. module: recording_genre
+#: model:ir.ui.menu,name:recording_genre.menu_config_recording_genre
+msgid "Genres"
+msgstr "Genres"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: recording_genre
+#: model_terms:ir.ui.view,arch_db:recording_genre.recording_genre_form
+msgid "Record Genre"
+msgstr "Genre d'enregistrement"
+
+#. module: recording_genre
+#: model:ir.actions.act_window,name:recording_genre.action_recording_genre
+#: model_terms:ir.ui.view,arch_db:recording_genre.recording_genre_list
+msgid "Record Genres"
+msgstr "Genres d'enregistrements"
+
+#. module: recording_genre
+#: model:ir.model,name:recording_genre.model_recording
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: recording_genre
+#: model_terms:ir.ui.view,arch_db:recording_genre.recording_genre_search
+msgid "Search Record Genres"
+msgstr "Chercher des genres d'enregistrements"
+
+#. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording_genre__sequence
+msgid "Sequence"
+msgstr "Séquence"

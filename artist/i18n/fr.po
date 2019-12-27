@@ -300,6 +300,10 @@ msgstr "Retard"
 
 #. module: artist
 #: model:ir.model.fields,field_description:artist.field_artist__partner_id
+msgid "Company"
+msgstr "Société"
+
+#. module: artist
 #: model:ir.model.fields,field_description:artist.field_artist_member__partner_id
 msgid "Partner"
 msgstr "Partenaire"

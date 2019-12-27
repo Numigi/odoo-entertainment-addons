@@ -78,6 +78,7 @@
         <field name="arch" type="xml">
             <search string="Search Artists">
                 <field name="name"/>
+                <field name="partner_id"/>
                 <field name="member_ids" filter_domain="[('member_ids.partner_id', 'ilike', self)]"/>
                 <field name="tag_ids"/>
                 <separator/>

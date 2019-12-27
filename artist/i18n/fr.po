@@ -49,7 +49,7 @@ msgstr "Archivé"
 
 #. module: artist
 #: model:ir.model,name:artist.model_artist
-#: model:ir.model.fields,field_description:artist.field_artist_member__artist_id
+#: model:ir.model.fields,field_description:artist.field_artist_member__artist_name
 #: model_terms:ir.ui.view,arch_db:artist.artist_form
 msgid "Artist"
 msgstr "Artiste"

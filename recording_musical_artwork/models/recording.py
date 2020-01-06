@@ -11,4 +11,5 @@ class RecordingMusicalArtwork(models.Model):
     musical_artwork_id = fields.Many2one(
         'musical.artwork',
         ondelete='restrict',
+        string='Related Artwork',
     )

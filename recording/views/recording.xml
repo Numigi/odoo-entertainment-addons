@@ -63,7 +63,7 @@
                                 attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
                                 />
                             <field name="duration" widget="float_time"
-                                attrs="{'invisible': [('ttype', 'not in', ('sound', 'video'))], 'required': [('ttype', 'in', ('sound', 'video'))]}"
+                                attrs="{'invisible': [('ttype', '!=', 'sound')], 'required': [('ttype', '=', 'sound')]}"
                             />
                             <field name="group_duration" widget="float_time" string="Duration"
                                 attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"

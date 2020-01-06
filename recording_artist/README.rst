@@ -55,6 +55,8 @@ This section allows to define:
 
 .. image:: static/description/recording_form_view.png
 
+This field ``Record Company`` is only visible for recordings of type ``Sound`` and ``Group``.
+
 Contributors
 ------------
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)

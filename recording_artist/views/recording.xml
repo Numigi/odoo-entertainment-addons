@@ -10,7 +10,7 @@
                 <group name="artist" string="Artist">
                     <field name="artist_id"/>
                     <field name="secondary_artist_id"/>
-                    <field name="record_company_id"/>
+                    <field name="record_company_id" attrs="{'invisible': [('ttype', 'not in', ('sound', 'group'))]}"/>
                 </group>
             </div>
         </field>

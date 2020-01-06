@@ -21,6 +21,8 @@ On the form view of a recording, a field is added to select the genre of recordi
 
 .. image:: static/description/recording_form.png
 
+This field is only visible for recordings of type ``Sound`` and ``Group``.
+
 Contributors
 ------------
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)

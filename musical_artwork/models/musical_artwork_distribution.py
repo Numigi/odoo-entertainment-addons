@@ -115,7 +115,7 @@ class MusicalArtworkDistributionTrackedLines(models.Model):
         super().write(vals)
         if 'line_ids' in vals:
             for line in self:
-                self._log_new_distribution()
+                line._log_new_distribution()
         return True
 
     def _log_initial_distribution(self):

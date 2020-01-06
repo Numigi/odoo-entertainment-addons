@@ -160,7 +160,7 @@ msgstr "Nombre de clés de répartition"
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__total_distribution_key
 msgid "Distribution Key Total"
-msgstr "Total des clés de répartition"
+msgstr "Total de la clé de répartition"
 
 #. module: musical_artwork
 #: model:ir.actions.act_window,name:musical_artwork.action_musical_artwork_distribution
@@ -168,7 +168,7 @@ msgstr "Total des clés de répartition"
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_list
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Distribution Keys"
-msgstr "Clés de distribution"
+msgstr "Clés de répartition"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__distribution_table_html
@@ -314,7 +314,7 @@ msgstr "Géré"
 #. module: musical_artwork
 #: model:ir.module.category,description:musical_artwork.module_category_musical_artwork_distribution
 msgid "Management of musical artwork distribution details"
-msgstr "Gestion de la distribution des œuvres musicales."
+msgstr "Gestion des clés de répartitions des œuvres musicales."
 
 #. module: musical_artwork
 #: model:res.groups,name:musical_artwork.group_musical_artwork_distribution_manager
@@ -345,12 +345,12 @@ msgstr "Œuvre musicale"
 #: model:ir.model,name:musical_artwork.model_musical_artwork_distribution
 #: model:ir.module.category,name:musical_artwork.module_category_musical_artwork_distribution
 msgid "Musical Artwork Distribution"
-msgstr "Distribution d'œuvres musicale"
+msgstr "Clés de répartition des œuvres musicale"
 
 #. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork_distribution_line
 msgid "Musical Artwork Distribution Line"
-msgstr "Ligne de distribution d'œuvres musicale"
+msgstr "Ligne de clé de répartition d'œuvres musicale"
 
 #. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork_external_catalogue_reference
@@ -485,7 +485,7 @@ msgstr "Rôle"
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_search
 msgid "Search Distribution Keys"
-msgstr "Recherche de clés de distribution"
+msgstr "Recherche de clés de répartition"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search

@@ -40,7 +40,9 @@
                                 <field name="member_ids" nolabel="1" colspan="2">
                                     <tree editable="bottom">
                                         <field name="sequence" widget="handle"/>
-                                        <field name="partner_id"/>
+                                        <field name="partner_id"
+                                               domain="[('is_artist', '=', 'True')]"
+                                               />
                                         <field name="role_id"/>
                                         <field name="date_from"/>
                                         <field name="date_to"/>

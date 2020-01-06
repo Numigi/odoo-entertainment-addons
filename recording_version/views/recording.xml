@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
             <field name="group_duration" position="after">
-                <field name="version_id"/>
+                <field name="version_id" attrs="{'invisible': [('ttype', 'not in', ('sound', 'group'))]}"/>
             </field>
         </field>
     </record>

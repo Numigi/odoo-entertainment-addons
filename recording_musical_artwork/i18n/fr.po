@@ -24,7 +24,6 @@ msgstr "Clés de répartition"
 
 #. module: recording_musical_artwork
 #: model:ir.model,name:recording_musical_artwork.model_musical_artwork
-#: model:ir.model.fields,field_description:recording_musical_artwork.field_recording__musical_artwork_id
 msgid "Musical Artwork"
 msgstr "Œuvre musicale"
 
@@ -44,6 +43,11 @@ msgstr "Enregistrement"
 #: model:ir.model.fields,field_description:recording_musical_artwork.field_musical_artwork__recording_ids
 msgid "Recordings"
 msgstr "Enregistrements"
+
+#. module: recording_musical_artwork
+#: model:ir.model.fields,field_description:recording_musical_artwork.field_recording__musical_artwork_id
+msgid "Related Artwork"
+msgstr "Œuvre liée"
 
 #. module: recording_musical_artwork
 #: model:ir.model.fields,field_description:recording_musical_artwork.field_musical_artwork__related_recording_count

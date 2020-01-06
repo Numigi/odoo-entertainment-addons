@@ -65,3 +65,22 @@ class TestMusicalArtworkDistribution(SavepointCase):
     def test_musical_artwork_count(self):
         self.distribution.copy({})
         assert self.artwork.distribution_key_count == 2
+
+    def test_distribution_table_html__partner(self):
+        assert self.partner.display_name in self.distribution.distribution_table_html
+
+    def test_distribution_table_html__role(self):
+        assert self.role.display_name in self.distribution.distribution_table_html
+
+    def test_distribution_table_html__percentage(self):
+        assert "100.00" in self.distribution.distribution_table_html
+
+    def test_distribution_table_html__is_managed(self):
+        self.distribution.line_ids.is_managed = True
+        assert "Yes" in self.distribution.distribution_table_html
+        assert "No" not in self.distribution.distribution_table_html
+
+    def test_distribution_table_html__is_not_managed(self):
+        self.distribution.line_ids.is_managed = False
+        assert "Yes" not in self.distribution.distribution_table_html
+        assert "No" in self.distribution.distribution_table_html

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-11 16:41+0000\n"
-"PO-Revision-Date: 2019-12-11 11:49-0500\n"
+"POT-Creation-Date: 2020-01-06 20:56+0000\n"
+"PO-Revision-Date: 2020-01-06 15:57-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -58,6 +58,11 @@ msgstr "Artiste"
 #: model:ir.model,name:artist.model_artist_member
 msgid "Artist Member"
 msgstr "Membre (artistes)"
+
+#. module: artist
+#: model_terms:ir.ui.view,arch_db:artist.artist_form
+msgid "Artist Name"
+msgstr "Nom de l'artiste"
 
 #. module: artist
 #: model:ir.model,name:artist.model_artist_role

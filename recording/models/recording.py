@@ -21,28 +21,42 @@ class Recording(models.Model):
     _description = 'Recording'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    name = fields.Char(required=True, string="Title")
-    active = fields.Boolean(default=True)
+    name = fields.Char(
+        required=True, string="Title",
+        track_visibility="onchange",
+    )
+    active = fields.Boolean(
+        default=True,
+        track_visibility="onchange",
+    )
 
     company_id = fields.Many2one(
         'res.company', 'Company',
-        default=lambda s: s.env.user.company_id
+        default=lambda s: s.env.user.company_id,
     )
 
     ttype = fields.Selection(
         RECORDING_TYPES,
         string='Type of Recording',
         required=True,
+        track_visibility="onchange",
     )
 
-    duration = fields.Float()
+    duration = fields.Float(
+        track_visibility="onchange",
+    )
 
-    production_start_date = fields.Date()
-    release_date = fields.Date()
+    production_start_date = fields.Date(
+        track_visibility="onchange",
+    )
+    release_date = fields.Date(
+        track_visibility="onchange",
+    )
 
     publication_country_id = fields.Many2one(
         'res.country',
         string='Place of Publication',
+        track_visibility="onchange",
     )
 
     note = fields.Text()
@@ -68,8 +82,13 @@ class RecordingVideo(models.Model):
 
     _inherit = 'recording'
 
-    sound_recording_id = fields.Many2one('recording')
-    filming_location = fields.Char()
+    sound_recording_id = fields.Many2one(
+        'recording',
+        track_visibility="onchange",
+    )
+    filming_location = fields.Char(
+        track_visibility="onchange",
+    )
 
 
 class RecordingGroup(models.Model):

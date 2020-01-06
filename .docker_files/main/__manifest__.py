@@ -19,6 +19,7 @@
         'recording_contributor',
         'recording_genre',
         'recording_lang',
+        'recording_musical_artwork',
         'recording_subgenre',
         'recording_tag',
         'recording_url_link',

@@ -40,17 +40,30 @@ class MusicalArtworkLanguage(models.Model):
 
 class MusicalArtwork(models.Model):
     _name = 'musical.artwork'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'Musical Artwork'
     _rec_name = 'title'
 
     company_id = fields.Many2one(
         'res.company', 'Company',
-        default=lambda s: s.env.user.company_id
+        default=lambda s: s.env.user.company_id,
     )
-    title = fields.Char(required=True)
-    active = fields.Boolean(default=True)
-    iswc = fields.Char('ISWC', required=True)
-    catalogue_reference = fields.Char(required=True)
+    title = fields.Char(
+        required=True,
+        track_visibility="onchange",
+    )
+    active = fields.Boolean(
+        default=True,
+        track_visibility="onchange",
+    )
+    iswc = fields.Char(
+        'ISWC', required=True,
+        track_visibility="onchange",
+    )
+    catalogue_reference = fields.Char(
+        required=True,
+        track_visibility="onchange",
+    )
     external_catalogue_reference_ids = fields.One2many(
         'musical.artwork.external.catalogue.reference',
         'musical_artwork_id',

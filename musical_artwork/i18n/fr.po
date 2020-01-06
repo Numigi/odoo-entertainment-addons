@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-19 22:08+0000\n"
-"PO-Revision-Date: 2019-12-19 17:10-0500\n"
+"POT-Creation-Date: 2020-01-06 17:28+0000\n"
+"PO-Revision-Date: 2020-01-06 12:32-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,6 +16,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
 "X-Generator: Poedit 2.0.6\n"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.distribution_table_html_template
+msgid "<span>Managed</span>"
+msgstr "<span>Géré</span>"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.distribution_table_html_template
+msgid "<span>Partner</span>"
+msgstr "<span>Partenaire</span>"
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.distribution_table_html_template
+msgid "<span>Role</span>"
+msgstr "<span>Rôle</span>"
 
 #. module: musical_artwork
 #: sql_constraint:musical.artwork.language:0
@@ -32,11 +47,29 @@ msgstr ""
 "qu'à une seule œuvre."
 
 #. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_needaction
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_needaction
+msgid "Action Needed"
+msgstr "Action requise"
+
+#. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__active
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__active
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__active
 msgid "Active"
 msgstr "Actif"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__activity_ids
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__activity_ids
+msgid "Activities"
+msgstr "Activités"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__activity_state
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__activity_state
+msgid "Activity State"
+msgstr "État d'activité"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_distribution_search
@@ -49,6 +82,12 @@ msgstr "Archivé"
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Artist"
 msgstr "Artiste"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_attachment_count
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_attachment_count
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__catalogue_reference
@@ -104,6 +143,7 @@ msgstr "Nom affiché"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__distribution_id
+#: model_terms:ir.ui.view,arch_db:musical_artwork.initial_distribution_message_template
 msgid "Distribution"
 msgstr "Répartition"
 
@@ -131,9 +171,32 @@ msgid "Distribution Keys"
 msgstr "Clés de distribution"
 
 #. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__distribution_table_html
+msgid "Distribution Table Html"
+msgstr "Table de répartition HTML"
+
+#. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__external_catalogue_reference_ids
 msgid "External Catalogue References"
 msgstr "Références de catalogue externe"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_follower_ids
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_channel_ids
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_partner_ids
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
 
 #. module: musical_artwork
 #: model:res.groups,comment:musical_artwork.group_musical_artwork_distribution_manager
@@ -161,6 +224,30 @@ msgstr "ID"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__iswc
 msgid "ISWC"
 msgstr "ISWC"
+
+#. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__message_unread
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__message_unread
+msgid "If checked new messages require your attention."
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__message_needaction
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__message_has_error
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_is_follower
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_is_follower
+msgid "Is Follower"
+msgstr ""
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__language_id
@@ -214,6 +301,12 @@ msgid "Lyrics"
 msgstr "Paroles"
 
 #. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_main_attachment_id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__is_managed
 msgid "Managed"
 msgstr "Géré"
@@ -229,11 +322,22 @@ msgid "Manager"
 msgstr "Gestionnaire"
 
 #. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_has_error
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_ids
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__musical_artwork_id
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__musical_artwork_id
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__musical_artwork_id
-#, fuzzy
 msgid "Musical Artwork"
 msgstr "Œuvre musicale"
 
@@ -283,6 +387,70 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.new_distribution_message_template
+msgid "New Distribution"
+msgstr "Nouvelle répartition"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__activity_date_deadline
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__activity_summary
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__activity_type_id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.distribution_table_html_template
+msgid "No"
+msgstr "Non"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_needaction_counter
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_has_error_counter
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_has_error_counter
+msgid "Number of error"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__message_needaction_counter
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__message_has_error_counter
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__message_unread_counter
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: musical_artwork
+#: selection:musical.artwork,activity_state:0
+#: selection:musical.artwork.distribution,activity_state:0
+msgid "Overdue"
+msgstr ""
+
+#. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__partner_id
 msgid "Partner"
 msgstr "Partenaire"
@@ -293,9 +461,21 @@ msgid "Partners"
 msgstr "Partenaires"
 
 #. module: musical_artwork
+#: selection:musical.artwork,activity_state:0
+#: selection:musical.artwork.distribution,activity_state:0
+msgid "Planned"
+msgstr "Planifié"
+
+#. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__name
 msgid "Reference"
 msgstr "Référence"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__activity_user_id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__activity_user_id
+msgid "Responsible User"
+msgstr ""
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__role_id
@@ -326,12 +506,22 @@ msgid "Sequence"
 msgstr "Séquence"
 
 #. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__activity_state
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: musical_artwork
 #: sql_constraint:musical.artwork:0
 msgid "The catalogue reference has to be unique."
 msgstr "Cette référence de catalogue doit être unique."
 
 #. module: musical_artwork
-#: code:addons/musical_artwork/models/musical_artwork_distribution.py:68
+#: code:addons/musical_artwork/models/musical_artwork_distribution.py:77
 #, python-format
 msgid ""
 "The sum of the distribution key lines is not equal to 100. The distribution "
@@ -345,3 +535,26 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Title"
 msgstr "Titre"
+
+#. module: musical_artwork
+#: selection:musical.artwork,activity_state:0
+#: selection:musical.artwork.distribution,activity_state:0
+msgid "Today"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_unread
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_unread_counter
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: musical_artwork
+#: model_terms:ir.ui.view,arch_db:musical_artwork.distribution_table_html_template
+msgid "Yes"
+msgstr "Oui"

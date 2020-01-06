@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="initial_distribution_message_template">
+        <h4>Distribution</h4>
+        <div t-field="distribution.distribution_table_html"/>
+    </template>
+
+    <template id="new_distribution_message_template">
+        <h4>New Distribution</h4>
+        <div t-field="distribution.distribution_table_html"/>
+    </template>
+
+    <template id="distribution_table_html_template">
+        <table class="col-xl-8 col-xs-12">
+            <thead>
+                <tr>
+                    <th>
+                        <span>Partner</span>
+                    </th>
+                    <th>
+                        <span>Role</span>
+                    </th>
+                    <th>
+                        <span>%</span>
+                    </th>
+                    <th>
+                        <span>Managed</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr t-foreach="distribution.line_ids" t-as="line">
+                    <td>
+                        <span t-field="line.partner_id.display_name"/>
+                    </td>
+                    <td>
+                        <span t-field="line.role_id.display_name"/>
+                    </td>
+                    <td>
+                        <span t-field="line.percentage"/>
+                    </td>
+                    <td>
+                        <span t-if="line.is_managed">Yes</span>
+                        <span t-if="not line.is_managed">No</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+
+</odoo>

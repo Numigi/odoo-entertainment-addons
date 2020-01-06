@@ -22,6 +22,7 @@
         'views/musical_artwork.xml',
         'views/musical_artwork_distribution.xml',
         'views/musical_artwork_role.xml',
+        'views/templates.xml',
     ],
     'demo': [
         'demo/musical_artwork_role.xml',

@@ -23,7 +23,9 @@
                     </div>
                     <group>
                         <group name="group_1">
-                            <field name="partner_id"/>
+                            <field name="partner_id"
+                                   domain="[('is_company', '=', True)]"
+                                   />
                             <field name="isni"/>
                             <field name="website" widget="url"/>
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>

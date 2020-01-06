@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-recording_company_user_access,Recording / User: Access Recording Companies,model_recording_company,recording.group_user,1,0,0,0
-recording_company_manager_access,Recording / Manager: Access Recording Companies,model_recording_company,recording.group_manager,1,1,1,1
+artist_member_user_access,Recording / User: Artist Members,artist.model_artist_member,recording.group_user,1,1,1,0
+artist_role_manager_access,Recording / Manager: Artist Roles,artist.model_artist_role,recording.group_manager,1,1,1,0
+artist_tag_manager_access,Recording / Manager: Artist Tags,artist.model_artist_tag,recording.group_manager,1,1,1,0
+artist_user_access,Recording / User: Artists,artist.model_artist,recording.group_user,1,1,1,0
+recording_company_manager_access,Recording / Manager: Recording Companies,model_recording_company,recording.group_manager,1,1,1,0
+recording_company_user_access,Recording / User: Recording Companies,model_recording_company,recording.group_user,1,0,0,0

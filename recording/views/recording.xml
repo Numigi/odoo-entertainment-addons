@@ -69,9 +69,6 @@
                                 attrs="{'invisible': [('ttype', '!=', 'group')], 'required': [('ttype', '=', 'group')]}"
                                 />
                             <field name="production_start_date"/>
-                            <field name="release_date"
-                                attrs="{'required': [('ttype', '=', 'group')]}"
-                                />
                             <field name="filming_location"
                                 attrs="{'invisible': [('ttype', '!=', 'video')]}"
                                 />

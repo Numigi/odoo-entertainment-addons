@@ -49,9 +49,6 @@ class Recording(models.Model):
     production_start_date = fields.Date(
         track_visibility="onchange",
     )
-    release_date = fields.Date(
-        track_visibility="onchange",
-    )
 
     publication_country_id = fields.Many2one(
         'res.country',

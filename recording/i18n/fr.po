@@ -345,11 +345,6 @@ msgid "Related Videos"
 msgstr "Vidéos liés"
 
 #. module: recording
-#: model:ir.model.fields,field_description:recording.field_recording__release_date
-msgid "Release Date"
-msgstr "Date de sortie"
-
-#. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__activity_user_id
 msgid "Responsible User"
 msgstr "Responsable"

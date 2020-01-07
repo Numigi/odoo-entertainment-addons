@@ -17,6 +17,7 @@
         <field name="arch" type="xml">
             <tree string="Recordings">
                 <field name="name"/>
+                <field name="ttype"/>
                 <field name="number_of_tracks" string="Related Recordings"/>
                 <field name="group_type" string="Group Type"/>
             </tree>

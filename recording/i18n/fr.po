@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-18 20:36+0000\n"
-"PO-Revision-Date: 2019-12-18 15:50-0500\n"
+"POT-Creation-Date: 2020-01-07 21:16+0000\n"
+"PO-Revision-Date: 2020-01-07 16:17-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -395,6 +395,7 @@ msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__name
+#: model_terms:ir.ui.view,arch_db:recording.recording_form
 msgid "Title"
 msgstr "Titre"
 

@@ -1,7 +1,8 @@
 # © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
+from ..isrc import check_isrc_code
 
 
 class RecordingOtherISRC(models.Model):
@@ -22,3 +23,8 @@ class RecordingOtherISRC(models.Model):
         required=True,
     )
     notes = fields.Text()
+
+    @api.constrains('isrc')
+    def _check_isrc(self):
+        for line in self:
+            check_isrc_code(line.isrc, line._context)

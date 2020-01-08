@@ -6,7 +6,7 @@
         <field name="model">recording</field>
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//page[1]" position="before">
+            <page name="marketing" position="after">
                 <page name="contributors" string="Credits and Contributors">
                     <group>
                         <group name="contributors_group_1">
@@ -25,7 +25,7 @@
                         </tree>
                     </field>
                 </page>
-            </xpath>
+            </page>
         </field>
     </record>
 

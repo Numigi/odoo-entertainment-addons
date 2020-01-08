@@ -2,6 +2,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo import api, fields, models
+from ..isrc import check_isrc_code
 
 SOUND = 'sound'
 VIDEO = 'video'
@@ -40,6 +41,7 @@ class Recording(models.Model):
         string='Type of Recording',
         required=True,
         track_visibility="onchange",
+        default=SOUND,
     )
 
     duration = fields.Float(
@@ -65,8 +67,6 @@ class Recording(models.Model):
     upc = fields.Char('UPC')
     upc_packshot = fields.Char('UPC Packshot')
 
-    isrc = fields.Char('ISRC', size=12)
-
     commercial_territory_id = fields.Many2one(
         'res.country.group',
         'Commercial Territory',
@@ -81,11 +81,24 @@ class Recording(models.Model):
         'External Catalog References',
     )
 
+
+class RecordingWithISRC(models.Model):
+
+    _inherit = 'recording'
+
+    isrc = fields.Char('ISRC', size=12)
+
     other_isrc_ids = fields.One2many(
         'recording.other.isrc',
         'recording_id',
         'Other ISRC',
     )
+
+    @api.constrains('isrc')
+    def _check_isrc(self):
+        records_with_isrc = self.filtered(lambda r: r.isrc)
+        for record in records_with_isrc:
+            check_isrc_code(record.isrc, record._context)
 
 
 class RecordingSound(models.Model):

@@ -1,0 +1,53 @@
+# © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+
+import pytest
+from odoo.exceptions import ValidationError
+from odoo.tests.common import SavepointCase
+from ..isrc import check_isrc_code
+
+
+@pytest.mark.parametrize('code', [
+    '@',
+    '*',
+    '_',
+    '-',
+    ' ',
+])
+def test_no_special_caracters(code):
+    with pytest.raises(ValidationError):
+        check_isrc_code(code, {})
+
+
+@pytest.mark.parametrize('code', [
+    'USRC17607839',
+])
+def test_valid_code_does_not_raise_error(code):
+    check_isrc_code(code, {})
+
+
+class TestRecording(SavepointCase):
+
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+
+        cls.record = cls.env['recording'].create({
+            'name': 'Sound 1',
+            'type': 'sound',
+        })
+
+    def test_on_write__if_wrong_isrc__error_raised(self):
+        with pytest.raises(ValidationError):
+            self.record.isrc = '@wrong'
+
+    def test_on_write__if_wrong_other_isrc__error_raised(self):
+        with pytest.raises(ValidationError):
+            self._add_other_isrc(self.record, '@wrong')
+
+    def _add_other_isrc(self, recording, code):
+        self.env['recording.other.isrc'].create({
+            'recording_id': recording.id,
+            'isrc': code,
+            'partner_id': self.env['res.partner'].search([], limit=1).id,
+        })

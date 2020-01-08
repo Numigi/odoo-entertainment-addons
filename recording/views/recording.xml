@@ -89,7 +89,7 @@
                                         />
                                     <field name="upc"/>
                                     <field name="upc_packshot"
-                                        attrs="{'invisible': [('ttype', '=', 'group')]}"
+                                        attrs="{'invisible': [('ttype', '!=', 'sound')]}"
                                         />
                                     <field name="isrc"
                                         attrs="{'invisible': [('ttype', '=', 'group')]}"

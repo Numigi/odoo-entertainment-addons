@@ -2,7 +2,6 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 import pytest
-from ddt import ddt, data, unpack
 from odoo.exceptions import ValidationError
 from odoo.tests.common import SavepointCase
 from ..isrc import check_isrc_code
@@ -27,7 +26,6 @@ def test_valid_code_does_not_raise_error(code):
     check_isrc_code(code, {})
 
 
-@ddt
 class TestRecording(SavepointCase):
 
     @classmethod

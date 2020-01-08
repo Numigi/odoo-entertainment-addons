@@ -26,6 +26,16 @@ def test_valid_code_does_not_raise_error(code):
     check_isrc_code(code, {})
 
 
+
+@pytest.mark.parametrize('code', [
+    'ABCD1234567',
+    'ABCD123456789',
+])
+def test_code_must_have_12_chars(code):
+    with pytest.raises(ValidationError):
+        check_isrc_code(code, {})
+
+
 class TestRecording(SavepointCase):
 
     @classmethod

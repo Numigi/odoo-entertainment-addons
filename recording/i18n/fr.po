@@ -490,6 +490,14 @@ msgstr ""
 "des chiffres. Aucun caractère spécial n'est autorisé."
 
 #. module: recording
+#: code:addons/recording/isrc.py:10
+#, python-format
+msgid ""
+"The given ISRC ({}) is invalid. It must have exactly 12 caracters."
+msgstr ""
+"Le code ISRC ({}) est invalide. Il doit contenir exactement 12 caractères."
+
+#. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__name
 #: model_terms:ir.ui.view,arch_db:recording.recording_form
 msgid "Title"

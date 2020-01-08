@@ -135,7 +135,7 @@ msgstr "Catalogues externes"
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__filming_location
 msgid "Filming Location"
-msgstr "Emplacement de tournage"
+msgstr "Lieu de tournage"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__message_follower_ids

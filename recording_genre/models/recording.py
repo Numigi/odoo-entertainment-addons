@@ -12,3 +12,5 @@ class Recording(models.Model):
         'recording.genre',
         ondelete='restrict',
     )
+
+    explicit_content = fields.Boolean()

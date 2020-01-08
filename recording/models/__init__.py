@@ -3,5 +3,7 @@
 
 from . import (
     recording,
+    recording_external_catalog_reference,
+    recording_other_isrc,
     recording_track,
 )

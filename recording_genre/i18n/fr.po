@@ -45,6 +45,11 @@ msgid "Display Name"
 msgstr "Nom"
 
 #. module: recording_genre
+#: model:ir.model.fields,field_description:recording_genre.field_recording__explicit_content
+msgid "Explicit Content"
+msgstr "Contenu explicite"
+
+#. module: recording_genre
 #: model:ir.model.fields,field_description:recording_genre.field_recording_genre__id
 msgid "ID"
 msgstr "ID"

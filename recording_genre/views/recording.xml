@@ -10,6 +10,7 @@
                 <group name="genre" string="Genre"
                     attrs="{'invisible': [('ttype', 'not in', ('sound', 'group'))]}"
                     >
+                    <field name="explicit_content"/>
                     <field name="genre_id"/>
                 </group>
             </div>

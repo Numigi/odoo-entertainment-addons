@@ -58,6 +58,35 @@ class Recording(models.Model):
 
     note = fields.Text()
 
+    release_date = fields.Date(
+        track_visibility="onchange",
+    )
+
+    upc = fields.Char('UPC')
+    upc_packshot = fields.Char('UPC Packshot')
+
+    isrc = fields.Char('ISRC', size=12)
+
+    commercial_territory_id = fields.Many2one(
+        'res.country.group',
+        'Commercial Territory',
+        ondelete='restrict',
+    )
+
+    catalogue_reference = fields.Char()
+
+    external_catalog_reference_ids = fields.One2many(
+        'recording.external.catalog.reference',
+        'recording_id',
+        'External Catalog References',
+    )
+
+    other_isrc_ids = fields.One2many(
+        'recording.other.isrc',
+        'recording_id',
+        'Other ISRC',
+    )
+
 
 class RecordingSound(models.Model):
 

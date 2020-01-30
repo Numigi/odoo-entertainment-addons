@@ -57,11 +57,10 @@ class MusicalArtwork(models.Model):
         track_visibility="onchange",
     )
     iswc = fields.Char(
-        'ISWC', required=True,
+        'ISWC',
         track_visibility="onchange",
     )
     catalogue_reference = fields.Char(
-        required=True,
         track_visibility="onchange",
     )
     external_catalogue_reference_ids = fields.One2many(

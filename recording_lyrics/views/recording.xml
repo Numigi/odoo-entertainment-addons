@@ -7,17 +7,18 @@
         <field name="inherit_id" ref="recording.recording_form"/>
         <field name="arch" type="xml">
             <page name="tracks" position="before">
-                <page name="lyrics" string="Lyrics" attrs="{'invisible': [('ttype', '!=', 'sound')]}">
+                <page name="lyrics" string="Lyrics" attrs="{'invisible': [('ttype', 'not in', ('sound', 'video'))]}">
                     <group>
                         <group>
-                            <field name="lyrics_language_ids" nolabel="1">
+                            <field name="language_ids" nolabel="1" attrs="{'readonly': [('ttype', '=', 'video')]}">
                                 <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
                                     <field name="language_id"/>
-                                    <field name="rate" string="%"/>
+                                    <field name="percentage" string="%"/>
                                 </tree>
                             </field>
                         </group>
-                        <field name="lyrics" nolabel="1" colspan="2"/>
+                        <field name="lyrics" nolabel="1" colspan="2" attrs="{'readonly': [('ttype', '=', 'video')]}"/>
                     </group>
                 </page>
             </page>

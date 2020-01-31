@@ -9,10 +9,11 @@ class RecordLanguageRate(models.Model):
     _name = 'recording.language.rate'
     _description = 'Language Rate (Recording)'
 
+    sequence = fields.Integer()
     recording_id = fields.Many2one(
         'recording', ondelete='restrict', required=True,
     )
     language_id = fields.Many2one(
         'recording.language', ondelete='restrict', required=True,
     )
-    rate = fields.Float(required=True, default=100)
+    percentage = fields.Integer("%", required=True)

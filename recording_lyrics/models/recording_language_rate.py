@@ -11,7 +11,7 @@ class RecordLanguageRate(models.Model):
 
     sequence = fields.Integer()
     recording_id = fields.Many2one(
-        'recording', ondelete='restrict', required=True,
+        'recording', ondelete='cascade', required=True, index=True,
     )
     language_id = fields.Many2one(
         'recording.language', ondelete='restrict', required=True,

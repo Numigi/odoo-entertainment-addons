@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-11 22:33+0000\n"
-"PO-Revision-Date: 2019-12-11 17:36-0500\n"
+"POT-Creation-Date: 2020-01-31 14:57+0000\n"
+"PO-Revision-Date: 2020-01-31 09:58-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -48,7 +48,7 @@ msgid "Language Rate (Recording)"
 msgstr "Proportion de langues (sur enregistrement)"
 
 #. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording__lyrics_language_ids
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording__language_ids
 msgid "Languages"
 msgstr "Langues"
 
@@ -74,12 +74,12 @@ msgid "Lyrics"
 msgstr "Paroles"
 
 #. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__rate
-msgid "Rate"
-msgstr "Proportion"
-
-#. module: recording_lyrics
 #: model:ir.model,name:recording_lyrics.model_recording
 #: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__recording_id
 msgid "Recording"
 msgstr "Enregistrement"
+
+#. module: recording_lyrics
+#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__sequence
+msgid "Sequence"
+msgstr "Séquence"

@@ -108,6 +108,7 @@ class RecordingSound(models.Model):
     video_recording_ids = fields.One2many(
         'recording',
         'sound_recording_id',
+        'Video Recordings',
     )
     related_video_count = fields.Integer(
         compute='_compute_related_video_count'

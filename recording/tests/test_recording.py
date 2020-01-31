@@ -47,6 +47,10 @@ class TestRecording(SavepointCase):
         self.video_1.sound_recording_id = self.sound_1
         assert self.sound_1.related_video_count == 1
 
+    def test_number_of_related_group(self):
+        self.video_1.sound_recording_id = self.sound_1
+        assert self.sound_1.related_group_count == 1
+
     def test_number_of_tracks(self):
         assert self.group_1.number_of_tracks == 2
 

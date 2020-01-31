@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
 
+    <record id="related_group_recordings_action" model="ir.actions.act_window">
+        <field name="name">Related Groups</field>
+        <field name="res_model">recording</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            ('track_ids.recording_id', '=', context.get('active_id')),
+            ('ttype', '=', 'group'),
+        ]</field>
+    </record>
+
     <record id="related_video_recordings_action" model="ir.actions.act_window">
         <field name="name">Related Videos</field>
         <field name="res_model">recording</field>
@@ -33,6 +43,12 @@
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
+                        <button name="%(related_group_recordings_action)d" type="action"
+                            class="oe_stat_button" icon="fa-play-circle-o"
+                            attrs="{'invisible': [('ttype', '!=', 'sound')]}"
+                            >
+                            <field string="Related Groups" name="related_group_count" widget="statinfo"/>
+                        </button>
                         <button name="%(related_video_recordings_action)d" type="action"
                             class="oe_stat_button" icon="fa-file-video-o"
                             attrs="{'invisible': [('ttype', '!=', 'sound')]}"

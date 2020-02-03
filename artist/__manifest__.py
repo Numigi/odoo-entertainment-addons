@@ -22,4 +22,7 @@
         'views/artist_tag.xml',
     ],
     'installable': True,
+    'demo': [
+        'demo/artist.xml',
+    ]
 }

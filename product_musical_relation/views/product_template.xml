@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_musical_relation" model="ir.ui.view">
+        <field name="name">Product Musical Relation</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <notebook position="before">
+                <group>
+                    <group col="3">
+                        <field name="musical_relation"/>
+                        <field name="recording_id"
+                               domain="[('ttype', '=', musical_relation)]"
+                               attrs="{
+                                   'readonly': ['|', ('musical_relation', '=', False), ('is_product_variant', '=', True)],
+                                   'required': [('musical_relation', '!=', False), ('is_product_variant', '=', False)],
+                               }"
+                               force_save="1"
+                               nolabel="1"
+                        />
+                        <field name="artist_id"
+                               attrs="{'readonly': ['|', ('recording_id', '!=', False), ('is_product_variant', '=', True)]}"
+                               force_save="1"
+                        />
+                    </group>
+                </group>
+            </notebook>
+            <group name="group_general" position="inside">
+                <field name="catalogue_reference" string="Internal Catalog"
+                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <label for="external_catalog_reference_ids" string="External Catalogs"
+                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <field name="external_catalog_reference_ids" nolabel="1"
+                    attrs="{'invisible': [('recording_id', '=', False)]}">
+                    <tree editable="top">
+                        <field name="sequence" widget="handle"/>
+                        <field name="code"/>
+                    </tree>
+                </field>
+            </group>
+            <group name="group_standard_price" position="inside">
+                <field name="recording_release_date"
+                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <field name="sale_date"/>
+                <field name="commercialization_date"/>
+            </group>
+        </field>
+    </record>
+
+    <menuitem
+            id="menu_recording_product"
+            name="Products"
+            parent="recording.menu_recording_root"
+            action="product.product_template_action_all"
+            sequence="200"
+    />
+
+</odoo>

@@ -2,27 +2,22 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Recording Artist',
+    'name': 'Product Musical Relation',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
     'category': 'Entertainment',
-    'summary': 'Add artists to the recording application',
+    'summary': 'Add relation between product and records.',
     'depends': [
-        'artist',
         'recording',
+        'artist',
+        'product',
     ],
     'data': [
-        'security/ir.model.access.csv',
-        'views/recording.xml',
-        'views/recording_company.xml',
-        'views/menu.xml',
+        "views/product_template.xml",
+        "views/recording.xml",
     ],
     'installable': True,
-    'auto_install': True,
-    'demo': [
-        'demo/artist.xml',
-    ]
 }

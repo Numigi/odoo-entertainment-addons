@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="record.record_sound" model="recording">
+        <field name="artist_id" ref="artist.artists1"/>
+    </record>
+    <record id="record.record_group" model="recording">
+        <field name="artist_id" ref="artist.artists2"/>
+    </record>
+</odoo>

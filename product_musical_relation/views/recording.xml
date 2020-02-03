@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_related_products_action" model="ir.actions.act_window">
+        <field name="name">Related Products</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[
+            ('recording_id', '=', context.get('active_id')),
+        ]
+        </field>
+    </record>
+
+    <record id="recording_form_with_related_products" model="ir.ui.view">
+        <field name="name">Recording Form: add related products smart button</field>
+        <field name="model">recording</field>
+        <field name="inherit_id" ref="recording.recording_form"/>
+        <field name="arch" type="xml">
+            <button name="toggle_active" position="before">
+                <button name="%(recording_related_products_action)d"
+                        type="action"
+                        class="oe_stat_button"
+                        icon="fa-shopping-cart">
+                    <field string="Related Products"
+                           name="related_product_count"
+                           widget="statinfo"/>
+                </button>
+            </button>
+        </field>
+    </record>
+
+</odoo>

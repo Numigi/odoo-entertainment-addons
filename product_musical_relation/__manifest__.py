@@ -17,7 +17,7 @@
     ],
     'data': [
         "views/product_template.xml",
-
+        "views/recording.xml",
     ],
     'installable': True,
 }

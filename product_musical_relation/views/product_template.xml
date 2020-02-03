@@ -7,18 +7,45 @@
         <field name="arch" type="xml">
             <notebook position="before">
                 <group>
-                    <field name="musical_relation"/>
-                    <field name="recording_id"
-                           domain="[('ttype','=', musical_relation)]"
-                           attrs="{'readonly': [('musical_relation','=', False)]}"
-                    />
+                    <group col="3">
+                        <field name="musical_relation"/>
+                        <field name="recording_id"
+                               domain="[('ttype', '=', musical_relation)]"
+                               attrs="{
+                                   'readonly': [('musical_relation', '=', False)],
+                                   'required': [('musical_relation', '!=', False)],
+                               }"
+                               force_save="1"
+                               nolabel="1"
+                        />
+                        <field name="artist_id"
+                               attrs="{'readonly': [('recording_id', '!=', False)]}"
+                               force_save="1"
+                        />
+                    </group>
                 </group>
                 <group>
-                    <field name="artist_id"
-                           attrs="{'readonly': [('recording_id','!=', False)]}"
-                    />
                 </group>
             </notebook>
+            <group name="group_general" position="inside">
+                <field name="catalogue_reference" string="Internal Catalog"
+                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <label for="external_catalog_reference_ids" string="External Catalogs"
+                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <field name="external_catalog_reference_ids" nolabel="1"
+                    attrs="{'invisible': [('recording_id', '=', False)]}">
+                    <tree editable="top">
+                        <field name="sequence" widget="handle"/>
+                        <field name="code"/>
+                    </tree>
+                </field>
+            </group>
+            <group name="group_standard_price" position="inside">
+                <field name="recording_release_date"
+                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
+                <field name="sale_date"/>
+                <field name="commercialization_date"/>
+            </group>
         </field>
     </record>
 

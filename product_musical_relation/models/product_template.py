@@ -9,11 +9,25 @@ class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
     musical_relation = fields.Selection(
-        [(SOUND, 'Recording'), (GROUP, 'Grouping of Records')],
+        [(SOUND, 'Sound Record'), (GROUP, 'Grouping of Records')],
         string='Musical Relation',
     )
     recording_id = fields.Many2one('recording', 'Recording', ondelete='restrict')
     artist_id = fields.Many2one('artist', 'Artist', ondelete='restrict')
+
+    recording_release_date = fields.Date(
+        related='recording_id.release_date',
+    )
+    sale_date = fields.Date()
+    commercialization_date = fields.Date()
+
+    catalogue_reference = fields.Char(
+        related='recording_id.catalogue_reference',
+    )
+
+    external_catalog_reference_ids = fields.One2many(
+        related='recording_id.external_catalog_reference_ids',
+    )
 
     @api.onchange('musical_relation')
     def _empty_record_id(self):

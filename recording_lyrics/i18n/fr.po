@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-31 14:57+0000\n"
-"PO-Revision-Date: 2020-01-31 09:58-0500\n"
+"POT-Creation-Date: 2020-02-03 18:41+0000\n"
+"PO-Revision-Date: 2020-02-03 13:45-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -17,69 +17,93 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 2.0.6\n"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__create_uid
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: recording_lang
+#: model_terms:ir.ui.view,arch_db:recording_lang.recording_language_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__code
+msgid "Code"
+msgstr "Code"
+
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__create_date
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__create_date
 msgid "Created on"
 msgstr "Créé le"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__display_name
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__display_name
 msgid "Display Name"
 msgstr "Nom"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__id
+#. module: recording_lang
+#: model:recording.language,name:recording_lang.recording_language_en
+msgid "English"
+msgstr "Anglais"
+
+#. module: recording_lang
+#: model:recording.language,name:recording_lang.recording_language_fr
+msgid "French"
+msgstr "Français"
+
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__id
 msgid "ID"
 msgstr ""
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__language_id
+#. module: recording_lang
+#: model:ir.model,name:recording_lang.model_recording_language
 msgid "Language"
 msgstr "Langue"
 
-#. module: recording_lyrics
-#: model:ir.model,name:recording_lyrics.model_recording_language_rate
-msgid "Language Rate (Recording)"
-msgstr "Proportion de langues (sur enregistrement)"
-
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording__language_ids
-msgid "Languages"
-msgstr "Langues"
-
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate____last_update
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language____last_update
 msgid "Last Modified on"
 msgstr "Dernière modification le"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__write_uid
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__write_date
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording__lyrics
-#: model_terms:ir.ui.view,arch_db:recording_lyrics.recording_form_with_lyrics
-msgid "Lyrics"
-msgstr "Paroles"
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__name
+msgid "Name"
+msgstr "Nom"
 
-#. module: recording_lyrics
-#: model:ir.model,name:recording_lyrics.model_recording
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__recording_id
-msgid "Recording"
-msgstr "Enregistrement"
+#. module: recording_lang
+#: model_terms:ir.ui.view,arch_db:recording_lang.recording_language_form
+msgid "Record Language"
+msgstr "Langue d'enregistrements"
 
-#. module: recording_lyrics
-#: model:ir.model.fields,field_description:recording_lyrics.field_recording_language_rate__sequence
+#. module: recording_lang
+#: model:ir.actions.act_window,name:recording_lang.action_recording_language
+#: model_terms:ir.ui.view,arch_db:recording_lang.recording_language_list
+msgid "Record Languages"
+msgstr "Langues des enregistrements"
+
+#. module: recording_lang
+#: model_terms:ir.ui.view,arch_db:recording_lang.recording_language_search
+msgid "Search Record Languages"
+msgstr "Chercher des langues d'enregistrements"
+
+#. module: recording_lang
+#: model:ir.model.fields,field_description:recording_lang.field_recording_language__sequence
 msgid "Sequence"
 msgstr "Séquence"

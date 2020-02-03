@@ -8,6 +8,8 @@ class Recording(models.Model):
 
     _inherit = 'recording'
 
+    language_id = fields.Many2one('recording.language', ondelete='restrict')
+
     lyrics = fields.Text()
     language_ids = fields.One2many(
         'recording.language.rate',

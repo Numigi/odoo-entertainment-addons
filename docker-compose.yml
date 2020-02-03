@@ -7,8 +7,6 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./.log:/var/log/odoo
-      - ./product_musical_relation:/mnt/extra-addons/product_musical_relation
-      - ./recording:/mnt/extra-addons/recording
     ports:
       - "8069:8069"
       - "8071:8071"

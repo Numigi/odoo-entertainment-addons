@@ -14,12 +14,12 @@ class TestRecordings(SavepointCase):
             'ttype': 'sound',
         })
 
-        cls.product_1 = cls.env['product.product'].create({
+        cls.product_1 = cls.env['product.template'].create({
             'name': 'A1',
             'musical_relation': 'sound',
             'recording_id': cls.record.id,
         })
-        cls.product_2 = cls.env['product.product'].create({
+        cls.product_2 = cls.env['product.template'].create({
             'name': 'A2',
             'musical_relation': 'sound',
             'recording_id': cls.record.id,

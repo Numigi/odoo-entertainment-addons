@@ -14,6 +14,6 @@ class Recording(models.Model):
 
     def _compute_related_product_count(self):
         for rec in self:
-            rec.related_product_count = self.env['product.product'].search([
+            rec.related_product_count = self.env['product.template'].search([
                 ('recording_id', '=', rec.id),
             ], count=True)

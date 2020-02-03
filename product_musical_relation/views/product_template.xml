@@ -12,19 +12,17 @@
                         <field name="recording_id"
                                domain="[('ttype', '=', musical_relation)]"
                                attrs="{
-                                   'readonly': [('musical_relation', '=', False)],
-                                   'required': [('musical_relation', '!=', False)],
+                                   'readonly': ['|', ('musical_relation', '=', False), ('is_product_variant', '=', True)],
+                                   'required': [('musical_relation', '!=', False), ('is_product_variant', '=', False)],
                                }"
                                force_save="1"
                                nolabel="1"
                         />
                         <field name="artist_id"
-                               attrs="{'readonly': [('recording_id', '!=', False)]}"
+                               attrs="{'readonly': ['|', ('recording_id', '!=', False), ('is_product_variant', '=', True)]}"
                                force_save="1"
                         />
                     </group>
-                </group>
-                <group>
                 </group>
             </notebook>
             <group name="group_general" position="inside">

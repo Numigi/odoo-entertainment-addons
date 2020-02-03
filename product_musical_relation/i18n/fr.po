@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* show
+# 	* sale_warranty
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-12 10:17+0000\n"
-"PO-Revision-Date: 2019-12-12 05:21-0500\n"
+"POT-Creation-Date: 2020-02-03 20:55+0000\n"
+"PO-Revision-Date: 2020-02-03 16:13-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -17,191 +17,375 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 2.0.6\n"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__active
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__active
-msgid "Active"
-msgstr "Actif"
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__artist_id
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__artist_id
+msgid "Artist"
+msgstr "Artiste"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__type
-#: model:ir.model.fields,field_description:show_place.field_res_users__type
-msgid "Address Type"
-msgstr "Type d'adresse"
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__catalogue_reference
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__catalogue_reference
+msgid "Catalogue Reference"
+msgstr "Référence de catalogue"
 
-#. module: show_place
-#: model:ir.model.fields,help:show_place.field_res_partner__show_place_minor_restriction
-#: model:ir.model.fields,help:show_place.field_res_users__show_place_minor_restriction
-msgid "Check this box if this place has a restriction for minors."
-msgstr ""
-"Cocher cette case si ce lieu comporte une restriction pour les mineurs."
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__commercialization_date
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__commercialization_date
+msgid "Commercialization Date"
+msgstr "Date de commercialisation"
 
-#. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-msgid "Configuration"
-msgstr "Configuration"
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__external_catalog_reference_ids
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__external_catalog_reference_ids
+msgid "External Catalog References"
+msgstr "Références catalogues externes"
 
-#. module: show_place
-#: model:ir.model,name:show_place.model_res_partner
-#: selection:res.partner,type:0
-msgid "Contact"
-msgstr ""
+#. module: product_musical_relation
+#: model_terms:ir.ui.view,arch_db:product_musical_relation.product_musical_relation
+msgid "External Catalogs"
+msgstr "Catalogues externes"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__create_uid
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__create_uid
-msgid "Created by"
-msgstr "Créé par"
+#. module: product_musical_relation
+#: selection:product.template,musical_relation:0
+msgid "Grouping of Records"
+msgstr "Regroupement d'enregistrements"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__create_date
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__create_date
-msgid "Created on"
-msgstr "Créé le"
+#. module: product_musical_relation
+#: model_terms:ir.ui.view,arch_db:product_musical_relation.product_musical_relation
+msgid "Internal Catalog"
+msgstr "Catalogue interne"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__description
-msgid "Description"
-msgstr "Description"
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__musical_relation
+msgid "Musical Relation"
+msgstr "Relation musicale"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__display_name
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__display_name
-msgid "Display Name"
-msgstr "Nom affiché"
+#. module: product_musical_relation
+#: model:ir.model,name:product_musical_relation.model_product_product
+msgid "Product"
+msgstr "Article"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__id
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__id
-msgid "ID"
-msgstr ""
+#. module: product_musical_relation
+#: model:ir.model,name:product_musical_relation.model_product_template
+msgid "Product Template"
+msgstr "Modèle d'article"
 
-#. module: show_place
-#: selection:res.partner,type:0
-msgid "Invoice address"
-msgstr "Adresse de facturation"
+#. module: product_musical_relation
+#: model:ir.ui.menu,name:product_musical_relation.menu_recording_product
+msgid "Products"
+msgstr "Articles"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration____last_update
-#: model:ir.model.fields,field_description:show_place.field_show_place_type____last_update
-msgid "Last Modified on"
-msgstr "Dernière Modification le"
+#. module: product_musical_relation
+#: model:ir.model,name:product_musical_relation.model_recording
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__recording_id
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__recording_id
+msgid "Recording"
+msgstr "Enregistrement"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__write_uid
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__write_uid
-msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_recording__related_product_count
+msgid "Related Product Count"
+msgstr "Nombre d'articles liés"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__write_date
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__write_date
-msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+#. module: product_musical_relation
+#: model:ir.actions.act_window,name:product_musical_relation.recording_related_products_action
+#: model_terms:ir.ui.view,arch_db:product_musical_relation.recording_form_with_related_products
+msgid "Related Products"
+msgstr "Regroupements liés"
 
-#. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-#, fuzzy
-#| msgid "Maximum capacity"
-msgid "Maximum Capacity"
-msgstr "Capacité maximale​"
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__recording_release_date
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__recording_release_date
+msgid "Release Date"
+msgstr "Date de sortie"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_show_place_configuration__name
-#: model:ir.model.fields,field_description:show_place.field_show_place_type__name
-msgid "Name"
-msgstr "Nom"
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__sale_date
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__sale_date
+msgid "Sale Date"
+msgstr "Date de mise en vente"
 
-#. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-msgid "Notes"
-msgstr "Notes"
+#. module: product_musical_relation
+#: selection:product.template,musical_relation:0
+msgid "Sound Record"
+msgstr "Enregistrement sonore"
 
-#. module: show_place
-#: selection:res.partner,type:0
-msgid "Other address"
-msgstr "Autre adresse"
+#~ msgid "Action Needed"
+#~ msgstr "Nécessite une action"
 
-#. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-#, fuzzy
-#| msgid "Place type"
-msgid "Place Type"
-msgstr "Type de lieu"
+#~ msgid "Active"
+#~ msgstr "Active"
 
-#. module: show_place
-#: selection:res.partner,type:0
-msgid "Private Address"
-msgstr "Adresse personnelle"
+#~ msgid "Activities"
+#~ msgstr "Activités"
 
-#. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-msgid "Restricted to Minors"
-msgstr "Restraint aux mineurs"
+#~ msgid "Activity State"
+#~ msgstr "Status de l'Activité"
 
-#. module: show_place
-#: selection:res.partner,type:0
-msgid "Shipping address"
-msgstr "Adresse d'expédition"
+#~ msgid "Album"
+#~ msgstr "Album"
 
-#. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-msgid "Show"
-msgstr "Spectacle"
+#~ msgid "Archived"
+#~ msgstr "Archivé"
 
-#. module: show_place
-#: model:ir.model,name:show_place.model_show_place_configuration
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_configuration_id
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_configuration_id
-msgid "Show Place Configuration"
-msgstr "Lieux de spectable - "
+#~ msgid "Attachment Count"
+#~ msgstr "Nombre de pièces jointes"
 
-#. module: show_place
-#: model:ir.actions.act_window,name:show_place.show_place_configuration_action
-#: model:ir.ui.menu,name:show_place.show_place_configuration_menu
-msgid "Show Place Configurations"
-msgstr "Configurations de lieux de spectacles"
+#~ msgid "Code"
+#~ msgstr "Code"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_maximum_capacity
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_maximum_capacity
-msgid "Show Place Maximum capacity"
-msgstr "Lieu de spectable - Capacité maximale​"
+#~ msgid "Company"
+#~ msgstr "Société"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_minor_restriction
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_minor_restriction
-msgid "Show Place Minor Restriction"
-msgstr "Lieu de spectable - Restraint aux mineurs​"
+#~ msgid "Compilation"
+#~ msgstr "Compilation"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_notes
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_notes
-msgid "Show Place Notes"
-msgstr "Lieu de spectable - Notes"
+#~ msgid "Configuration"
+#~ msgstr "Configuration"
 
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_type_id
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_type_id
-msgid "Show Place Type"
-msgstr "Type de lieux de spectacles"
+#~ msgid "Created by"
+#~ msgstr "Créé par"
 
-#. module: show_place
-#: model:ir.actions.act_window,name:show_place.show_place_type_action
-#: model:ir.model,name:show_place.model_show_place_type
-#: model:ir.ui.menu,name:show_place.show_place_type_menu
-msgid "Show Place Types"
-msgstr "Types de lieux de spectacles"
+#~ msgid "Created on"
+#~ msgstr "Créé le"
 
-#. module: show_place
-#: selection:res.partner,type:0
-msgid "Show Site"
-msgstr "Lieu de spectacle"
+#~ msgid "Display Name"
+#~ msgstr "Nom affiché"
 
-#. module: show_place
-#: model:ir.model.fields,help:show_place.field_res_partner__type
-#: model:ir.model.fields,help:show_place.field_res_users__type
-msgid ""
-"Used by Sales and Purchase Apps to select the relevant address depending on "
-"the context."
-msgstr ""
+#~ msgid "Duration"
+#~ msgstr "Durée"
+
+#~ msgid "EP"
+#~ msgstr "EP"
+
+#~ msgid "External Catalog Reference for Recordings"
+#~ msgstr "Références de catalogue externe d'enregistrements"
+
+#~ msgid "Filming Location"
+#~ msgstr "Lieu de tournage"
+
+#~ msgid "Followers"
+#~ msgstr "Abonnés"
+
+#~ msgid "Followers (Channels)"
+#~ msgstr "Abonnés (Canaux)"
+
+#~ msgid "Followers (Partners)"
+#~ msgstr "Abonnés (Partenaires)"
+
+#~ msgid "Grants access to manage the configuration of the recording application."
+#~ msgstr "Donne accès à gérer les paramètres de l'application Enregistrement."
+
+#~ msgid "Grants write access recordings and read access to related object types."
+#~ msgstr "Donne accès en écriture sur les enregistrements et en lecture aux types d'objets associés."
+
+#~ msgid "Group Duration"
+#~ msgstr "Durée du regroupement"
+
+#~ msgid "Group Type"
+#~ msgstr "Type de regroupement"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "ISRC"
+#~ msgstr "ISRC"
+
+#~ msgid "If checked new messages require your attention."
+#~ msgstr "Si coché, de nouveaux messages demandent votre attention."
+
+#~ msgid "If checked, new messages require your attention."
+#~ msgstr "Si coché, de nouveaux messages demandent votre attention."
+
+#~ msgid "If checked, some messages have a delivery error."
+#~ msgstr "Si actif, certains messages ont une erreur de livraison."
+
+#~ msgid "Is Follower"
+#~ msgstr "Est un abonné"
+
+#~ msgid "Issuer"
+#~ msgstr "Émetteur"
+
+#~ msgid "Languages"
+#~ msgstr "Langues"
+
+#~ msgid "Last Modified on"
+#~ msgstr "Dernière Modification le"
+
+#~ msgid "Last Updated by"
+#~ msgstr "Dernière mise à jour par"
+
+#~ msgid "Last Updated on"
+#~ msgstr "Dernière mise à jour le"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Pièce jointe principale"
+
+#~ msgid "Manager"
+#~ msgstr "Gestionnaire"
+
+#~ msgid "Marketing"
+#~ msgstr "Commercialisation"
+
+#~ msgid "Message Delivery error"
+#~ msgstr "Erreur d'envoi du message"
+
+#~ msgid "Messages"
+#~ msgstr "Messages"
+
+#~ msgid "Next Activity Deadline"
+#~ msgstr "Date limite de l'Activité à Venir"
+
+#~ msgid "Next Activity Summary"
+#~ msgstr "Résumé d'activité suivant"
+
+#~ msgid "Next Activity Type"
+#~ msgstr "Type d'Activités à Venir"
+
+#~ msgid "Next Track Number"
+#~ msgstr "Prochain numéro de piste"
+
+#~ msgid "Next Volume Number"
+#~ msgstr "Prochain numéro de volume"
+
+#~ msgid "Note"
+#~ msgstr "Note"
+
+#~ msgid "Notes"
+#~ msgstr "Notes"
+
+#~ msgid "Number of Actions"
+#~ msgstr "Nombre d'actions"
+
+#~ msgid "Number of error"
+#~ msgstr "Nombre d'erreurs"
+
+#~ msgid "Number of messages which requires an action"
+#~ msgstr "Nombre de messages exigeant une action"
+
+#~ msgid "Number of messages with delivery error"
+#~ msgstr "Nombre de messages avec des erreurs d'envoi"
+
+#~ msgid "Number of unread messages"
+#~ msgstr "Nombre de messages non lus"
+
+#~ msgid "Other ISRC"
+#~ msgstr "Autres ISRC"
+
+#~ msgid "Overdue"
+#~ msgstr "Retard"
+
+#~ msgid "Place of Publication"
+#~ msgstr "Lieu de publication"
+
+#~ msgid "Planned"
+#~ msgstr "Planifié"
+
+#~ msgid "Production Start Date"
+#~ msgstr "Date de début de production"
+
+#~ msgid "Recording Group"
+#~ msgstr "Regroupement d'enregistrement"
+
+#~ msgid "Recording Other ISRC"
+#~ msgstr "Autre ISRC (enregistrements)"
+
+#~ msgid "Recording Track"
+#~ msgstr "Piste d'enregistrement"
+
+#~ msgid "Recordings"
+#~ msgstr "Enregistrements"
+
+#~ msgid "Related Recording"
+#~ msgstr "Enregistrement lié"
+
+#~ msgid "Related Recordings"
+#~ msgstr "Enregistrements liés"
+
+#~ msgid "Related Video Count"
+#~ msgstr "Nombre de vidéos liés"
+
+#~ msgid "Related Videos"
+#~ msgstr "Vidéos liés"
+
+#~ msgid "Responsible User"
+#~ msgstr "Responsable"
+
+#~ msgid "Search Recordings"
+#~ msgstr "Chercher des enregistrements"
+
+#~ msgid "Sequence"
+#~ msgstr "Séquence"
+
+#~ msgid "Single"
+#~ msgstr "Single"
+
+#~ msgid "Sound"
+#~ msgstr "Sonore"
+
+#~ msgid "Split"
+#~ msgstr "Split"
+
+#~ msgid ""
+#~ "Status based on activities\n"
+#~ "Overdue: Due date is already passed\n"
+#~ "Today: Activity date is today\n"
+#~ "Planned: Future activities."
+#~ msgstr ""
+#~ "Statut basé sur les activités\n"
+#~ "En retard : la date d'échéance est déjà dépassée\n"
+#~ "Aujourd'hui : la date d'activité est aujourd'hui\n"
+#~ "Planifiée : activités futures"
+
+#~ msgid "The given ISRC ({}) is invalid. It must contain only letters and digits. No special caracters are authorized."
+#~ msgstr "Le code ISRC ({}) est invalide. Il doit contenir seulement des lettres et des chiffres. Aucun caractère spécial n'est autorisé."
+
+#~ msgid "The given ISRC ({}) is invalid. It must have exactly 12 caracters."
+#~ msgstr "Le code ISRC ({}) est invalide. Il doit contenir exactement 12 caractères."
+
+#~ msgid "Title"
+#~ msgstr "Titre"
+
+#~ msgid "Today"
+#~ msgstr "Aujourd'hui"
+
+#~ msgid "Total Number of Tracks"
+#~ msgstr "Nombre total de pistes"
+
+#~ msgid "Track"
+#~ msgstr "Piste"
+
+#~ msgid "Type"
+#~ msgstr "Type"
+
+#~ msgid "Type of Recording"
+#~ msgstr "Type d'enregistrement"
+
+#~ msgid "UPC"
+#~ msgstr "UPC"
+
+#~ msgid "UPC Packshot"
+#~ msgstr "UPC Packshot"
+
+#~ msgid "Unread Messages"
+#~ msgstr "Messages non lus"
+
+#~ msgid "Unread Messages Counter"
+#~ msgstr "Compteur de messages non lus"
+
+#~ msgid "User"
+#~ msgstr "Utilisateur"
+
+#~ msgid "Vertical application for the recording industry"
+#~ msgstr "Application verticale pour l'industrie de l'enregistrement"
+
+#~ msgid "Video"
+#~ msgstr "Vidéo"
+
+#~ msgid "Video Recordings"
+#~ msgstr "Enregistrements vidéo"
+
+#~ msgid "Volume"
+#~ msgstr "Volume"

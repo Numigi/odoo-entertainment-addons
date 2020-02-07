@@ -39,4 +39,11 @@
         sequence="200"
         />
 
+    <menuitem id="musical_catalog_menu"
+        name="External Catalogs"
+        action="musical_catalog.action_musical_catalog"
+        parent="menu_config"
+        sequence="900"
+        />
+
 </odoo>

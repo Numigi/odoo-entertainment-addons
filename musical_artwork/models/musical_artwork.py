@@ -4,19 +4,6 @@
 from odoo import fields, models
 
 
-class ExternalCatalogueReference(models.Model):
-    _name = 'musical.artwork.external.catalogue.reference'
-    _description = 'Musical Artwork External Catalogue Reference'
-    _rec_name = 'code'
-    _order = 'sequence'
-
-    sequence = fields.Integer()
-    code = fields.Char(required=True)
-    musical_artwork_id = fields.Many2one(
-        'musical.artwork', ondelete='cascade', required=True, index=True,
-    )
-
-
 class MusicalArtworkLanguage(models.Model):
     _name = 'musical.artwork.language'
     _description = 'Musical Artwork Language'
@@ -63,11 +50,12 @@ class MusicalArtwork(models.Model):
     catalogue_reference = fields.Char(
         track_visibility="onchange",
     )
-    external_catalogue_reference_ids = fields.One2many(
-        'musical.artwork.external.catalogue.reference',
+    musical_catalog_reference_ids = fields.One2many(
+        'musical.catalog.reference',
         'musical_artwork_id',
-        string='External Catalogue References',
+        'External Catalog References',
     )
+
     language_ids = fields.One2many(
         'musical.artwork.language',
         'musical_artwork_id',

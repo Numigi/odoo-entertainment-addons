@@ -14,6 +14,7 @@
         'recording',
         'artist',
         'product',
+        'musical_catalog',
     ],
     'data': [
         "views/product_template.xml",

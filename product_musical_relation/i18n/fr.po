@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-03 20:55+0000\n"
-"PO-Revision-Date: 2020-02-03 16:13-0500\n"
+"POT-Creation-Date: 2020-02-07 16:51+0000\n"
+"PO-Revision-Date: 2020-02-07 11:54-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -36,8 +36,13 @@ msgid "Commercialization Date"
 msgstr "Date de commercialisation"
 
 #. module: product_musical_relation
-#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__external_catalog_reference_ids
-#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__external_catalog_reference_ids
+#: model:ir.model,name:product_musical_relation.model_product_external_catalog_reference
+msgid "External Catalog Reference for Products"
+msgstr "Références de catalogue externes pour articles"
+
+#. module: product_musical_relation
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_product__musical_catalog_reference_ids
+#: model:ir.model.fields,field_description:product_musical_relation.field_product_template__musical_catalog_reference_ids
 msgid "External Catalog References"
 msgstr "Références catalogues externes"
 
@@ -57,6 +62,11 @@ msgid "Internal Catalog"
 msgstr "Catalogue interne"
 
 #. module: product_musical_relation
+#: model:ir.model,name:product_musical_relation.model_musical_catalog_reference
+msgid "Musical Catalog References"
+msgstr "Références de catalogues externes"
+
+#. module: product_musical_relation
 #: model:ir.model.fields,field_description:product_musical_relation.field_product_product__musical_relation
 #: model:ir.model.fields,field_description:product_musical_relation.field_product_template__musical_relation
 msgid "Musical Relation"
@@ -69,6 +79,8 @@ msgstr "Article"
 
 #. module: product_musical_relation
 #: model:ir.model,name:product_musical_relation.model_product_template
+#: model:ir.model.fields,field_description:product_musical_relation.field_musical_catalog_reference__product_template_id
+#: model:ir.model.fields,field_description:product_musical_relation.field_recording__product_template_ids
 msgid "Product Template"
 msgstr "Modèle d'article"
 
@@ -111,281 +123,3 @@ msgstr "Date de mise en vente"
 #: selection:product.template,musical_relation:0
 msgid "Sound Record"
 msgstr "Enregistrement sonore"
-
-#~ msgid "Action Needed"
-#~ msgstr "Nécessite une action"
-
-#~ msgid "Active"
-#~ msgstr "Active"
-
-#~ msgid "Activities"
-#~ msgstr "Activités"
-
-#~ msgid "Activity State"
-#~ msgstr "Status de l'Activité"
-
-#~ msgid "Album"
-#~ msgstr "Album"
-
-#~ msgid "Archived"
-#~ msgstr "Archivé"
-
-#~ msgid "Attachment Count"
-#~ msgstr "Nombre de pièces jointes"
-
-#~ msgid "Code"
-#~ msgstr "Code"
-
-#~ msgid "Company"
-#~ msgstr "Société"
-
-#~ msgid "Compilation"
-#~ msgstr "Compilation"
-
-#~ msgid "Configuration"
-#~ msgstr "Configuration"
-
-#~ msgid "Created by"
-#~ msgstr "Créé par"
-
-#~ msgid "Created on"
-#~ msgstr "Créé le"
-
-#~ msgid "Display Name"
-#~ msgstr "Nom affiché"
-
-#~ msgid "Duration"
-#~ msgstr "Durée"
-
-#~ msgid "EP"
-#~ msgstr "EP"
-
-#~ msgid "External Catalog Reference for Recordings"
-#~ msgstr "Références de catalogue externe d'enregistrements"
-
-#~ msgid "Filming Location"
-#~ msgstr "Lieu de tournage"
-
-#~ msgid "Followers"
-#~ msgstr "Abonnés"
-
-#~ msgid "Followers (Channels)"
-#~ msgstr "Abonnés (Canaux)"
-
-#~ msgid "Followers (Partners)"
-#~ msgstr "Abonnés (Partenaires)"
-
-#~ msgid "Grants access to manage the configuration of the recording application."
-#~ msgstr "Donne accès à gérer les paramètres de l'application Enregistrement."
-
-#~ msgid "Grants write access recordings and read access to related object types."
-#~ msgstr "Donne accès en écriture sur les enregistrements et en lecture aux types d'objets associés."
-
-#~ msgid "Group Duration"
-#~ msgstr "Durée du regroupement"
-
-#~ msgid "Group Type"
-#~ msgstr "Type de regroupement"
-
-#~ msgid "ID"
-#~ msgstr "ID"
-
-#~ msgid "ISRC"
-#~ msgstr "ISRC"
-
-#~ msgid "If checked new messages require your attention."
-#~ msgstr "Si coché, de nouveaux messages demandent votre attention."
-
-#~ msgid "If checked, new messages require your attention."
-#~ msgstr "Si coché, de nouveaux messages demandent votre attention."
-
-#~ msgid "If checked, some messages have a delivery error."
-#~ msgstr "Si actif, certains messages ont une erreur de livraison."
-
-#~ msgid "Is Follower"
-#~ msgstr "Est un abonné"
-
-#~ msgid "Issuer"
-#~ msgstr "Émetteur"
-
-#~ msgid "Languages"
-#~ msgstr "Langues"
-
-#~ msgid "Last Modified on"
-#~ msgstr "Dernière Modification le"
-
-#~ msgid "Last Updated by"
-#~ msgstr "Dernière mise à jour par"
-
-#~ msgid "Last Updated on"
-#~ msgstr "Dernière mise à jour le"
-
-#~ msgid "Main Attachment"
-#~ msgstr "Pièce jointe principale"
-
-#~ msgid "Manager"
-#~ msgstr "Gestionnaire"
-
-#~ msgid "Marketing"
-#~ msgstr "Commercialisation"
-
-#~ msgid "Message Delivery error"
-#~ msgstr "Erreur d'envoi du message"
-
-#~ msgid "Messages"
-#~ msgstr "Messages"
-
-#~ msgid "Next Activity Deadline"
-#~ msgstr "Date limite de l'Activité à Venir"
-
-#~ msgid "Next Activity Summary"
-#~ msgstr "Résumé d'activité suivant"
-
-#~ msgid "Next Activity Type"
-#~ msgstr "Type d'Activités à Venir"
-
-#~ msgid "Next Track Number"
-#~ msgstr "Prochain numéro de piste"
-
-#~ msgid "Next Volume Number"
-#~ msgstr "Prochain numéro de volume"
-
-#~ msgid "Note"
-#~ msgstr "Note"
-
-#~ msgid "Notes"
-#~ msgstr "Notes"
-
-#~ msgid "Number of Actions"
-#~ msgstr "Nombre d'actions"
-
-#~ msgid "Number of error"
-#~ msgstr "Nombre d'erreurs"
-
-#~ msgid "Number of messages which requires an action"
-#~ msgstr "Nombre de messages exigeant une action"
-
-#~ msgid "Number of messages with delivery error"
-#~ msgstr "Nombre de messages avec des erreurs d'envoi"
-
-#~ msgid "Number of unread messages"
-#~ msgstr "Nombre de messages non lus"
-
-#~ msgid "Other ISRC"
-#~ msgstr "Autres ISRC"
-
-#~ msgid "Overdue"
-#~ msgstr "Retard"
-
-#~ msgid "Place of Publication"
-#~ msgstr "Lieu de publication"
-
-#~ msgid "Planned"
-#~ msgstr "Planifié"
-
-#~ msgid "Production Start Date"
-#~ msgstr "Date de début de production"
-
-#~ msgid "Recording Group"
-#~ msgstr "Regroupement d'enregistrement"
-
-#~ msgid "Recording Other ISRC"
-#~ msgstr "Autre ISRC (enregistrements)"
-
-#~ msgid "Recording Track"
-#~ msgstr "Piste d'enregistrement"
-
-#~ msgid "Recordings"
-#~ msgstr "Enregistrements"
-
-#~ msgid "Related Recording"
-#~ msgstr "Enregistrement lié"
-
-#~ msgid "Related Recordings"
-#~ msgstr "Enregistrements liés"
-
-#~ msgid "Related Video Count"
-#~ msgstr "Nombre de vidéos liés"
-
-#~ msgid "Related Videos"
-#~ msgstr "Vidéos liés"
-
-#~ msgid "Responsible User"
-#~ msgstr "Responsable"
-
-#~ msgid "Search Recordings"
-#~ msgstr "Chercher des enregistrements"
-
-#~ msgid "Sequence"
-#~ msgstr "Séquence"
-
-#~ msgid "Single"
-#~ msgstr "Single"
-
-#~ msgid "Sound"
-#~ msgstr "Sonore"
-
-#~ msgid "Split"
-#~ msgstr "Split"
-
-#~ msgid ""
-#~ "Status based on activities\n"
-#~ "Overdue: Due date is already passed\n"
-#~ "Today: Activity date is today\n"
-#~ "Planned: Future activities."
-#~ msgstr ""
-#~ "Statut basé sur les activités\n"
-#~ "En retard : la date d'échéance est déjà dépassée\n"
-#~ "Aujourd'hui : la date d'activité est aujourd'hui\n"
-#~ "Planifiée : activités futures"
-
-#~ msgid "The given ISRC ({}) is invalid. It must contain only letters and digits. No special caracters are authorized."
-#~ msgstr "Le code ISRC ({}) est invalide. Il doit contenir seulement des lettres et des chiffres. Aucun caractère spécial n'est autorisé."
-
-#~ msgid "The given ISRC ({}) is invalid. It must have exactly 12 caracters."
-#~ msgstr "Le code ISRC ({}) est invalide. Il doit contenir exactement 12 caractères."
-
-#~ msgid "Title"
-#~ msgstr "Titre"
-
-#~ msgid "Today"
-#~ msgstr "Aujourd'hui"
-
-#~ msgid "Total Number of Tracks"
-#~ msgstr "Nombre total de pistes"
-
-#~ msgid "Track"
-#~ msgstr "Piste"
-
-#~ msgid "Type"
-#~ msgstr "Type"
-
-#~ msgid "Type of Recording"
-#~ msgstr "Type d'enregistrement"
-
-#~ msgid "UPC"
-#~ msgstr "UPC"
-
-#~ msgid "UPC Packshot"
-#~ msgstr "UPC Packshot"
-
-#~ msgid "Unread Messages"
-#~ msgstr "Messages non lus"
-
-#~ msgid "Unread Messages Counter"
-#~ msgstr "Compteur de messages non lus"
-
-#~ msgid "User"
-#~ msgstr "Utilisateur"
-
-#~ msgid "Vertical application for the recording industry"
-#~ msgstr "Application verticale pour l'industrie de l'enregistrement"
-
-#~ msgid "Video"
-#~ msgstr "Vidéo"
-
-#~ msgid "Video Recordings"
-#~ msgstr "Enregistrements vidéo"
-
-#~ msgid "Volume"
-#~ msgstr "Volume"

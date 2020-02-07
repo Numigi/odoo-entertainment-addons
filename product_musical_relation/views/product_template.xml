@@ -28,12 +28,11 @@
             <group name="group_general" position="inside">
                 <field name="catalogue_reference" string="Internal Catalog"
                     attrs="{'invisible': [('recording_id', '=', False)]}"/>
-                <label for="external_catalog_reference_ids" string="External Catalogs"
-                    attrs="{'invisible': [('recording_id', '=', False)]}"/>
-                <field name="external_catalog_reference_ids" nolabel="1"
-                    attrs="{'invisible': [('recording_id', '=', False)]}">
+                <label for="musical_catalog_reference_ids" string="External Catalogs"/>
+                <field name="musical_catalog_reference_ids" nolabel="1">
                     <tree editable="top">
                         <field name="sequence" widget="handle"/>
+                        <field name="catalog_id"/>
                         <field name="code"/>
                     </tree>
                 </field>

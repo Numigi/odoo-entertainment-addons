@@ -114,10 +114,11 @@
                                 </group>
                                 <group>
                                     <field name="catalogue_reference" string="Internal Catalog"/>
-                                    <label for="external_catalog_reference_ids" string="External Catalogs"/>
-                                    <field name="external_catalog_reference_ids" nolabel="1">
+                                    <label for="musical_catalog_reference_ids" string="External Catalogs"/>
+                                    <field name="musical_catalog_reference_ids" nolabel="1">
                                         <tree editable="top">
                                             <field name="sequence" widget="handle"/>
+                                            <field name="catalog_id"/>
                                             <field name="code"/>
                                         </tree>
                                     </field>
@@ -173,7 +174,7 @@
             <search string="Search Recordings">
                 <field name="name"/>
                 <field name="catalogue_reference" filter_domain="[('catalogue_reference', 'ilike', self)]"/>
-                <field name="external_catalog_reference_ids" filter_domain="[('external_catalog_reference_ids.reference', 'ilike', self)]"/>
+                <field name="musical_catalog_reference_ids" filter_domain="[('musical_catalog_reference_ids.reference', 'ilike', self)]"/>
                 <field name="track_ids" filter_domain="[('track_ids.recording_id', 'ilike', self)]"/>
                 <field name="isrc" filter_domain="[('isrc', 'ilike', self)]"/>
                 <field name="other_isrc_ids" filter_domain="[('other_isrc_ids.isrc', 'ilike', self)]"/>

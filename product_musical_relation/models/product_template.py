@@ -25,8 +25,10 @@ class ProductTemplate(models.Model):
         related='recording_id.catalogue_reference',
     )
 
-    external_catalog_reference_ids = fields.One2many(
-        related='recording_id.external_catalog_reference_ids',
+    musical_catalog_reference_ids = fields.One2many(
+        'musical.catalog.reference',
+        'product_template_id',
+        'External Catalog References',
     )
 
     @api.onchange('musical_relation')
@@ -39,3 +41,23 @@ class ProductTemplate(models.Model):
     @api.onchange('recording_id')
     def _set_artist_id(self):
         self.artist_id = self.recording_id.artist_id
+
+    @api.model
+    def create(self, vals):
+        product = super().create(vals)
+        if product.recording_id:
+            product._propagate_artist_from_recording()
+        return product
+
+    @api.multi
+    def write(self, vals):
+        super().write(vals)
+        if 'recording_id' in vals:
+            products_with_recording = self.filtered(lambda p: p.recording_id)
+            for product in products_with_recording:
+                product._propagate_artist_from_recording()
+        return True
+
+    def _propagate_artist_from_recording(self):
+        if self.artist_id != self.recording_id.artist_id:
+            self.artist_id = self.recording_id.artist_id

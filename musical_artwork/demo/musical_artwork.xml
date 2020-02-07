@@ -45,18 +45,4 @@
                ref="musical_artwork_money_for_nothing"/>
     </record>
 
-
-    <record id="musical_artwork_external_catalogue_reference_hotel_california"
-            model="musical.artwork.external.catalogue.reference">
-        <field name="code">NUM123</field>
-        <field name="musical_artwork_id"
-               ref="musical_artwork_hotel_california"/>
-    </record>
-    <record id="musical_artwork_external_catalogue_reference_money_for_nothing"
-            model="musical.artwork.external.catalogue.reference">
-        <field name="code">NUM456</field>
-        <field name="musical_artwork_id"
-               ref="musical_artwork_money_for_nothing"/>
-    </record>
-
 </odoo>

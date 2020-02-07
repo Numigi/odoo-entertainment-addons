@@ -13,6 +13,7 @@
     'depends': [
         'contacts',
         'recording_lang',
+        'musical_catalog',
     ],
     'data': [
         'security/res_groups.xml',

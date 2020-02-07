@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-31 18:25+0000\n"
-"PO-Revision-Date: 2020-01-31 13:26-0500\n"
+"POT-Creation-Date: 2020-02-07 16:50+0000\n"
+"PO-Revision-Date: 2020-02-07 11:59-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -58,11 +58,6 @@ msgid "Catalogue Reference"
 msgstr "Référence de catalogue"
 
 #. module: recording
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__code
-msgid "Code"
-msgstr "Code"
-
-#. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__commercial_territory_id
 msgid "Commercial Territory"
 msgstr "Territoire commercial"
@@ -84,7 +79,6 @@ msgstr "Configuration"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__create_uid
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__create_uid
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__create_uid
 #: model:ir.model.fields,field_description:recording.field_recording_track__create_uid
 msgid "Created by"
@@ -92,7 +86,6 @@ msgstr "Créé par"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__create_date
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__create_date
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__create_date
 #: model:ir.model.fields,field_description:recording.field_recording_track__create_date
 msgid "Created on"
@@ -100,7 +93,6 @@ msgstr "Créé le"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__display_name
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__display_name
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__display_name
 #: model:ir.model.fields,field_description:recording.field_recording_track__display_name
 msgid "Display Name"
@@ -123,11 +115,12 @@ msgid "External Catalog Reference for Recordings"
 msgstr "Références de catalogue externe d'enregistrements"
 
 #. module: recording
-#: model:ir.model.fields,field_description:recording.field_recording__external_catalog_reference_ids
+#: model:ir.model.fields,field_description:recording.field_recording__musical_catalog_reference_ids
 msgid "External Catalog References"
 msgstr "Références catalogues externes"
 
 #. module: recording
+#: model:ir.ui.menu,name:recording.musical_catalog_menu
 #: model_terms:ir.ui.view,arch_db:recording.recording_form
 msgid "External Catalogs"
 msgstr "Catalogues externes"
@@ -183,7 +176,6 @@ msgstr "Regroupement d'enregistrements"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__id
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__id
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__id
 #: model:ir.model.fields,field_description:recording.field_recording_track__id
 msgid "ID"
@@ -232,7 +224,6 @@ msgstr "Langues"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording____last_update
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference____last_update
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc____last_update
 #: model:ir.model.fields,field_description:recording.field_recording_track____last_update
 msgid "Last Modified on"
@@ -240,7 +231,6 @@ msgstr "Dernière Modification le"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__write_uid
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__write_uid
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__write_uid
 #: model:ir.model.fields,field_description:recording.field_recording_track__write_uid
 msgid "Last Updated by"
@@ -248,7 +238,6 @@ msgstr "Dernière mise à jour par"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__write_date
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__write_date
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__write_date
 #: model:ir.model.fields,field_description:recording.field_recording_track__write_date
 msgid "Last Updated on"
@@ -368,7 +357,7 @@ msgstr "Date de début de production"
 
 #. module: recording
 #: model:ir.model,name:recording.model_recording
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__recording_id
+#: model:ir.model.fields,field_description:recording.field_musical_catalog_reference__recording_id
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__recording_id
 #: model:ir.model.fields,field_description:recording.field_recording_track__recording_id
 #: model:ir.module.category,name:recording.module_category_recording
@@ -450,7 +439,6 @@ msgid "Search Recordings"
 msgstr "Chercher des enregistrements"
 
 #. module: recording
-#: model:ir.model.fields,field_description:recording.field_recording_external_catalog_reference__sequence
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__sequence
 #: model:ir.model.fields,field_description:recording.field_recording_track__sequence
 msgid "Sequence"

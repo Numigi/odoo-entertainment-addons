@@ -1,7 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 musical_artwork_distribution_manager_access, Musical Artwork Distribution / Manager: Configuration Rights,model_musical_artwork_distribution,group_musical_artwork_distribution_manager,1,1,1,1
 musical_artwork_distribution_line_manager_access, Musical Artwork Distribution Line / Manager: Configuration Rights,model_musical_artwork_distribution_line,group_musical_artwork_distribution_manager,1,1,1,1
-musical_artwork_external_catalogue_reference_manager_access, Musical Artwork External Catalog Reference / Admin: Configuration Rights,model_musical_artwork_external_catalogue_reference,base.group_system,1,1,1,1
 musical_artwork_language_manager_access, Musical Artwork Language / Admin: Configuration Rights,model_musical_artwork_language,base.group_system,1,1,1,1
 musical_artwork_role_manager_access, Musical Artwork Role / Admin: Configuration Rights,model_musical_artwork_role,base.group_system,1,1,1,1
 musical_artwork_manager_access, Musical Artwork / Admin: Configuration Rights,model_musical_artwork,base.group_system,1,1,1,1

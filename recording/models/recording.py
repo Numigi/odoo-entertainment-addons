@@ -75,8 +75,8 @@ class Recording(models.Model):
 
     catalogue_reference = fields.Char()
 
-    external_catalog_reference_ids = fields.One2many(
-        'recording.external.catalog.reference',
+    musical_catalog_reference_ids = fields.One2many(
+        'musical.catalog.reference',
         'recording_id',
         'External Catalog References',
     )

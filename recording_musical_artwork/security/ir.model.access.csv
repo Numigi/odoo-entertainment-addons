@@ -1,8 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 musical_artwork_user_access,Musical Artwork / User: Access Musical Artworks,musical_artwork.model_musical_artwork,recording.group_user,1,1,1,0
 musical_artwork_manager,Musical Artwork / Manager: Access Musical Artworks,musical_artwork.model_musical_artwork,recording.group_manager,1,1,1,1
-musical_artwork_external_catalogue_reference_user,Musical Artwork External Catalogue Reference / User: Access,musical_artwork.model_musical_artwork_external_catalogue_reference,recording.group_user,1,1,1,0
-musical_artwork_external_catalogue_reference_manager,Musical Artwork External Catalogue Reference / Manager: Access,musical_artwork.model_musical_artwork_external_catalogue_reference,recording.group_manager,1,1,1,1
 musical_artwork_language_user_access,Musical Artwork / User: Access Language,musical_artwork.model_musical_artwork_language,recording.group_user,1,1,1,1
 musical_artwork_role_manager_access,Musical Artwork Role / Manager: Access,musical_artwork.model_musical_artwork_role,recording.group_manager,1,1,1,1
 musical_artwork_role_user_access,Musical Artwork Role / User: Access,musical_artwork.model_musical_artwork_role,recording.group_user,0,0,0,0

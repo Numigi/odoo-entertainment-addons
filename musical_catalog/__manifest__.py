@@ -2,30 +2,20 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 {
-    'name': 'Recording',
+    'name': 'Musical Catalogs',
     'version': '1.0.0',
     'author': 'Numigi',
     'maintainer': 'Numigi',
     'website': 'https://www.numigi.com',
     'license': 'LGPL-3',
-    'category': 'Entertainment',
-    'summary': 'The base module for the recording application',
+    'category': 'Recording',
+    'summary': 'Add musical catalogs as a model.',
     'depends': [
         'base',
-        'mail',
-        'recording_lang',
-        'musical_catalog',
     ],
     'data': [
-        'security/res_groups.xml',
         'security/ir.model.access.csv',
-        'security/ir_rule.xml',
-        'views/recording.xml',
-        'views/menu.xml',
-    ],
-    'demo': [
-        'demo/recording.xml',
+        'views/musical_catalog.xml',
     ],
     'installable': True,
-    'application': True,
 }

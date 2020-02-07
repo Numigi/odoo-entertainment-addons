@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-06 17:28+0000\n"
-"PO-Revision-Date: 2020-01-06 12:32-0500\n"
+"POT-Creation-Date: 2020-02-07 16:51+0000\n"
+"PO-Revision-Date: 2020-02-07 11:57-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -95,7 +95,6 @@ msgid "Catalogue Reference"
 msgstr "Référence de catalogue"
 
 #. module: musical_artwork
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__code
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__code
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_role_search
 msgid "Code"
@@ -115,7 +114,6 @@ msgstr "Groupe de pays"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__create_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__create_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__create_uid
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__create_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__create_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__create_uid
 msgid "Created by"
@@ -125,7 +123,6 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__create_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__create_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__create_date
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__create_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__create_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__create_date
 msgid "Created on"
@@ -135,7 +132,6 @@ msgstr "Créé le"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__display_name
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__display_name
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__display_name
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__display_name
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__display_name
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__display_name
 msgid "Display Name"
@@ -176,8 +172,8 @@ msgid "Distribution Table Html"
 msgstr "Table de répartition HTML"
 
 #. module: musical_artwork
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__external_catalogue_reference_ids
-msgid "External Catalogue References"
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__musical_catalog_reference_ids
+msgid "External Catalog References"
 msgstr "Références de catalogue externe"
 
 #. module: musical_artwork
@@ -214,7 +210,6 @@ msgstr "Grouper par..."
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__id
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__id
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__id
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__id
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__id
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__id
 msgid "ID"
@@ -263,7 +258,6 @@ msgstr "Langues"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork____last_update
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution____last_update
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line____last_update
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference____last_update
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language____last_update
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role____last_update
 msgid "Last Modified on"
@@ -273,7 +267,6 @@ msgstr "Dernière modification le"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__write_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__write_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__write_uid
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__write_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__write_uid
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__write_uid
 msgid "Last Updated by"
@@ -283,7 +276,6 @@ msgstr "Dernière mise à jour par"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__write_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__write_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__write_date
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__write_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__write_date
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__write_date
 msgid "Last Updated on"
@@ -336,8 +328,8 @@ msgstr ""
 #. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__musical_artwork_id
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__musical_artwork_id
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__musical_artwork_id
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_catalog_reference__musical_artwork_id
 msgid "Musical Artwork"
 msgstr "Œuvre musicale"
 
@@ -351,11 +343,6 @@ msgstr "Clés de répartition des œuvres musicale"
 #: model:ir.model,name:musical_artwork.model_musical_artwork_distribution_line
 msgid "Musical Artwork Distribution Line"
 msgstr "Ligne de clé de répartition d'œuvres musicale"
-
-#. module: musical_artwork
-#: model:ir.model,name:musical_artwork.model_musical_artwork_external_catalogue_reference
-msgid "Musical Artwork External Catalogue Reference"
-msgstr "Référence de catalogue externe d'œuvres musicale"
 
 #. module: musical_artwork
 #: model:ir.model,name:musical_artwork.model_musical_artwork_language
@@ -499,7 +486,6 @@ msgstr "Recherche d'œuvres musicales"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__sequence
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_external_catalogue_reference__sequence
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_language__sequence
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_role__sequence
 msgid "Sequence"
@@ -521,7 +507,7 @@ msgid "The catalogue reference has to be unique."
 msgstr "Cette référence de catalogue doit être unique."
 
 #. module: musical_artwork
-#: code:addons/musical_artwork/models/musical_artwork_distribution.py:77
+#: code:addons/musical_artwork/models/musical_artwork_distribution.py:86
 #, python-format
 msgid ""
 "The sum of the distribution key lines is not equal to 100. The distribution "

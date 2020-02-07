@@ -32,6 +32,6 @@ class ProductProduct(models.Model):
         related='product_tmpl_id.catalogue_reference',
     )
 
-    external_catalog_reference_ids = fields.One2many(
-        related='product_tmpl_id.external_catalog_reference_ids',
+    musical_catalog_reference_ids = fields.One2many(
+        related='product_tmpl_id.musical_catalog_reference_ids',
     )

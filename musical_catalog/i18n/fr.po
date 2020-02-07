@@ -1,0 +1,113 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* recording_lang
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-07 16:51+0000\n"
+"PO-Revision-Date: 2020-02-07 11:52-0500\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: musical_catalog
+#: model_terms:ir.ui.view,arch_db:musical_catalog.musical_catalog_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__catalog_id
+msgid "Catalog"
+msgstr "Catalogue"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__code
+msgid "Code"
+msgstr "Code"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__create_uid
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__create_date
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__display_name
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__display_name
+msgid "Display Name"
+msgstr "Nom"
+
+#. module: musical_catalog
+#: model_terms:ir.ui.view,arch_db:musical_catalog.musical_catalog_form
+msgid "External Catalog"
+msgstr "Catalogue externe"
+
+#. module: musical_catalog
+#: model:ir.actions.act_window,name:musical_catalog.action_musical_catalog
+#: model:ir.model,name:musical_catalog.model_musical_catalog
+#: model_terms:ir.ui.view,arch_db:musical_catalog.musical_catalog_list
+msgid "External Catalogs"
+msgstr "Catalogues externe"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__id
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__id
+msgid "ID"
+msgstr ""
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog____last_update
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__write_uid
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__write_date
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: musical_catalog
+#: model:ir.model,name:musical_catalog.model_musical_catalog_reference
+msgid "External Catalog References"
+msgstr "Références de catalogues externes"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: musical_catalog
+#: model_terms:ir.ui.view,arch_db:musical_catalog.musical_catalog_search
+msgid "Search External Catalogs"
+msgstr "Chercher des catalogues externes"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__sequence
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__sequence
+msgid "Sequence"
+msgstr "Séquence"

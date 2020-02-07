@@ -39,9 +39,10 @@
                         <group name="group_1">
                             <field name="iswc"/>
                             <field name="catalogue_reference"/>
-                            <field name="external_catalogue_reference_ids">
+                            <field name="musical_catalog_reference_ids">
                                 <tree editable="top">
                                     <field name="sequence" widget="handle"/>
+                                    <field name="catalog_id"/>
                                     <field name="code"/>
                                 </tree>
                             </field>
@@ -99,7 +100,7 @@
                 <field name="title"/>
                 <field name="iswc"/>
                 <field name="catalogue_reference"/>
-                <field name="external_catalogue_reference_ids" filter_domain="[('external_catalogue_reference_ids.code', 'ilike', self)]"/>
+                <field name="musical_catalog_reference_ids" filter_domain="[('musical_catalog_reference_ids.code', 'ilike', self)]"/>
                 <separator/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
             </search>

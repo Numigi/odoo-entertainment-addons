@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <field name="sound_recording_id" position="before">
                 <field name="musical_artwork_id"
-                       attrs="{'invisible': [('ttype', '=', 'group')]}"
+                       attrs="{'invisible': [('ttype', '!=', 'sound')]}"
                        />
             </field>
         </field>

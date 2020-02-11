@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+
     <record id="product_musical_relation" model="ir.ui.view">
         <field name="name">Product Musical Relation</field>
         <field name="model">product.template</field>
@@ -43,6 +44,17 @@
                 <field name="sale_date"/>
                 <field name="commercialization_date"/>
             </group>
+        </field>
+    </record>
+
+    <record id="product_template_list_with_musical_relation" model="ir.ui.view">
+        <field name="name">Product List: Add Musical Relation</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="categ_id" position="after">
+                <field name="recording_id"/>
+            </field>
         </field>
     </record>
 

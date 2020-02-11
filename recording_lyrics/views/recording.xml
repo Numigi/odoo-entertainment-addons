@@ -20,6 +20,12 @@
                                     <field name="language_id"/>
                                     <field name="percentage" string="%"/>
                                 </tree>
+                                <form>
+                                    <group>
+                                        <field name="language_id"/>
+                                        <field name="percentage" string="%"/>
+                                    </group>
+                                </form>
                             </field>
                         </group>
                         <field name="lyrics" nolabel="1" colspan="2" attrs="{'readonly': [('ttype', '=', 'video')]}"/>

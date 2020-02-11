@@ -105,7 +105,7 @@ msgstr "Nombre d'articles liés"
 #: model:ir.actions.act_window,name:product_musical_relation.recording_related_products_action
 #: model_terms:ir.ui.view,arch_db:product_musical_relation.recording_form_with_related_products
 msgid "Related Products"
-msgstr "Regroupements liés"
+msgstr "Articles liés"
 
 #. module: product_musical_relation
 #: model:ir.model.fields,field_description:product_musical_relation.field_product_product__recording_release_date

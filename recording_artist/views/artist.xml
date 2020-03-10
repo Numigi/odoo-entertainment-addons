@@ -7,8 +7,8 @@
         <field name="view_mode">tree,form</field>
         <field name="domain">[
             "|",
-            ('artist_id', '=', active_id),
-            ('secondary_artist_id', '=', active_id)
+            ('artist_id', '=', raw_value),
+            ('secondary_artist_id', '=', raw_value)
             ]</field>
     </record>
 

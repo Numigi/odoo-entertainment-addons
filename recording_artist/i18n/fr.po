@@ -1,26 +1,24 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_warranty
+#	* recording_artist
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0+e\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-11 16:43+0000\n"
-"PO-Revision-Date: 2019-12-11 11:45-0500\n"
+"POT-Creation-Date: 2020-03-10 19:41+0000\n"
+"PO-Revision-Date: 2020-03-10 19:41+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: recording_artist
 #: model:ir.model.fields,field_description:recording_artist.field_recording_company__active
 msgid "Active"
-msgstr "Active"
+msgstr "Actif"
 
 #. module: recording_artist
 #: model_terms:ir.ui.view,arch_db:recording_artist.recording_company_search
@@ -28,6 +26,7 @@ msgid "Archived"
 msgstr "Archivé"
 
 #. module: recording_artist
+#: model:ir.model,name:recording_artist.model_artist
 #: model:ir.model.fields,field_description:recording_artist.field_recording__artist_id
 #: model_terms:ir.ui.view,arch_db:recording_artist.recording_form_with_artist
 msgid "Artist"
@@ -57,12 +56,12 @@ msgstr "Nom affiché"
 #. module: recording_artist
 #: model:ir.model.fields,field_description:recording_artist.field_recording_company__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: recording_artist
 #: model:ir.model.fields,field_description:recording_artist.field_recording_company____last_update
 msgid "Last Modified on"
-msgstr "Dernière Modification le"
+msgstr "Dernière modification le"
 
 #. module: recording_artist
 #: model:ir.model.fields,field_description:recording_artist.field_recording_company__write_uid
@@ -94,9 +93,19 @@ msgid "Record Company"
 msgstr "Maison de disques"
 
 #. module: recording_artist
+#: model:ir.model.fields,field_description:recording_artist.field_artist__record_count
+msgid "Record Count"
+msgstr "Nombre d'enregistrement"
+
+#. module: recording_artist
 #: model:ir.model,name:recording_artist.model_recording
 msgid "Recording"
 msgstr "Enregistrement"
+
+#. module: recording_artist
+#: model_terms:ir.ui.view,arch_db:recording_artist.artist_form_smart_button_record_count
+msgid "Recordings"
+msgstr "Enregistrements"
 
 #. module: recording_artist
 #: model:ir.ui.menu,name:recording_artist.menu_config_artist_role
@@ -122,3 +131,4 @@ msgstr "Séquence"
 #: model:ir.ui.menu,name:recording_artist.menu_config_artist_tag
 msgid "Tags"
 msgstr "Étiquettes"
+

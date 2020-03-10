@@ -5,11 +5,7 @@
         <field name="name">My Records</field>
         <field name="res_model">recording</field>
         <field name="view_mode">tree,form</field>
-        <field name="domain">[
-            "|",
-            ('artist_id', '=', raw_value),
-            ('secondary_artist_id', '=', raw_value)
-            ]</field>
+        <field name="context">{ 'search_default_artist_id': active_id }</field>
     </record>
 
     <record id="artist_form_smart_button_record_count" model="ir.ui.view">

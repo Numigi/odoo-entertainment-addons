@@ -34,7 +34,7 @@
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <!-- see TA#19357 -->
-                <field name="artist_id" filter_domain="['|', ('artist_id', '=', self), ('secondary_artist_id', '=', self)]"/>
+                <field name="artist_id" filter_domain="['|', ('artist_id', '=', raw_value), ('secondary_artist_id', '=', raw_value)]"/>
             </field>
         </field>
     </record>

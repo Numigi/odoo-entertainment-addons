@@ -3,6 +3,15 @@
     <record id="recording.record_comme_des_enfants" model="recording">
         <field name="artist_id" ref="artist.artist_coeur_de_pirate"/>
     </record>
+
+    <record id="recording.record_mistral_gagnant_2014" model="recording">
+        <field name="secondary_artist_id" ref="artist.artist_coeur_de_pirate"/>
+    </record>
+
+    <record id="recording.record_mistral_gagnant" model="recording">
+        <field name="artist_id" ref="artist.artist_renaud"/>
+    </record>
+
     <record id="recording.record_hotel_california_1977" model="recording">
         <field name="artist_id" ref="artist.artist_eagles"/>
     </record>

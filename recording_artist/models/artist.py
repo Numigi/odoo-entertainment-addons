@@ -13,5 +13,5 @@ class Artist(models.Model):
     def _compute_record_count(self):
         for rec in self:
             rec.record_count = self.env['recording'].search([
-                ('artist_id', '=', rec.id),
+                "|", ('artist_id', '=', rec.id), ('secondary_artist_id', '=', rec.id)
             ], count=True)

@@ -1,8 +1,9 @@
 # © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from ..isrc import check_isrc_code
+from odoo.exceptions import ValidationError
 
 SOUND = 'sound'
 VIDEO = 'video'
@@ -161,6 +162,23 @@ class RecordingGroup(models.Model):
     track_ids = fields.One2many(
         'recording.track', 'recording_group_id', 'Related Recordings',
     )
+
+    @api.constrains("track_ids")
+    def _unique_couple_recording_group_recording(self):
+        for record in self:
+            recording_track_record = []
+
+            for track in record.track_ids:
+
+                if track.recording_id in recording_track_record:
+                    raise ValidationError(
+                        _(
+                            'The track "%s" has been selected twice in the track.'
+                            ' It can be selected only once.'
+                        ) % track.recording_id.name
+                    )
+
+                recording_track_record.append(track.recording_id)
 
     number_of_tracks = fields.Integer(
         string="Total Number of Tracks",

@@ -85,6 +85,7 @@
         <field name="arch" type="xml">
             <tree string="Musical Artworks">
                 <field name="title"/>
+                <field name="distribution_key_count"/>
                 <field name="iswc"/>
                 <field name="catalogue_reference"/>
                 <field name="company_id" groups="base.group_multi_company"/>
@@ -98,6 +99,7 @@
         <field name="arch" type="xml">
             <search string="Search Musical Artworks">
                 <field name="title"/>
+                <field name="distribution_key_count"/>
                 <field name="iswc"/>
                 <field name="catalogue_reference"/>
                 <field name="musical_catalog_reference_ids" filter_domain="[('musical_catalog_reference_ids.code', 'ilike', self)]"/>

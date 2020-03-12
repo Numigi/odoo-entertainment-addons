@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="artist_recording_action" model="ir.actions.act_window">
+        <field name="name">My Records</field>
+        <field name="res_model">recording</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{ 'search_default_artist_id': active_id }</field>
+    </record>
+
+    <record id="artist_form_smart_button_record_count" model="ir.ui.view">
+        <field name="name">Artist: add smart button Record Count</field>
+        <field name="model">artist</field>
+        <field name="inherit_id" ref="artist.artist_form"/>
+        <field name="arch" type="xml">
+            <button name="toggle_active" position="before">
+                <button name="%(artist_recording_action)d" type="action"
+                        class="oe_stat_button" icon="fa-play-circle-o"
+                >
+                    <field string="Recordings" name="record_count" widget="statinfo"/>
+                </button>
+            </button>
+        </field>
+    </record>
+</odoo>

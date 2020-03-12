@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <record id="record_comme_des_enfants" model="recording">
+        <field name="name">September 28, 2009</field>
+        <field name="ttype">sound</field>
+        <field name="duration">2.8</field>
+    </record>
+
+    <record id="record_mistral_gagnant" model="recording">
+        <field name="name">1986</field>
+        <field name="ttype">sound</field>
+        <field name="duration">2.78</field>
+    </record>
+
+    <record id="record_mistral_gagnant_2014" model="recording">
+        <field name="name">Version 2014</field>
+        <field name="ttype">sound</field>
+        <field name="duration">3.06</field>
+    </record>
 
     <record id="record_hotel_california_1977" model="recording">
         <field name="name">February 22, 1977</field>

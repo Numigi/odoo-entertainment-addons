@@ -1,9 +1,30 @@
 <?xml version="1.0"?>
 <odoo>
-    <record id="record.record_sound" model="recording">
-        <field name="artist_id" ref="artist.artists1"/>
+    <record id="recording.record_comme_des_enfants" model="recording">
+        <field name="artist_id" ref="artist.artist_coeur_de_pirate"/>
     </record>
-    <record id="record.record_group" model="recording">
-        <field name="artist_id" ref="artist.artists2"/>
+
+    <record id="recording.record_mistral_gagnant_2014" model="recording">
+        <field name="secondary_artist_id" ref="artist.artist_coeur_de_pirate"/>
+    </record>
+
+    <record id="recording.record_mistral_gagnant" model="recording">
+        <field name="artist_id" ref="artist.artist_renaud"/>
+    </record>
+
+    <record id="recording.record_hotel_california_1977" model="recording">
+        <field name="artist_id" ref="artist.artist_eagles"/>
+    </record>
+    <record id="recording.record_money_for_nothing_album" model="recording">
+        <field name="artist_id" ref="artist.artist_dire_straits"/>
+    </record>
+    <record id="recording.record_money_for_nothing_vinyl" model="recording">
+        <field name="artist_id" ref="artist.artist_dire_straits"/>
+    </record>
+    <record id="recording.record_money_for_nothing_single" model="recording">
+        <field name="artist_id" ref="artist.artist_dire_straits"/>
+    </record>
+    <record id="recording.record_money_for_nothing_single_promo" model="recording">
+        <field name="artist_id" ref="artist.artist_dire_straits"/>
     </record>
 </odoo>

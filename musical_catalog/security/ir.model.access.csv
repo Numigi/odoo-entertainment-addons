@@ -1,5 +1,5 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_musical_catalog_user,name_musical_catalog_user,model_musical_catalog,base.group_user,1,0,0,0
 access_musical_catalog_system,name_musical_catalog_system,model_musical_catalog,base.group_system,1,1,1,1
-access_musical_catalog_reference_user,name_musical_catalog_reference_user,model_musical_catalog_reference,base.group_user,1,0,0,0
+access_musical_catalog_reference_user,name_musical_catalog_reference_user,model_musical_catalog_reference,base.group_user,1,1,1,1
 access_musical_catalog_reference_system,name_musical_catalog_reference_system,model_musical_catalog_reference,base.group_system,1,1,1,1

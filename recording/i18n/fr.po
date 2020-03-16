@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* sale_warranty
+#	* recording
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0+e\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-07 16:50+0000\n"
-"PO-Revision-Date: 2020-02-07 11:59-0500\n"
+"POT-Creation-Date: 2020-03-12 18:59+0000\n"
+"PO-Revision-Date: 2020-03-12 18:59+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__message_needaction
@@ -25,7 +23,7 @@ msgstr "Nécessite une action"
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__active
 msgid "Active"
-msgstr "Active"
+msgstr "Actif"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__activity_ids
@@ -40,7 +38,7 @@ msgstr "Status de l'Activité"
 #. module: recording
 #: selection:recording,group_type:0
 msgid "Album"
-msgstr "Album"
+msgstr ""
 
 #. module: recording
 #: model_terms:ir.ui.view,arch_db:recording.recording_search
@@ -70,12 +68,12 @@ msgstr "Société"
 #. module: recording
 #: selection:recording,group_type:0
 msgid "Compilation"
-msgstr "Compilation"
+msgstr ""
 
 #. module: recording
 #: model:ir.ui.menu,name:recording.menu_config
 msgid "Configuration"
-msgstr "Configuration"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__create_uid
@@ -107,17 +105,13 @@ msgstr "Durée"
 #. module: recording
 #: selection:recording,group_type:0
 msgid "EP"
-msgstr "EP"
+msgstr ""
 
 #. module: recording
-#: model:ir.model,name:recording.model_recording_external_catalog_reference
-msgid "External Catalog Reference for Recordings"
-msgstr "Références de catalogue externe d'enregistrements"
-
-#. module: recording
+#: model:ir.model,name:recording.model_musical_catalog_reference
 #: model:ir.model.fields,field_description:recording.field_recording__musical_catalog_reference_ids
 msgid "External Catalog References"
-msgstr "Références catalogues externes"
+msgstr "Références de catalogues externes"
 
 #. module: recording
 #: model:ir.ui.menu,name:recording.musical_catalog_menu
@@ -153,9 +147,7 @@ msgstr "Donne accès à gérer les paramètres de l'application Enregistrement."
 #. module: recording
 #: model:res.groups,comment:recording.group_user
 msgid "Grants write access recordings and read access to related object types."
-msgstr ""
-"Donne accès en écriture sur les enregistrements et en lecture aux types "
-"d'objets associés."
+msgstr "Donne accès en écriture sur les enregistrements et en lecture aux types d'objets associés."
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__group_duration
@@ -179,13 +171,13 @@ msgstr "Regroupement d'enregistrements"
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__id
 #: model:ir.model.fields,field_description:recording.field_recording_track__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__isrc
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__isrc
 msgid "ISRC"
-msgstr "ISRC"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,help:recording.field_recording__message_unread
@@ -227,7 +219,7 @@ msgstr "Langues"
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc____last_update
 #: model:ir.model.fields,field_description:recording.field_recording_track____last_update
 msgid "Last Modified on"
-msgstr "Dernière Modification le"
+msgstr "Dernière modification le"
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__write_uid
@@ -266,7 +258,7 @@ msgstr "Erreur d'envoi du message"
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__message_ids
 msgid "Messages"
-msgstr "Messages"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__activity_date_deadline
@@ -296,13 +288,13 @@ msgstr "Prochain numéro de volume"
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__note
 msgid "Note"
-msgstr "Note"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording_other_isrc__notes
 #: model_terms:ir.ui.view,arch_db:recording.recording_form
 msgid "Notes"
-msgstr "Notes"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__message_needaction_counter
@@ -447,7 +439,7 @@ msgstr "Séquence"
 #. module: recording
 #: selection:recording,group_type:0
 msgid "Single"
-msgstr "Single"
+msgstr ""
 
 #. module: recording
 #: model_terms:ir.ui.view,arch_db:recording.recording_search
@@ -463,17 +455,15 @@ msgstr "Enregistrement sonore"
 #. module: recording
 #: selection:recording,group_type:0
 msgid "Split"
-msgstr "Split"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,help:recording.field_recording__activity_state
-msgid ""
-"Status based on activities\n"
+msgid "Status based on activities\n"
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
-msgstr ""
-"Statut basé sur les activités\n"
+msgstr "Statut basé sur les activités\n"
 "En retard : la date d'échéance est déjà dépassée\n"
 "Aujourd'hui : la date d'activité est aujourd'hui\n"
 "Planifiée : activités futures"
@@ -481,19 +471,20 @@ msgstr ""
 #. module: recording
 #: code:addons/recording/isrc.py:15
 #, python-format
-msgid ""
-"The given ISRC ({}) is invalid. It must contain only letters and digits. No "
-"special caracters are authorized."
-msgstr ""
-"Le code ISRC ({}) est invalide. Il doit contenir seulement des lettres et "
-"des chiffres. Aucun caractère spécial n'est autorisé."
+msgid "The given ISRC ({}) is invalid. It must contain only letters and digits. No special caracters are authorized."
+msgstr "Le code ISRC ({}) est invalide. Il doit contenir seulement des lettres et des chiffres. Aucun caractère spécial n'est autorisé."
 
 #. module: recording
 #: code:addons/recording/isrc.py:24
 #, python-format
 msgid "The given ISRC ({}) is invalid. It must have exactly 12 caracters."
-msgstr ""
-"Le code ISRC ({}) est invalide. Il doit contenir exactement 12 caractères."
+msgstr "Le code ISRC ({}) est invalide. Il doit contenir exactement 12 caractères."
+
+#. module: recording
+#: code:addons/recording/models/recording.py:175
+#, python-format
+msgid "The track \"%s\" has been selected twice in the track. It can be selected only once."
+msgstr "L'enregistrement \"%s\" a été sélectionné deux fois. Il ne peux être sélectionné qu'une seule fois."
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__name
@@ -519,7 +510,7 @@ msgstr "Piste"
 #. module: recording
 #: model_terms:ir.ui.view,arch_db:recording.recording_form
 msgid "Type"
-msgstr "Type"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__ttype
@@ -529,12 +520,12 @@ msgstr "Type d'enregistrement"
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__upc
 msgid "UPC"
-msgstr "UPC"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__upc_packshot
 msgid "UPC Packshot"
-msgstr "UPC Packshot"
+msgstr ""
 
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording__message_unread
@@ -570,4 +561,5 @@ msgstr "Enregistrements vidéo"
 #. module: recording
 #: model:ir.model.fields,field_description:recording.field_recording_track__volume
 msgid "Volume"
-msgstr "Volume"
+msgstr ""
+

@@ -173,7 +173,7 @@ class RecordingGroup(models.Model):
                 if track.recording_id in recording_track_record:
                     raise ValidationError(
                         _(
-                            'The track "%s" has been selected twice in the track.'
+                            'The recording "%s" has been selected twice in the list.'
                             ' It can be selected only once.'
                         ) % track.recording_id.name
                     )

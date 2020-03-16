@@ -9,41 +9,24 @@ from odoo.exceptions import ValidationError
 
 @ddt
 class TestRecording(SavepointCase):
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
 
-        cls.sound_1 = cls.env["recording"].create({
-            "name": "Sound 1",
-            "ttype": "sound",
-        })
-        cls.sound_2 = cls.env["recording"].create({
-            "name": "Sound 2",
-            "ttype": "sound",
-        })
-        cls.video_1 = cls.env["recording"].create({
-            "name": "Video 1",
-            "ttype": "video",
-        })
-        cls.video_2 = cls.env["recording"].create({
-            "name": "Video 1",
-            "ttype": "video",
-        })
-        cls.group_1 = cls.env["recording"].create({
-            "name": "Group 1",
-            "ttype": "group",
-            "track_ids": [
-                (0, 0, {
-                    "sequence": 1,
-                    "recording_id": cls.sound_1.id,
-                }),
-                (0, 0, {
-                    "sequence": 2,
-                    "recording_id": cls.sound_2.id,
-                }),
-            ]
-        })
+        cls.sound_1 = cls.env["recording"].create({"name": "Sound 1", "ttype": "sound"})
+        cls.sound_2 = cls.env["recording"].create({"name": "Sound 2", "ttype": "sound"})
+        cls.video_1 = cls.env["recording"].create({"name": "Video 1", "ttype": "video"})
+        cls.video_2 = cls.env["recording"].create({"name": "Video 1", "ttype": "video"})
+        cls.group_1 = cls.env["recording"].create(
+            {
+                "name": "Group 1",
+                "ttype": "group",
+                "track_ids": [
+                    (0, 0, {"sequence": 1, "recording_id": cls.sound_1.id}),
+                    (0, 0, {"sequence": 2, "recording_id": cls.sound_2.id}),
+                ],
+            }
+        )
 
     def test_number_of_related_video(self):
         self.video_1.sound_recording_id = self.sound_1
@@ -66,11 +49,7 @@ class TestRecording(SavepointCase):
         self.group_1.track_ids[1].volume = volume
         assert self.group_1.next_volume_number == volume
 
-    @data(
-        ("0", "1"),
-        ("2", "3"),
-        (" 2 ", "3"),
-    )
+    @data(("0", "1"), ("2", "3"), (" 2 ", "3"))
     @unpack
     def test_next_track(self, last_track, expected_next_track):
         self.group_1.track_ids[1].track = last_track
@@ -86,56 +65,54 @@ class TestRecording(SavepointCase):
 
 
 class TestRecordingGroup(SavepointCase):
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
 
-        cls.sound_1 = cls.env["recording"].create({
-            "name": "Sound 1",
-            "ttype": "sound",
-        })
-        cls.group_1 = cls.env["recording"].create({
-            "name": "Group 1",
-            "ttype": "group",
-        })
-        
+        cls.sound_1 = cls.env["recording"].create({"name": "Sound 1", "ttype": "sound"})
+        cls.sound_2 = cls.env["recording"].create({"name": "Sound 2", "ttype": "sound"})
+        cls.group_1 = cls.env["recording"].create({"name": "Group 1", "ttype": "group"})
+
         cls.track_pool = cls.env["recording.track"]
 
     def test_whenSameSoundAddedTwice_thenRaiseError(self):
-        track_1 = self.track_pool.create({
-            "recording_group_id": self.group_1.id,
-            "volume": 1,
-            "track": 1,
-            "recording_id": self.sound_1.id
-        })
-        track_2 = self.track_pool.create({
-            "recording_group_id": self.group_1.id,
-            "volume": 1,
-            "track": 2,
-            "recording_id": self.sound_1.id
-        })
+        track_1 = self.track_pool.create(
+            {
+                "recording_group_id": self.group_1.id,
+                "volume": 1,
+                "track": 1,
+                "recording_id": self.sound_1.id,
+            }
+        )
+        track_2 = self.track_pool.create(
+            {
+                "recording_group_id": self.group_1.id,
+                "volume": 1,
+                "track": 2,
+                "recording_id": self.sound_1.id,
+            }
+        )
 
         with pytest.raises(ValidationError):
-            self.group_1.write({
-                "track_ids": [(6, 0, [track_1.id, track_2.id])]
-            })
+            self.group_1.write({"track_ids": [(6, 0, [track_1.id, track_2.id])]})
 
-    def test_weCanAddTwoDifferentTracks(self):
-        track_1 = self.track_pool.create({
-            "recording_group_id": self.group_1.id,
-            "volume": 1,
-            "track": 1,
-            "recording_id": self.sound_1.id
-        })
-        track_2 = self.track_pool.create({
-            "recording_group_id": self.group_1.id,
-            "volume": 1,
-            "track": 2,
-            "recording_id": self.sound_2.id
-        })
+    def test_whenTrackWithDifferentRecordings_thenTheyAreAddedToTheGRoup(self):
+        track_1 = self.track_pool.create(
+            {
+                "recording_group_id": self.group_1.id,
+                "volume": 1,
+                "track": 1,
+                "recording_id": self.sound_1.id,
+            }
+        )
+        track_2 = self.track_pool.create(
+            {
+                "recording_group_id": self.group_1.id,
+                "volume": 1,
+                "track": 2,
+                "recording_id": self.sound_2.id,
+            }
+        )
 
-        with pytest.raises(ValidationError):
-            self.group_1.write({
-                "track_ids": [(6, 0, [track_1.id, track_2.id])]
-            })
+        self.group_1.write({"track_ids": [(6, 0, [track_1.id, track_2.id])]})
+        assert 2 == len(self.group_1)

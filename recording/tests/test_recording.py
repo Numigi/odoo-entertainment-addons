@@ -115,4 +115,4 @@ class TestRecordingGroup(SavepointCase):
         )
 
         self.group_1.write({"track_ids": [(6, 0, [track_1.id, track_2.id])]})
-        assert 2 == len(self.group_1)
+        assert 2 == len(self.group_1.track_ids)

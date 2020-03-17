@@ -141,7 +141,7 @@
                                 <field name="number_of_tracks"/>
                             </group>
                         </page>
-                        <page name="other_isrc" string="Other ISRC"  attrs="{'invisible': [('ttype', 'rc', 'group')]}">
+                        <page name="other_isrc" string="Other ISRC"  attrs="{'invisible': [('ttype', '=', 'group')]}">
                             <group>
                                 <field name="other_isrc_ids" nolabel="1">
                                     <tree editable="top">

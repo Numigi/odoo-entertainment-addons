@@ -85,10 +85,10 @@
         <field name="arch" type="xml">
             <tree string="Musical Artworks">
                 <field name="title"/>
-                <field name="distribution_key_count"/>
                 <field name="iswc"/>
                 <field name="catalogue_reference"/>
                 <field name="company_id" groups="base.group_multi_company"/>
+                <field name="distribution_key_count"/>
             </tree>
         </field>
     </record>
@@ -99,9 +99,9 @@
         <field name="arch" type="xml">
             <search string="Search Musical Artworks">
                 <field name="title"/>
-                <field name="distribution_key_count"/>
                 <field name="iswc"/>
                 <field name="catalogue_reference"/>
+                <field name="distribution_key_count"/>
                 <field name="musical_catalog_reference_ids" filter_domain="[('musical_catalog_reference_ids.code', 'ilike', self)]"/>
                 <separator/>
                 <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>

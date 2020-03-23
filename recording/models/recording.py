@@ -82,6 +82,13 @@ class Recording(models.Model):
         'External Catalog References',
     )
 
+    _sql_constraints = [
+        (
+            'catalogue_reference', 'unique (catalogue_reference)',
+            'The catalogue reference has to be unique.'
+        ),
+    ]
+
 
 class RecordingWithISRC(models.Model):
 

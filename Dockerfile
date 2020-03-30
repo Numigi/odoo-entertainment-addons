@@ -19,6 +19,7 @@ COPY musical_artwork /mnt/extra-addons/musical_artwork
 COPY musical_catalog /mnt/extra-addons/musical_catalog
 COPY product_musical_relation /mnt/extra-addons/product_musical_relation
 COPY recording /mnt/extra-addons/recording
+COPY recording_analytic /mnt/extra-addons/recording_analytic
 COPY recording_artist /mnt/extra-addons/recording_artist
 COPY recording_contributor /mnt/extra-addons/recording_contributor
 COPY recording_genre /mnt/extra-addons/recording_genre

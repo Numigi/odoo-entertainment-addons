@@ -63,7 +63,7 @@
             name="Products"
             parent="recording.menu_recording_root"
             action="product.product_template_action_all"
-            sequence="200"
+            sequence="400"
     />
 
 </odoo>

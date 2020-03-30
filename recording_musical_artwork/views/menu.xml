@@ -4,7 +4,7 @@
     <menuitem id="menu_musical_artwork"
               name="Musical Artworks"
               parent="recording.menu_recording_root"
-              sequence="300"
+              sequence="200"
     />
 
     <menuitem id="menu_musical_artwork_artwork"

@@ -6,7 +6,7 @@
         name="Artists"
         parent="recording.menu_recording_root"
         action="artist.action_artist"
-        sequence="200"
+        sequence="100"
         />
 
     <menuitem

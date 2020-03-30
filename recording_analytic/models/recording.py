@@ -11,4 +11,5 @@ class Recording(models.Model):
     analytic_account_id = fields.Many2one(
         'account.analytic.account',
         'Analytic Account',
+        ondelete="restrict"
     )

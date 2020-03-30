@@ -14,7 +14,7 @@
         name="Recordings"
         parent="menu_recording_root"
         action="action_recording"
-        sequence="100"
+        sequence="300"
         />
 
     <menuitem

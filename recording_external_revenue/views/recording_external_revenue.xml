@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_external_revenue_raw_form" model="ir.ui.view">
+        <field name="name">Recording External Revenue Raw Form</field>
+        <field name="model">recording.external.revenue.raw</field>
+        <field name="arch" type="xml">
+            <form string="Artist">
+                <header/>
+                <sheet>
+                    <div class="oe_button_box" name="button_box"/>
+                    <group name="main">
+                        <group name="left">
+                            <field name="date"/>
+                            <field name="partner"/>
+                            <field name="country"/>
+                            <field name="state"/>
+                            <field name="fiscal_position"/>
+                        </group>
+                        <group name="right">
+                            <field name="revenue_type"/>
+                            <field name="platform"/>
+                            <field name="sub_platform"/>
+                            <field name="company_id"/>
+                            <field name="is_converted"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="recording_identifiers" string="Recording Identidiers">
+                            <group>
+                                <group name="left">
+                                    <field name="isrc"/>
+                                    <field name="upc"/>
+                                    <field name="recording_external_catalog"/>
+                                    <field name="recording_external_catalog_reference"/>
+                                </group>
+                                <group name="right">
+                                    <field name="title"/>
+                                    <field name="artist"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name="product_identifiers" string="Product Identidiers">
+                            <group>
+                                <group name="left">
+                                    <field name="product_reference"/>
+                                    <field name="product_external_catalog"/>
+                                    <field name="product_external_catalog_reference"/>
+                                </group>
+                                <group name="right">
+                                </group>
+                            </group>
+                        </page>
+                        <page name="revenue" string="Revenue">
+                            <group>
+                                <group name="left">
+                                    <field name="gross_amount_per_unit"/>
+                                    <field name="quantity"/>
+                                    <field name="gross_amount"/>
+                                    <!-- waiting for TA#20794 -->
+                                    <!-- <field name="revenue"/>-->
+                                </group>
+                                <group name="right">
+                                    <field name="currency"/>
+                                    <field name="tax"/>
+                                    <field name="tax_base"/>
+                                    <field name="commission_total"/>
+                                    <field name="net_amount_total"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="recording_external_revenue_raw_list" model="ir.ui.view">
+        <field name="name">Recording External Revenue Raw List</field>
+        <field name="model">recording.external.revenue.raw</field>
+        <field name="arch" type="xml">
+            <tree string="Recording External Revenue Raw">
+                <field name="country"/>
+                <field name="platform"/>
+                <field name="date"/>
+                <field name="partner"/>
+                <field name="isrc"/>
+                <field name="upc"/>
+                <field name="recording_external_catalog"/>
+                <field name="recording_external_catalog_reference"/>
+                <field name="revenue_type"/>
+                <field name="product_reference"/>
+                <field name="product_external_catalog"/>
+                <field name="product_external_catalog_reference"/>
+                <field name="gross_amount_per_unit"/>
+                <field name="quantity"/>
+                <field name="gross_amount"/>
+                <field name="currency"/>
+                <field name="is_converted"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="recording_external_revenue_raw_search" model="ir.ui.view">
+        <field name="name">Recording External Revenue Raw Search</field>
+        <field name="model">recording.external.revenue.raw</field>
+        <field name="arch" type="xml">
+            <search string="Search Recording External Revenue Raw">
+                <field name="country"/>
+                <field name="platform"/>
+                <field name="date"/>
+                <field name="partner"/>
+                <field name="isrc"/>
+                <field name="upc"/>
+                <field name="recording_external_catalog"/>
+                <field name="recording_external_catalog_reference"/>
+                <field name="revenue_type"/>
+                <field name="product_reference"/>
+                <field name="product_external_catalog"/>
+                <field name="product_external_catalog_reference"/>
+                <field name="gross_amount_per_unit"/>
+                <field name="quantity"/>
+                <field name="gross_amount"/>
+                <field name="currency"/>
+                <field name="is_converted"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_raw_data" model="ir.actions.act_window">
+        <field name="name">Raw Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">recording.external.revenue.raw</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="recording_external_revenue_raw_list"/>
+        <field name="search_view_id" ref="recording_external_revenue_raw_search"/>
+    </record>
+</odoo>

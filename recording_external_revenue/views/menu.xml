@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_recording_external_revenue"
+        name="External Revenues"
+        parent="recording.menu_recording_root"
+        sequence="450"
+        />
+
+    <menuitem
+            id="menu_recording_external_revenue_recording"
+            name="Recordings"
+            parent="menu_recording_external_revenue"
+            sequence="100"
+    />
+    <menuitem
+            id="menu_recording_external_revenue_recording_raw_data"
+            name="Raw Data"
+            parent="menu_recording_external_revenue_recording"
+            action="recording_external_revenue.action_raw_data"
+            sequence="100"
+    />
+
+</odoo>

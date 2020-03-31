@@ -19,6 +19,7 @@
         'recording_analytic',
         'recording_artist',
         'recording_contributor',
+        'recording_external_revenue',
         'recording_genre',
         'recording_lang',
         'recording_musical_artwork',

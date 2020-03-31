@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="module_category_external_revenue" model="ir.module.category">
+        <field name="name">External Revenues</field>
+        <field name="description">Management of external revenues of recording</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_category_external_revenue"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">Grants read access to external revenues.</field>
+    </record>
+
+    <record id="group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_external_revenue"/>
+        <field name="implied_ids" eval="[(4, ref('group_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="comment">Grants access to manage the external revenues</field>
+    </record>
+
+</odoo>

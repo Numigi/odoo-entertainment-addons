@@ -22,9 +22,9 @@ class RecordingExternalRevenueRaw(models.Model):
     sub_platform = fields.Char()
     is_converted = fields.Boolean("Converted", default=False, readonly=True)
     company_id = fields.Many2one(
-        "res.partner",
+        "res.company",
         required=True,
-        domain=[("is_company", "=", True)],
+        default=lambda self: self.env.user.company_id,
     )
 
 
@@ -53,17 +53,10 @@ class RecordingExternalRevenueRawRevenue(models.Model):
     """ fields of the tab "Revenue" """
     _inherit = "recording.external.revenue.raw"
 
-    # required for for Monetary fields.
-    currency_id = fields.Many2one(
-        'res.company',
-        string="Currency",
-        readonly=True
-    )
-
     # Montant brut unitaire (HT)
-    gross_amount_per_unit = fields.Monetary("Gross Amount Per Unit")
+    gross_amount_per_unit = fields.Float("Gross Amount Per Unit")
     quantity = fields.Integer()
-    gross_amount = fields.Monetary()
+    gross_amount = fields.Float()
     # waiting for TA#20794
     # revenue = fields.Many2one(
     #     "recording.external.revenue",
@@ -78,5 +71,5 @@ class RecordingExternalRevenueRawRevenue(models.Model):
         ],
         required=True
     )
-    commission_total = fields.Monetary("Total Commissions Amount")
-    net_amount_total = fields.Monetary("Total Net Amount")
+    commission_total = fields.Float("Total Commissions Amount")
+    net_amount_total = fields.Float("Total Net Amount")

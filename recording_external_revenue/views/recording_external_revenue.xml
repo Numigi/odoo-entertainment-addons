@@ -108,7 +108,6 @@
             <search string="Search Recording External Revenue Raw">
                 <field name="country"/>
                 <field name="platform"/>
-                <field name="date"/>
                 <field name="partner"/>
                 <field name="isrc"/>
                 <field name="upc"/>
@@ -118,11 +117,16 @@
                 <field name="product_reference"/>
                 <field name="product_external_catalog"/>
                 <field name="product_external_catalog_reference"/>
-                <field name="gross_amount_per_unit"/>
                 <field name="quantity"/>
-                <field name="gross_amount"/>
                 <field name="currency"/>
-                <field name="is_converted"/>
+                <separator/>
+                <filter string="Date" name="date" date="date"/>
+                <separator/>
+                <filter name="converted" string="Converted"
+                        domain="[('is_converted', '=', True)]"/>
+                <filter name="unconverted" string="Unconverted"
+                        domain="[('is_converted', '=', False)]"/>
+                <separator/>
             </search>
         </field>
     </record>

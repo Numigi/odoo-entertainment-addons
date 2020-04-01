@@ -11,7 +11,7 @@
     'category': 'Other',
     'summary': 'Install all addons required for testing.',
     'depends': [
-        'account_recording_dimensions'
+        'account_recording_dimensions',
         'artist',
         'artist_url_link',
         'musical_artwork',

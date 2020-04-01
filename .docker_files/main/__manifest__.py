@@ -11,10 +11,11 @@
     'category': 'Other',
     'summary': 'Install all addons required for testing.',
     'depends': [
+        'account_recording_dimensions'
         'artist',
         'artist_url_link',
-        'musical_artwork',  # TA#16242
-        'product_musical_relation',  # TA#16692
+        'musical_artwork',
+        'product_musical_relation',
         'recording',
         'recording_analytic',
         'recording_artist',

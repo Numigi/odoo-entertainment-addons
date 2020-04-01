@@ -1,4 +1,4 @@
-FROM quay.io/numigi/odoo-public:12.0
+FROM quay.io/numigi/odoo-public:12.latest
 MAINTAINER numigi <contact@numigi.com>
 
 USER root
@@ -13,6 +13,7 @@ RUN gitoo install-all --conf_file /gitoo.yml --destination "${THIRD_PARTY_ADDONS
 
 USER odoo
 
+COPY account_recording_dimensions /mnt/extra-addons/account_recording_dimensions
 COPY artist /mnt/extra-addons/artist
 COPY artist_url_link /mnt/extra-addons/artist_url_link
 COPY musical_artwork /mnt/extra-addons/musical_artwork

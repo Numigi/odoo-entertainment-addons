@@ -6,5 +6,6 @@ from odoo import models, fields
 
 class AccountMoveLineRecordingArtist(models.Model):
     _inherit = "account.move.line"
-    recording_id = fields.Many2one("recording")
-    artist_id = fields.Many2one("artist")
+    # Index as we are grouping by these dimensions
+    recording_id = fields.Many2one("recording", ondelete="restrict", index=True)
+    artist_id = fields.Many2one("artist", ondelete="restrict", index=True)

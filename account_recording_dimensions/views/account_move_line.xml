@@ -23,8 +23,14 @@
                 <field name="recording_id"/>
             </field>
             <filter name="groupby_date" position="after">
-                <filter string="Artist" name="artist" domain="[]" context="{'group_by':'artist_id'}"/>
-                <filter string="Recording" name="recording" domain="[]" context="{'group_by':'recording_id'}"/>
+                <filter string="Artist"
+                        name="groupby_artist"
+                        domain="[]"
+                        context="{'group_by':'artist_id'}"/>
+                <filter string="Recording"
+                        name="groupby_recording"
+                        domain="[]"
+                        context="{'group_by':'recording_id'}"/>
             </filter>
         </field>
     </record>

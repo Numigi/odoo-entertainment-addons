@@ -7,12 +7,13 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./.log:/var/log/odoo
+      - ./account_recording_dimensions:/mnt/extra-addons/account_recording_dimensions
     ports:
       - "8069:8069"
       - "8071:8071"
     depends_on:
       - db
-    command: odoo
+    command: odoo --workers=0
     environment:
       - LOG_ODOO=/var/log/odoo
   db:

@@ -1,0 +1,34 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* account_recording_dimensions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-01 20:29+0000\n"
+"PO-Revision-Date: 2020-04-01 20:29+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_recording_dimensions
+#: model:ir.model.fields,field_description:account_recording_dimensions.field_account_move_line__artist_id
+#: model_terms:ir.ui.view,arch_db:account_recording_dimensions.account_move_line_search_view
+msgid "Artist"
+msgstr "Artiste"
+
+#. module: account_recording_dimensions
+#: model:ir.model,name:account_recording_dimensions.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: account_recording_dimensions
+#: model:ir.model.fields,field_description:account_recording_dimensions.field_account_move_line__recording_id
+#: model_terms:ir.ui.view,arch_db:account_recording_dimensions.account_move_line_search_view
+msgid "Recording"
+msgstr "Enregistrement"
+

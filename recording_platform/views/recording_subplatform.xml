@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_subplatform_form" model="ir.ui.view">
+        <field name="name">Record Subplatform Form</field>
+        <field name="model">recording.subplatform</field>
+        <field name="arch" type="xml">
+            <form string="Record Subplatform">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="group_1">
+                            <field name="platform_id"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group name="group_2">
+                        </group>
+                    </group>
+                    <notebook>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="recording_subplatform_list" model="ir.ui.view">
+        <field name="name">Record Subplatform List</field>
+        <field name="model">recording.subplatform</field>
+        <field name="arch" type="xml">
+            <tree string="Record Subplatforms" editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="platform_id"/>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="recording_subplatform_search" model="ir.ui.view">
+        <field name="name">Record Subplatform Search</field>
+        <field name="model">recording.subplatform</field>
+        <field name="arch" type="xml">
+            <search string="Search Record Subplatforms">
+                <field name="name"/>
+                <field name="platform_id"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <filter string="Platform" name="groupby_platform" context="{'group_by': 'platform_id'}"/>
+           </search>
+        </field>
+    </record>
+
+    <record id="action_recording_subplatform" model="ir.actions.act_window">
+        <field name="name">Record Subplatforms</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">recording.subplatform</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="recording_subplatform_list"/>
+        <field name="search_view_id" ref="recording_subplatform_search"/>
+    </record>
+
+</odoo>

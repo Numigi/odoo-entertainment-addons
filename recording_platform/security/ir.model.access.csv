@@ -1,0 +1,5 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_recording_platform_user,name_recording_platform_user,model_recording_platform,recording.group_user,1,0,0,0
+access_recording_platform_manager,name_recording_platform_manager,model_recording_platform,recording.group_manager,1,1,1,0
+access_recording_subplatform_user,name_recording_subplatform_user,model_recording_subplatform,recording.group_user,1,0,0,0
+access_recording_subplatform_manager,name_recording_subplatform_manager,model_recording_subplatform,recording.group_manager,1,1,1,0

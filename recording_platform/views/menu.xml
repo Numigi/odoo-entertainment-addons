@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_config_recording_platform"
+        name="Platforms"
+        parent="recording.menu_config_recording"
+        action="action_recording_platform"
+        sequence="60"
+        />
+
+    <menuitem
+        id="menu_config_recording_subplatform"
+        name="Subplatforms"
+        parent="recording.menu_config_recording"
+        action="action_recording_subplatform"
+        sequence="61"
+        />
+
+</odoo>

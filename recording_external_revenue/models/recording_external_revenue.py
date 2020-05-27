@@ -7,7 +7,7 @@ from odoo import models, fields
 class RecordingExternalRevenue(models.Model):
     _name = "recording.external.revenue"
     _description = "Recording External Revenue"
-    _order = 'date'
+    _order = 'operation_date'
 
     product_id = fields.Many2one('product.product', ondelete='restrict')
     partner_id = fields.Many2one('res.partner', ondelete='restrict')
@@ -34,8 +34,8 @@ class RecordingExternalRevenue(models.Model):
     period_start_date = fields.Date()
     period_end_date = fields.Date()
 
-    gross_amount_per_unit = fields.Float("Gross Amount Per Unit")
-    quantity = fields.Integer(index=True)
+    quantity = fields.Float()
+    gross_amount_per_unit = fields.Float()
     gross_amount = fields.Float()
     tax_id = fields.Many2one('account.tax', ondelete='restrict')
     tax_base = fields.Selection(
@@ -44,6 +44,7 @@ class RecordingExternalRevenue(models.Model):
             ("gross_amount", "Gross Amount Before Tax")
         ],
     )
+
     raw_unit_amount = fields.Float("Raw Unit Amount (Untaxed)")
     raw_amount = fields.Float("Total Raw Amount (Untaxed)")
     commission_amount = fields.Float("Total Commissions Amount")

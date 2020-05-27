@@ -7,9 +7,12 @@ from odoo import models, fields
 class RecordingExternalRevenueRaw(models.Model):
     _name = "recording.external.revenue.raw"
     _description = "Recording External Revenue Raw"
-    _order = 'date'
+    _order = 'operation_date'
 
-    date = fields.Date(index=True)
+    operation_date = fields.Date(index=True)
+    period_start_date = fields.Date()
+    period_end_date = fields.Date()
+
     partner = fields.Char(index=True)
     country = fields.Char(index=True)
     state = fields.Char()
@@ -38,8 +41,8 @@ class RecordingExternalRevenueRaw(models.Model):
     product_external_catalog = fields.Char(index=True)
     product_external_catalog_reference = fields.Char(index=True)
 
-    gross_amount_per_unit = fields.Float("Gross Amount Per Unit")
-    quantity = fields.Integer(index=True)
+    quantity = fields.Float()
+    gross_amount_per_unit = fields.Float()
     gross_amount = fields.Float()
     revenue_id = fields.Many2one(
         "recording.external.revenue",

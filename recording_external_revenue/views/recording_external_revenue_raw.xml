@@ -11,18 +11,20 @@
                     <div class="oe_button_box" name="button_box"/>
                     <group name="main">
                         <group name="left">
-                            <field name="date"/>
-                            <field name="partner"/>
-                            <field name="country"/>
+                            <field name="operation_date" required="1"/>
+                            <field name="partner" required="1"/>
+                            <field name="country" required="1"/>
                             <field name="state"/>
-                            <field name="fiscal_position"/>
+                            <field name="fiscal_position" required="1"/>
+                            <field name="company_id" required="1"/>
                         </group>
                         <group name="right">
-                            <field name="revenue_type"/>
-                            <field name="platform"/>
+                            <field name="period_start_date" required="1"/>
+                            <field name="period_end_date" required="1"/>
+                            <field name="revenue_type" required="1"/>
+                            <field name="platform" required="1"/>
                             <field name="subplatform"/>
-                            <field name="company_id"/>
-                            <field name="is_converted"/>
+                            <field name="is_converted" readonly="1"/>
                         </group>
                     </group>
                     <notebook>
@@ -44,8 +46,8 @@
                             <group>
                                 <group name="left">
                                     <field name="product_reference"/>
-                                    <field name="product_external_catalog"/>
-                                    <field name="product_external_catalog_reference"/>
+                                    <field name="product_external_catalog" string="External Catalog"/>
+                                    <field name="product_external_catalog_reference" string="External Catalog Reference"/>
                                 </group>
                                 <group name="right">
                                 </group>
@@ -54,18 +56,17 @@
                         <page name="revenue" string="Revenue">
                             <group>
                                 <group name="left">
-                                    <field name="gross_amount_per_unit"/>
-                                    <field name="quantity"/>
-                                    <field name="gross_amount"/>
-                                    <!-- waiting for TA#20794 -->
-                                    <!-- <field name="revenue"/>-->
+                                    <field name="currency" required="1"/>
+                                    <field name="tax"/>
+                                    <field name="tax_base" required="1"/>
+                                    <field name="revenue_id" readonly="1"/>
                                 </group>
                                 <group name="right">
-                                    <field name="currency"/>
-                                    <field name="tax"/>
-                                    <field name="tax_base"/>
-                                    <field name="commission_amount"/>
-                                    <field name="net_amount"/>
+                                    <field name="quantity"/>
+                                    <field name="gross_amount_per_unit"/>
+                                    <field name="gross_amount"/>
+                                    <field name="commission_amount" string="Total Amount of Commissions"/>
+                                    <field name="net_amount" string="Total Net Amount (Tax Excluded)"/>
                                 </group>
                             </group>
                         </page>
@@ -82,7 +83,7 @@
             <tree string="Recording External Revenue Raw">
                 <field name="country"/>
                 <field name="platform"/>
-                <field name="date"/>
+                <field name="operation_date"/>
                 <field name="partner"/>
                 <field name="isrc"/>
                 <field name="upc"/>
@@ -117,10 +118,9 @@
                 <field name="product_reference"/>
                 <field name="product_external_catalog"/>
                 <field name="product_external_catalog_reference"/>
-                <field name="quantity"/>
                 <field name="currency"/>
                 <separator/>
-                <filter string="Date" name="date" date="date"/>
+                <filter string="Operation Date" name="operation_date" date="operation_date"/>
                 <separator/>
                 <filter name="converted" string="Converted"
                         domain="[('is_converted', '=', True)]"/>

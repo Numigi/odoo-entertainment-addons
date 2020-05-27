@@ -61,11 +61,11 @@
                                     <field name="analytic_account_id" required="1"/>
                                 </group>
                                 <group name="right">
-                                    <field name="quantity" required="1"/>
-                                    <field name="raw_unit_amount" required="1"/>
-                                    <field name="raw_amount" required="1"/>
-                                    <field name="commission_amount" required="1"/>
-                                    <field name="net_amount" required="1"/>
+                                    <field name="quantity"/>
+                                    <field name="gross_amount_per_unit"/>
+                                    <field name="gross_amount"/>
+                                    <field name="commission_amount"/>
+                                    <field name="net_amount"/>
                                 </group>
                             </group>
                         </page>
@@ -83,15 +83,15 @@
                 <field name="country_id"/>
                 <field name="platform_id"/>
                 <field name="subplatform_id"/>
-                <field name="operation_date" string="Date"/>
+                <field name="operation_date"/>
                 <field name="partner_id"/>
                 <field name="recording_id"/>
                 <field name="artist_id"/>
                 <field name="product_id"/>
-                <field name="net_amount"/>
-                <field name="commission_amount"/>
-                <field name="currency_id"/>
                 <field name="tax_id"/>
+                <field name="commission_amount"/>
+                <field name="net_amount"/>
+                <field name="currency_id"/>
             </tree>
         </field>
     </record>
@@ -111,7 +111,7 @@
                 <field name="currency_id"/>
                 <field name="tax_id"/>
                 <separator/>
-                <filter string="Date" name="operation_date" date="operation_date"/>
+                <filter string="Operation Date" name="operation_date" date="operation_date"/>
             </search>
         </field>
     </record>
@@ -125,4 +125,5 @@
         <field name="view_id" ref="recording_external_revenue_list"/>
         <field name="search_view_id" ref="recording_external_revenue_search"/>
     </record>
+
 </odoo>

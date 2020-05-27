@@ -2,24 +2,118 @@
 <odoo>
 
     <menuitem
-        id="menu_recording_external_revenue"
+        id="menu_external_revenue"
         name="External Revenues"
         parent="recording.menu_recording_root"
         sequence="450"
         />
 
     <menuitem
-            id="menu_recording_external_revenue_recording"
-            name="Recordings"
-            parent="menu_recording_external_revenue"
-            sequence="100"
-    />
+        id="menu_external_revenue_recording"
+        name="Recordings"
+        parent="menu_external_revenue"
+        sequence="100"
+        />
+
     <menuitem
-            id="menu_recording_external_revenue_recording_raw_data"
-            name="Raw Data"
-            parent="menu_recording_external_revenue_recording"
-            action="recording_external_revenue.action_raw_data"
-            sequence="100"
-    />
+        id="menu_external_revenue_recording_raw_data"
+        name="Raw Data"
+        parent="menu_external_revenue_recording"
+        action="action_raw_data"
+        sequence="100"
+        />
+
+    <menuitem
+        id="menu_external_revenue_recording_revenues"
+        name="Revenues"
+        parent="menu_external_revenue_recording"
+        action="action_revenues"
+        sequence="110"
+        />
+
+    <menuitem
+        id="menu_external_revenue"
+        name="External Revenues"
+        parent="recording.menu_recording_root"
+        sequence="450"
+        />
+
+    <menuitem
+        id="menu_mapping"
+        name="Mapping"
+        parent="recording.menu_recording_root"
+        sequence="460"
+        />
+
+    <menuitem
+        id="menu_mapping_recording"
+        name="Recordings"
+        parent="menu_mapping"
+        sequence="100"
+        />
+
+    <menuitem
+        id="menu_mapping_recording_platforms"
+        name="Platforms"
+        parent="menu_mapping_recording"
+        action="action_recording_platform_mapping"
+        sequence="100"
+        />
+
+    <menuitem
+        id="menu_mapping_recording_subplatforms"
+        name="Subplatforms"
+        parent="menu_mapping_recording"
+        action="action_recording_subplatform_mapping"
+        sequence="110"
+        />
+
+    <menuitem
+        id="menu_mapping_recording_countries"
+        name="Countries"
+        parent="menu_mapping_recording"
+        action="action_recording_country_mapping"
+        sequence="120"
+        />
+
+    <menuitem
+        id="menu_mapping_recording_country_states"
+        name="States / Provinces"
+        parent="menu_mapping_recording"
+        action="action_recording_country_state_mapping"
+        sequence="130"
+        />
+
+    <menuitem
+        id="menu_mapping_recording_partners"
+        name="Partners"
+        parent="menu_mapping_recording"
+        action="action_recording_partner_mapping"
+        sequence="140"
+        />
+
+    <menuitem
+        id="menu_mapping_recording_revenue_types"
+        name="Revenu Types"
+        parent="menu_mapping_recording"
+        action="action_recording_revenue_type_mapping"
+        sequence="150"
+        />
+
+    <menuitem
+        id="menu_mapping_recording_taxes"
+        name="Taxes"
+        parent="menu_mapping_recording"
+        action="action_recording_tax_mapping"
+        sequence="160"
+        />
+
+    <menuitem
+        id="menu_mapping_external_catalogs"
+        name="External Catalogs"
+        action="action_recording_external_catalog_mapping"
+        parent="menu_mapping"
+        sequence="200"
+        />
 
 </odoo>

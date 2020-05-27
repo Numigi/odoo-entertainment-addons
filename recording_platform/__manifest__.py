@@ -17,5 +17,6 @@
         "views/recording_subplatform.xml",
         "views/menu.xml",
     ],
+    "demo": ["demo/demo.xml"],
     "installable": True,
 }

@@ -17,5 +17,6 @@
         'security/ir.model.access.csv',
         'views/musical_catalog.xml',
     ],
+    'demo': ["demo/demo.xml"],
     'installable': True,
 }

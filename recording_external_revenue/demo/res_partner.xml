@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="demo_partner_apple" model="res.partner">
+        <field name="name">Apple</field>
+    </record>
+
+    <record id="demo_partner_believe" model="res.partner">
+        <field name="name">Believe</field>
+    </record>
+
+    <record id="demo_partner_sound_exchange" model="res.partner">
+        <field name="name">Sound Exchange</field>
+    </record>
+
+</odoo>

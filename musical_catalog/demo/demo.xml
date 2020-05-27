@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="apple_music" model="musical.catalog">
+        <field name="name">Apple Music</field>
+    </record>
+
+    <record id="believe" model="musical.catalog">
+        <field name="name">Believe</field>
+    </record>
+
+    <record id="sound_exchange" model="musical.catalog">
+        <field name="name">Sound Exchange</field>
+    </record>
+
+</odoo>

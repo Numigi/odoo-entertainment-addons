@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="bandcamp" model="recording.platform">
+        <field name="name">Bandcamp</field>
+    </record>
+
+    <record id="deezer" model="recording.platform">
+        <field name="name">Deezer</field>
+    </record>
+
+    <record id="google" model="recording.platform">
+        <field name="name">Google</field>
+    </record>
+
+    <record id="spotify" model="recording.platform">
+        <field name="name">Spotify</field>
+    </record>
+
+    <record id="spotify_regular" model="recording.subplatform">
+        <field name="name">Regular</field>
+        <field name="platform_id" ref="spotify"/>
+    </record>
+
+    <record id="spotify_premium" model="recording.subplatform">
+        <field name="name">Premium</field>
+        <field name="platform_id" ref="spotify"/>
+    </record>
+
+    <record id="google_tvod" model="recording.subplatform">
+        <field name="name">On Demand TV</field>
+        <field name="platform_id" ref="google"/>
+    </record>
+
+</odoo>

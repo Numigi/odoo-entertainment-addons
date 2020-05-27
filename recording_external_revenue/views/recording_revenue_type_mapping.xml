@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_revenue_type_mapping_form" model="ir.ui.view">
+        <field name="name">Revenue Type Mapping Form</field>
+        <field name="model">recording.revenue.type.mapping</field>
+        <field name="arch" type="xml">
+            <form string="Revenue Type Mapping">
+                <sheet>
+                    <group>
+                        <group name="group_1">
+                            <field name="label"/>
+                            <field name="product_id"/>
+                        </group>
+                        <group name="group_2">
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="recording_revenue_type_mapping_list" model="ir.ui.view">
+        <field name="name">Revenue Type Mapping List</field>
+        <field name="model">recording.revenue.type.mapping</field>
+        <field name="arch" type="xml">
+            <tree string="Revenue Type Mapping" editable="top">
+                <field name="label"/>
+                <field name="product_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="recording_revenue_type_mapping_search" model="ir.ui.view">
+        <field name="name">Revenue Type Mapping Search</field>
+        <field name="model">recording.revenue.type.mapping</field>
+        <field name="arch" type="xml">
+            <search string="Search Revenue Type Mapping">
+                <field name="label"/>
+                <field name="product_id"/>
+           </search>
+        </field>
+    </record>
+
+    <record id="action_recording_revenue_type_mapping" model="ir.actions.act_window">
+        <field name="name">Revenue Type Mapping</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">recording.revenue.type.mapping</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="recording_revenue_type_mapping_list"/>
+        <field name="search_view_id" ref="recording_revenue_type_mapping_search"/>
+    </record>
+
+</odoo>

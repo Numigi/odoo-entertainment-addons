@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="demo_mapping_bc" model="recording.platform.mapping">
+        <field name="label">BC</field>
+        <field name="platform_id" ref="recording_platform.bandcamp"/>
+    </record>
+
+    <record id="demo_mapping_dz" model="recording.platform.mapping">
+        <field name="label">DZ</field>
+        <field name="platform_id" ref="recording_platform.deezer"/>
+    </record>
+
+    <record id="demo_mapping_sptf" model="recording.platform.mapping">
+        <field name="label">SPTF</field>
+        <field name="platform_id" ref="recording_platform.spotify"/>
+    </record>
+
+    <record id="demo_mapping_spotify" model="recording.platform.mapping">
+        <field name="label">spotify</field>
+        <field name="platform_id" ref="recording_platform.spotify"/>
+    </record>
+
+    <record id="demo_mapping_spotify_regular" model="recording.subplatform.mapping">
+        <field name="label">regular</field>
+        <field name="platform_id" ref="recording_platform.spotify"/>
+        <field name="subplatform_id" ref="recording_platform.spotify_regular"/>
+    </record>
+
+    <record id="demo_mapping_spotify_premium" model="recording.subplatform.mapping">
+        <field name="label">premium</field>
+        <field name="platform_id" ref="recording_platform.spotify"/>
+        <field name="subplatform_id" ref="recording_platform.spotify_premium"/>
+    </record>
+
+    <record id="demo_mapping_google_tvod" model="recording.subplatform.mapping">
+        <field name="label">goo. TVOD</field>
+        <field name="platform_id" ref="recording_platform.google"/>
+        <field name="subplatform_id" ref="recording_platform.google_tvod"/>
+    </record>
+
+    <record id="demo_mapping_ca" model="recording.country.mapping">
+        <field name="label">CA</field>
+        <field name="country_id" ref="base.ca"/>
+    </record>
+
+    <record id="demo_mapping_canada" model="recording.country.mapping">
+        <field name="label">Canada</field>
+        <field name="country_id" ref="base.ca"/>
+    </record>
+
+    <record id="demo_mapping_australia" model="recording.country.mapping">
+        <field name="label">Australia</field>
+        <field name="country_id" ref="base.au"/>
+    </record>
+
+    <record id="demo_mapping_australie" model="recording.country.mapping">
+        <field name="label">Australie</field>
+        <field name="country_id" ref="base.au"/>
+    </record>
+
+    <record id="demo_mapping_japan" model="recording.country.mapping">
+        <field name="label">Japan</field>
+        <field name="country_id" ref="base.jp"/>
+    </record>
+
+    <record id="demo_mapping_japon" model="recording.country.mapping">
+        <field name="label">Japon</field>
+        <field name="country_id" ref="base.jp"/>
+    </record>
+
+    <record id="demo_mapping_qc" model="recording.country.state.mapping">
+        <field name="label">QC</field>
+        <field name="country_id" ref="base.ca"/>
+        <field name="state_id" ref="base.state_ca_qc"/>
+    </record>
+
+    <record id="demo_mapping_quebec" model="recording.country.state.mapping">
+        <field name="label">Quebec</field>
+        <field name="country_id" ref="base.ca"/>
+        <field name="state_id" ref="base.state_ca_qc"/>
+    </record>
+
+    <record id="demo_mapping_on" model="recording.country.state.mapping">
+        <field name="label">ON</field>
+        <field name="country_id" ref="base.ca"/>
+        <field name="state_id" ref="base.state_ca_on"/>
+    </record>
+
+    <record id="demo_mapping_ontario" model="recording.country.state.mapping">
+        <field name="label">Ontario</field>
+        <field name="country_id" ref="base.ca"/>
+        <field name="state_id" ref="base.state_ca_on"/>
+    </record>
+
+    <record id="demo_mapping_blv" model="recording.partner.mapping">
+        <field name="label">Blv.</field>
+        <field name="partner_id" ref="demo_partner_believe"/>
+    </record>
+
+    <record id="demo_mapping_apple_music" model="recording.partner.mapping">
+        <field name="label">Apple Music</field>
+        <field name="partner_id" ref="demo_partner_apple"/>
+    </record>
+
+    <record id="demo_mapping_itunes" model="recording.partner.mapping">
+        <field name="label">Itunes</field>
+        <field name="partner_id" ref="demo_partner_apple"/>
+    </record>
+
+    <record id="demo_mapping_cad" model="recording.currency.mapping">
+        <field name="label">CAD</field>
+        <field name="currency_id" ref="base.CAD"/>
+    </record>
+
+    <record id="demo_mapping_canadian_dollar" model="recording.currency.mapping">
+        <field name="label">Canadian Dollar</field>
+        <field name="currency_id" ref="base.CAD"/>
+    </record>
+
+    <record id="demo_mapping_usd" model="recording.currency.mapping">
+        <field name="label">USD</field>
+        <field name="currency_id" ref="base.USD"/>
+    </record>
+
+    <record id="demo_mapping_us_dollar" model="recording.currency.mapping">
+        <field name="label">US Dollar</field>
+        <field name="currency_id" ref="base.USD"/>
+    </record>
+
+    <record id="demo_mapping_catalog_apple_music" model="recording.external.catalog.mapping">
+        <field name="label">Apple</field>
+        <field name="catalog_id" ref="musical_catalog.apple_music"/>
+    </record>
+
+    <record id="demo_mapping_catalog_apple_music" model="recording.external.catalog.mapping">
+        <field name="label">Apple Music</field>
+        <field name="catalog_id" ref="musical_catalog.apple_music"/>
+    </record>
+
+    <record id="demo_mapping_catalog_believe" model="recording.external.catalog.mapping">
+        <field name="label">Believe</field>
+        <field name="catalog_id" ref="musical_catalog.believe"/>
+    </record>
+
+    <record id="demo_mapping_catalog_believe" model="recording.external.catalog.mapping">
+        <field name="label">Blv</field>
+        <field name="catalog_id" ref="musical_catalog.believe"/>
+    </record>
+
+    <record id="demo_mapping_catalog_sound_exchange" model="recording.external.catalog.mapping">
+        <field name="label">Sound Ex.</field>
+        <field name="catalog_id" ref="musical_catalog.sound_exchange"/>
+    </record>
+
+    <record id="demo_mapping_str" model="recording.revenue.type.mapping">
+        <field name="label">STR</field>
+        <field name="product_id" ref="demo_product_stream"/>
+    </record>
+
+    <record id="demo_mapping_streaming" model="recording.revenue.type.mapping">
+        <field name="label">streaming</field>
+        <field name="product_id" ref="demo_product_stream"/>
+    </record>
+
+    <record id="demo_mapping_vid" model="recording.revenue.type.mapping">
+        <field name="label">vid</field>
+        <field name="product_id" ref="demo_product_video"/>
+    </record>
+
+</odoo>

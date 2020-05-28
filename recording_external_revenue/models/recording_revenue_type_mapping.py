@@ -1,7 +1,8 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import models, fields
+from odoo import api, models, fields, _
+from odoo.exceptions import ValidationError
 
 
 class RecordingRevenueTypeMapping(models.Model):
@@ -19,3 +20,12 @@ class RecordingRevenueTypeMapping(models.Model):
     _sql_constraints = [
         ("unique_label", "unique (label)", "Only one product can be mapped per label.")
     ]
+
+    @api.model
+    def map(self, label):
+        revenue_type = self.search([('label', '=', label)]).product_id
+        if not revenue_type:
+            raise ValidationError(_(
+                "No revenue type found for the label {}"
+            ).format(label))
+        return revenue_type

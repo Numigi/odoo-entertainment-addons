@@ -1,7 +1,8 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, models, fields
+from odoo import api, models, fields, _
+from odoo.exceptions import ValidationError
 
 
 class RecordingTaxMapping(models.Model):
@@ -12,10 +13,12 @@ class RecordingTaxMapping(models.Model):
 
     label = fields.Char(required=True, unique=True, string="Label")
     company_id = fields.Many2one(
-        "res.company", required=True, default=lambda env: env.user.company_id
+        "res.company", required=True, default=lambda self: self.env.user.company_id
     )
     tax_id = fields.Many2one(
-        "account.tax", ondelete="restrict", required=True,
+        "account.tax",
+        ondelete="restrict",
+        required=True,
         domain="[('company_id', '=', company_id)]",
     )
 
@@ -31,3 +34,14 @@ class RecordingTaxMapping(models.Model):
             "Only one tax can be mapped per label and company.",
         )
     ]
+
+    @api.model
+    def map(self, company, label):
+        tax = self.search(
+            [("company_id", "=", company.id), ("label", "=", label)]
+        ).tax_id
+        if not tax:
+            raise ValidationError(_(
+                "No tax found for the label {}"
+            ).format(label))
+        return tax

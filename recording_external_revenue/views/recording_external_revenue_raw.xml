@@ -85,14 +85,7 @@
                 <field name="platform"/>
                 <field name="operation_date"/>
                 <field name="partner"/>
-                <field name="isrc"/>
-                <field name="upc"/>
-                <field name="recording_external_catalog"/>
-                <field name="recording_external_catalog_reference"/>
                 <field name="revenue_type"/>
-                <field name="product_reference"/>
-                <field name="product_external_catalog"/>
-                <field name="product_external_catalog_reference"/>
                 <field name="gross_amount_per_unit"/>
                 <field name="quantity"/>
                 <field name="gross_amount"/>

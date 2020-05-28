@@ -147,7 +147,7 @@
                                     <tree editable="top">
                                         <field name="sequence" widget="handle"/>
                                         <field name="isrc"/>
-                                        <field name="partner_id"/>
+                                        <field name="partner_id" required="1"/>
                                         <field name="notes"/>
                                     </tree>
                                 </field>

@@ -1,7 +1,8 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import models, fields
+from odoo import api, models, fields, _
+from odoo.exceptions import ValidationError
 
 
 class RecordingExternalCatalogMapping(models.Model):
@@ -14,5 +15,18 @@ class RecordingExternalCatalogMapping(models.Model):
     catalog_id = fields.Many2one("musical.catalog", ondelete="restrict", required=True)
 
     _sql_constraints = [
-        ("unique_label", "unique (label)", "Only one external catalog can be mapped per label.")
+        (
+            "unique_label",
+            "unique (label)",
+            "Only one external catalog can be mapped per label.",
+        )
     ]
+
+    @api.model
+    def map(self, label):
+        catalog = self.search([("label", "=", label)]).catalog_id
+        if not catalog:
+            raise ValidationError(
+                _("No external catalog found for the label {}").format(label)
+            )
+        return catalog

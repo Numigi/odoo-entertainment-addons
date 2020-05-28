@@ -1,7 +1,8 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, models, fields
+from odoo import api, models, fields, _
+from odoo.exceptions import ValidationError
 
 
 class RecordingCountryStateMapping(models.Model):
@@ -26,3 +27,14 @@ class RecordingCountryStateMapping(models.Model):
         ("unique_label_country", "unique (label, country_id)",
             "Only one state / province can be mapped per label and country.")
     ]
+
+    @api.model
+    def map(self, country, label):
+        state = self.search(
+            [("country_id", "=", country.id), ("label", "=", label)]
+        ).state_id
+        if not state:
+            raise ValidationError(_(
+                "No state/province found for the label {}"
+            ).format(label))
+        return state

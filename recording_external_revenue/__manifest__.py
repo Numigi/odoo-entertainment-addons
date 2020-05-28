@@ -11,10 +11,11 @@
     "category": "Recording",
     "summary": "Manage external revenue of recording.",
     "depends": [
+        "account",
+        "musical_catalog",
+        "product_musical_relation",
         "recording",
         "recording_platform",
-        "musical_catalog",
-        "account",
     ],
     "data": [
         "views/recording_country_mapping.xml",

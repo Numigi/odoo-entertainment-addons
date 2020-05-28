@@ -20,7 +20,6 @@ class RecordingOtherISRC(models.Model):
     isrc = fields.Char('ISRC', size=12, required=True)
     partner_id = fields.Many2one(
         'res.partner', 'Issuer',
-        required=True,
     )
     notes = fields.Text()
 

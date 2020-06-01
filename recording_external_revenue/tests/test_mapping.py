@@ -4,117 +4,61 @@
 import pytest
 from datetime import datetime, timedelta
 from ddt import ddt, data
-from odoo.tests.common import SavepointCase
 from odoo.exceptions import ValidationError
+from .common import ExternalRevenueCase
 
 
 @ddt
-class TestMusicalArtworkDistribution(SavepointCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.believe = cls.env.ref("recording_external_revenue.demo_partner_believe")
-        cls.canada = cls.env.ref("base.ca")
-        cls.quebec = cls.env.ref("base.state_ca_qc")
-        cls.cad = cls.env.ref("base.CAD")
-        cls.spotify = cls.env.ref("recording_platform.spotify")
-        cls.spotify_premium = cls.env.ref("recording_platform.spotify_premium")
+class TestRawRevenueMapping(ExternalRevenueCase):
 
-        cls.tax = cls.env["account.tax"].create(
-            {"name": "My Awesome Tax", "amount": 100, "amount_type": "percent"}
-        )
-        cls.tax_mapping = cls.env["recording.tax.mapping"].create(
-            {"label": "AwesomeTax", "tax_id": cls.tax.id,}
-        )
-
-        cls.stream = cls.env.ref("recording_external_revenue.demo_product_stream")
-        cls.video = cls.env.ref("recording_external_revenue.demo_product_video")
-        cls.video_reference = "123VIDEO"
-        cls.video.default_code = cls.video_reference
-
-        cls.catalog = cls.env.ref("musical_catalog.apple_music")
-        cls.catalog_mapping = cls.env.ref(
-            "recording_external_revenue.demo_mapping_apple_music"
-        )
-        cls.video_catalog_reference = cls.env["musical.catalog.reference"].create(
-            {
-                "catalog_id": cls.catalog.id,
-                "code": "456VIDEO",
-                "product_template_id": cls.video.product_tmpl_id.id,
-            }
-        )
-
-        cls.upc = "639382000393"
-        cls.upc_packshot = "811868865980"
-        cls.isrc = "USS1Z9900001"
-        cls.other_isrc = "USS2A8800002"
-        cls.recording = cls.env["recording"].create(
-            {
-                "name": "Awesome Video",
-                "ttype": "video",
-                "upc": cls.upc,
-                "upc_packshot": cls.upc_packshot,
-                "isrc": cls.isrc,
-                "other_isrc_ids": [(0, 0, {"isrc": cls.other_isrc})],
-            }
-        )
-        cls.video.product_tmpl_id.recording_id = cls.recording
-        cls.recording_catalog_reference = cls.env["musical.catalog.reference"].create(
-            {
-                "catalog_id": cls.catalog.id,
-                "code": "789RECORDING",
-                "recording_id": cls.recording.id,
-            }
-        )
-
-    def _make_raw_revenue(self, **kwargs):
+    def _new_raw_revenue(self, **kwargs):
         return self.env["recording.external.revenue.raw"].new(kwargs)
 
     def test_map_partner(self):
         mapping = self.env.ref("recording_external_revenue.demo_mapping_blv")
-        raw_revenue = self._make_raw_revenue(partner=mapping.label)
-        assert raw_revenue.make_revenue().partner_id == self.believe
+        raw_revenue = self._new_raw_revenue(partner=mapping.label)
+        assert raw_revenue.make_new_revenue().partner_id == self.believe
 
     def test_partner_not_found(self):
-        raw_revenue = self._make_raw_revenue(partner="Wrong Label")
+        raw_revenue = self._new_raw_revenue(partner="Wrong Label")
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_country(self):
         mapping = self.env.ref("recording_external_revenue.demo_mapping_ca")
-        raw_revenue = self._make_raw_revenue(country=mapping.label)
-        assert raw_revenue.make_revenue().country_id == self.canada
+        raw_revenue = self._new_raw_revenue(country=mapping.label)
+        assert raw_revenue.make_new_revenue().country_id == self.canada
 
     def test_country_not_found(self):
-        raw_revenue = self._make_raw_revenue(country="Wrong Label")
+        raw_revenue = self._new_raw_revenue(country="Wrong Label")
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_country_state(self):
         country_mapping = self.env.ref("recording_external_revenue.demo_mapping_ca")
         state_mapping = self.env.ref("recording_external_revenue.demo_mapping_qc")
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             country=country_mapping.label, state=state_mapping.label
         )
-        assert raw_revenue.make_revenue().state_id == self.quebec
+        assert raw_revenue.make_new_revenue().state_id == self.quebec
 
     def test_country_state_not_found(self):
         country_mapping = self.env.ref("recording_external_revenue.demo_mapping_ca")
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             country=country_mapping.label, state="Wrong Label"
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_platform(self):
         mapping = self.env.ref("recording_external_revenue.demo_mapping_spotify")
-        raw_revenue = self._make_raw_revenue(platform=mapping.label)
-        assert raw_revenue.make_revenue().platform_id == self.spotify
+        raw_revenue = self._new_raw_revenue(platform=mapping.label)
+        assert raw_revenue.make_new_revenue().platform_id == self.spotify
 
     def test_platform_not_found(self):
-        raw_revenue = self._make_raw_revenue(platform="Wrong Label")
+        raw_revenue = self._new_raw_revenue(platform="Wrong Label")
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_subplatform(self):
         platform_mapping = self.env.ref(
@@ -123,43 +67,43 @@ class TestMusicalArtworkDistribution(SavepointCase):
         subplatform_mapping = self.env.ref(
             "recording_external_revenue.demo_mapping_spotify_premium"
         )
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             platform=platform_mapping.label, subplatform=subplatform_mapping.label
         )
-        assert raw_revenue.make_revenue().subplatform_id == self.spotify_premium
+        assert raw_revenue.make_new_revenue().subplatform_id == self.spotify_premium
 
     def test_subplatform_not_found(self):
         platform_mapping = self.env.ref(
             "recording_external_revenue.demo_mapping_spotify"
         )
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             platform=platform_mapping.label, subplatform="Wrong Label"
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_tax_mapping(self):
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             company_id=self.tax_mapping.company_id.id, tax=self.tax_mapping.label
         )
-        assert raw_revenue.make_revenue().tax_id == self.tax
+        assert raw_revenue.make_new_revenue().tax_id == self.tax
 
     def test_tax_not_found(self):
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             company_id=self.tax_mapping.company_id.id, tax="Wrong Label"
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_currency(self):
         mapping = self.env.ref("recording_external_revenue.demo_mapping_cad")
-        raw_revenue = self._make_raw_revenue(currency=mapping.label)
-        assert raw_revenue.make_revenue().currency_id == self.cad
+        raw_revenue = self._new_raw_revenue(currency=mapping.label)
+        assert raw_revenue.make_new_revenue().currency_id == self.cad
 
     def test_currency_not_found(self):
-        raw_revenue = self._make_raw_revenue(currency="Wrong Label")
+        raw_revenue = self._new_raw_revenue(currency="Wrong Label")
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     @data(
         "commission_amount",
@@ -175,7 +119,7 @@ class TestMusicalArtworkDistribution(SavepointCase):
     )
     def test_direct_mapping(self, field):
         today = datetime.now().date()
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             operation_date=today + timedelta(10),
             period_start_date=today + timedelta(5),
             period_end_date=today + timedelta(15),
@@ -187,129 +131,129 @@ class TestMusicalArtworkDistribution(SavepointCase):
             net_amount=100,
             fiscal_position="partner",
         )
-        revenue = raw_revenue.make_revenue()
+        revenue = raw_revenue.make_new_revenue()
         assert revenue[field] == raw_revenue[field]
 
     def test_map_revenue_type(self):
         mapping = self.env.ref("recording_external_revenue.demo_mapping_streaming")
-        raw_revenue = self._make_raw_revenue(revenue_type=mapping.label)
-        assert raw_revenue.make_revenue().product_id == self.stream
+        raw_revenue = self._new_raw_revenue(revenue_type=mapping.label)
+        assert raw_revenue.make_new_revenue().product_id == self.stream
 
     def test_no_product_found_for_revenue_type(self):
-        raw_revenue = self._make_raw_revenue(revenue_type="unexisting reference",)
+        raw_revenue = self._new_raw_revenue(revenue_type="unexisting reference",)
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_product_reference_has_priority_over_revenue_type(self):
         stream_mapping = self.env.ref(
             "recording_external_revenue.demo_mapping_streaming"
         )
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             product_reference=self.video.default_code,
             revenue_type=stream_mapping.label,
         )
-        assert raw_revenue.make_revenue().product_id == self.video
+        assert raw_revenue.make_new_revenue().product_id == self.video
 
     def test_no_product_found_with_reference(self):
-        raw_revenue = self._make_raw_revenue(product_reference="unexisting reference",)
+        raw_revenue = self._new_raw_revenue(product_reference="unexisting reference",)
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_2_products_with_same_reference(self):
         self.video.copy({"default_code": self.video.default_code})
-        raw_revenue = self._make_raw_revenue(product_reference=self.video.default_code,)
+        raw_revenue = self._new_raw_revenue(product_reference=self.video.default_code,)
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_product_using_catalog_reference(self):
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             product_external_catalog=self.catalog_mapping.label,
             product_external_catalog_reference=self.video_catalog_reference.code,
         )
-        revenue = raw_revenue.make_revenue()
+        revenue = raw_revenue.make_new_revenue()
         assert revenue.product_id == self.video
         assert revenue.recording_id == self.recording
 
     def test_no_product_found_with_catalog_reference(self):
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             product_external_catalog=self.catalog_mapping.label,
             product_external_catalog_reference="unexisting reference",
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_2_products_with_same_catalog_reference(self):
         self.video.copy(
             {"product_tmpl_id": self.video.product_tmpl_id.id,}
         )
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             product_external_catalog=self.catalog_mapping.label,
             product_external_catalog_reference=self.video_catalog_reference.code,
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_catalog_not_found(self):
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             product_external_catalog="unexisting reference",
             product_external_catalog_reference=self.video_catalog_reference.code,
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_recording_from_upc(self):
-        raw_revenue = self._make_raw_revenue(upc=self.upc,)
-        assert raw_revenue.make_revenue().recording_id == self.recording
+        raw_revenue = self._new_raw_revenue(upc=self.upc,)
+        assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_map_recording_from_upc_packshot(self):
-        raw_revenue = self._make_raw_revenue(upc=self.upc_packshot,)
-        assert raw_revenue.make_revenue().recording_id == self.recording
+        raw_revenue = self._new_raw_revenue(upc=self.upc_packshot,)
+        assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_2_recordings_with_same_upc(self):
         self.recording.copy({"upc_packshot": self.recording.upc})
-        raw_revenue = self._make_raw_revenue(upc=self.upc,)
+        raw_revenue = self._new_raw_revenue(upc=self.upc,)
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_recording_not_found_with_upc(self):
-        raw_revenue = self._make_raw_revenue(upc="wrong-upc-code",)
+        raw_revenue = self._new_raw_revenue(upc="wrong-upc-code",)
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_recording_from_isrc(self):
-        raw_revenue = self._make_raw_revenue(isrc=self.isrc)
-        assert raw_revenue.make_revenue().recording_id == self.recording
+        raw_revenue = self._new_raw_revenue(isrc=self.isrc)
+        assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_map_recording_from_other_isrc(self):
-        raw_revenue = self._make_raw_revenue(isrc=self.other_isrc)
-        assert raw_revenue.make_revenue().recording_id == self.recording
+        raw_revenue = self._new_raw_revenue(isrc=self.other_isrc)
+        assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_recording_not_found_with_isrc(self):
-        raw_revenue = self._make_raw_revenue(isrc="wrong-isrc-code",)
+        raw_revenue = self._new_raw_revenue(isrc="wrong-isrc-code",)
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_map_recording_using_catalog_reference(self):
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             recording_external_catalog=self.catalog_mapping.label,
             recording_external_catalog_reference=self.recording_catalog_reference.code,
         )
-        assert raw_revenue.make_revenue().recording_id == self.recording
+        assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_no_recording_found_with_catalog_reference(self):
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             recording_external_catalog=self.catalog_mapping.label,
             recording_external_catalog_reference="unexisting reference",
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()
 
     def test_2_recordings_with_same_catalog_reference(self):
         new_recording = self.recording.copy()
         self.recording_catalog_reference.copy({"recording_id": new_recording.id})
-        raw_revenue = self._make_raw_revenue(
+        raw_revenue = self._new_raw_revenue(
             recording_external_catalog=self.catalog_mapping.label,
             recording_external_catalog_reference=self.recording_catalog_reference.code,
         )
         with pytest.raises(ValidationError):
-            raw_revenue.make_revenue()
+            raw_revenue.make_new_revenue()

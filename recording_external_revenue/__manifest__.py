@@ -16,6 +16,7 @@
         "product_musical_relation",
         "recording",
         "recording_platform",
+        "queue_job",
     ],
     "data": [
         "views/recording_country_mapping.xml",

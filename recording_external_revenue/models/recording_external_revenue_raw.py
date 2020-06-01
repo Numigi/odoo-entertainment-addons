@@ -1,7 +1,8 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import models, fields, _
+from odoo import api, models, fields, _
+from odoo.addons.queue_job.job import job
 from odoo.exceptions import ValidationError
 
 
@@ -55,12 +56,153 @@ class RecordingExternalRevenueRaw(models.Model):
     commission_amount = fields.Float("Total Commissions Amount")
     net_amount = fields.Float("Total Net Amount (Untaxed)")
 
-    def make_revenue(self):
-        revenue = self.env["recording.external.revenue"].new()
+    @api.multi
+    def name_get(self):
+        return [(r.id, "#{}".format(r.id)) for r in self]
 
+    @api.multi
+    def write(self, vals):
+        self._check_can_edit_fields(vals)
+        return super().write(vals)
+
+    @api.multi
+    def unlink(self):
+        self._check_can_unlink()
+        return super().unlink()
+
+    def _check_can_edit_fields(self, vals):
+        fields_to_check = self._get_fields_protected_after_conversion()
+        converted_revenues = self.filtered("is_converted")
+        if converted_revenues and fields_to_check.intersection(vals):
+            raise ValidationError(
+                _(
+                    "The following raw revenue lines can not be edited because "
+                    "these are already converted into revenues:\n"
+                    "{}"
+                ).format(", ".join(converted_revenues.mapped("display_name")))
+            )
+
+    def _get_fields_protected_after_conversion(self):
+        result = set(self.get_direct_mapping_fields())
+        result.update(self.get_aggregated_fields())
+        result.update(self.get_common_parameter_fields())
+        return result
+
+    def _check_can_unlink(self):
+        converted_revenues = self.filtered("is_converted")
+        if converted_revenues:
+            raise ValidationError(
+                _(
+                    "The following raw revenue lines can not be deleted because "
+                    "these are already converted into revenues:\n"
+                    "{}"
+                ).format(", ".join(converted_revenues.mapped("display_name")))
+            )
+
+    def schedule_conversion(self, company):
+        revenues_to_convert = self.search([("is_converted", "=", False)]).filtered(
+            lambda r: r.company_id == company
+        )
+        for revenues in revenues_to_convert.group_by_common_parameters():
+            revenues.with_delay().convert()
+
+    def group_by_common_parameters(self):
+        fields = self.get_common_parameter_fields()
+
+        def groupby_func(record):
+            return tuple(record[f] for f in fields)
+
+        result = {}
+
+        for record in self:
+            key = groupby_func(record)
+            if key in result:
+                result[key] |= record
+            else:
+                result[key] = record
+
+        return result.values()
+
+    def get_common_parameter_fields(self):
+        return [
+            "country",
+            "currency",
+            "fiscal_position",
+            "isrc",
+            "operation_date",
+            "partner",
+            "platform",
+            "product_external_catalog",
+            "product_external_catalog_reference",
+            "product_reference",
+            "recording_external_catalog",
+            "recording_external_catalog_reference",
+            "revenue_type",
+            "state",
+            "subplatform",
+            "tax",
+            "tax_base",
+            "upc",
+            "gross_amount_per_unit",
+        ]
+
+    @job
+    def convert(self):
+        self._check_not_already_converted()
+        new_revenue = self.make_new_revenue()
+        revenue = self.env["recording.external.revenue"].create(
+            dict(new_revenue._cache)
+        )
+        self.write({"revenue_id": revenue.id, "is_converted": True})
+        return revenue
+
+    def _check_not_already_converted(self):
+        for raw_revenue in self:
+            if raw_revenue.is_converted:
+                raise ValidationError(
+                    _(
+                        "The raw revenue {} is already converted. "
+                        "It can not be converted twice."
+                    ).format(raw_revenue.display_name)
+                )
+
+    def make_new_revenue(self):
+        revenue = self.env["recording.external.revenue"].new()
+        self[0]._execute_direct_mapping(revenue)
+        self[0]._execute_advanced_mapping(revenue)
+        self._execute_aggregated_fields_mapping(revenue)
+        return revenue
+
+    def _execute_direct_mapping(self, revenue):
         for field in self.get_direct_mapping_fields():
             revenue[field] = self[field]
 
+    def get_direct_mapping_fields(self):
+        return [
+            "company_id",
+            "fiscal_position",
+            "gross_amount_per_unit",
+            "operation_date",
+            "period_end_date",
+            "period_start_date",
+            "quantity",
+            "tax_base",
+        ]
+
+    def _execute_aggregated_fields_mapping(self, revenue):
+        aggregated_fields = self.get_aggregated_fields()
+        for field in aggregated_fields:
+            revenue[field] = sum(r[field] or 0 for r in self)
+
+    def get_aggregated_fields(self):
+        return [
+            "commission_amount",
+            "gross_amount",
+            "net_amount",
+            "quantity",
+        ]
+
+    def _execute_advanced_mapping(self, revenue):
         revenue.partner_id = self._map_partner()
         revenue.country_id = self._map_country()
         revenue.state_id = self._map_country_state()
@@ -70,21 +212,6 @@ class RecordingExternalRevenueRaw(models.Model):
         revenue.recording_id = self._map_recording()
         revenue.tax_id = self._map_tax()
         revenue.currency_id = self._map_currency()
-        return revenue
-
-    def get_direct_mapping_fields(self):
-        return [
-            "commission_amount",
-            "fiscal_position",
-            "gross_amount",
-            "gross_amount_per_unit",
-            "net_amount",
-            "operation_date",
-            "period_end_date",
-            "period_start_date",
-            "quantity",
-            "tax_base",
-        ]
 
     def _map_partner(self):
         if self.partner:
@@ -110,7 +237,9 @@ class RecordingExternalRevenueRaw(models.Model):
     def _map_subplatform(self):
         if self.platform and self.subplatform:
             platform = self._map_platform()
-            return self.env["recording.subplatform.mapping"].map(platform, self.subplatform)
+            return self.env["recording.subplatform.mapping"].map(
+                platform, self.subplatform
+            )
 
     def _map_product(self):
         if self.product_reference:
@@ -205,7 +334,10 @@ class RecordingExternalRevenueRaw(models.Model):
         if self.upc:
             return self._map_recording_from_upc()
 
-        if self.recording_external_catalog and self.recording_external_catalog_reference:
+        if (
+            self.recording_external_catalog
+            and self.recording_external_catalog_reference
+        ):
             return self._map_recording_from_catalog_reference()
 
     def _map_recording_from_isrc(self):

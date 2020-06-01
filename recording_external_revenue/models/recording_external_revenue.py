@@ -1,7 +1,7 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import models, fields
+from odoo import api, models, fields
 
 
 class RecordingExternalRevenue(models.Model):
@@ -56,6 +56,10 @@ class RecordingExternalRevenue(models.Model):
         "Raw Data Lines",
     )
     raw_revenue_count = fields.Integer(compute="_compute_raw_revenue_count")
+
+    @api.multi
+    def name_get(self):
+        return [(r.id, "#{}".format(r.id)) for r in self]
 
     def _compute_raw_revenue_count(self):
         for line in self:

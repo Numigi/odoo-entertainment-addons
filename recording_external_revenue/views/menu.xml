@@ -31,6 +31,24 @@
         sequence="110"
         />
 
+    <record id="action_convert_raw_revenues" model="ir.actions.server">
+        <field name="name">Convert Raw Revenues</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_recording_external_revenue_raw"/>
+        <field name="state">code</field>
+        <field name="code">
+model.sudo().schedule_conversion(env.user.company_id)
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_external_revenue_recording_convert_revenues"
+        name="Convert Revenues"
+        parent="menu_external_revenue_recording"
+        action="action_convert_raw_revenues"
+        sequence="120"
+        />
+
     <menuitem
         id="menu_external_revenue"
         name="External Revenues"

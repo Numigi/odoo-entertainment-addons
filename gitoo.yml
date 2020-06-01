@@ -2,3 +2,8 @@
   branch: "12.0"
   includes:
     - url_link_type
+
+- url: https://github.com/OCA/queue
+  branch: "12.0"
+  includes:
+    - queue_job

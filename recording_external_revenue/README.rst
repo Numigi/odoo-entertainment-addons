@@ -38,7 +38,7 @@ The conversion of raw entries into revenues is done by clicking on ``Convert Rev
 
 Queue Jobs
 ~~~~~~~~~~
-The conversion from raw entries is done using queue jobs.
+The conversion is done using queue jobs.
 
 One job is created per revenue.
 

@@ -1,7 +1,7 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, models, fields, _
+from odoo import models, fields, _
 from odoo.addons.queue_job.job import job
 from odoo.exceptions import ValidationError
 

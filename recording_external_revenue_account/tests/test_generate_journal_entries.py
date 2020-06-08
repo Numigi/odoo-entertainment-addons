@@ -3,8 +3,6 @@
 
 from datetime import datetime, timedelta
 from ddt import ddt, data, unpack
-from odoo.exceptions import ValidationError
-from odoo.tests.common import SavepointCase
 from odoo.addons.recording_external_revenue.tests.common import ExternalRevenueCase
 
 

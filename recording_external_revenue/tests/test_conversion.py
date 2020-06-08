@@ -12,9 +12,9 @@ class TestConversion(ExternalRevenueCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.r1 = cls._create_raw_revenue()
-        cls.r2 = cls._create_raw_revenue()
-        cls.r3 = cls._create_raw_revenue()
+        cls.r1 = cls._create_raw_revenue(company_id=cls.company.id)
+        cls.r2 = cls._create_raw_revenue(company_id=cls.company.id)
+        cls.r3 = cls._create_raw_revenue(company_id=cls.company.id)
         cls.raw_revenues = cls.r1 | cls.r2 | cls.r3
 
     @classmethod

@@ -11,6 +11,8 @@ class TestConversion(ExternalRevenueCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.partner = cls.believe.with_context(force_company=cls.company.id)
+        cls.product = cls.stream.with_context(force_company=cls.company.id)
         cls.operation_date = datetime.now().date() + timedelta(10)
         cls.period_start_date = datetime.now().date() + timedelta(5)
         cls.period_end_date = datetime.now().date() + timedelta(15)
@@ -30,7 +32,7 @@ class TestConversion(ExternalRevenueCase):
             gross_amount_per_unit=cls.gross_amount_per_unit,
             net_amount=cls.net_amount,
             operation_date=cls.operation_date,
-            partner_id=cls.believe.id,
+            partner_id=cls.partner.id,
             period_end_date=cls.period_end_date,
             period_start_date=cls.period_start_date,
             platform_id=cls.spotify.id,
@@ -40,7 +42,7 @@ class TestConversion(ExternalRevenueCase):
             subplatform_id=cls.spotify_premium.id,
             tax_base="net_amount",
             tax_id=cls.tax.id,
-            product_id=cls.stream.id,
+            product_id=cls.product.id,
             company_id=cls.company.id,
         )
 
@@ -110,14 +112,10 @@ class TestConversion(ExternalRevenueCase):
             user_type_id=cls.env.ref("account.data_account_type_revenue").id,
         )
 
-        cls.stream.with_context(
-            force_company=cls.company.id
-        ).property_account_income_id = cls.revenue_account
+        cls.product.property_account_income_id = cls.revenue_account
 
         cls.tax.account_id = cls.tax_account.id
-        cls.believe.with_context(
-            force_company=cls.company.id
-        ).property_account_receivable_id = cls.receivable_account
+        cls.partner.property_account_receivable_id = cls.receivable_account
 
         cls.tps = cls._create_tax(
             name="TPS",
@@ -337,3 +335,50 @@ class TestConversion(ExternalRevenueCase):
 
     def _get_tax_line(self, move):
         return move.line_ids.filtered(lambda l: l.account_id == self.tax_account)
+
+    def test_due_date_with_no_payment_term(self):
+        self.partner.property_payment_term_id = None
+        entry = self.revenue.generate_journal_entry()
+        receivable_line = self._get_receivable_line(entry)
+        assert receivable_line.date_maturity == self.period_end_date
+
+    def test_payment_term_30_days(self):
+        payment_term = self._create_payment_term(
+            name="30 Days",
+            lines=[
+                ("balance", 0, 30, 'day_after_invoice_date'),
+            ]
+        )
+        self.partner.property_payment_term_id = payment_term
+        entry = self.revenue.generate_journal_entry()
+        receivable_line = self._get_receivable_line(entry)
+        expected_due_date = self.period_end_date + timedelta(30)
+        assert receivable_line.date_maturity == expected_due_date
+
+    def test_2_payment_term_lines(self):
+        payment_term = self._create_payment_term(
+            name=r"50% after 15 days / 50% after 30 days",
+            lines=[
+                ("percent", 50, 15, 'day_after_invoice_date'),
+                ("balance", 0, 30, 'day_after_invoice_date'),
+            ]
+        )
+        self.partner.property_payment_term_id = payment_term
+        entry = self.revenue.generate_journal_entry()
+        receivable_line = self._get_receivable_line(entry)
+        assert len(receivable_line) == 2
+
+    @classmethod
+    def _create_payment_term(cls, name, lines):
+        line_vals = (
+            {
+                'value': value, 'value_amount': value_amount, 'days': days, 'option': option,
+            }
+            for value, value_amount, days, option in lines
+        )
+        return cls.env["account.payment.term"].create(
+            {
+                "name": name,
+                "line_ids": [(0, 0, v) for v in line_vals]
+            }
+        )

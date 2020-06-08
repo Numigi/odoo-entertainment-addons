@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_generate_journal_entries" model="ir.actions.server">
+        <field name="name">External Revenues: Generate Journal Entries</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_recording_external_revenue"/>
+        <field name="state">code</field>
+        <field name="code">
+model.sudo().schedule_generate_journal_entries(env.user.company_id)
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_generate_journal_entries"
+        name="Generate Journal Entries"
+        parent="recording_external_revenue.menu_external_revenue_recording"
+        action="action_generate_journal_entries"
+        sequence="125"
+        />
+
+</odoo>

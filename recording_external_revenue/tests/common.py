@@ -8,15 +8,23 @@ class ExternalRevenueCase(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.cad = cls.env.ref("base.CAD")
+        cls.eur = cls.env.ref("base.EUR")
+
+        cls.company = cls.env["res.company"].create({"name": "New Company"})
+        cls.company.currency_id = cls.cad
+
         cls.believe = cls.env.ref("recording_external_revenue.demo_partner_believe")
         cls.canada = cls.env.ref("base.ca")
         cls.quebec = cls.env.ref("base.state_ca_qc")
-        cls.cad = cls.env.ref("base.CAD")
         cls.spotify = cls.env.ref("recording_platform.spotify")
         cls.spotify_premium = cls.env.ref("recording_platform.spotify_premium")
 
-        cls.tax = cls.env["account.tax"].create(
-            {"name": "My Awesome Tax", "amount": 100, "amount_type": "percent"}
+        cls.tax = cls._create_tax(
+            name="My Awesome Tax",
+            amount=100,
+            amount_type="percent",
+            company_id=cls.company.id,
         )
         cls.tax_mapping = cls.env["recording.tax.mapping"].create(
             {"label": "AwesomeTax", "tax_id": cls.tax.id,}
@@ -43,6 +51,7 @@ class ExternalRevenueCase(SavepointCase):
         cls.upc_packshot = "811868865980"
         cls.isrc = "USS1Z9900001"
         cls.other_isrc = "USS2A8800002"
+        cls.artist = cls.env["artist"].create({"name": "Some Artist"})
         cls.recording = cls.env["recording"].create(
             {
                 "name": "Awesome Video",
@@ -61,3 +70,11 @@ class ExternalRevenueCase(SavepointCase):
                 "recording_id": cls.recording.id,
             }
         )
+
+        cls.analytic_account = cls.env["account.analytic.account"].create(
+            {"name": "My Analytic Account", "company_id": cls.company.id,}
+        )
+
+    @classmethod
+    def _create_tax(cls, **kwargs):
+        return cls.env["account.tax"].create(kwargs)

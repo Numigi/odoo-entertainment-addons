@@ -45,8 +45,6 @@ class RecordingExternalRevenue(models.Model):
         ],
     )
 
-    raw_unit_amount = fields.Float("Raw Unit Amount (Untaxed)")
-    raw_amount = fields.Float("Total Raw Amount (Untaxed)")
     commission_amount = fields.Float("Total Commissions Amount")
     net_amount = fields.Float("Total Net Amount (Untaxed)")
 

@@ -49,7 +49,7 @@ class RecordingExternalRevenue(models.Model):
 
     def _add_receivable_move_line(self, move):
         receivable_amount = sum(-l.balance for l in move.line_ids)
-        move.line_ids |= self._make_receivable_move_line(receivable_amount)
+        move.line_ids |= self._make_receivable_lines(receivable_amount)
 
     def _map_journal(self):
         return self.env["recording.journal.mapping"].map(
@@ -149,15 +149,43 @@ class RecordingExternalRevenue(models.Model):
 
         return account
 
-    def _make_receivable_move_line(self, amount):
+    def _make_receivable_lines(self, amount):
+        payment_term = self._map_payment_term()
+
+        if payment_term:
+            return self._make_receivable_lines_from_payment_term(amount, payment_term)
+        else:
+            return self._make_single_receivable_move_line(
+                amount, self.period_end_date
+            )
+
+    def _make_receivable_lines_from_payment_term(self, total_amount, payment_term):
+        payment_term = payment_term.with_context(currency_id=self.currency_id.id)
+        invoice_date = self.period_end_date
+        result = self.env["account.move.line"]
+
+        due_amount_list = payment_term.compute(total_amount, invoice_date)[0]
+
+        for due_date, amount in due_amount_list:
+            result |= self._make_single_receivable_move_line(amount, due_date)
+        return result
+
+    def _make_single_receivable_move_line(self, amount, due_date):
         line = self.env["account.move.line"].new()
         line.name = "/"
-        line.account_id = self._get_map_receivable_account()
+        line.account_id = self._map_receivable_account()
         line.debit = amount if amount > 0 else 0
         line.credit = -amount if amount < 0 else 0
         line.currency_id = line.account_id.currency_id
+        line.date_maturity = due_date
         return line
 
-    def _get_map_receivable_account(self):
-        partner = self.partner_id.with_context(force_company=self.company_id.id)
-        return partner.property_account_receivable_id
+    def _map_receivable_account(self):
+        return self._partner_with_company_forced.property_account_receivable_id
+
+    def _map_payment_term(self):
+        return self._partner_with_company_forced.property_payment_term_id
+
+    @property
+    def _partner_with_company_forced(self):
+        return self.partner_id.with_context(force_company=self.company_id.id)

@@ -21,16 +21,24 @@ class RecordingExternalRevenue(models.Model):
 
     @job
     def generate_journal_entry(self):
+        self = self.with_context(force_company=self.company_id.id)
+
         with self.env.do_in_onchange():
             move = self._make_new_journal_entry()
 
         move_vals = dict(move._cache)
         move_vals["line_ids"] = [(0, 0, line._cache) for line in move.line_ids]
-        return self.env["account.move"].create(move_vals)
+        move = self.env["account.move"].create(move_vals)
+        move.post()
+        return move
 
     def _make_new_journal_entry(self):
         move = self.env["account.move"].new(
-            {"journal_id": self._map_journal().id, "date": self.operation_date,}
+            {
+                "company_id": self.company_id.id,
+                "journal_id": self._map_journal().id,
+                "date": self.operation_date,
+            }
         )
 
         revenue_line = self._make_new_revenue_move_line()
@@ -39,8 +47,9 @@ class RecordingExternalRevenue(models.Model):
         self._set_tax_base_amount(revenue_line)
         self._add_tax_move_lines(move)
         self._set_revenue_amount(revenue_line)
-
         self._add_receivable_move_line(move)
+
+        self._check_no_deprecated_journal_account(move)
 
         return move
 
@@ -65,6 +74,7 @@ class RecordingExternalRevenue(models.Model):
         line.quantity = self.quantity
         line.recompute_tax_line = True
         line.tax_ids = self._get_revenue_line_taxes()
+        line.analytic_account_id = self.analytic_account_id
         if not self._is_revenue_in_company_currency:
             line.currency_id = self.currency_id
         return line
@@ -81,16 +91,41 @@ class RecordingExternalRevenue(models.Model):
         return taxes
 
     def _map_fiscal_position(self):
-        fp = self.env["account.fiscal.position"].with_context(
-            force_company=self.company_id.id
-        )
-
         if self.fiscal_position == "revenue":
-            return fp._get_fpos_by_region(self.country_id.id, self.state_id.id)
-
+            return self._get_fiscal_position_from_revenue()
         elif self.fiscal_position == "partner":
-            fiscal_position_id = fp.get_fiscal_position(self.partner_id.id)
-            return fp.browse(fiscal_position_id)
+            return self._get_fiscal_position_from_partner()
+
+    def _get_fiscal_position_from_revenue(self):
+        position_pool = self._get_fiscal_position_pool()
+        position = position_pool._get_fpos_by_region(
+            self.country_id.id, self.state_id.id
+        )
+        if not position:
+            raise ValidationError(
+                _(
+                    "No fiscal position defined for the country {}, nor for a group of countries "
+                    "containing this country."
+                ).format(self.country_id.display_name)
+            )
+        return position
+
+    def _get_fiscal_position_from_partner(self):
+        position_pool = self._get_fiscal_position_pool()
+        position_id = position_pool.get_fiscal_position(self.partner_id.id)
+        position = position_pool.browse(position_id)
+        if not position:
+            raise ValidationError(
+                _(
+                    "The revenue indicates that the fiscal position from "
+                    "the partner is applicable. "
+                    "No fiscal position is defined for the partner {}."
+                ).format(self.partner_id.display_name)
+            )
+        return position
+
+    def _get_fiscal_position_pool(self):
+        return self.env["account.fiscal.position"]
 
     def _get_taxes_from_product(self):
         return self.product_id.taxes_id
@@ -132,9 +167,7 @@ class RecordingExternalRevenue(models.Model):
         return self.company_id.currency_id
 
     def _get_map_revenue_account(self):
-        product_template = self.product_id.product_tmpl_id.with_context(
-            force_company=self.company_id.id
-        )
+        product_template = self.product_id.product_tmpl_id
         account = product_template.get_product_accounts().get("income")
         if not account:
             raise ValidationError(
@@ -155,9 +188,7 @@ class RecordingExternalRevenue(models.Model):
         if payment_term:
             return self._make_receivable_lines_from_payment_term(amount, payment_term)
         else:
-            return self._make_single_receivable_move_line(
-                amount, self.period_end_date
-            )
+            return self._make_single_receivable_move_line(amount, self.period_end_date)
 
     def _make_receivable_lines_from_payment_term(self, total_amount, payment_term):
         payment_term = payment_term.with_context(currency_id=self.currency_id.id)
@@ -181,11 +212,17 @@ class RecordingExternalRevenue(models.Model):
         return line
 
     def _map_receivable_account(self):
-        return self._partner_with_company_forced.property_account_receivable_id
+        return self.partner_id.property_account_receivable_id
 
     def _map_payment_term(self):
-        return self._partner_with_company_forced.property_payment_term_id
+        return self.partner_id.property_payment_term_id
 
-    @property
-    def _partner_with_company_forced(self):
-        return self.partner_id.with_context(force_company=self.company_id.id)
+    def _check_no_deprecated_journal_account(self, move):
+        accounts = (l.account_id for l in move.line_ids)
+        deprecated_account = next((a for a in accounts if a.deprecated), None)
+        if deprecated_account:
+            raise ValidationError(
+                _("The journal account {} is deprecated.").format(
+                    deprecated_account.display_name
+                )
+            )

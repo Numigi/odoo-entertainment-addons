@@ -16,6 +16,7 @@ model.sudo().schedule_generate_journal_entries(env.user.company_id)
         name="Generate Journal Entries"
         parent="recording_external_revenue.menu_external_revenue_recording"
         action="action_generate_journal_entries"
+        groups="recording_external_revenue.group_manager"
         sequence="125"
         />
 

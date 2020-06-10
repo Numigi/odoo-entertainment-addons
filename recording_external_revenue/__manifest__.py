@@ -20,6 +20,9 @@
         "queue_job",
     ],
     "data": [
+        "security/res_groups.xml",
+        "security/ir.model.access.csv",
+        "security/ir_rule.xml",
         "views/recording_country_mapping.xml",
         "views/recording_country_state_mapping.xml",
         "views/recording_currency_mapping.xml",
@@ -32,14 +35,7 @@
         "views/recording_subplatform_mapping.xml",
         "views/recording_tax_mapping.xml",
         "views/menu.xml",
-        "security/res_groups.xml",
-        "security/ir.model.access.csv",
-        "security/ir_rule.xml",
     ],
-    "demo": [
-        "demo/product_product.xml",
-        "demo/res_partner.xml",
-        "demo/mapping.xml",
-    ],
+    "demo": ["demo/product_product.xml", "demo/res_partner.xml", "demo/mapping.xml"],
     "installable": True,
 }

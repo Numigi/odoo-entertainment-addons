@@ -303,10 +303,10 @@ class TestConversion(ExternalRevenueCase):
 
     def test_fiscal_position_defined_on_partner(self):
         self.revenue.write(
-            {"fiscal_position": "partner", "country_id": False, "state_id": False,}
+            {"fiscal_position": "partner", "country_id": False, "state_id": False}
         )
         self.revenue.partner_id.write(
-            {"country_id": self.canada.id, "state_id": self.quebec.id,}
+            {"country_id": self.canada.id, "state_id": self.quebec.id}
         )
         self._create_fiscal_position_account_rule(
             self.fiscal_position_quebec,
@@ -318,7 +318,7 @@ class TestConversion(ExternalRevenueCase):
 
     def test_no_fiscal_position_found_for_the_partner(self):
         self.revenue.write(
-            {"fiscal_position": "partner", "country_id": False, "state_id": False,}
+            {"fiscal_position": "partner", "country_id": False, "state_id": False}
         )
         self.partner.state_id = False
         self.partner.country_id = self.env.ref("base.fr")
@@ -385,10 +385,7 @@ class TestConversion(ExternalRevenueCase):
 
     def test_payment_term_30_days(self):
         payment_term = self._create_payment_term(
-            name="30 Days",
-            lines=[
-                ("balance", 0, 30, 'day_after_invoice_date'),
-            ]
+            name="30 Days", lines=[("balance", 0, 30, "day_after_invoice_date")]
         )
         self.partner.property_payment_term_id = payment_term
         entry = self.revenue.generate_journal_entry()
@@ -400,9 +397,9 @@ class TestConversion(ExternalRevenueCase):
         payment_term = self._create_payment_term(
             name=r"50% after 15 days / 50% after 30 days",
             lines=[
-                ("percent", 50, 15, 'day_after_invoice_date'),
-                ("balance", 0, 30, 'day_after_invoice_date'),
-            ]
+                ("percent", 50, 15, "day_after_invoice_date"),
+                ("balance", 0, 30, "day_after_invoice_date"),
+            ],
         )
         self.partner.property_payment_term_id = payment_term
         entry = self.revenue.generate_journal_entry()
@@ -413,15 +410,15 @@ class TestConversion(ExternalRevenueCase):
     def _create_payment_term(cls, name, lines):
         line_vals = (
             {
-                'value': value, 'value_amount': value_amount, 'days': days, 'option': option,
+                "value": value,
+                "value_amount": value_amount,
+                "days": days,
+                "option": option,
             }
             for value, value_amount, days, option in lines
         )
         return cls.env["account.payment.term"].create(
-            {
-                "name": name,
-                "line_ids": [(0, 0, v) for v in line_vals]
-            }
+            {"name": name, "line_ids": [(0, 0, v) for v in line_vals]}
         )
 
     def test_analytic_account(self):
@@ -444,3 +441,13 @@ class TestConversion(ExternalRevenueCase):
     def test_revenue_id_in_journal_entry_reference(self):
         move = self.revenue.generate_journal_entry()
         assert str(self.revenue.id) in move.ref
+
+    def test_can_not_delete_posted_revenue(self):
+        self.revenue.generate_journal_entry()
+        with pytest.raises(ValidationError):
+            self.revenue.unlink()
+
+    def test_can_not_edit_posted_revenue(self):
+        self.revenue.generate_journal_entry()
+        with pytest.raises(ValidationError):
+            self.revenue.analytic_account_id = False

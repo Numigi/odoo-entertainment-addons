@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-10 15:10+0000\n"
-"PO-Revision-Date: 2020-06-10 11:41-0400\n"
+"POT-Creation-Date: 2020-06-10 17:11+0000\n"
+"PO-Revision-Date: 2020-06-10 13:12-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -100,7 +100,7 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour par"
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:129
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:187
 #, python-format
 msgid ""
 "No fiscal position defined for the country {}, nor for a group of countries "
@@ -141,7 +141,7 @@ msgid "Recording Journal Mapping"
 msgstr ""
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:78
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:136
 #, python-format
 msgid "Revenue {}"
 msgstr "Revenu {}"
@@ -152,13 +152,35 @@ msgid "Search Journal Mapping"
 msgstr "Chercher des mapping de journaux"
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:242
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:70
+#, python-format
+msgid ""
+"The following revenues can not be deleted because these are already posted:\n"
+"{}"
+msgstr ""
+"Les revenus suivants ne peuvent pas être supprimés car ils sont déjà "
+"comptabilisés :\n"
+"{}"
+
+#. module: recording_external_revenue_account
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:28
+#, python-format
+msgid ""
+"The following revenues can not be edited because these are already posted:\n"
+"{}"
+msgstr ""
+"Les revenus suivants ne peuvent pas être édités car ils sont déjà "
+"comptabilisés :\n"
+"{}"
+
+#. module: recording_external_revenue_account
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:300
 #, python-format
 msgid "The journal account {} is deprecated."
 msgstr "Le compte de grand livre {} est obsolète."
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:142
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:200
 #, python-format
 msgid ""
 "The revenue indicates that the fiscal position from the partner is "
@@ -168,14 +190,13 @@ msgstr ""
 "Aucune position fiscale n'est définie sur le partenaire {}."
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:43
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:101
 #, python-format
 msgid "The revenue {revenue} is already posted (journal entry: {entry})."
-msgstr ""
-"Le revenu {revenue} est déja comptabilisé (pièce comptable : {entry})."
+msgstr "Le revenu {revenue} est déja comptabilisé (pièce comptable : {entry})."
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:188
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:246
 #, python-format
 msgid "There is no revenue account defined for the product {}."
 msgstr "Aucun compte de revenu n'est défini pour l'article {}."

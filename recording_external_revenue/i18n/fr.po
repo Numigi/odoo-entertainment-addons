@@ -1,82 +1,249 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* recording_external_revenue
+# 	* recording_external_revenue
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-30 18:49+0000\n"
-"PO-Revision-Date: 2020-03-30 18:49+0000\n"
+"POT-Creation-Date: 2020-06-10 15:09+0000\n"
+"PO-Revision-Date: 2020-06-10 11:34-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 2.0.6\n"
 
 #. module: recording_external_revenue
-#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
-msgid "Product Identidiers"
-msgstr "Identifiants article"
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__analytic_account_id
+msgid "Analytic Account"
+msgstr "Compte analytique"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__artist_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__artist
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_form
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
 msgid "Artist"
 msgstr "Artiste"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__catalog_id
+msgid "Catalog"
+msgstr "Catalogue"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__company_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__company_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__company_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__company_id
 msgid "Company"
 msgstr "Compagnie"
 
 #. module: recording_external_revenue
+#: model:ir.actions.server,name:recording_external_revenue.action_convert_raw_revenues
+msgid "Convert Raw Revenues"
+msgstr "Convertir les revenus externes"
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_external_revenue_recording_convert_revenues
+msgid "Convert Revenues"
+msgstr "Convertir les revenus"
+
+#. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__is_converted
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_search
 msgid "Converted"
 msgstr "Converti"
 
 #. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_countries
+msgid "Countries"
+msgstr "Pays"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__country_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__country_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__country_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__country
 msgid "Country"
 msgstr "Pays"
 
 #. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_country_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_country_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_country_mapping_list
+msgid "Country Mapping"
+msgstr "Mapping des pays"
+
+#. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_country_state_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_country_state_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_country_state_mapping_list
+msgid "Country State/Province Mapping"
+msgstr "Mapping des états/provinces"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__create_uid
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__create_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__create_date
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__create_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__currency_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__currency_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__currency
-#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__currency_id
 msgid "Currency"
 msgstr "Devise"
 
 #. module: recording_external_revenue
-#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__date
-msgid "Date"
-msgstr ""
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_currency_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_currency_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_currency_mapping_list
+msgid "Currency Mapping"
+msgstr "Mapping des devises"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__display_name
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__display_name
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
+msgid "External Catalog"
+msgstr "Catalogue externe"
+
+#. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_external_catalog_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_catalog_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_catalog_mapping_list
+msgid "External Catalog Mapping"
+msgstr "Mapping des catalogues externes"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
+msgid "External Catalog Reference"
+msgstr "Référence de catalogue externe"
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_external_catalogs
+msgid "External Catalogs"
+msgstr "Catalogue externe"
 
 #. module: recording_external_revenue
 #: model:ir.module.category,name:recording_external_revenue.module_category_external_revenue
-#: model:ir.ui.menu,name:recording_external_revenue.menu_recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_external_revenue
 msgid "External Revenues"
 msgstr "Revenues externes"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__fiscal_position
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__fiscal_position
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__fiscal_position
 msgid "Fiscal Position"
 msgstr "Position fiscale"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:290
+#, python-format
+msgid ""
+"Found more than one product with the catalog reference {reference}(Catalog: "
+"{catalog}):\n"
+"\n"
+" * {products}"
+msgstr ""
+"Plus d'un article a été trouvé avec la référence de catalogue {reference} "
+"(Catalogue : {catalog}) :\n"
+"\n"
+" * {products}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:249
+#, python-format
+msgid ""
+"Found more than one product with the reference {reference}:\n"
+"\n"
+" * {products}"
+msgstr ""
+"Plus d'un article a été trouvé avec la référence {reference} :\n"
+"\n"
+" * {products}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:338
+#, python-format
+msgid ""
+"Found more than one recording with the ISRC code {isrc}:\n"
+"\n"
+" * {recordings}"
+msgstr ""
+"Plus d'un enregistrement a été trouvé avec le code ISRC {isrc} :\n"
+"\n"
+" * {recordings}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:367
+#, python-format
+msgid ""
+"Found more than one recording with the UPC code {upc}:\n"
+"\n"
+" * {recordings}"
+msgstr ""
+"Plus d'un enregistrement a été trouvé avec le code UPC {upc} :\n"
+"\n"
+" * {recordings}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:407
+#, python-format
+msgid ""
+"Found more than one recording with the catalog reference {reference}"
+"(Catalog: {catalog}):\n"
+"\n"
+" * {recordings}"
+msgstr ""
+"Plus d'un enregistrement a été trouvé avec la référence de catalogue "
+"{reference} (Catalogue : {catalog}) :\n"
+"\n"
+" * {recordings}"
 
 #. module: recording_external_revenue
 #: model:res.groups,comment:recording_external_revenue.group_manager
@@ -86,27 +253,55 @@ msgstr "Donne accès à la gestion des revenues externes"
 #. module: recording_external_revenue
 #: model:res.groups,comment:recording_external_revenue.group_user
 msgid "Grants read access to external revenues."
-msgstr "Donne le droit de lecture des revenues externes"
+msgstr "Donne le droit de lecture des revenues externes."
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__gross_amount
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__gross_amount
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__gross_amount
 msgid "Gross Amount"
 msgstr "Montant brut (HT)"
 
 #. module: recording_external_revenue
+#: selection:recording.external.revenue,tax_base:0
+#: selection:recording.external.revenue.abstract,tax_base:0
 #: selection:recording.external.revenue.raw,tax_base:0
 msgid "Gross Amount Before Tax"
 msgstr "Montant brut total (HT)"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__gross_amount_per_unit
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__gross_amount_per_unit
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__gross_amount_per_unit
 msgid "Gross Amount Per Unit"
 msgstr "Montant brut unitaire (HT)"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__id
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_list
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_list
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_search
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_search
 msgid "ID"
-msgstr ""
+msgstr "ID"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__id_string
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__id_string
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__id_string
+msgid "ID (String)"
+msgstr "ID (texte)"
 
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__isrc
@@ -114,19 +309,63 @@ msgid "ISRC"
 msgstr "ISRC"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__label
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__label
+msgid "Label"
+msgstr "Libellé"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract____last_update
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping____last_update
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__write_uid
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__write_uid
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière mise à jour par"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_catalog_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__write_date
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__write_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière mise à jour le"
 
 #. module: recording_external_revenue
 #: model:ir.module.category,description:recording_external_revenue.module_category_external_revenue
@@ -139,25 +378,223 @@ msgid "Manager"
 msgstr "Gestionnaire"
 
 #. module: recording_external_revenue
-#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__commission_total
-msgid "Total Commissions Amount"
-msgstr "Montant Total Commissions"
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping
+msgid "Mapping"
+msgstr "Mapping"
 
 #. module: recording_external_revenue
+#: selection:recording.external.revenue,tax_base:0
+#: selection:recording.external.revenue.abstract,tax_base:0
 #: selection:recording.external.revenue.raw,tax_base:0
 msgid "Net Amount Before Tax"
 msgstr "Montant net total (HT)"
 
 #. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_country_mapping.py:25
+#, python-format
+msgid "No country found for the label {}"
+msgstr "Aucun pays trouvé pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_currency_mapping.py:25
+#, python-format
+msgid "No currency found for the label {}"
+msgstr "Aucune devise trouvée pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_catalog_mapping.py:30
+#, python-format
+msgid "No external catalog found for the label {}"
+msgstr "Aucun catalogue externe trouvé pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_partner_mapping.py:25
+#, python-format
+msgid "No partner found for the label {}"
+msgstr "Aucun partenaire trouvé pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_platform_mapping.py:29
+#, python-format
+msgid "No platform found for the label {}"
+msgstr "Aucune platforme trouvée pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:280
+#, python-format
+msgid ""
+"No product found with the catalog reference {reference} (Catalog: {catalog})"
+msgstr ""
+"Aucun article trouvé avec la référence de catalogue {reference} (Catalogue : "
+"{catalog})"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:244
+#, python-format
+msgid "No product found with the reference {}"
+msgstr "Aucun article trouvé avec la référence {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:333
+#, python-format
+msgid "No recording found with the ISRC code {}"
+msgstr "Aucun enregistrement trouvé avec le code ISRC {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:362
+#, python-format
+msgid "No recording found with the UPC code {}"
+msgstr "Aucun enregistrement trouvé avec le code UPC {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:397
+#, python-format
+msgid ""
+"No recording found with the catalog reference {reference} (Catalog: "
+"{catalog})"
+msgstr ""
+"Aucun enregistrement trouvé avec la référence de catalogue {reference} "
+"(Catalogue : {catalog})"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_revenue_type_mapping.py:28
+#, python-format
+msgid "No revenue type found for the label {}"
+msgstr "Aucun type de revenu trouvé pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_country_state_mapping.py:37
+#, python-format
+msgid "No state/province found for the label {}"
+msgstr "Aucun état/province trouvé pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_subplatform_mapping.py:44
+#, python-format
+msgid "No subplatform found for the label {}"
+msgstr "Aucune sous-plateforme trouvée pour le libellé {}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_tax_mapping.py:44
+#, python-format
+msgid "No tax found for the label {}"
+msgstr "Aucune taxe trouvée pour le libellé {}"
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.country.mapping:0
+msgid "Only one country can be mapped per label."
+msgstr "Un seul pays peut être défini par libellé."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.currency.mapping:0
+msgid "Only one currency can be mapped per label."
+msgstr "Une seule devise peut être définie par libellé."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.external.catalog.mapping:0
+msgid "Only one external catalog can be mapped per label."
+msgstr "Un seul catalogue externe peut être défini par libellé."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.partner.mapping:0
+msgid "Only one partner can be mapped per label."
+msgstr "Un seul partenaire peut être défini par libellé."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.platform.mapping:0
+msgid "Only one platform can be mapped per label."
+msgstr "Une seule plateforme peut être définie par libellé."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.revenue.type.mapping:0
+msgid "Only one product can be mapped per label."
+msgstr "Un seul article peut être défini par libellé."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.country.state.mapping:0
+msgid "Only one state / province can be mapped per label and country."
+msgstr "Un seul état / province peut être défini pour un libellé et un pays."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.subplatform.mapping:0
+msgid "Only one subplatform can be mapped per label and platform."
+msgstr "Une seule sous-plateforme peut être définie par libellé et plateforme."
+
+#. module: recording_external_revenue
+#: sql_constraint:recording.tax.mapping:0
+msgid "Only one tax can be mapped per label and company."
+msgstr "Une seule taxe peut être définie par libellé et société."
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__operation_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__operation_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__operation_date
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_search
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_search
+msgid "Operation Date"
+msgstr "Date d'opération"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__partner_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__partner
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_partner_mapping__partner_id
+#: selection:recording.external.revenue,fiscal_position:0
+#: selection:recording.external.revenue.abstract,fiscal_position:0
 #: selection:recording.external.revenue.raw,fiscal_position:0
 msgid "Partner"
 msgstr "Partenaire"
 
 #. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_partner_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_partner_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_partner_mapping_list
+msgid "Partner Mapping"
+msgstr "Mapping des partenaires"
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_partners
+msgid "Partners"
+msgstr "Partenaires"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__period_end_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__period_end_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__period_end_date
+msgid "Period End Date"
+msgstr "Date de fin de période"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__period_start_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__period_start_date
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__period_start_date
+msgid "Period Start Date"
+msgstr "Date de début de période"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__platform_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__platform
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_platform_mapping__platform_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__platform_id
 msgid "Platform"
 msgstr "Plateforme"
+
+#. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_platform_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_platform_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_platform_mapping_list
+msgid "Platform Mapping"
+msgstr "Mapping des plateformes"
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_platforms
+msgid "Platforms"
+msgstr "Plateformes"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__product_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_revenue_type_mapping__product_id
+msgid "Product"
+msgstr "Article"
 
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__product_external_catalog
@@ -170,25 +607,69 @@ msgid "Product External Catalog Reference"
 msgstr "Référence de catalogue externe d'article"
 
 #. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
+msgid "Product Identifiers"
+msgstr "Identifiants d'articles"
+
+#. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__product_reference
 msgid "Product Reference"
 msgstr "Référence d'article"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__quantity
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__quantity
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__quantity
 msgid "Quantity"
 msgstr "Quantité"
 
 #. module: recording_external_revenue
 #: model:ir.actions.act_window,name:recording_external_revenue.action_raw_data
-#: model:ir.ui.menu,name:recording_external_revenue.menu_recording_external_revenue_recording_raw_data
+#: model:ir.ui.menu,name:recording_external_revenue.menu_external_revenue_recording_raw_data
 msgid "Raw Data"
 msgstr "Données brutes"
 
 #. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_related_raw_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__raw_revenue_ids
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_form
+msgid "Raw Data Lines"
+msgstr "Lignes de données brutes"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__raw_revenue_count
+msgid "Raw Revenue Count"
+msgstr "Nombre de données brutes liées"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__recording_id
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_country_mapping
+msgid "Recording Country Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_country_state_mapping
+msgid "Recording Country State Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_currency_mapping
+msgid "Recording Currency Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__recording_external_catalog
 msgid "Recording External Catalog"
-msgstr "Catalogue externe d'enregistrement"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_external_catalog_mapping
+msgid "Recording External Catalog Mapping"
+msgstr ""
 
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__recording_external_catalog_reference
@@ -196,23 +677,71 @@ msgid "Recording External Catalog Reference"
 msgstr "Référence de catalogue externe d'enregistrement"
 
 #. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_list
+msgid "Recording External Revenue"
+msgstr "Revenue externe d'enregistrement"
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_external_revenue_abstract
+msgid "Recording External Revenue Abstract"
+msgstr ""
+
+#. module: recording_external_revenue
 #: model:ir.model,name:recording_external_revenue.model_recording_external_revenue_raw
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_list
 msgid "Recording External Revenue Raw"
-msgstr "Revenue brute externe d'enregistrement"
+msgstr "Revenue externe d'enregistrement brut"
 
 #. module: recording_external_revenue
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
-msgid "Recording Identidiers"
+#, fuzzy
+#| msgid "Recording Identidiers"
+msgid "Recording Identifiers"
 msgstr "Identifiants d'enregistrement"
 
 #. module: recording_external_revenue
-#: model:ir.ui.menu,name:recording_external_revenue.menu_recording_external_revenue_recording
+#: model:ir.model,name:recording_external_revenue.model_recording_partner_mapping
+msgid "Recording Partner Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_platform_mapping
+msgid "Recording Platform Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_revenue_type_mapping
+msgid "Recording Revenue Type Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_subplatform_mapping
+msgid "Recording Subplatform Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model,name:recording_external_revenue.model_recording_tax_mapping
+msgid "Recording Tax Mapping"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_external_revenue_recording
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording
 msgid "Recordings"
 msgstr "Enregistrements"
 
 #. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_revenue_types
+msgid "Revenu Types"
+msgstr "Types de revenu"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__revenue_id
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_form
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
+#: selection:recording.external.revenue,fiscal_position:0
+#: selection:recording.external.revenue.abstract,fiscal_position:0
 #: selection:recording.external.revenue.raw,fiscal_position:0
 msgid "Revenue"
 msgstr "Revenu"
@@ -223,29 +752,195 @@ msgid "Revenue Type"
 msgstr "Type de revenu"
 
 #. module: recording_external_revenue
-#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_search
-msgid "Search Recording External Revenue Raw"
-msgstr "Recherche de revenue brute externe d'enregistrement"
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_revenue_type_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_revenue_type_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_revenue_type_mapping_list
+msgid "Revenue Type Mapping"
+msgstr "Mapping des types de revenu"
 
 #. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_revenues
+#: model:ir.ui.menu,name:recording_external_revenue.menu_external_revenue_recording_revenues
+msgid "Revenues"
+msgstr "Revenus"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_form
+msgid "Sale"
+msgstr "Ventes"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_country_mapping_search
+msgid "Search Country Mapping"
+msgstr "Chercher des mapping de pays"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_country_state_mapping_search
+msgid "Search Country State/Province Mapping"
+msgstr "Chercher des mapping d'états / provinces"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_currency_mapping_search
+msgid "Search Currency Mapping"
+msgstr "Chercher des mapping de devises"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_catalog_mapping_search
+msgid "Search External Catalog Mapping"
+msgstr "Chercher des mapping de catalogues"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_partner_mapping_search
+msgid "Search Partner Mapping"
+msgstr "Chercher des mapping de partenaires"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_platform_mapping_search
+msgid "Search Platform Mapping"
+msgstr "Chercher des mapping de plateformes"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_search
+msgid "Search Recording External Revenue"
+msgstr "Recherche de revenues externes d'enregistrement"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_search
+msgid "Search Recording External Revenue Raw"
+msgstr "Recherche de revenus externes d'enregistrement bruts"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_revenue_type_mapping_search
+msgid "Search Revenue Type Mapping"
+msgstr "Chercher des mapping de types de revenus"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_subplatform_mapping_search
+msgid "Search Subplatform Mapping"
+msgstr "Chercher des mapping de sous-plateformes"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_tax_mapping_search
+msgid "Search Tax Mapping"
+msgstr "Chercher des mapping de taxes"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_country_state_mapping__state_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__state_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__state
 msgid "State"
 msgstr "Province"
 
 #. module: recording_external_revenue
-#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__sub_platform
-msgid "Sub Platform"
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_country_states
+msgid "States / Provinces"
+msgstr "États / provinces"
+
+#. module: recording_external_revenue
+#: model:product.product,name:recording_external_revenue.demo_product_stream
+#: model:product.template,name:recording_external_revenue.demo_product_stream_product_template
+msgid "Stream"
+msgstr ""
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__subplatform_id
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__subplatform
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__subplatform_id
+#, fuzzy
+#| msgid "Sub Platform"
+msgid "Subplatform"
 msgstr "Sous-plateforme"
 
 #. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_subplatform_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_subplatform_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_subplatform_mapping_list
+msgid "Subplatform Mapping"
+msgstr "Mapping des sous-plateformes"
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_subplatforms
+#, fuzzy
+#| msgid "Sub Platform"
+msgid "Subplatforms"
+msgstr "Sous-plateforme"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__tax_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__tax
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__tax_id
 msgid "Tax"
 msgstr "Taxe"
 
 #. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__tax_base
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__tax_base
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__tax_base
 msgid "Tax Base"
 msgstr "Base taxable"
+
+#. module: recording_external_revenue
+#: model:ir.actions.act_window,name:recording_external_revenue.action_recording_tax_mapping
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_tax_mapping_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_tax_mapping_list
+msgid "Tax Mapping"
+msgstr "Mapping des taxes"
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_taxes
+msgid "Taxes"
+msgstr "Taxes"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:69
+#, python-format
+msgid ""
+"The following raw revenue lines can not be deleted because these are already "
+"converted into revenues:\n"
+"{}"
+msgstr ""
+"Les lignes de revenu brut suivantes ne peuvent pas être supprimées car elles "
+"sont liées à des revenus convertis :\n"
+"{}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:52
+#, python-format
+msgid ""
+"The following raw revenue lines can not be edited because these are already "
+"converted into revenues:\n"
+"{}"
+msgstr ""
+"Les lignes de revenu brut suivantes ne peuvent pas être modifiées car elles "
+"sont liées à des revenus convertis :\n"
+"{}"
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_abstract.py:77
+#, python-format
+msgid ""
+"The operation date ({operation_date}) must be between the period start date "
+"({start}) and the period end date ({end})."
+msgstr ""
+"La date d'opération {operation_date}) doit être entre la date de début de "
+"période ({start}) et la date de fin de période ({end})."
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_abstract.py:65
+#, python-format
+msgid ""
+"The period start date ({start}) must be before the period end date ({end})."
+msgstr ""
+"La date de début de période ({start}) doit être avant la date de fin de "
+"période ({end})."
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:137
+#, python-format
+msgid "The raw revenue {} is already converted. It can not be converted twice."
+msgstr ""
+"La ligne de revenu brut {} est déjà convertie. Elle ne peut pas être "
+"convertie deux fois."
 
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__title
@@ -253,8 +948,27 @@ msgid "Title"
 msgstr "Titre"
 
 #. module: recording_external_revenue
-#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__net_amount_total
-msgid "Total Net Amount"
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
+msgid "Total Amount of Commissions"
+msgstr "Montant total de commissions"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__commission_amount
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__commission_amount
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__commission_amount
+msgid "Total Commissions Amount"
+msgstr "Montant total commissions"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
+msgid "Total Net Amount (Tax Excluded)"
+msgstr "Montant net total (HT)"
+
+#. module: recording_external_revenue
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__net_amount
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_abstract__net_amount
+#: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__net_amount
+msgid "Total Net Amount (Untaxed)"
 msgstr "Montant net total (HT)"
 
 #. module: recording_external_revenue
@@ -263,7 +977,33 @@ msgid "UPC"
 msgstr "UPC"
 
 #. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_search
+msgid "Unconverted"
+msgstr "Non-converti"
+
+#. module: recording_external_revenue
+#: model:product.product,uom_name:recording_external_revenue.demo_product_stream
+#: model:product.product,uom_name:recording_external_revenue.demo_product_video
+#: model:product.template,uom_name:recording_external_revenue.demo_product_stream_product_template
+#: model:product.template,uom_name:recording_external_revenue.demo_product_video_product_template
+msgid "Unit(s)"
+msgstr "Unité(s)"
+
+#. module: recording_external_revenue
 #: model:res.groups,name:recording_external_revenue.group_user
 msgid "User"
 msgstr "Utilisateur"
 
+#. module: recording_external_revenue
+#: model:product.product,name:recording_external_revenue.demo_product_video
+#: model:product.template,name:recording_external_revenue.demo_product_video_product_template
+msgid "Video"
+msgstr "Vidéo"
+
+#. module: recording_external_revenue
+#: model:product.product,weight_uom_name:recording_external_revenue.demo_product_stream
+#: model:product.product,weight_uom_name:recording_external_revenue.demo_product_video
+#: model:product.template,weight_uom_name:recording_external_revenue.demo_product_stream_product_template
+#: model:product.template,weight_uom_name:recording_external_revenue.demo_product_video_product_template
+msgid "kg"
+msgstr ""

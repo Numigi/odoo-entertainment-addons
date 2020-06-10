@@ -48,7 +48,7 @@
                                 </group>
                                 <group name="right">
                                     <field name="platform_id" required="1"/>
-                                    <field name="subplatform_id" required="1"/>
+                                    <field name="subplatform_id"/>
                                 </group>
                             </group>
                         </page>

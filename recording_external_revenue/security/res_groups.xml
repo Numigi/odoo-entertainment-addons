@@ -10,7 +10,7 @@
     <record id="group_user" model="res.groups">
         <field name="name">User</field>
         <field name="category_id" ref="module_category_external_revenue"/>
-        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')), (4, ref('recording.group_user'))]"/>
         <field name="comment">Grants read access to external revenues.</field>
     </record>
 

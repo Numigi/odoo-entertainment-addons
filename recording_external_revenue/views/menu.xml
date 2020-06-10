@@ -47,6 +47,7 @@ model.sudo().schedule_conversion(env.user.company_id)
         parent="menu_external_revenue_recording"
         action="action_convert_raw_revenues"
         sequence="120"
+        groups="group_manager"
         />
 
     <menuitem
@@ -61,6 +62,7 @@ model.sudo().schedule_conversion(env.user.company_id)
         name="Mapping"
         parent="recording.menu_recording_root"
         sequence="460"
+        groups="group_manager"
         />
 
     <menuitem

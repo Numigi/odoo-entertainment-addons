@@ -1,7 +1,7 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import models, fields, _
+from odoo import api, models, fields, _
 from odoo.addons.queue_job.job import job
 from odoo.exceptions import ValidationError
 
@@ -12,8 +12,67 @@ class RecordingExternalRevenue(models.Model):
 
     is_posted = fields.Boolean(readonly=True)
     account_move_id = fields.Many2one(
-        "account.move", ondelete="restrict", readonly=True,
+        "account.move", ondelete="restrict", readonly=True
     )
+
+    @api.multi
+    def write(self, vals):
+        self._check_can_edit_fields_if_posted(vals)
+        return super().write(vals)
+
+    def _check_can_edit_fields_if_posted(self, vals):
+        fields_to_check = self._get_fields_protected_after_posting()
+        posted_revenues = self.filtered("is_posted")
+        if posted_revenues and fields_to_check.intersection(vals):
+            raise ValidationError(
+                _(
+                    "The following revenues can not be edited because "
+                    "these are already posted:\n"
+                    "{}"
+                ).format(", ".join(posted_revenues.mapped("display_name")))
+            )
+
+    def _get_fields_protected_after_posting(self):
+        return {
+            "analytic_account_id",
+            "artist_id",
+            "commission_amount",
+            "company_id",
+            "country_id",
+            "currency_id",
+            "fiscal_position",
+            "gross_amount",
+            "gross_amount_per_unit",
+            "net_amount",
+            "operation_date",
+            "partner_id",
+            "period_end_date",
+            "period_start_date",
+            "platform_id",
+            "product_id",
+            "quantity",
+            "recording_id",
+            "state_id",
+            "subplatform_id",
+            "tax_base",
+            "tax_id",
+        }
+
+    @api.multi
+    def unlink(self):
+        self._check_can_not_unlink_if_posted()
+        return super().unlink()
+
+    def _check_can_not_unlink_if_posted(self):
+        posted_revenues = self.filtered("is_posted")
+        if posted_revenues:
+            raise ValidationError(
+                _(
+                    "The following revenues can not be deleted because "
+                    "these are already posted:\n"
+                    "{}"
+                ).format(", ".join(posted_revenues.mapped("display_name")))
+            )
 
     def schedule_generate_journal_entries(self, company):
         revenues_to_post = self.search([("is_posted", "=", False)]).filtered(
@@ -33,8 +92,7 @@ class RecordingExternalRevenue(models.Model):
         move_vals = self._extract_account_move_vals(move)
         move = self.env["account.move"].create(move_vals)
         move.post()
-        self.is_posted = True
-        self.account_move_id = move.id
+        self.write({"is_posted": True, "account_move_id": move.id})
         return move
 
     def _check_is_not_already_posted(self):
@@ -169,7 +227,7 @@ class RecordingExternalRevenue(models.Model):
 
     def _convert_amount_in_company_currency(self, amount):
         return self.currency_id._convert(
-            amount, self._company_currency, self.company_id, self.operation_date,
+            amount, self._company_currency, self.company_id, self.operation_date
         )
 
     @property

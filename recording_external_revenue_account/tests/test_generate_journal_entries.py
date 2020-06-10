@@ -440,3 +440,7 @@ class TestConversion(ExternalRevenueCase):
         self.revenue.generate_journal_entry()
         with pytest.raises(ValidationError):
             self.revenue.generate_journal_entry()
+
+    def test_revenue_id_in_journal_entry_reference(self):
+        move = self.revenue.generate_journal_entry()
+        assert str(self.revenue.id) in move.ref

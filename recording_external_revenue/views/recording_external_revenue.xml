@@ -80,6 +80,7 @@
         <field name="model">recording.external.revenue</field>
         <field name="arch" type="xml">
             <tree string="Recording External Revenue">
+                <field name="id_string" string="ID"/>
                 <field name="country_id"/>
                 <field name="platform_id"/>
                 <field name="subplatform_id"/>
@@ -101,6 +102,7 @@
         <field name="model">recording.external.revenue</field>
         <field name="arch" type="xml">
             <search string="Search Recording External Revenue">
+                <field name="id_string" string="ID"/>
                 <field name="country_id"/>
                 <field name="platform_id"/>
                 <field name="subplatform_id"/>

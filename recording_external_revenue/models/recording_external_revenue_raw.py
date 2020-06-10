@@ -9,26 +9,15 @@ from odoo.exceptions import ValidationError
 class RecordingExternalRevenueRaw(models.Model):
     _name = "recording.external.revenue.raw"
     _description = "Recording External Revenue Raw"
-    _order = "operation_date"
-
-    operation_date = fields.Date(index=True, required=True)
-    period_start_date = fields.Date(required=True)
-    period_end_date = fields.Date(required=True)
+    _inherit = 'recording.external.revenue.abstract'
 
     partner = fields.Char(index=True, required=True)
     country = fields.Char(index=True, required=True)
     state = fields.Char()
-    fiscal_position = fields.Selection(
-        [("partner", "Partner"), ("revenue", "Revenue")], string="Fiscal Position",
-        required=True,
-    )
-    revenue_type = fields.Char(index=True, required=True)
     platform = fields.Char(index=True, required=True)
     subplatform = fields.Char()
     is_converted = fields.Boolean("Converted", default=False, readonly=True, index=True)
-    company_id = fields.Many2one(
-        "res.company", required=True, default=lambda self: self.env.user.company_id,
-    )
+    revenue_type = fields.Char(index=True, required=True,)
 
     isrc = fields.Char("ISRC", index=True)
     upc = fields.Char("UPC", index=True)
@@ -44,23 +33,6 @@ class RecordingExternalRevenueRaw(models.Model):
     revenue_id = fields.Many2one("recording.external.revenue", readonly=True,)
     currency = fields.Char(index=True, required=True)
     tax = fields.Char()
-    tax_base = fields.Selection(
-        [
-            ("net_amount", "Net Amount Before Tax"),
-            ("gross_amount", "Gross Amount Before Tax"),
-        ],
-        required=True,
-    )
-
-    quantity = fields.Float()
-    gross_amount_per_unit = fields.Float()
-    gross_amount = fields.Float()
-    commission_amount = fields.Float("Total Commissions Amount")
-    net_amount = fields.Float("Total Net Amount (Untaxed)")
-
-    @api.multi
-    def name_get(self):
-        return [(r.id, "#{}".format(r.id)) for r in self]
 
     @api.multi
     def write(self, vals):

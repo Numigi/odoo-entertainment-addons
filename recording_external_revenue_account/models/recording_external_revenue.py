@@ -53,6 +53,7 @@ class RecordingExternalRevenue(models.Model):
                 "company_id": self.company_id.id,
                 "journal_id": self._map_journal().id,
                 "date": self.operation_date,
+                "ref": self._get_journal_entry_reference(),
             }
         )
 
@@ -72,6 +73,9 @@ class RecordingExternalRevenue(models.Model):
         move_vals = dict(move._cache)
         move_vals["line_ids"] = [(0, 0, line._cache) for line in move.line_ids]
         return move_vals
+
+    def _get_journal_entry_reference(self):
+        return _("Revenue {}").format(self.display_name)
 
     def _add_tax_move_lines(self, move):
         move._onchange_line_ids()

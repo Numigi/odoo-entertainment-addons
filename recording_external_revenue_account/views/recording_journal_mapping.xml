@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_journal_mapping_form" model="ir.ui.view">
+        <field name="name">Journal Mapping Form</field>
+        <field name="model">recording.journal.mapping</field>
+        <field name="arch" type="xml">
+            <form string="Journal Mapping">
+                <sheet>
+                    <group>
+                        <group name="group_1">
+                            <field name="currency_id"/>
+                            <field name="company_id"/>
+                            <field name="journal_id"/>
+                        </group>
+                        <group name="group_2">
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="recording_journal_mapping_list" model="ir.ui.view">
+        <field name="name">Journal Mapping List</field>
+        <field name="model">recording.journal.mapping</field>
+        <field name="arch" type="xml">
+            <tree string="Journal Mapping" editable="top">
+                <field name="currency_id"/>
+                <field name="company_id"/>
+                <field name="journal_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="recording_journal_mapping_search" model="ir.ui.view">
+        <field name="name">Journal Mapping Search</field>
+        <field name="model">recording.journal.mapping</field>
+        <field name="arch" type="xml">
+            <search string="Search Journal Mapping">
+                <field name="currency_id"/>
+                <field name="company_id"/>
+                <field name="journal_id"/>
+           </search>
+        </field>
+    </record>
+
+    <record id="action_recording_journal_mapping" model="ir.actions.act_window">
+        <field name="name">Journal Mapping</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">recording.journal.mapping</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="recording_journal_mapping_list"/>
+        <field name="search_view_id" ref="recording_journal_mapping_search"/>
+    </record>
+
+</odoo>

@@ -329,6 +329,7 @@ class TestConversion(ExternalRevenueCase):
         self._set_currency_rate(self.eur, 0.8)
         self.revenue.currency_id = self.eur
         self.receivable_account.currency_id = self.eur
+        self.revenue_account.currency_id = self.eur
         self.tax.amount = 10
 
         entry = self.revenue.generate_journal_entry()
@@ -348,9 +349,18 @@ class TestConversion(ExternalRevenueCase):
         assert receivable_line.amount_currency == 33  # net_amount * (1 + 10%) / 0.8
         assert receivable_line.currency_id == self.eur
 
-    def _set_currency_rate(self, currency, rate):
+    def test_use_proper_currency_rate(self):
+        self._set_currency_rate(self.eur, 0.3, self.period_start_date)
+        self._set_currency_rate(self.eur, 0.5, self.operation_date)
+        self._set_currency_rate(self.eur, 0.8, self.period_end_date)
+        self.revenue.currency_id = self.eur
+        entry = self.revenue.generate_journal_entry()
+        revenue_line = self._get_revenue_line(entry)
+        assert revenue_line.credit == 60  # net_amount / 0.5
+
+    def _set_currency_rate(self, currency, rate, date=None):
         values = {
-            "name": datetime.now().date(),
+            "name": date or datetime.now().date(),
             "rate": rate,
             "company_id": self.company.id,
         }
@@ -425,3 +435,8 @@ class TestConversion(ExternalRevenueCase):
 
         receivable_line = self._get_receivable_line(entry)
         assert not receivable_line.analytic_account_id
+
+    def test_if_already_posted__raise_error(self):
+        self.revenue.generate_journal_entry()
+        with pytest.raises(ValidationError):
+            self.revenue.generate_journal_entry()

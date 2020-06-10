@@ -14,7 +14,18 @@ class RecordingJournalMapping(models.Model):
     company_id = fields.Many2one(
         "res.company", required=True, default=lambda self: self.env.user.company_id
     )
-    journal_id = fields.Many2one("account.journal", ondelete="restrict", required=True)
+    journal_id = fields.Many2one(
+        "account.journal", ondelete="restrict", required=True,
+        domain="""
+            [
+                '&',
+                ('company_id', '=', company_id),
+                '|',
+                ('currency_id', '=', False),
+                ('currency_id', '=', currency_id),
+            ]
+        """,
+    )
 
     _sql_constraints = [
         (

@@ -12,10 +12,11 @@
     "summary": "Generate journal entries for external revenue of recording.",
     "depends": [
         "recording_external_revenue",
-        "onchange_helper",
     ],
     "data": [
         "security/ir.model.access.csv",
+        "views/recording_external_revenue.xml",
+        "views/recording_journal_mapping.xml",
         "views/menu.xml",
     ],
     "installable": True,

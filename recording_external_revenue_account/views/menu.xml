@@ -19,4 +19,12 @@ model.sudo().schedule_generate_journal_entries(env.user.company_id)
         sequence="125"
         />
 
+    <menuitem
+        id="menu_mapping_recording_journals"
+        name="Journals"
+        parent="recording_external_revenue.menu_mapping_recording"
+        action="action_recording_journal_mapping"
+        sequence="170"
+        />
+
 </odoo>

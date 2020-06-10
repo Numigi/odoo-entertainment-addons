@@ -81,6 +81,7 @@
         <field name="model">recording.external.revenue.raw</field>
         <field name="arch" type="xml">
             <tree string="Recording External Revenue Raw">
+                <field name="id_string" string="ID"/>
                 <field name="country"/>
                 <field name="platform"/>
                 <field name="operation_date"/>
@@ -100,6 +101,7 @@
         <field name="model">recording.external.revenue.raw</field>
         <field name="arch" type="xml">
             <search string="Search Recording External Revenue Raw">
+                <field name="id_string" string="ID"/>
                 <field name="country"/>
                 <field name="platform"/>
                 <field name="partner"/>

@@ -1,6 +1,7 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
+from datetime import datetime
 from odoo.tests.common import SavepointCase
 
 
@@ -41,7 +42,9 @@ class ExternalRevenueCase(SavepointCase):
         )
 
         cls.stream = cls.env.ref("recording_external_revenue.demo_product_stream")
-        cls.stream_mapping = cls.env.ref("recording_external_revenue.demo_mapping_streaming")
+        cls.stream_mapping = cls.env.ref(
+            "recording_external_revenue.demo_mapping_streaming"
+        )
         cls.video = cls.env.ref("recording_external_revenue.demo_product_video")
         cls.video_reference = "123VIDEO"
         cls.video.default_code = cls.video_reference
@@ -89,3 +92,21 @@ class ExternalRevenueCase(SavepointCase):
     @classmethod
     def _create_tax(cls, **kwargs):
         return cls.env["account.tax"].create(kwargs)
+
+    @classmethod
+    def _create_raw_revenue(cls, **kwargs):
+        vals = {
+            "company_id": cls.company.id,
+            "partner": cls.believe_mapping.label,
+            "operation_date": datetime.now().date(),
+            "period_start_date": datetime.now().date(),
+            "period_end_date": datetime.now().date(),
+            "country": cls.canada_mapping.label,
+            "fiscal_position": "partner",
+            "revenue_type": cls.stream_mapping.label,
+            "platform": cls.spotify_mapping.label,
+            "currency": cls.cad_mapping.label,
+            "tax_base": "net_amount",
+        }
+        vals.update(kwargs)
+        return cls.env["recording.external.revenue.raw"].create(vals)

@@ -19,24 +19,6 @@ class TestConversion(ExternalRevenueCase):
         cls.raw_revenues = cls.r1 | cls.r2 | cls.r3
 
     @classmethod
-    def _create_raw_revenue(cls, **kwargs):
-        return cls.env["recording.external.revenue.raw"].create(
-            {
-                "company_id": cls.company.id,
-                "partner": cls.believe_mapping.label,
-                "operation_date": datetime.now().date(),
-                "period_start_date": datetime.now().date(),
-                "period_end_date": datetime.now().date(),
-                "country": cls.canada_mapping.label,
-                "fiscal_position": "partner",
-                "revenue_type": cls.stream_mapping.label,
-                "platform": cls.spotify_mapping.label,
-                "currency": cls.cad_mapping.label,
-                "tax_base": "net_amount",
-            }
-        )
-
-    @classmethod
     def _find_jobs(cls, revenues):
         return (
             cls.env["queue.job"]

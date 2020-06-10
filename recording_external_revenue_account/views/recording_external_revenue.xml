@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="recording_external_revenue_form" model="ir.ui.view">
+        <field name="name">Recording External Revenue Form: add fields is_posted and account_move_id</field>
+        <field name="model">recording.external.revenue</field>
+        <field name="inherit_id" ref="recording_external_revenue.recording_external_revenue_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']//group[@name='left']" position="inside">
+                <field name="is_posted"/>
+            </xpath>
+            <xpath expr="//page[@name='revenue']//group[@name='left']" position="inside">
+                <field name="account_move_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="recording_external_revenue_list" model="ir.ui.view">
+        <field name="name">Recording External Revenue List: add field is_posted</field>
+        <field name="model">recording.external.revenue</field>
+        <field name="inherit_id" ref="recording_external_revenue.recording_external_revenue_list"/>
+        <field name="arch" type="xml">
+            <tree position="inside">
+                <field name="is_posted"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="recording_external_revenue_search" model="ir.ui.view">
+        <field name="name">Recording External Revenue Search: add field is_posted</field>
+        <field name="model">recording.external.revenue</field>
+        <field name="inherit_id" ref="recording_external_revenue.recording_external_revenue_search"/>
+        <field name="arch" type="xml">
+            <search position="inside">
+                <separator/>
+                <filter name="posted" string="Posted" domain="[('is_posted', '=', True)]"/>
+                <filter name="not_posted" string="Not Posted" domain="[('is_posted', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+</odoo>

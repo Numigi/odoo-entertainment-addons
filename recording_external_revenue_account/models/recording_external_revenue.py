@@ -11,6 +11,9 @@ class RecordingExternalRevenue(models.Model):
     _inherit = "recording.external.revenue"
 
     is_posted = fields.Boolean(readonly=True)
+    account_move_id = fields.Many2one(
+        "account.move", ondelete="restrict", readonly=True,
+    )
 
     def schedule_generate_journal_entries(self, company):
         revenues_to_post = self.search([("is_posted", "=", False)]).filtered(
@@ -22,15 +25,27 @@ class RecordingExternalRevenue(models.Model):
     @job
     def generate_journal_entry(self):
         self = self.with_context(force_company=self.company_id.id)
+        self._check_is_not_already_posted()
 
         with self.env.do_in_onchange():
             move = self._make_new_journal_entry()
 
-        move_vals = dict(move._cache)
-        move_vals["line_ids"] = [(0, 0, line._cache) for line in move.line_ids]
+        move_vals = self._extract_account_move_vals(move)
         move = self.env["account.move"].create(move_vals)
         move.post()
+        self.is_posted = True
+        self.account_move_id = move.id
         return move
+
+    def _check_is_not_already_posted(self):
+        if self.is_posted:
+            raise ValidationError(
+                _(
+                    "The revenue {revenue} is already posted (journal entry: {entry})."
+                ).format(
+                    revenue=self.display_name, entry=self.account_move_id.display_name
+                )
+            )
 
     def _make_new_journal_entry(self):
         move = self.env["account.move"].new(
@@ -53,6 +68,11 @@ class RecordingExternalRevenue(models.Model):
 
         return move
 
+    def _extract_account_move_vals(self, move):
+        move_vals = dict(move._cache)
+        move_vals["line_ids"] = [(0, 0, line._cache) for line in move.line_ids]
+        return move_vals
+
     def _add_tax_move_lines(self, move):
         move._onchange_line_ids()
 
@@ -68,15 +88,14 @@ class RecordingExternalRevenue(models.Model):
     def _make_new_revenue_move_line(self):
         line = self.env["account.move.line"].new()
         line.name = "/"
-        line.account_id = self._get_map_revenue_account()
+        line.account_id = self._map_revenue_account()
         line.product_id = self.product_id
         line.product_uom_id = self.product_id.uom_id
         line.quantity = self.quantity
         line.recompute_tax_line = True
         line.tax_ids = self._get_revenue_line_taxes()
         line.analytic_account_id = self.analytic_account_id
-        if not self._is_revenue_in_company_currency:
-            line.currency_id = self.currency_id
+        line.currency_id = line.account_id.currency_id
         return line
 
     def _get_revenue_line_taxes(self):
@@ -131,27 +150,18 @@ class RecordingExternalRevenue(models.Model):
         return self.product_id.taxes_id
 
     def _get_taxes_from_revenue_account(self):
-        revenue_account = self._get_map_revenue_account()
+        revenue_account = self._map_revenue_account()
         return revenue_account.tax_ids
 
     def _set_tax_base_amount(self, revenue_line):
         amount = self[self.tax_base]
-        self._set_move_line_credit(revenue_line, amount)
+        amount_in_company_currency = self._convert_amount_in_company_currency(amount)
+        self._set_move_line_credit(revenue_line, amount_in_company_currency)
 
     def _set_revenue_amount(self, revenue_line):
         amount = self.net_amount
-        self._set_move_line_credit(revenue_line, amount)
-
-    def _set_move_line_credit(self, move_line, amount):
-        if self._is_revenue_in_company_currency:
-            move_line.debit = -amount if amount < 0 else 0
-            move_line.credit = amount if amount > 0 else 0
-            move_line.amount_currency = 0
-        else:
-            amount_company_currency = self._convert_amount_in_company_currency(amount)
-            move_line.debit = -amount_company_currency if amount < 0 else 0
-            move_line.credit = amount_company_currency if amount > 0 else 0
-            move_line.amount_currency = -amount
+        amount_in_company_currency = self._convert_amount_in_company_currency(amount)
+        self._set_move_line_credit(revenue_line, amount_in_company_currency)
 
     def _convert_amount_in_company_currency(self, amount):
         return self.currency_id._convert(
@@ -166,7 +176,7 @@ class RecordingExternalRevenue(models.Model):
     def _company_currency(self):
         return self.company_id.currency_id
 
-    def _get_map_revenue_account(self):
+    def _map_revenue_account(self):
         product_template = self.product_id.product_tmpl_id
         account = product_template.get_product_accounts().get("income")
         if not account:
@@ -205,11 +215,14 @@ class RecordingExternalRevenue(models.Model):
         line = self.env["account.move.line"].new()
         line.name = "/"
         line.account_id = self._map_receivable_account()
-        line.debit = amount if amount > 0 else 0
-        line.credit = -amount if amount < 0 else 0
         line.currency_id = line.account_id.currency_id
         line.date_maturity = due_date
+        self._set_move_line_credit(line, -amount)
         return line
+
+    def _set_move_line_credit(self, move_line, amount):
+        move_line.debit = -amount if amount < 0 else 0
+        move_line.credit = amount if amount > 0 else 0
 
     def _map_receivable_account(self):
         return self.partner_id.property_account_receivable_id

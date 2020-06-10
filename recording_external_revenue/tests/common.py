@@ -9,16 +9,26 @@ class ExternalRevenueCase(SavepointCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.cad = cls.env.ref("base.CAD")
+        cls.cad_mapping = cls.env.ref("recording_external_revenue.demo_mapping_cad")
         cls.eur = cls.env.ref("base.EUR")
 
         cls.company = cls.env["res.company"].create({"name": "New Company"})
         cls.company.currency_id = cls.cad
 
         cls.believe = cls.env.ref("recording_external_revenue.demo_partner_believe")
+        cls.believe_mapping = cls.env.ref("recording_external_revenue.demo_mapping_blv")
         cls.canada = cls.env.ref("base.ca")
+        cls.canada_mapping = cls.env.ref("recording_external_revenue.demo_mapping_ca")
         cls.quebec = cls.env.ref("base.state_ca_qc")
+        cls.quebec_mapping = cls.env.ref("recording_external_revenue.demo_mapping_qc")
         cls.spotify = cls.env.ref("recording_platform.spotify")
+        cls.spotify_mapping = cls.env.ref(
+            "recording_external_revenue.demo_mapping_spotify"
+        )
         cls.spotify_premium = cls.env.ref("recording_platform.spotify_premium")
+        cls.spotify_premium_mapping = cls.env.ref(
+            "recording_external_revenue.demo_mapping_spotify_premium"
+        )
 
         cls.tax = cls._create_tax(
             name="My Awesome Tax",
@@ -31,6 +41,7 @@ class ExternalRevenueCase(SavepointCase):
         )
 
         cls.stream = cls.env.ref("recording_external_revenue.demo_product_stream")
+        cls.stream_mapping = cls.env.ref("recording_external_revenue.demo_mapping_streaming")
         cls.video = cls.env.ref("recording_external_revenue.demo_product_video")
         cls.video_reference = "123VIDEO"
         cls.video.default_code = cls.video_reference

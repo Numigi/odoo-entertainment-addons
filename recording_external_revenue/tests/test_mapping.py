@@ -15,8 +15,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         return self.env["recording.external.revenue.raw"].new(kwargs)
 
     def test_map_partner(self):
-        mapping = self.env.ref("recording_external_revenue.demo_mapping_blv")
-        raw_revenue = self._new_raw_revenue(partner=mapping.label)
+        raw_revenue = self._new_raw_revenue(partner=self.believe_mapping.label)
         assert raw_revenue.make_new_revenue().partner_id == self.believe
 
     def test_partner_not_found(self):
@@ -25,8 +24,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             raw_revenue.make_new_revenue()
 
     def test_map_country(self):
-        mapping = self.env.ref("recording_external_revenue.demo_mapping_ca")
-        raw_revenue = self._new_raw_revenue(country=mapping.label)
+        raw_revenue = self._new_raw_revenue(country=self.canada_mapping.label)
         assert raw_revenue.make_new_revenue().country_id == self.canada
 
     def test_country_not_found(self):
@@ -35,24 +33,20 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             raw_revenue.make_new_revenue()
 
     def test_map_country_state(self):
-        country_mapping = self.env.ref("recording_external_revenue.demo_mapping_ca")
-        state_mapping = self.env.ref("recording_external_revenue.demo_mapping_qc")
         raw_revenue = self._new_raw_revenue(
-            country=country_mapping.label, state=state_mapping.label
+            country=self.canada_mapping.label, state=self.quebec_mapping.label
         )
         assert raw_revenue.make_new_revenue().state_id == self.quebec
 
     def test_country_state_not_found(self):
-        country_mapping = self.env.ref("recording_external_revenue.demo_mapping_ca")
         raw_revenue = self._new_raw_revenue(
-            country=country_mapping.label, state="Wrong Label"
+            country=self.canada_mapping.label, state="Wrong Label"
         )
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
     def test_map_platform(self):
-        mapping = self.env.ref("recording_external_revenue.demo_mapping_spotify")
-        raw_revenue = self._new_raw_revenue(platform=mapping.label)
+        raw_revenue = self._new_raw_revenue(platform=self.spotify_mapping.label)
         assert raw_revenue.make_new_revenue().platform_id == self.spotify
 
     def test_platform_not_found(self):
@@ -61,23 +55,14 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             raw_revenue.make_new_revenue()
 
     def test_map_subplatform(self):
-        platform_mapping = self.env.ref(
-            "recording_external_revenue.demo_mapping_spotify"
-        )
-        subplatform_mapping = self.env.ref(
-            "recording_external_revenue.demo_mapping_spotify_premium"
-        )
         raw_revenue = self._new_raw_revenue(
-            platform=platform_mapping.label, subplatform=subplatform_mapping.label
+            platform=self.spotify_mapping.label, subplatform=self.spotify_premium_mapping.label
         )
         assert raw_revenue.make_new_revenue().subplatform_id == self.spotify_premium
 
     def test_subplatform_not_found(self):
-        platform_mapping = self.env.ref(
-            "recording_external_revenue.demo_mapping_spotify"
-        )
         raw_revenue = self._new_raw_revenue(
-            platform=platform_mapping.label, subplatform="Wrong Label"
+            platform=self.spotify_mapping.label, subplatform="Wrong Label"
         )
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
@@ -96,8 +81,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             raw_revenue.make_new_revenue()
 
     def test_map_currency(self):
-        mapping = self.env.ref("recording_external_revenue.demo_mapping_cad")
-        raw_revenue = self._new_raw_revenue(currency=mapping.label)
+        raw_revenue = self._new_raw_revenue(currency=self.cad_mapping.label)
         assert raw_revenue.make_new_revenue().currency_id == self.cad
 
     def test_currency_not_found(self):
@@ -135,8 +119,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         assert revenue[field] == raw_revenue[field]
 
     def test_map_revenue_type(self):
-        mapping = self.env.ref("recording_external_revenue.demo_mapping_streaming")
-        raw_revenue = self._new_raw_revenue(revenue_type=mapping.label)
+        raw_revenue = self._new_raw_revenue(revenue_type=self.stream_mapping.label)
         assert raw_revenue.make_new_revenue().product_id == self.stream
 
     def test_no_product_found_for_revenue_type(self):

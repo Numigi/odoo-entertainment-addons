@@ -2,6 +2,7 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 import pytest
+from datetime import datetime
 from ddt import ddt, data
 from odoo.exceptions import ValidationError
 from .common import ExternalRevenueCase
@@ -12,14 +13,28 @@ class TestConversion(ExternalRevenueCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.r1 = cls._create_raw_revenue(company_id=cls.company.id)
+        cls.r1 = cls._create_raw_revenue()
         cls.r2 = cls._create_raw_revenue(company_id=cls.company.id)
         cls.r3 = cls._create_raw_revenue(company_id=cls.company.id)
         cls.raw_revenues = cls.r1 | cls.r2 | cls.r3
 
     @classmethod
     def _create_raw_revenue(cls, **kwargs):
-        return cls.env["recording.external.revenue.raw"].create(kwargs)
+        return cls.env["recording.external.revenue.raw"].create(
+            {
+                "company_id": cls.company.id,
+                "partner": cls.believe_mapping.label,
+                "operation_date": datetime.now().date(),
+                "period_start_date": datetime.now().date(),
+                "period_end_date": datetime.now().date(),
+                "country": cls.canada_mapping.label,
+                "fiscal_position": "partner",
+                "revenue_type": cls.stream_mapping.label,
+                "platform": cls.spotify_mapping.label,
+                "currency": cls.cad_mapping.label,
+                "tax_base": "net_amount",
+            }
+        )
 
     @classmethod
     def _find_jobs(cls, revenues):

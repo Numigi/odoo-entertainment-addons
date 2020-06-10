@@ -1,8 +1,10 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
+import pytest
 from datetime import datetime, timedelta
 from ddt import ddt, data, unpack
+from odoo.exceptions import ValidationError
 from odoo.addons.recording_external_revenue.tests.common import ExternalRevenueCase
 
 
@@ -65,7 +67,7 @@ class TestConversion(ExternalRevenueCase):
             }
         )
 
-        cls.env["recording.journal.mapping"].create(
+        cls.journal_mapping = cls.env["recording.journal.mapping"].create(
             {
                 "journal_id": cls.journal.id,
                 "currency_id": cls.cad.id,
@@ -73,7 +75,7 @@ class TestConversion(ExternalRevenueCase):
             }
         )
 
-        cls.env["recording.journal.mapping"].create(
+        cls.eur_journal_mapping = cls.env["recording.journal.mapping"].create(
             {
                 "journal_id": cls.eur_journal.id,
                 "currency_id": cls.eur.id,
@@ -207,9 +209,23 @@ class TestConversion(ExternalRevenueCase):
         )
         assert len(self._find_jobs(self.revenue)) == 1
 
+    def test_journal_entry_posted(self):
+        entry = self.revenue.generate_journal_entry()
+        assert entry.state == "posted"
+
     def test_journal_mapping(self):
         entry = self.revenue.generate_journal_entry()
         assert entry.journal_id == self.journal
+
+    def test_no_journal_found(self):
+        self.journal_mapping.unlink()
+        with pytest.raises(ValidationError):
+            self.revenue.generate_journal_entry()
+
+    def test_deprecated_account(self):
+        self.revenue_account.deprecated = True
+        with pytest.raises(ValidationError):
+            self.revenue.generate_journal_entry()
 
     def test_operation_date(self):
         entry = self.revenue.generate_journal_entry()
@@ -279,6 +295,12 @@ class TestConversion(ExternalRevenueCase):
         entry = self.revenue.generate_journal_entry()
         assert self._get_revenue_line(entry).account_id == self.other_revenue_account
 
+    def test_no_available_fiscal_position(self):
+        self.revenue.state_id = False
+        self.revenue.country_id = self.env.ref("base.fr")
+        with pytest.raises(ValidationError):
+            self.revenue.generate_journal_entry()
+
     def test_fiscal_position_defined_on_partner(self):
         self.revenue.write(
             {"fiscal_position": "partner", "country_id": False, "state_id": False,}
@@ -293,6 +315,15 @@ class TestConversion(ExternalRevenueCase):
         )
         entry = self.revenue.generate_journal_entry()
         assert self._get_revenue_line(entry).account_id == self.other_revenue_account
+
+    def test_no_fiscal_position_found_for_the_partner(self):
+        self.revenue.write(
+            {"fiscal_position": "partner", "country_id": False, "state_id": False,}
+        )
+        self.partner.state_id = False
+        self.partner.country_id = self.env.ref("base.fr")
+        with pytest.raises(ValidationError):
+            self.revenue.generate_journal_entry()
 
     def test_amount_in_foreign_currency(self):
         self._set_currency_rate(self.eur, 0.8)
@@ -382,3 +413,15 @@ class TestConversion(ExternalRevenueCase):
                 "line_ids": [(0, 0, v) for v in line_vals]
             }
         )
+
+    def test_analytic_account(self):
+        entry = self.revenue.generate_journal_entry()
+
+        revenue_line = self._get_revenue_line(entry)
+        assert revenue_line.analytic_account_id == self.analytic_account
+
+        tax_line = self._get_tax_line(entry)
+        assert not tax_line.analytic_account_id
+
+        receivable_line = self._get_receivable_line(entry)
+        assert not receivable_line.analytic_account_id

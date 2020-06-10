@@ -257,3 +257,9 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         )
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
+
+    def test_analytic_account_taken_from_recording(self):
+        self.recording.analytic_account_id = self.analytic_account
+        raw_revenue = self._new_raw_revenue(isrc=self.isrc)
+        revenue = raw_revenue.make_new_revenue()
+        assert revenue.analytic_account_id == self.analytic_account

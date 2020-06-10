@@ -15,6 +15,7 @@
         "musical_catalog",
         "product_musical_relation",
         "recording",
+        "recording_analytic",
         "recording_platform",
         "queue_job",
     ],

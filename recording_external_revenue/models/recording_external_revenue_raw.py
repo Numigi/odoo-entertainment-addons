@@ -11,18 +11,19 @@ class RecordingExternalRevenueRaw(models.Model):
     _description = "Recording External Revenue Raw"
     _order = "operation_date"
 
-    operation_date = fields.Date(index=True)
-    period_start_date = fields.Date()
-    period_end_date = fields.Date()
+    operation_date = fields.Date(index=True, required=True)
+    period_start_date = fields.Date(required=True)
+    period_end_date = fields.Date(required=True)
 
-    partner = fields.Char(index=True)
-    country = fields.Char(index=True)
+    partner = fields.Char(index=True, required=True)
+    country = fields.Char(index=True, required=True)
     state = fields.Char()
     fiscal_position = fields.Selection(
         [("partner", "Partner"), ("revenue", "Revenue")], string="Fiscal Position",
+        required=True,
     )
-    revenue_type = fields.Char(index=True)
-    platform = fields.Char(index=True)
+    revenue_type = fields.Char(index=True, required=True)
+    platform = fields.Char(index=True, required=True)
     subplatform = fields.Char()
     is_converted = fields.Boolean("Converted", default=False, readonly=True, index=True)
     company_id = fields.Many2one(
@@ -41,13 +42,14 @@ class RecordingExternalRevenueRaw(models.Model):
     product_external_catalog_reference = fields.Char(index=True)
 
     revenue_id = fields.Many2one("recording.external.revenue", readonly=True,)
-    currency = fields.Char(index=True)
+    currency = fields.Char(index=True, required=True)
     tax = fields.Char()
     tax_base = fields.Selection(
         [
             ("net_amount", "Net Amount Before Tax"),
             ("gross_amount", "Gross Amount Before Tax"),
         ],
+        required=True,
     )
 
     quantity = fields.Float()

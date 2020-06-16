@@ -10,9 +10,9 @@ class RecordingExternalRevenue(models.Model):
 
     _inherit = "recording.external.revenue"
 
-    is_posted = fields.Boolean(readonly=True)
+    is_posted = fields.Boolean(readonly=True, copy=False)
     account_move_id = fields.Many2one(
-        "account.move", ondelete="restrict", readonly=True
+        "account.move", ondelete="restrict", readonly=True, copy=False
     )
 
     @api.multi

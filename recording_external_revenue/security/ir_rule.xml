@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo noupdate="1">
 
+    <record id="recording_external_revenue_raw_multi_company_rule" model="ir.rule">
+        <field name="name">Recording External Revenue Raw Multi-Company Rule</field>
+        <field name="model_id" ref="model_recording_external_revenue_raw"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]</field>
+        <field name="global" eval="True"/>
+    </record>
+
     <record id="recording_external_revenue_multi_company_rule" model="ir.rule">
         <field name="name">Recording External Revenue Multi-Company Rule</field>
-        <field name="model_id" ref="model_recording_external_revenue_raw"/>
+        <field name="model_id" ref="model_recording_external_revenue"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]</field>
+        <field name="global" eval="True"/>
+    </record>
+
+    <record id="recording_tax_mapping_multi_company_rule" model="ir.rule">
+        <field name="name">Recording Tax Mapping Multi-Company Rule</field>
+        <field name="model_id" ref="model_recording_tax_mapping"/>
         <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', [user.company_id.id])]</field>
         <field name="global" eval="True"/>
     </record>

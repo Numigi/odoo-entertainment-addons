@@ -186,6 +186,7 @@ class RecordingExternalRevenueRaw(models.Model):
         revenue.tax_id = self._map_tax()
         revenue.currency_id = self._map_currency()
         revenue.analytic_account_id = revenue.recording_id.analytic_account_id
+        revenue.artist_id = revenue.recording_id.artist_id
 
     def _map_partner(self):
         if self.partner:

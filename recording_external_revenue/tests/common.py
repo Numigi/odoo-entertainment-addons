@@ -38,7 +38,7 @@ class ExternalRevenueCase(SavepointCase):
             company_id=cls.company.id,
         )
         cls.tax_mapping = cls.env["recording.tax.mapping"].create(
-            {"label": "AwesomeTax", "tax_id": cls.tax.id,}
+            {"label": "AwesomeTax", "tax_id": cls.tax.id}
         )
 
         cls.stream = cls.env.ref("recording_external_revenue.demo_product_stream")
@@ -70,6 +70,7 @@ class ExternalRevenueCase(SavepointCase):
             {
                 "name": "Awesome Video",
                 "ttype": "video",
+                "artist_id": cls.artist.id,
                 "upc": cls.upc,
                 "upc_packshot": cls.upc_packshot,
                 "isrc": cls.isrc,
@@ -86,7 +87,7 @@ class ExternalRevenueCase(SavepointCase):
         )
 
         cls.analytic_account = cls.env["account.analytic.account"].create(
-            {"name": "My Analytic Account", "company_id": cls.company.id,}
+            {"name": "My Analytic Account", "company_id": cls.company.id}
         )
 
     @classmethod

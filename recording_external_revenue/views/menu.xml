@@ -105,6 +105,14 @@ model.sudo().schedule_conversion(env.user.company_id)
         />
 
     <menuitem
+        id="menu_mapping_recording_currencies"
+        name="Currencies"
+        parent="menu_mapping_recording"
+        action="action_recording_currency_mapping"
+        sequence="135"
+        />
+
+    <menuitem
         id="menu_mapping_recording_partners"
         name="Partners"
         parent="menu_mapping_recording"

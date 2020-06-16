@@ -10,7 +10,6 @@ from .common import ExternalRevenueCase
 
 @ddt
 class TestRawRevenueMapping(ExternalRevenueCase):
-
     def _new_raw_revenue(self, **kwargs):
         return self.env["recording.external.revenue.raw"].new(kwargs)
 
@@ -56,7 +55,8 @@ class TestRawRevenueMapping(ExternalRevenueCase):
 
     def test_map_subplatform(self):
         raw_revenue = self._new_raw_revenue(
-            platform=self.spotify_mapping.label, subplatform=self.spotify_premium_mapping.label
+            platform=self.spotify_mapping.label,
+            subplatform=self.spotify_premium_mapping.label,
         )
         assert raw_revenue.make_new_revenue().subplatform_id == self.spotify_premium
 
@@ -123,7 +123,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         assert raw_revenue.make_new_revenue().product_id == self.stream
 
     def test_no_product_found_for_revenue_type(self):
-        raw_revenue = self._new_raw_revenue(revenue_type="unexisting reference",)
+        raw_revenue = self._new_raw_revenue(revenue_type="unexisting reference")
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
@@ -132,19 +132,18 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             "recording_external_revenue.demo_mapping_streaming"
         )
         raw_revenue = self._new_raw_revenue(
-            product_reference=self.video.default_code,
-            revenue_type=stream_mapping.label,
+            product_reference=self.video.default_code, revenue_type=stream_mapping.label
         )
         assert raw_revenue.make_new_revenue().product_id == self.video
 
     def test_no_product_found_with_reference(self):
-        raw_revenue = self._new_raw_revenue(product_reference="unexisting reference",)
+        raw_revenue = self._new_raw_revenue(product_reference="unexisting reference")
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
     def test_2_products_with_same_reference(self):
         self.video.copy({"default_code": self.video.default_code})
-        raw_revenue = self._new_raw_revenue(product_reference=self.video.default_code,)
+        raw_revenue = self._new_raw_revenue(product_reference=self.video.default_code)
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
@@ -166,9 +165,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             raw_revenue.make_new_revenue()
 
     def test_2_products_with_same_catalog_reference(self):
-        self.video.copy(
-            {"product_tmpl_id": self.video.product_tmpl_id.id,}
-        )
+        self.video.copy({"product_tmpl_id": self.video.product_tmpl_id.id})
         raw_revenue = self._new_raw_revenue(
             product_external_catalog=self.catalog_mapping.label,
             product_external_catalog_reference=self.video_catalog_reference.code,
@@ -185,21 +182,21 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             raw_revenue.make_new_revenue()
 
     def test_map_recording_from_upc(self):
-        raw_revenue = self._new_raw_revenue(upc=self.upc,)
+        raw_revenue = self._new_raw_revenue(upc=self.upc)
         assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_map_recording_from_upc_packshot(self):
-        raw_revenue = self._new_raw_revenue(upc=self.upc_packshot,)
+        raw_revenue = self._new_raw_revenue(upc=self.upc_packshot)
         assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_2_recordings_with_same_upc(self):
         self.recording.copy({"upc_packshot": self.recording.upc})
-        raw_revenue = self._new_raw_revenue(upc=self.upc,)
+        raw_revenue = self._new_raw_revenue(upc=self.upc)
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
     def test_recording_not_found_with_upc(self):
-        raw_revenue = self._new_raw_revenue(upc="wrong-upc-code",)
+        raw_revenue = self._new_raw_revenue(upc="wrong-upc-code")
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
@@ -212,7 +209,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         assert raw_revenue.make_new_revenue().recording_id == self.recording
 
     def test_recording_not_found_with_isrc(self):
-        raw_revenue = self._new_raw_revenue(isrc="wrong-isrc-code",)
+        raw_revenue = self._new_raw_revenue(isrc="wrong-isrc-code")
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
@@ -246,3 +243,9 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         raw_revenue = self._new_raw_revenue(isrc=self.isrc)
         revenue = raw_revenue.make_new_revenue()
         assert revenue.analytic_account_id == self.analytic_account
+
+    def test_artist_taken_from_recording(self):
+        self.recording.artist_id = self.artist
+        raw_revenue = self._new_raw_revenue(isrc=self.isrc)
+        revenue = raw_revenue.make_new_revenue()
+        assert revenue.artist_id == self.artist

@@ -9,15 +9,17 @@ from odoo.exceptions import ValidationError
 class RecordingExternalRevenueRaw(models.Model):
     _name = "recording.external.revenue.raw"
     _description = "Recording External Revenue Raw"
-    _inherit = 'recording.external.revenue.abstract'
+    _inherit = "recording.external.revenue.abstract"
 
     partner = fields.Char(index=True, required=True)
     country = fields.Char(index=True, required=True)
     state = fields.Char()
     platform = fields.Char(index=True, required=True)
     subplatform = fields.Char()
-    is_converted = fields.Boolean("Converted", default=False, readonly=True, index=True)
-    revenue_type = fields.Char(index=True, required=True,)
+    is_converted = fields.Boolean(
+        "Converted", default=False, readonly=True, index=True, copy=False
+    )
+    revenue_type = fields.Char(index=True, required=True)
 
     isrc = fields.Char("ISRC", index=True)
     upc = fields.Char("UPC", index=True)
@@ -30,7 +32,9 @@ class RecordingExternalRevenueRaw(models.Model):
     product_external_catalog = fields.Char(index=True)
     product_external_catalog_reference = fields.Char(index=True)
 
-    revenue_id = fields.Many2one("recording.external.revenue", readonly=True,)
+    revenue_id = fields.Many2one(
+        "recording.external.revenue", readonly=True, copy=False
+    )
     currency = fields.Char(index=True, required=True)
     tax = fields.Char()
 
@@ -169,12 +173,7 @@ class RecordingExternalRevenueRaw(models.Model):
             revenue[field] = sum(r[field] or 0 for r in self)
 
     def get_aggregated_fields(self):
-        return [
-            "commission_amount",
-            "gross_amount",
-            "net_amount",
-            "quantity",
-        ]
+        return ["commission_amount", "gross_amount", "net_amount", "quantity"]
 
     def _execute_advanced_mapping(self, revenue):
         revenue.partner_id = self._map_partner()
@@ -317,7 +316,7 @@ class RecordingExternalRevenueRaw(models.Model):
 
     def _map_recording_from_isrc(self):
         recording = self.env["recording"].search(
-            ["|", ("isrc", "=", self.isrc), ("other_isrc_ids.isrc", "=", self.isrc),]
+            ["|", ("isrc", "=", self.isrc), ("other_isrc_ids.isrc", "=", self.isrc)]
         )
 
         if not recording:
@@ -346,7 +345,7 @@ class RecordingExternalRevenueRaw(models.Model):
 
     def _map_recording_from_upc(self):
         recording = self.env["recording"].search(
-            ["|", ("upc", "=", self.upc), ("upc_packshot", "=", self.upc),]
+            ["|", ("upc", "=", self.upc), ("upc_packshot", "=", self.upc)]
         )
 
         if not recording:

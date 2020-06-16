@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-10 15:09+0000\n"
-"PO-Revision-Date: 2020-06-10 11:34-0400\n"
+"POT-Creation-Date: 2020-06-16 12:59+0000\n"
+"PO-Revision-Date: 2020-06-16 09:01-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -115,6 +115,11 @@ msgstr "Créé par"
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_tax_mapping__create_date
 msgid "Created on"
 msgstr "Créé le"
+
+#. module: recording_external_revenue
+#: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_currencies
+msgid "Currencies"
+msgstr "Devises"
 
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_currency_mapping__currency_id
@@ -664,7 +669,7 @@ msgstr ""
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__recording_external_catalog
 msgid "Recording External Catalog"
-msgstr ""
+msgstr "Catalogue externe d'enregistrements"
 
 #. module: recording_external_revenue
 #: model:ir.model,name:recording_external_revenue.model_recording_external_catalog_mapping
@@ -695,10 +700,8 @@ msgstr "Revenue externe d'enregistrement brut"
 
 #. module: recording_external_revenue
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
-#, fuzzy
-#| msgid "Recording Identidiers"
 msgid "Recording Identifiers"
-msgstr "Identifiants d'enregistrement"
+msgstr "Identifiants d'enregistrements"
 
 #. module: recording_external_revenue
 #: model:ir.model,name:recording_external_revenue.model_recording_partner_mapping
@@ -846,8 +849,6 @@ msgstr ""
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__subplatform_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__subplatform
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_subplatform_mapping__subplatform_id
-#, fuzzy
-#| msgid "Sub Platform"
 msgid "Subplatform"
 msgstr "Sous-plateforme"
 
@@ -860,10 +861,8 @@ msgstr "Mapping des sous-plateformes"
 
 #. module: recording_external_revenue
 #: model:ir.ui.menu,name:recording_external_revenue.menu_mapping_recording_subplatforms
-#, fuzzy
-#| msgid "Sub Platform"
 msgid "Subplatforms"
-msgstr "Sous-plateforme"
+msgstr "Sous-plateformes"
 
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__tax_id

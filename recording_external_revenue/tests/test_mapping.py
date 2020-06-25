@@ -239,10 +239,15 @@ class TestRawRevenueMapping(ExternalRevenueCase):
             raw_revenue.make_new_revenue()
 
     def test_analytic_account_taken_from_recording(self):
-        self.recording.analytic_account_id = self.analytic_account
         raw_revenue = self._new_raw_revenue(isrc=self.isrc)
         revenue = raw_revenue.make_new_revenue()
         assert revenue.analytic_account_id == self.analytic_account
+
+    def test_if_no_analytic_account__raise_error(self):
+        self.recording.analytic_account_id = False
+        raw_revenue = self._new_raw_revenue(isrc=self.isrc)
+        with pytest.raises(ValidationError):
+            raw_revenue.make_new_revenue()
 
     def test_artist_taken_from_recording(self):
         self.recording.artist_id = self.artist

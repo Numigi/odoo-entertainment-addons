@@ -101,7 +101,7 @@
         <field name="name">Recording External Revenue Pivot</field>
         <field name="model">recording.external.revenue</field>
         <field name="arch" type="xml">
-            <pivot string="Recording External Revenues" display_quantity="True"/>
+            <pivot string="Recording External Revenues"/>
         </field>
     </record>
 

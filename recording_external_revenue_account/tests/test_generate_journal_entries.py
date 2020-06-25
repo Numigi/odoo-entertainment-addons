@@ -229,7 +229,7 @@ class TestConversion(ExternalRevenueCase):
 
     def test_operation_date(self):
         entry = self.revenue.generate_journal_entry()
-        assert entry.date == self.operation_date
+        assert entry.date == self.period_end_date
 
     def test_journal_accounts(self):
         entry = self.revenue.generate_journal_entry()

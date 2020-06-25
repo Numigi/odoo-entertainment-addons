@@ -110,7 +110,7 @@ class RecordingExternalRevenue(models.Model):
             {
                 "company_id": self.company_id.id,
                 "journal_id": self._map_journal().id,
-                "date": self.operation_date,
+                "date": self.period_end_date,
                 "ref": self._get_journal_entry_reference(),
             }
         )

@@ -22,7 +22,7 @@ class RecordingExternalRevenueAbstract(models.AbstractModel):
         required=True,
     )
     company_id = fields.Many2one(
-        "res.company", default=lambda self: self.env.user.company_id, required=True,
+        "res.company", default=lambda self: self.env.user.company_id, required=True
     )
 
     operation_date = fields.Date(required=True)
@@ -53,12 +53,7 @@ class RecordingExternalRevenueAbstract(models.AbstractModel):
         revenue.id_string = str(revenue.id)
         return revenue
 
-    @api.constrains("operation_date", "period_start_date", "period_end_date")
-    def _check_dates(self):
-        for revenue in self:
-            revenue._check_period_start_before_period_end()
-            revenue._check_operation_date_in_period()
-
+    @api.constrains("period_start_date", "period_end_date")
     def _check_period_start_before_period_end(self):
         if self.period_start_date > self.period_end_date:
             raise ValidationError(
@@ -66,20 +61,6 @@ class RecordingExternalRevenueAbstract(models.AbstractModel):
                     "The period start date ({start}) must be before "
                     "the period end date ({end})."
                 ).format(
-                    start=date_to_string(self.period_start_date),
-                    end=date_to_string(self.period_end_date),
-                )
-            )
-
-    def _check_operation_date_in_period(self):
-        if not (self.period_start_date <= self.operation_date <= self.period_end_date):
-            raise ValidationError(
-                _(
-                    "The operation date ({operation_date}) must be between "
-                    "the period start date ({start}) and "
-                    "the period end date ({end})."
-                ).format(
-                    operation_date=date_to_string(self.operation_date),
                     start=date_to_string(self.period_start_date),
                     end=date_to_string(self.period_end_date),
                 )

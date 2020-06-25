@@ -8,7 +8,6 @@ from .common import ExternalRevenueCase
 
 
 class TestRawRevenueConstraints(ExternalRevenueCase):
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -22,13 +21,5 @@ class TestRawRevenueConstraints(ExternalRevenueCase):
             self._create_raw_revenue(
                 period_start_date=self.date_4,
                 operation_date=self.date_2,
-                period_end_date=self.date_3,
-            )
-
-    def test_operation_date_must_be_in_period(self):
-        with pytest.raises(ValidationError):
-            self._create_raw_revenue(
-                period_start_date=self.date_1,
-                operation_date=self.date_4,
                 period_end_date=self.date_3,
             )

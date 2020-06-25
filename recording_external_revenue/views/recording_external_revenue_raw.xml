@@ -5,7 +5,7 @@
         <field name="name">Recording External Revenue Raw Form</field>
         <field name="model">recording.external.revenue.raw</field>
         <field name="arch" type="xml">
-            <form string="Artist">
+            <form string="Recording External Revenue Raw">
                 <header/>
                 <sheet>
                     <div class="oe_button_box" name="button_box"/>
@@ -96,6 +96,22 @@
         </field>
     </record>
 
+    <record id="recording_external_revenue_raw_pivot" model="ir.ui.view">
+        <field name="name">Recording External Revenue Pivot</field>
+        <field name="model">recording.external.revenue.raw</field>
+        <field name="arch" type="xml">
+            <pivot string="Recording External Revenue Raw" display_quantity="True"/>
+        </field>
+    </record>
+
+    <record id="recording_external_revenue_raw_graph" model="ir.ui.view">
+        <field name="name">Recording External Revenue Graph</field>
+        <field name="model">recording.external.revenue.raw</field>
+        <field name="arch" type="xml">
+            <graph string="Recording External Revenue Raw"/>
+        </field>
+    </record>
+
     <record id="recording_external_revenue_raw_search" model="ir.ui.view">
         <field name="name">Recording External Revenue Raw Search</field>
         <field name="model">recording.external.revenue.raw</field>
@@ -132,7 +148,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.external.revenue.raw</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
         <field name="view_id" ref="recording_external_revenue_raw_list"/>
         <field name="search_view_id" ref="recording_external_revenue_raw_search"/>
     </record>

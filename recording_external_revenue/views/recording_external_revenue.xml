@@ -97,6 +97,22 @@
         </field>
     </record>
 
+    <record id="recording_external_revenue_pivot" model="ir.ui.view">
+        <field name="name">Recording External Revenue Pivot</field>
+        <field name="model">recording.external.revenue</field>
+        <field name="arch" type="xml">
+            <pivot string="Recording External Revenues"/>
+        </field>
+    </record>
+
+    <record id="recording_external_revenue_graph" model="ir.ui.view">
+        <field name="name">Recording External Revenue Graph</field>
+        <field name="model">recording.external.revenue</field>
+        <field name="arch" type="xml">
+            <graph string="Recording External Revenues"/>
+        </field>
+    </record>
+
     <record id="recording_external_revenue_search" model="ir.ui.view">
         <field name="name">Recording External Revenue Search</field>
         <field name="model">recording.external.revenue</field>
@@ -123,7 +139,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">recording.external.revenue</field>
         <field name="view_type">form</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,pivot,graph,form</field>
         <field name="view_id" ref="recording_external_revenue_list"/>
         <field name="search_view_id" ref="recording_external_revenue_search"/>
     </record>

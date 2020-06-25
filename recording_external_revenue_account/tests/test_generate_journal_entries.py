@@ -451,3 +451,9 @@ class TestConversion(ExternalRevenueCase):
         self.revenue.generate_journal_entry()
         with pytest.raises(ValidationError):
             self.revenue.analytic_account_id = False
+
+    def test_recording_dimensions(self):
+        entry = self.revenue.generate_journal_entry()
+        revenue_line = self._get_revenue_line(entry)
+        assert revenue_line.artist_id == self.artist
+        assert revenue_line.recording_id == self.recording

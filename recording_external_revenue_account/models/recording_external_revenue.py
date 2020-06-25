@@ -158,6 +158,8 @@ class RecordingExternalRevenue(models.Model):
         line.tax_ids = self._get_revenue_line_taxes()
         line.analytic_account_id = self.analytic_account_id
         line.currency_id = line.account_id.currency_id
+        line.recording_id = self.recording_id
+        line.artist_id = self.artist_id
         return line
 
     def _get_revenue_line_taxes(self):

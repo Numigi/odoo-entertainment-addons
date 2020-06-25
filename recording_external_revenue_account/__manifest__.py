@@ -10,7 +10,7 @@
     "license": "LGPL-3",
     "category": "Recording",
     "summary": "Generate journal entries for external revenue of recording.",
-    "depends": ["recording_external_revenue"],
+    "depends": ["recording_external_revenue", "account_recording_dimensions"],
     "data": [
         "security/ir.model.access.csv",
         "security/ir_rule.xml",

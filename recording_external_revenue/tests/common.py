@@ -66,6 +66,9 @@ class ExternalRevenueCase(SavepointCase):
         cls.isrc = "USS1Z9900001"
         cls.other_isrc = "USS2A8800002"
         cls.artist = cls.env["artist"].create({"name": "Some Artist"})
+        cls.analytic_account = cls.env["account.analytic.account"].create(
+            {"name": "My Analytic Account", "company_id": cls.company.id}
+        )
         cls.recording = cls.env["recording"].create(
             {
                 "name": "Awesome Video",
@@ -75,6 +78,7 @@ class ExternalRevenueCase(SavepointCase):
                 "upc_packshot": cls.upc_packshot,
                 "isrc": cls.isrc,
                 "other_isrc_ids": [(0, 0, {"isrc": cls.other_isrc})],
+                "analytic_account_id": cls.analytic_account.id,
             }
         )
         cls.video.product_tmpl_id.recording_id = cls.recording
@@ -84,10 +88,6 @@ class ExternalRevenueCase(SavepointCase):
                 "code": "789RECORDING",
                 "recording_id": cls.recording.id,
             }
-        )
-
-        cls.analytic_account = cls.env["account.analytic.account"].create(
-            {"name": "My Analytic Account", "company_id": cls.company.id}
         )
 
     @classmethod

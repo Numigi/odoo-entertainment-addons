@@ -185,7 +185,7 @@ class RecordingExternalRevenueRaw(models.Model):
         revenue.recording_id = self._map_recording()
         revenue.tax_id = self._map_tax()
         revenue.currency_id = self._map_currency()
-        revenue.analytic_account_id = revenue.recording_id.analytic_account_id
+        revenue.analytic_account_id = self._map_analytic_account(revenue.recording_id)
         revenue.artist_id = revenue.recording_id.artist_id
 
     def _map_partner(self):
@@ -425,3 +425,12 @@ class RecordingExternalRevenueRaw(models.Model):
     def _map_tax(self):
         if self.tax:
             return self.env["recording.tax.mapping"].map(self.company_id, self.tax)
+
+    def _map_analytic_account(self, recording):
+        if recording and not recording.analytic_account_id:
+            raise ValidationError(
+                _("The recording {} has no analytic account.").format(
+                    recording.display_name
+                )
+            )
+        return recording.analytic_account_id

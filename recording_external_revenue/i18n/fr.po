@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-16 12:59+0000\n"
-"PO-Revision-Date: 2020-06-16 09:01-0400\n"
+"POT-Creation-Date: 2020-07-02 18:24+0000\n"
+"PO-Revision-Date: 2020-07-02 14:25-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -26,7 +26,6 @@ msgstr "Compte analytique"
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue__artist_id
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__artist
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_form
-#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
 msgid "Artist"
 msgstr "Artiste"
 
@@ -213,7 +212,7 @@ msgstr ""
 " * {products}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:338
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:347
 #, python-format
 msgid ""
 "Found more than one recording with the ISRC code {isrc}:\n"
@@ -225,7 +224,7 @@ msgstr ""
 " * {recordings}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:367
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:376
 #, python-format
 msgid ""
 "Found more than one recording with the UPC code {upc}:\n"
@@ -237,7 +236,7 @@ msgstr ""
 " * {recordings}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:407
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:416
 #, python-format
 msgid ""
 "Found more than one recording with the catalog reference {reference}"
@@ -440,19 +439,19 @@ msgid "No product found with the reference {}"
 msgstr "Aucun article trouvé avec la référence {}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:333
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:342
 #, python-format
 msgid "No recording found with the ISRC code {}"
 msgstr "Aucun enregistrement trouvé avec le code ISRC {}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:362
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:371
 #, python-format
 msgid "No recording found with the UPC code {}"
 msgstr "Aucun enregistrement trouvé avec le code UPC {}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:397
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:406
 #, python-format
 msgid ""
 "No recording found with the catalog reference {reference} (Catalog: "
@@ -694,9 +693,20 @@ msgstr ""
 
 #. module: recording_external_revenue
 #: model:ir.model,name:recording_external_revenue.model_recording_external_revenue_raw
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_graph
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_list
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_pivot
 msgid "Recording External Revenue Raw"
 msgstr "Revenue externe d'enregistrement brut"
+
+#. module: recording_external_revenue
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_graph
+#: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_pivot
+#, fuzzy
+#| msgid "Recording External Revenue"
+msgid "Recording External Revenues"
+msgstr "Revenue externe d'enregistrement"
 
 #. module: recording_external_revenue
 #: model_terms:ir.ui.view,arch_db:recording_external_revenue.recording_external_revenue_raw_form
@@ -891,7 +901,7 @@ msgid "Taxes"
 msgstr "Taxes"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:69
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:73
 #, python-format
 msgid ""
 "The following raw revenue lines can not be deleted because these are already "
@@ -903,7 +913,7 @@ msgstr ""
 "{}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:52
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:56
 #, python-format
 msgid ""
 "The following raw revenue lines can not be edited because these are already "
@@ -915,17 +925,7 @@ msgstr ""
 "{}"
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_abstract.py:77
-#, python-format
-msgid ""
-"The operation date ({operation_date}) must be between the period start date "
-"({start}) and the period end date ({end})."
-msgstr ""
-"La date d'opération {operation_date}) doit être entre la date de début de "
-"période ({start}) et la date de fin de période ({end})."
-
-#. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_abstract.py:65
+#: code:addons/recording_external_revenue/models/recording_external_revenue_abstract.py:60
 #, python-format
 msgid ""
 "The period start date ({start}) must be before the period end date ({end})."
@@ -934,12 +934,24 @@ msgstr ""
 "période ({end})."
 
 #. module: recording_external_revenue
-#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:137
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:321
+#, python-format
+msgid "The product {} is not related to a recording."
+msgstr "L'article {} n'est pas lié à un enregistrement."
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:141
 #, python-format
 msgid "The raw revenue {} is already converted. It can not be converted twice."
 msgstr ""
 "La ligne de revenu brut {} est déjà convertie. Elle ne peut pas être "
 "convertie deux fois."
+
+#. module: recording_external_revenue
+#: code:addons/recording_external_revenue/models/recording_external_revenue_raw.py:441
+#, python-format
+msgid "The recording {} has no analytic account."
+msgstr "L'enregistrement {} n'a aucun compte analytique."
 
 #. module: recording_external_revenue
 #: model:ir.model.fields,field_description:recording_external_revenue.field_recording_external_revenue_raw__title
@@ -1006,3 +1018,10 @@ msgstr "Vidéo"
 #: model:product.template,weight_uom_name:recording_external_revenue.demo_product_video_product_template
 msgid "kg"
 msgstr ""
+
+#~ msgid ""
+#~ "The operation date ({operation_date}) must be between the period start "
+#~ "date ({start}) and the period end date ({end})."
+#~ msgstr ""
+#~ "La date d'opération {operation_date}) doit être entre la date de début de "
+#~ "période ({start}) et la date de fin de période ({end})."

@@ -182,7 +182,7 @@ class RecordingExternalRevenueRaw(models.Model):
         revenue.platform_id = self._map_platform()
         revenue.subplatform_id = self._map_subplatform()
         revenue.product_id = self._map_product()
-        revenue.recording_id = self._map_recording()
+        revenue.recording_id = self._map_recording(revenue.product_id)
         revenue.tax_id = self._map_tax()
         revenue.currency_id = self._map_currency()
         revenue.analytic_account_id = self._map_analytic_account(revenue.recording_id)
@@ -298,10 +298,9 @@ class RecordingExternalRevenueRaw(models.Model):
             )
         )
 
-    def _map_recording(self):
-        product = self._map_product()
-        if product and product.recording_id:
-            return product.recording_id
+    def _map_recording(self, product):
+        if product:
+            return self._map_recording_from_product(product)
 
         if self.isrc:
             return self._map_recording_from_isrc()
@@ -314,6 +313,16 @@ class RecordingExternalRevenueRaw(models.Model):
             and self.recording_external_catalog_reference
         ):
             return self._map_recording_from_catalog_reference()
+
+    def _map_recording_from_product(self, product):
+        recording = product.recording_id
+        if not recording:
+            raise ValidationError(
+                _("The product {} is not related to a recording.").format(
+                    product.display_name
+                )
+            )
+        return recording
 
     def _map_recording_from_isrc(self):
         recording = self.env["recording"].search(

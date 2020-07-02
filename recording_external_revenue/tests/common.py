@@ -82,6 +82,7 @@ class ExternalRevenueCase(SavepointCase):
             }
         )
         cls.video.product_tmpl_id.recording_id = cls.recording
+        cls.stream.product_tmpl_id.recording_id = cls.recording
         cls.recording_catalog_reference = cls.env["musical.catalog.reference"].create(
             {
                 "catalog_id": cls.catalog.id,

@@ -173,6 +173,15 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         with pytest.raises(ValidationError):
             raw_revenue.make_new_revenue()
 
+    def test_product_with_no_related_recording(self):
+        raw_revenue = self._new_raw_revenue(
+            product_external_catalog=self.catalog_mapping.label,
+            product_external_catalog_reference=self.video_catalog_reference.code,
+        )
+        self.video.product_tmpl_id.recording_id = False
+        with pytest.raises(ValidationError):
+            raw_revenue.make_new_revenue()
+
     def test_catalog_not_found(self):
         raw_revenue = self._new_raw_revenue(
             product_external_catalog="unexisting reference",

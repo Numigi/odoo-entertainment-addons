@@ -457,3 +457,15 @@ class TestConversion(ExternalRevenueCase):
         revenue_line = self._get_revenue_line(entry)
         assert revenue_line.artist_id == self.artist
         assert revenue_line.recording_id == self.recording
+
+    def test_partner(self):
+        entry = self.revenue.generate_journal_entry()
+
+        revenue_line = self._get_revenue_line(entry)
+        assert revenue_line.partner_id == self.partner
+
+        tax_line = self._get_tax_line(entry)
+        assert tax_line.partner_id == self.partner
+
+        receivable_line = self._get_receivable_line(entry)
+        assert receivable_line.partner_id == self.partner

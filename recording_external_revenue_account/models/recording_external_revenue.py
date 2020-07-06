@@ -160,6 +160,7 @@ class RecordingExternalRevenue(models.Model):
         line.currency_id = line.account_id.currency_id
         line.recording_id = self.recording_id
         line.artist_id = self.artist_id
+        line.partner_id = self.partner_id
         return line
 
     def _get_revenue_line_taxes(self):
@@ -281,6 +282,7 @@ class RecordingExternalRevenue(models.Model):
         line.account_id = self._map_receivable_account()
         line.currency_id = line.account_id.currency_id
         line.date_maturity = due_date
+        line.partner_id = self.partner_id
         self._set_move_line_credit(line, -amount)
         return line
 

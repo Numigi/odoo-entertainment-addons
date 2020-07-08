@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="musical_artwork_form_with_validate_button" model="ir.ui.view">
+        <field name="name">Musical Artwork Form: add Validate button</field>
+        <field name="model">musical.artwork</field>
+        <field name="inherit_id" ref="musical_artwork.musical_artwork_form" />
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header" position="inside">
+                <button
+                    name="action_validate"
+                    string="Validate"
+                    type="object"
+                    class="btn-primary"
+                    attrs="{'invisible': [('state', '=', 'validated')]}"
+                    groups="recording.group_manager"
+                >
+                </button>
+                <field name="state" widget="statusbar" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="musical_artwork_search_with_state_filters" model="ir.ui.view">
+        <field name="name">Musical Artwork Search: Add state filters</field>
+        <field name="model">musical.artwork</field>
+        <field name="inherit_id" ref="musical_artwork.musical_artwork_search" />
+        <field name="priority">30</field>
+        <field name="arch" type="xml">
+            <filter name="inactive" position="before">
+                <filter
+                    string="To Validate"
+                    name="state_to_validate"
+                    domain="[('state', '=', 'to_validate')]"
+                />
+                <filter
+                    string="Validated"
+                    name="state_validated"
+                    domain="[('state', '=', 'validated')]"
+                />
+                <separator />
+            </filter>
+        </field>
+    </record>
+
+</odoo>

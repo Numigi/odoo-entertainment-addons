@@ -7,24 +7,27 @@ from odoo.tests.common import SavepointCase
 
 
 class TestRecordingStatus(SavepointCase):
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.group_user = cls.env.ref('recording.group_user')
-        cls.group_manager = cls.env.ref('recording.group_manager')
-        cls.user_user = cls.env["res.users"].create({
-            "name": "User",
-            "login": "User",
-            "email": "u@u.u",
-            "groups_id": [(4, cls.group_user.id)]
-        })
-        cls.user_manager = cls.env["res.users"].create({
-            "name": "Manger",
-            "login": "Manger",
-            "email": "m@m.m",
-            "groups_id": [(4, cls.group_manager.id)]
-        })
+        cls.group_user = cls.env.ref("recording.group_user")
+        cls.group_manager = cls.env.ref("recording.group_manager")
+        cls.user_user = cls.env["res.users"].create(
+            {
+                "name": "User",
+                "login": "User",
+                "email": "u@u.u",
+                "groups_id": [(4, cls.group_user.id)],
+            }
+        )
+        cls.user_manager = cls.env["res.users"].create(
+            {
+                "name": "Manger",
+                "login": "Manger",
+                "email": "m@m.m",
+                "groups_id": [(4, cls.group_manager.id)],
+            }
+        )
 
     def _create_artwork(self, user=None, custom_vals=None):
         if not user:
@@ -128,7 +131,8 @@ class TestRecordingStatus(SavepointCase):
     def test_recording_validated_by_manager__then_status_validated(self):
         recording = self._create_recording(user=self.user_manager)
         recording = self._validate_recording(
-            user=self.user_manager, recording=recording)
+            user=self.user_manager, recording=recording
+        )
         assert recording.state == "validated"
 
     def test_artwork_validated_by_user__raise_access_error(self):

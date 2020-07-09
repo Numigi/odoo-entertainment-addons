@@ -1,4 +1,4 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from . import musical_artwork
 from . import recording

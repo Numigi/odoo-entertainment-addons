@@ -18,18 +18,18 @@ msgstr ""
 #. module: recording_status
 #: model:ir.model,name:recording_status.model_musical_artwork
 msgid "Musical Artwork"
-msgstr ""
+msgstr "Œuvres musicale"
 
 #. module: recording_status
 #: model:ir.model,name:recording_status.model_recording
 msgid "Recording"
-msgstr ""
+msgstr "Enregistrement"
 
 #. module: recording_status
 #: model:ir.model.fields,field_description:recording_status.field_musical_artwork__state
 #: model:ir.model.fields,field_description:recording_status.field_recording__state
 msgid "State"
-msgstr ""
+msgstr "Statut"
 
 #. module: recording_status
 #: model_terms:ir.ui.view,arch_db:recording_status.musical_artwork_search_with_state_filters
@@ -37,13 +37,13 @@ msgstr ""
 #: selection:musical.artwork,state:0
 #: selection:recording,state:0
 msgid "To Validate"
-msgstr ""
+msgstr "À valider"
 
 #. module: recording_status
 #: model_terms:ir.ui.view,arch_db:recording_status.musical_artwork_form_with_validate_button
 #: model_terms:ir.ui.view,arch_db:recording_status.recording_form_with_validate_button
 msgid "Validate"
-msgstr ""
+msgstr "Valider"
 
 #. module: recording_status
 #: model_terms:ir.ui.view,arch_db:recording_status.musical_artwork_search_with_state_filters
@@ -51,11 +51,11 @@ msgstr ""
 #: selection:musical.artwork,state:0
 #: selection:recording,state:0
 msgid "Validated"
-msgstr ""
+msgstr "Validé"
 
 #. module: recording_status
 #: code:addons/recording_status/models/musical_artwork.py:26
 #: code:addons/recording_status/models/recording.py:26
 #, python-format
 msgid "You don't have access to validate."
-msgstr ""
+msgstr "Vous n'avez pas l'accès pour valider."

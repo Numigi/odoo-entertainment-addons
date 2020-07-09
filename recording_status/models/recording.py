@@ -1,6 +1,7 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
-# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
-from odoo import api, fields, models
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
+from odoo import _, api, fields, models
+from odoo.exceptions import AccessError
 
 
 class Recording(models.Model):
@@ -21,5 +22,7 @@ class Recording(models.Model):
 
     @api.multi
     def action_validate(self):
+        if not self.env.user.has_group("recording.group_manager"):
+            raise AccessError(_("You don't have access to validate."))
         for record in self:
             record.state = "validated"

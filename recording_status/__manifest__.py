@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 {
     "name": "Recording Status",
-    "summary": "Recording Status (les détails allant dans le README)",
+    "summary": "Manage the status of Recordings and Musical Artworks",
     "version": "12.0.1.0.0",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",

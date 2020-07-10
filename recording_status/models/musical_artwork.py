@@ -4,7 +4,7 @@ from odoo import _, api, fields, models
 from odoo.exceptions import AccessError
 
 
-class Recording(models.Model):
+class MusicalArtWork(models.Model):
 
     _inherit = "musical.artwork"
 

@@ -26,6 +26,7 @@
         'recording_lang',
         'recording_musical_artwork',
         'recording_platform',
+        'recording_status',
         'recording_subgenre',
         'recording_tag',
         'recording_url_link',

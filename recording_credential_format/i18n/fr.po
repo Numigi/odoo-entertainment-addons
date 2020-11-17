@@ -1,0 +1,29 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* recording_credential_format
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-11-17 13:07+0000\n"
+"PO-Revision-Date: 2020-11-17 13:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: recording_credential_format
+#: code:addons/recording_credential_format/models/recording.py:18
+#: code:addons/recording_credential_format/models/recording_other_isrc.py:18
+#, python-format
+msgid "The field ISRC must respect the following format: ABC123456789, where:\n"
+"- The first two characters must be uppercase letters (example: CA, AU, FR)\n"
+"- The 3 following characters must be alphanumeric and letters must be using uppercase (examples: D12, A43, EN9), accents are not allowed\n"
+"- The 7 following characters must be numeric characters"
+msgstr "Le champ ISRC doit respecter le format suivant: ABC123456789, où:\n"
+"- Les deux premiers caractères sont alphabétiques et en majuscules (exemple: CA, AU, FR)\n"
+"- Les 3 caractères suivants sont alphanumériques et en majuscules pour les lettres (exemples: D12, A43, EN9), aucun accent n’est autorisé\n"
+"- Les 7 caractères suivants sont des caractères numériques."

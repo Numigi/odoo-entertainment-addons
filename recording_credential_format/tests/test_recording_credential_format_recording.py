@@ -9,7 +9,6 @@ from odoo.tests.common import tagged
 
 @tagged("post_install")
 class TestRecordingCredentialFormatRecording(SavepointCase):
-
     def test__check_isrc_recording_pass_1(self):
         self._create_recording("ABC123456789")
 

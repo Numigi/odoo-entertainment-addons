@@ -8,7 +8,6 @@ from odoo.tests.common import tagged
 
 @tagged("post_install")
 class TestArtworkCredentialFormat(SavepointCase):
-
     def test__check_iswc_pass_1(self):
         self._create_musical_artwork("T123456789")
 

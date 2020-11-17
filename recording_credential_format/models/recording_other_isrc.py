@@ -12,13 +12,15 @@ class RecordingOtherIsrc(models.Model):
 
     @api.constrains("isrc")
     def _check_isrc(self):
-        pattern = re.compile(r'^[A-Z]{2}[A-Z0-9]{3}[0-9]{7}$')
+        pattern = re.compile(r"^[A-Z]{2}[A-Z0-9]{3}[0-9]{7}$")
         for record in self.filtered(lambda r: r.isrc):
             if not re.fullmatch(pattern, record.isrc):
-                raise ValidationError(_(
-                    "The field ISRC must respect the following format: ABC123456789, where:\n"
-                    "- The first two characters must be uppercase letters (example: CA, AU, FR)\n"
-                    "- The 3 following characters must be alphanumeric and letters must be using uppercase "
-                    "(examples: D12, A43, EN9), accents are not allowed\n"
-                    "- The 7 following characters must be numeric characters"
-                ))
+                raise ValidationError(
+                    _(
+                        "The field ISRC must respect the following format: ABC123456789, where:\n"
+                        "- The first two characters must be uppercase letters (example: CA, AU, FR)\n"
+                        "- The 3 following characters must be alphanumeric and letters must be using uppercase "
+                        "(examples: D12, A43, EN9), accents are not allowed\n"
+                        "- The 7 following characters must be numeric characters"
+                    )
+                )

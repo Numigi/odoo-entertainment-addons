@@ -9,7 +9,6 @@ from odoo.tests.common import tagged
 
 @tagged("post_install")
 class TestRecordingCredentialFormatRecordingOtherIsrc(SavepointCase):
-
     def test__check_isrc_recording_pass_1(self):
         self._create_recording_other_isrc("ABC123456789")
 
@@ -40,8 +39,12 @@ class TestRecordingCredentialFormatRecordingOtherIsrc(SavepointCase):
 
     def _create_recording_other_isrc(self, isrc):
         recording = self.env["recording"].create({"name": "Test"})
-        self.env["recording.other.isrc"].create({"isrc": isrc, "recording_id": recording.id})
+        self.env["recording.other.isrc"].create(
+            {"isrc": isrc, "recording_id": recording.id}
+        )
 
     def _write_recording_other_isrc(self, isrc):
         recording = self.env["recording"].create({"name": "Test"})
-        self.env["recording.other.isrc"].create({"recording_id": recording.id, "isrc": "ABC123456789"}).isrc = isrc
+        self.env["recording.other.isrc"].create(
+            {"recording_id": recording.id, "isrc": "ABC123456789"}
+        ).isrc = isrc

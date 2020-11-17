@@ -12,12 +12,14 @@ class MusicalArtwork(models.Model):
 
     @api.constrains("iswc")
     def _check_iswc(self):
-        pattern = re.compile(r'^T[0-9]{9}$')
+        pattern = re.compile(r"^T[0-9]{9}$")
         for record in self.filtered(lambda r: r.iswc):
             if not re.fullmatch(pattern, record.iswc):
-                raise ValidationError(_(
-                    "The field ISWC must respect the following format: T123456789, where:\n"
-                    "- T must be the first character and must be uppercase\n"
-                    "- 123456789 must be 9 numerical characters\n"
-                    "- The length of the string value must be exactly 10 characters"
-                ))
+                raise ValidationError(
+                    _(
+                        "The field ISWC must respect the following format: T123456789, where:\n"
+                        "- T must be the first character and must be uppercase\n"
+                        "- 123456789 must be 9 numerical characters\n"
+                        "- The length of the string value must be exactly 10 characters"
+                    )
+                )

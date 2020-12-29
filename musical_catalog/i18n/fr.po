@@ -43,7 +43,7 @@ msgstr "Catalogue"
 #. module: musical_catalog
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__code
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #. module: musical_catalog
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__create_uid

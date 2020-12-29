@@ -89,6 +89,45 @@ class Recording(models.Model):
         ),
     ]
 
+    @api.constrains("upc")
+    def _unique_upc(self):
+        for record in self.filtered(lambda r: r.upc):
+            same_upc_records = self.search(
+                [("upc", "=", record.upc), ("id", "!=", record.id)]
+            )
+            if same_upc_records:
+                same_upc_records_names = (
+                    len(same_upc_records) > 1
+                    and same_upc_records.mapped("name")
+                    or same_upc_records.name
+                )
+                raise ValidationError(
+                    _(
+                        "This UPC code is already used on another recording %s.\n"
+                        "UPC code must be unique."
+                    ) % same_upc_records_names
+                )
+
+    @api.constrains("upc_packshot")
+    def _unique_upc_packshot(self):
+        for record in self.filtered(lambda r: r.upc_packshot):
+            same_upc_packshot_records = self.search(
+                [("upc_packshot", "=", record.upc_packshot), ("id", "!=", record.id)]
+            )
+            if same_upc_packshot_records:
+                same_upc_packshot_records_names = (
+                    len(same_upc_packshot_records) > 1
+                    and same_upc_packshot_records.mapped("name")
+                    or same_upc_packshot_records.name
+                )
+                raise ValidationError(
+                    _(
+                        "This UPC Packshot code is already used on another recording "
+                        "%s.\n"
+                        "UPC Packshot code must be unique."
+                    ) % same_upc_packshot_records_names
+                )
+
 
 class RecordingWithISRC(models.Model):
 
@@ -107,6 +146,29 @@ class RecordingWithISRC(models.Model):
         records_with_isrc = self.filtered(lambda r: r.isrc)
         for record in records_with_isrc:
             check_isrc_code(record.isrc, record._context)
+
+    @api.constrains("isrc")
+    def _unique_isrc(self):
+        recording_other_isrc_env = self.env["recording.other.isrc"]
+        for record in self.filtered(lambda r: r.isrc):
+            same_isrc_recordings = self.search(
+                [("isrc", "=", record.isrc), ("id", "!=", record.id)]
+            )
+            same_isrc_recordings |= recording_other_isrc_env.search(
+                [("isrc", "=", record.isrc)]
+            ).mapped("recording_id")
+            if same_isrc_recordings:
+                same_isrc_recordings_names = (
+                    len(same_isrc_recordings) > 1
+                    and same_isrc_recordings.mapped("name")
+                    or same_isrc_recordings.name
+                )
+                raise ValidationError(
+                    _(
+                        "This ISRC code is already used on another recording %s.\n"
+                        "ISRC code must be unique."
+                    ) % same_isrc_recordings_names
+                )
 
 
 class RecordingSound(models.Model):

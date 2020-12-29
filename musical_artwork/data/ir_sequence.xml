@@ -9,4 +9,12 @@
         <field name="company_id" eval="False"/>
     </record>
 
+    <record id="musical_artwork_sequence" model="ir.sequence">
+        <field name="name">Musical Artwork</field>
+        <field name="code">musical.artwork</field>
+        <field name="prefix">EDTC</field>
+        <field name="padding">8</field>
+        <field name="company_id" eval="ref('base.main_company')" />
+    </record>
+
 </odoo>

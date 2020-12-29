@@ -1,7 +1,9 @@
 # © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import fields, models
+from odoo import _, api, fields, models
+
+from odoo.exceptions import ValidationError
 
 
 class MusicalArtworkLanguage(models.Model):
@@ -39,6 +41,10 @@ class MusicalArtwork(models.Model):
         required=True,
         track_visibility="onchange",
     )
+    reference = fields.Char(
+        default="New",
+        readonly=True,
+    )
     active = fields.Boolean(
         default=True,
         track_visibility="onchange",
@@ -75,6 +81,21 @@ class MusicalArtwork(models.Model):
             'A work already has this ISWC. A ISWC can only be linked to a single work.'
         ),
     ]
+
+    @api.model
+    def create(self, vals):
+        if vals.get("reference", "New") == "New":
+            sequence_code = "musical.artwork"
+            reference = self.env["ir.sequence"].next_by_code(sequence_code)
+            if not reference:
+                raise ValidationError(
+                    _(
+                        "No ir.sequence has been found for code '%s'. Please make sure "
+                        "a sequence is set for current company."
+                    ) % sequence_code
+                )
+            vals["reference"] = reference
+        return super().create(vals)
 
 
 class MusicalArtworkWithDistributionKeys(models.Model):

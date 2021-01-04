@@ -19,14 +19,14 @@ class MusicalCatalogReference(models.Model):
     @api.constrains("code")
     def _unique_code(self):
         for record in self.filtered(lambda r: r.catalog_id.reference_unique and r.code):
-            same_catalog_code_record_count = self.search_count(
+            same_catalog_code_records = self.search(
                 [("catalog_id", "=", record.catalog_id.id), ("code", "=", record.code)]
             )
-            if same_catalog_code_record_count > 1:
+            if len(same_catalog_code_records) > 1:
                 raise ValidationError(
                     _(
-                        "The catalogue reference is already used for another "
+                        "The catalogue reference %s is already used for another "
                         "Recording, Work or Product.\n"
                         "The reference must be unique for this catalog."
-                    )
+                    ) % same_catalog_code_records[:1].code
                 )

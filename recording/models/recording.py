@@ -96,16 +96,11 @@ class Recording(models.Model):
                 [("upc", "=", record.upc), ("id", "!=", record.id)]
             )
             if same_upc_records:
-                same_upc_records_names = (
-                    len(same_upc_records) > 1
-                    and same_upc_records.mapped("name")
-                    or same_upc_records.name
-                )
                 raise ValidationError(
                     _(
                         "This UPC code is already used on another recording %s.\n"
                         "UPC code must be unique."
-                    ) % same_upc_records_names
+                    ) % same_upc_records[:1].display_name
                 )
 
     @api.constrains("upc_packshot")
@@ -115,17 +110,12 @@ class Recording(models.Model):
                 [("upc_packshot", "=", record.upc_packshot), ("id", "!=", record.id)]
             )
             if same_upc_packshot_records:
-                same_upc_packshot_records_names = (
-                    len(same_upc_packshot_records) > 1
-                    and same_upc_packshot_records.mapped("name")
-                    or same_upc_packshot_records.name
-                )
                 raise ValidationError(
                     _(
                         "This UPC Packshot code is already used on another recording "
                         "%s.\n"
                         "UPC Packshot code must be unique."
-                    ) % same_upc_packshot_records_names
+                    ) % same_upc_packshot_records[:1].display_name
                 )
 
 
@@ -158,16 +148,11 @@ class RecordingWithISRC(models.Model):
                 [("isrc", "=", record.isrc)]
             ).mapped("recording_id")
             if same_isrc_recordings:
-                same_isrc_recordings_names = (
-                    len(same_isrc_recordings) > 1
-                    and same_isrc_recordings.mapped("name")
-                    or same_isrc_recordings.name
-                )
                 raise ValidationError(
                     _(
                         "This ISRC code is already used on another recording %s.\n"
                         "ISRC code must be unique."
-                    ) % same_isrc_recordings_names
+                    ) % same_isrc_recordings[:1].display_name
                 )
 
 

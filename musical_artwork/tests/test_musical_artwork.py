@@ -41,8 +41,7 @@ class TestMusicalArtworkReferenceSequence(SavepointCase):
 
     @staticmethod
     def _check_musical_artwork_reference(reference):
-        assert reference.startswith("EDTC")
-        assert len(reference) == 12
+        assert reference == "EDTC00000001"
 
     def _switch_company(self, company):
         self.env.user.company_id = company.id

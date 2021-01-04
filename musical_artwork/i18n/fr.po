@@ -459,7 +459,6 @@ msgid "Planned"
 msgstr "Planifié"
 
 #. module: musical_artwork
-#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__reference
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__name
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Reference"

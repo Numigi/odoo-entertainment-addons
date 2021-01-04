@@ -32,7 +32,7 @@
                     </div>
                     <div class="oe_title">
                         <h1>
-                            <field name="reference" placeholder="Reference"/>
+                            <field name="catalogue_reference" placeholder="Reference"/>
                         </h1>
                         <h1>
                             <field name="title" placeholder="Title"/>
@@ -41,7 +41,6 @@
                     <group>
                         <group name="group_1">
                             <field name="iswc"/>
-                            <field name="catalogue_reference"/>
                             <field name="musical_catalog_reference_ids">
                                 <tree editable="top">
                                     <field name="sequence" widget="handle"/>
@@ -87,10 +86,9 @@
         <field name="model">musical.artwork</field>
         <field name="arch" type="xml">
             <tree string="Musical Artworks">
-                <field name="reference"/>
+                <field name="catalogue_reference"/>
                 <field name="title"/>
                 <field name="iswc"/>
-                <field name="catalogue_reference"/>
                 <field name="company_id" groups="base.group_multi_company"/>
                 <field name="distribution_key_count"/>
             </tree>

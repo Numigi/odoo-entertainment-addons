@@ -5,7 +5,7 @@ from odoo.tests.common import SavepointCase
 from odoo.exceptions import ValidationError
 
 
-class TestMusicalArtworkReferenceSequence(SavepointCase):
+class TestMusicalArtworkCatalogueReferenceSequence(SavepointCase):
 
     @classmethod
     def setUpClass(cls):
@@ -18,7 +18,7 @@ class TestMusicalArtworkReferenceSequence(SavepointCase):
     def test_create_musical_artwork_main_company_pass(self):
         self._switch_company(self.main_company)
         record = self._create_musical_artwork()
-        self._check_musical_artwork_reference(record.reference)
+        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
 
     def test_create_musical_artwork_new_company_fail(self):
         self._switch_company(self.company_A)
@@ -37,11 +37,11 @@ class TestMusicalArtworkReferenceSequence(SavepointCase):
             }
         )
         record = self._create_musical_artwork()
-        self._check_musical_artwork_reference(record.reference)
+        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
 
     @staticmethod
-    def _check_musical_artwork_reference(reference):
-        assert reference == "EDTC00000001"
+    def _check_musical_artwork_catalogue_reference(catalogue_reference):
+        assert catalogue_reference == "EDTC00000001"
 
     def _switch_company(self, company):
         self.env.user.company_id = company.id

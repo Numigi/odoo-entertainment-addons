@@ -41,10 +41,6 @@ class MusicalArtwork(models.Model):
         required=True,
         track_visibility="onchange",
     )
-    reference = fields.Char(
-        default="New",
-        readonly=True,
-    )
     active = fields.Boolean(
         default=True,
         track_visibility="onchange",
@@ -54,6 +50,7 @@ class MusicalArtwork(models.Model):
         track_visibility="onchange",
     )
     catalogue_reference = fields.Char(
+        default="New",
         track_visibility="onchange",
     )
     musical_catalog_reference_ids = fields.One2many(
@@ -84,17 +81,17 @@ class MusicalArtwork(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get("reference", "New") == "New":
+        if vals.get("catalogue_reference", "New") == "New":
             sequence_code = "musical.artwork"
-            reference = self.env["ir.sequence"].next_by_code(sequence_code)
-            if not reference:
+            catalogue_reference = self.env["ir.sequence"].next_by_code(sequence_code)
+            if not catalogue_reference:
                 raise ValidationError(
                     _(
                         "No ir.sequence has been found for code '%s'. Please make sure "
                         "a sequence is set for current company."
                     ) % sequence_code
                 )
-            vals["reference"] = reference
+            vals["catalogue_reference"] = catalogue_reference
         return super().create(vals)
 
 

@@ -41,10 +41,9 @@ class RecordingOtherISRC(models.Model):
             same_isrc_recordings = same_isrc_records.mapped("recording_id")
             same_isrc_recordings |= recording_env.search([("isrc", "=", record.isrc)])
             if same_isrc_recordings:
-                same_isrc_recordings_name = same_isrc_recordings[:1].display_name
                 raise ValidationError(
                     _(
                         "This ISRC code is already used on another recording %s.\n"
                         "ISRC code must be unique."
-                    ) % same_isrc_recordings_name
+                    ) % same_isrc_recordings[:1].display_name
                 )

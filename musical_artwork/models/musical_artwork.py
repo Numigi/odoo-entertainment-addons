@@ -51,6 +51,7 @@ class MusicalArtwork(models.Model):
     )
     catalogue_reference = fields.Char(
         default="New",
+        readonly=True,
         track_visibility="onchange",
     )
     musical_catalog_reference_ids = fields.One2many(
@@ -81,7 +82,7 @@ class MusicalArtwork(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get("catalogue_reference", "New") == "New":
+        if vals.get("catalogue_reference", "New") in ("New", "", None, False):
             sequence_code = "musical.artwork"
             catalogue_reference = self.env["ir.sequence"].next_by_code(sequence_code)
             if not catalogue_reference:

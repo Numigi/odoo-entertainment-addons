@@ -51,7 +51,6 @@ class MusicalArtwork(models.Model):
     )
     catalogue_reference = fields.Char(
         default="New",
-        readonly=True,
         track_visibility="onchange",
     )
     musical_catalog_reference_ids = fields.One2many(
@@ -82,7 +81,7 @@ class MusicalArtwork(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get("catalogue_reference", "New") in ("New", "", None, False):
+        if vals.get("catalogue_reference") in ("New", "", None, False):
             sequence_code = "musical.artwork"
             catalogue_reference = self.env["ir.sequence"].next_by_code(sequence_code)
             if not catalogue_reference:
@@ -94,6 +93,24 @@ class MusicalArtwork(models.Model):
                 )
             vals["catalogue_reference"] = catalogue_reference
         return super().create(vals)
+
+    @api.multi
+    def write(self, vals):
+        if (
+            "catalogue_reference" in vals
+            and vals["catalogue_reference"] in ("New", "", None, False)
+        ):
+            sequence_code = "musical.artwork"
+            catalogue_reference = self.env["ir.sequence"].next_by_code(sequence_code)
+            if not catalogue_reference:
+                raise ValidationError(
+                    _(
+                        "No ir.sequence has been found for code '%s'. Please make sure "
+                        "a sequence is set for current company."
+                    ) % sequence_code
+                )
+            vals["catalogue_reference"] = catalogue_reference
+        return super().write(vals)
 
 
 class MusicalArtworkWithDistributionKeys(models.Model):

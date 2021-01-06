@@ -4,6 +4,8 @@
 from odoo.tests.common import SavepointCase
 from odoo.exceptions import ValidationError
 
+from odoo.tests.common import post_install
+
 
 class TestMusicalArtworkCatalogueReferenceSequence(SavepointCase):
 
@@ -39,12 +41,30 @@ class TestMusicalArtworkCatalogueReferenceSequence(SavepointCase):
         record = self._create_musical_artwork()
         self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
 
-    @staticmethod
-    def _check_musical_artwork_catalogue_reference(catalogue_reference):
-        assert catalogue_reference == "EDTC00000001"
+    def test_write_musical_artwork(self):
+        self._switch_company(self.main_company)
+        record = self._create_musical_artwork()
+        record = self._write_musical_artwork_reference(record, "New")
+        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
+        record = self._write_musical_artwork_reference(record, "")
+        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
+        record = self._write_musical_artwork_reference(record, None)
+        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
+        record = self._write_musical_artwork_reference(record, False)
+        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
+        record = self._write_musical_artwork_reference(record, "special reference")
+        self.assertEqual(record.catalogue_reference, "special reference")
+
+    def _check_musical_artwork_catalogue_reference(self, catalogue_reference):
+        self.assertTrue(catalogue_reference.startswith("EDTC"))
+        self.assertEqual(len(catalogue_reference), 12)
 
     def _switch_company(self, company):
         self.env.user.company_id = company.id
 
     def _create_musical_artwork(self):
         return self.env["musical.artwork"].create({"title": "Test"})
+
+    def _write_musical_artwork_reference(self, musical_artwork, value):
+        musical_artwork.write({"catalogue_reference": value})
+        return musical_artwork

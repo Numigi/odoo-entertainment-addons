@@ -82,16 +82,7 @@ class MusicalArtwork(models.Model):
     @api.model
     def create(self, vals):
         if vals.get("catalogue_reference") in ("New", "", None, False):
-            sequence_code = "musical.artwork"
-            catalogue_reference = self.env["ir.sequence"].next_by_code(sequence_code)
-            if not catalogue_reference:
-                raise ValidationError(
-                    _(
-                        "No ir.sequence has been found for code '%s'. Please make sure "
-                        "a sequence is set for current company."
-                    ) % sequence_code
-                )
-            vals["catalogue_reference"] = catalogue_reference
+            vals["catalogue_reference"] = self.get_reference_sequence()
         return super().create(vals)
 
     @api.multi
@@ -100,17 +91,23 @@ class MusicalArtwork(models.Model):
             "catalogue_reference" in vals
             and vals["catalogue_reference"] in ("New", "", None, False)
         ):
-            sequence_code = "musical.artwork"
-            catalogue_reference = self.env["ir.sequence"].next_by_code(sequence_code)
-            if not catalogue_reference:
-                raise ValidationError(
-                    _(
-                        "No ir.sequence has been found for code '%s'. Please make sure "
-                        "a sequence is set for current company."
-                    ) % sequence_code
-                )
-            vals["catalogue_reference"] = catalogue_reference
+            for record in self:
+                vals["catalogue_reference"] = self.get_reference_sequence()
+                super(MusicalArtwork, record).write(vals)
+            return True
         return super().write(vals)
+
+    def get_reference_sequence(self):
+        sequence_code = "musical.artwork"
+        catalogue_reference = self.env["ir.sequence"].next_by_code(sequence_code)
+        if not catalogue_reference:
+            raise ValidationError(
+                _(
+                    "No ir.sequence has been found for code '%s'. Please make sure "
+                    "a sequence is set for current company."
+                ) % sequence_code
+            )
+        return catalogue_reference
 
 
 class MusicalArtworkWithDistributionKeys(models.Model):

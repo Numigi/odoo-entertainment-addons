@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="show_project_edit_project_form" model="ir.ui.view">
+        <field name="name">show.project.edit.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="priority">17</field>
+        <field name="arch" type="xml">
+            <!-- Add field project type under Allow Timesheets -->
+            <xpath expr="//notebook" position="before">
+                <label for="project_type"/>
+                <div>
+                    <field name="project_type" widget="radio"/>
+                </div>
+            </xpath>
+
+            <!-- Hide Parent Project field when project type is tour -->
+            <!-- Parent Project is required when project type is show -->
+            <field name="parent_id" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': ['|', ('is_parent', '=', True), ('project_type', '=', 'tour')],
+                    'required': [('project_type', '=', 'show')]
+                    }</attribute>
+            </field>
+
+            <!-- Hide Customer field when project type is tour -->
+            <field name="partner_id" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': [('project_type', '=', 'tour')]
+                    }</attribute>
+            </field>
+
+            <!-- Show the field Formula in configuration tab and only visible when project type is show -->
+            <field name="user_id" position="before">
+                <field name="formula" attrs="{'invisible': [('project_type', '!=', 'show')]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

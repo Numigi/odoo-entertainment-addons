@@ -4,7 +4,7 @@ Show Project
 Description
 -----------
 
-This module adds a field Project Type and Formula to the records of the models Project.
+This module adds a field Project Type and Formula to the records of the model Project.
 Project Type has the possible values "Standard", "Tour" and "Show".
 Formula is only shown when Project Type has "Tour" value in Settings Tab
 

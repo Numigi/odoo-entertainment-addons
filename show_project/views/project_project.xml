@@ -9,8 +9,8 @@
         <field name="arch" type="xml">
             <!-- Add field project type under Allow Timesheets -->
             <xpath expr="//notebook" position="before">
-                <label for="project_type"/>
                 <div>
+                    <label for="project_type"/>
                     <field name="project_type" widget="radio"/>
                 </div>
             </xpath>

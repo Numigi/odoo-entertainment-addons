@@ -31,18 +31,18 @@ class TestShowProject(SavepointCase):
         }
         return self.env["project.project"].create(vals)
 
-    def test_standard_project_as_parent_of_standard_can(self):
+    def test_onchange_project_type_standard(self):
         result_onchange = self.standard_project_1._onchange_project_type()
         self.assertEqual(result_onchange['domain']['parent_id'], [("project_type", "=", "standard")])
 
-    def test_tour_project_as_parent_of_show_can(self):
+    def test_onchange_project_type_show(self):
         result_onchange = self.show_project_1._onchange_project_type()
         self.assertEqual(result_onchange['domain']['parent_id'], [("project_type", "=", "tour")])
 
-    def test_tour_project_as_parent_of_tour_cannot(self):
+    def test_onchange_project_type_tour(self):
         self.tour_project_1._onchange_project_type()
         self.assertEqual(self.tour_project_1.parent_id, self.env["project.project"])
 
-    def test_standard_project_as_parent_of_tour_cannot(self):
+    def test_tour_project_dont_have_parent(self):
         self.tour_project_2 = self._create_project("Tour Project 2", project_type="tour", parent_id=self.standard_project_1.id)
         self.assertNotEqual(self.tour_project_2.parent_id, self.standard_project_1)

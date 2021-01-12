@@ -34,40 +34,17 @@ class TestShowProject(SavepointCase):
         return self.env["project.project"].create(vals)
 
     def test_standard_project_as_parent_of_standard_can(self):
-        self.standard_project_2 = self._create_project("Standard Project 2", project_type="standard")
         result_onchange = self.standard_project_1._onchange_project_type()
-        self.assertEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.standard_project_2.ids)])
+        self.assertEqual(result_onchange['domain']['parent_id'], [("project_type", "=", "standard")])
 
-    def test_standard_project_as_parent_of_show_cannot(self):
+    def test_tour_project_as_parent_of_show_can(self):
         result_onchange = self.show_project_1._onchange_project_type()
-        self.assertNotEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.standard_project_1.ids)])
+        self.assertEqual(result_onchange['domain']['parent_id'], [("project_type", "=", "tour")])
+
+    def test_tour_project_as_parent_of_tour_cannot(self):
+        self.tour_project_1._onchange_project_type()
+        self.assertEqual(self.tour_project_1.parent_id, self.env["project.project"])
 
     def test_standard_project_as_parent_of_tour_cannot(self):
         self.tour_project_2 = self._create_project("Tour Project 2", project_type="tour", parent_id=self.standard_project_1.id)
         self.assertNotEqual(self.tour_project_2.parent_id, self.standard_project_1)
-
-    def test_tour_project_as_parent_of_standard_cannot(self):
-        result_onchange = self.standard_project_1._onchange_project_type()
-        self.assertNotEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.tour_project_1.ids)])
-
-    def test_tour_project_as_parent_of_show_can(self):
-        result_onchange = self.show_project_1._onchange_project_type()
-        self.assertEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.tour_project_1.ids)])
-
-    def test_tour_project_as_parent_of_tour_cannot(self):
-        self.tour_project_2 = self._create_project("Tour Project 2", project_type="tour")
-        result_onchange = self.tour_project_1._onchange_project_type()
-        self.assertNotEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.tour_project_2.ids)])
-
-    def test_show_project_as_parent_of_standard_cannot(self):
-        result_onchange = self.standard_project_1._onchange_project_type()
-        self.assertNotEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.show_project_1.ids)])
-
-    def test_show_project_as_parent_of_show_cannot(self):
-        self.show_project_2 = self._create_project("Show Project 2", project_type="show")
-        result_onchange = self.show_project_1._onchange_project_type()
-        self.assertNotEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.show_project_2.ids)])
-
-    def test_show_project_as_parent_of_tour_cannot(self):
-        result_onchange = self.tour_project_1._onchange_project_type()
-        self.assertNotEqual(result_onchange['domain']['parent_id'], [('id', 'in', self.show_project_1.ids)])

@@ -33,13 +33,11 @@ class ProjectProject(models.Model):
         vals = self.check_project_type_vals(vals)
         return super(ProjectProject, self).write(vals)
 
-    @api.multi
+    @api.model
     def get_project_domain(self, project_type):
-        projects = self.search([
+        domain = [
             ("project_type", "=", project_type),
-        ])
-        projects -= self
-        domain = [("id", "in", projects.ids)]
+        ]
         return domain
 
     @api.onchange("project_type")
@@ -52,6 +50,7 @@ class ProjectProject(models.Model):
             # project type show can only have tour parent project
             elif self.project_type == "show":
                 domain = self.get_project_domain("tour")
+            # set False when project_type is tour
             elif self.project_type == "tour":
                 self.parent_id = False
-            return {'domain': {'parent_id': domain}}
+            return {"domain": {"parent_id": domain}}

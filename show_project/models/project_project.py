@@ -17,20 +17,20 @@ class ProjectProject(models.Model):
     formula = fields.Char()
 
     @api.model
-    def check_project_type_vals(self, vals):
+    def _set_project_type_vals(self, vals):
         # If project type is `tour`, parent_id should be False
-        if "project_type" in vals and vals["project_type"] == "tour":
+        if vals.get("project_type") == "tour":
             vals.update({"parent_id": False})
         return vals
 
     @api.model
     def create(self, vals):
-        vals = self.check_project_type_vals(vals)
+        vals = self._set_project_type_vals(vals)
         return super(ProjectProject, self).create(vals)
 
     @api.multi
     def write(self, vals):
-        vals = self.check_project_type_vals(vals)
+        vals = self._set_project_type_vals(vals)
         return super(ProjectProject, self).write(vals)
 
     @api.model

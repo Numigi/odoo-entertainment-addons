@@ -15,5 +15,9 @@
     "data": [
         # Views
         "views/project_project.xml",
+
+        # Security
+        "security/res_groups.xml",
+        "security/ir_rule.xml",
     ],
 }

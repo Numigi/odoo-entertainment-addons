@@ -1,0 +1,85 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* project_role_show
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-01-18 04:39+0000\n"
+"PO-Revision-Date: 2021-01-18 04:39+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: project_role_show
+#: model_terms:ir.ui.view,arch_db:project_role_show.project_tour_role_search_view
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__id
+msgid "ID"
+msgstr ""
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: project_role_show
+#: model:ir.model.fields,field_description:project_role_show.field_project_tour_role__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: project_role_show
+#: model:ir.model,name:project_role_show.model_project_tour_role
+msgid "Project Tour Role"
+msgstr "Rôle de tournée de projet"
+
+#. module: project_role_show
+#: sql_constraint:project.tour.role:0
+msgid "Role with such name already exists!"
+msgstr ""
+
+#. module: project_role_show
+#: model:ir.actions.act_window,name:project_role_show.action_project_tour_role
+#: model:ir.ui.menu,name:project_role_show.menu_project_tour_role
+#: model_terms:ir.ui.view,arch_db:project_role_show.project_tour_role_search_view
+#: model_terms:ir.ui.view,arch_db:project_role_show.project_tour_role_tree_view
+msgid "Tour Roles"
+msgstr "Rôles de tournées"
+

@@ -6,7 +6,7 @@ Description
 
 This module adds a menu Tour Role under Project -> Configuration which will allow Project Manager to create tour roles
 
-.. image:: static/description/recording_to_validate.png
+.. image:: static/description/project_tour_role_menu.png
 
 Configuration
 -------------

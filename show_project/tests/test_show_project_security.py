@@ -11,7 +11,7 @@ class TestShowProjectSecurity(SavepointCase):
         cls.project_user = (
             cls.env["res.users"]
                 .with_context(tracking_disable=True, no_reset_password=True)
-                .create({"login": "project_user", "name": "project_user", "email": "hieulucky111@gmail.com"})
+                .create({"login": "project_user", "name": "project_user", "email": "admin@admin.com"})
         )
         cls.project_employee = cls.env["hr.employee"].create({
             "name": "Project Employee",

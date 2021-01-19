@@ -4,9 +4,12 @@ Project Role Show
 Description
 -----------
 
-This module adds a menu Tour Role under Project -> Configuration which will allow Project Manager to create tour roles
-
+This module adds a menu Tour Role under Project -> Configuration which will allow Project Manager to create tour roles.
 .. image:: static/description/project_tour_role_menu.png
+
+Project Member model is created as well. Project Manager can add project member into project when project type is tour or show.
+.. image:: static/description/project_show_member.png
+
 
 Configuration
 -------------

@@ -12,12 +12,15 @@
     "depends": [
         # Numigi-entertainment
         "show_project",
+        # Numigi-herpy
+        "partner_organization_membership",
     ],
     "data": [
         # Security
         "security/ir.model.access.csv",
 
         # Views
+        "views/project_project.xml",
         "views/project_tour_role.xml",
         "views/menu.xml",
     ],

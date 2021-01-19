@@ -15,6 +15,7 @@ class ProjectProject(models.Model):
         default='standard',
     )
     formula = fields.Char()
+    show_date = fields.Date()
 
     @api.model
     def _set_project_type_vals(self, vals):

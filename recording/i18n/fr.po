@@ -495,9 +495,9 @@ msgstr ""
 #: code:addons/recording/models/recording.py:167
 #: code:addons/recording/models/recording_other_isrc.py:50
 #, python-format
-msgid "This ISRC code is already used on another recording %s.\n"
+msgid "This ISRC code ({code}) is already used on another recording ({record}).\n"
 "ISRC code must be unique."
-msgstr "Ce code ISRC est déjà utilisé sur un autre enregistrement %s.\n"
+msgstr "Ce code ISRC ({code}) est déjà utilisé sur un autre enregistrement ({record}).\n"
 "Le code ISRC doit être unique."
 
 #. module: recording
@@ -592,4 +592,3 @@ msgstr "Enregistrements vidéo"
 #: model:ir.model.fields,field_description:recording.field_recording_track__volume
 msgid "Volume"
 msgstr ""
-

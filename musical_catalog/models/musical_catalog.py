@@ -13,3 +13,7 @@ class MusicalCatalog(models.Model):
     sequence = fields.Integer()
     name = fields.Char(required=True, translate=True)
     active = fields.Boolean(default=True)
+    reference_unique = fields.Boolean(
+        help='If this box is checked, the Catalog Reference ("Code" field) on '
+        'Recordings must be unique.'
+    )

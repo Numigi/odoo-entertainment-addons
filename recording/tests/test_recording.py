@@ -116,3 +116,51 @@ class TestRecordingGroup(SavepointCase):
 
         self.group_1.write({"track_ids": [(6, 0, [track_1.id, track_2.id])]})
         assert 2 == len(self.group_1.track_ids)
+
+
+class TestRecordingUniqueConstrains(SavepointCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.rec_1 = cls.env["recording"].create({"name": "Rec 1", "ttype": "sound"})
+        cls.rec_2 = cls.env["recording"].create({"name": "Rec 2", "ttype": "sound"})
+
+    def test_unique_upc_pass(self):
+        self.rec_1.upc = "AAA"
+        self.rec_2.upc = "BBB"
+
+    def test_unique_upc_fail(self):
+        self.rec_1.upc = "AAA"
+        with self.assertRaises(ValidationError):
+            self.rec_2.upc = "AAA"
+
+    def test_unique_upc_packshot_pass(self):
+        self.rec_1.upc_packshot = "AAA"
+        self.rec_2.upc_packshot = "BBB"
+
+    def test_unique_upc_packshot_fail(self):
+        self.rec_1.upc_packshot = "AAA"
+        with self.assertRaises(ValidationError):
+            self.rec_2.upc_packshot = "AAA"
+
+    def test_unique_isrc_pass(self):
+        self.rec_1.isrc = "AAAAAAAAAAAA"
+        self.rec_2.isrc = "BBBBBBBBBBBB"
+        self._add_other_isrc(self.rec_1, "CCCCCCCCCCCC")
+        self._add_other_isrc(self.rec_2, "DDDDDDDDDDDD")
+
+    def test_unique_isrc_fail(self):
+        self.rec_1.isrc = "AAAAAAAAAAAA"
+        with self.assertRaises(ValidationError):
+            self.rec_2.isrc = "AAAAAAAAAAAA"
+        with self.assertRaises(ValidationError):
+            self._add_other_isrc(self.rec_1, "AAAAAAAAAAAA")
+        with self.assertRaises(ValidationError):
+            self._add_other_isrc(self.rec_2, "AAAAAAAAAAAA")
+
+    def _add_other_isrc(self, recording, code):
+        self.env['recording.other.isrc'].create({
+            'recording_id': recording.id,
+            'isrc': code,
+            'partner_id': self.env['res.partner'].search([], limit=1).id,
+        })

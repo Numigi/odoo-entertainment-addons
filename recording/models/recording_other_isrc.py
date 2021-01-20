@@ -1,7 +1,10 @@
 # © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo import api, fields, models
+from odoo import _, api, fields, models
+
+from odoo.exceptions import ValidationError
+
 from ..isrc import check_isrc_code
 
 
@@ -27,3 +30,20 @@ class RecordingOtherISRC(models.Model):
     def _check_isrc(self):
         for line in self:
             check_isrc_code(line.isrc, line._context)
+
+    @api.constrains("isrc")
+    def _unique_isrc(self):
+        recording_env = self.env["recording"]
+        for record in self:
+            same_isrc_records = self.search(
+                [("isrc", "=", record.isrc), ("id", "!=", record.id)]
+            )
+            same_isrc_recordings = same_isrc_records.mapped("recording_id")
+            same_isrc_recordings |= recording_env.search([("isrc", "=", record.isrc)])
+            if same_isrc_recordings:
+                raise ValidationError(
+                    _(
+                        "This ISRC code is already used on another recording %s.\n"
+                        "ISRC code must be unique."
+                    ) % same_isrc_recordings[:1].display_name
+                )

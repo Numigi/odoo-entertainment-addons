@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_show_ticket_sold_project_user,access_show_ticket_sold_project_user,model_show_ticket_sold,project.group_project_user,1,0,0,0
+access_show_ticket_sold_show_ticket_manager,access_show_ticket_sold_show_ticket_manager,model_show_ticket_sold,group_show_ticket_manager,1,1,1,1

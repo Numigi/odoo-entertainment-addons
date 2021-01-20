@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="show_ticket_sold_tree_view" model="ir.ui.view">
+        <field name="name">show.ticket.sold.tree.view</field>
+        <field name="model">show.ticket.sold</field>
+        <field name="arch" type="xml">
+            <tree string="Sold Tickets" editable="bottom">
+                <field name="show_id"/>
+                <field name="record_date"/>
+                <field name="total_sold_tickets"/>
+                <field name="new_sold_tickets"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="show_ticket_sold_search_view" model="ir.ui.view">
+        <field name="name">show.ticket.sold.search.view</field>
+        <field name="model">show.ticket.sold</field>
+        <field name="arch" type="xml">
+            <search string="Sold tickets">
+                <field name="show_id"/>
+                <group expand="1" string="Group By">
+                    <filter string="Show" name="show" context="{'group_by':'show_id'}"/>
+                    <filter string="Record Date" name="record_date" context="{'group_by':'record_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="show_ticket_sold_pivot_view" model="ir.ui.view">
+        <field name="name">show.ticket.sold.pivot.view</field>
+        <field name="model">show.ticket.sold</field>
+        <field name="arch" type="xml">
+            <pivot string="Sold Tickets">
+                <field name="record_date" type="row"/>
+                <field name="new_sold_tickets" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="show_ticket_sold_pivot_view" model="ir.ui.view">
+        <field name="name">show.ticket.sold.pivot.view</field>
+        <field name="model">show.ticket.sold</field>
+        <field name="arch" type="xml">
+            <pivot string="Sold Tickets">
+                <field name="record_date" type="row"/>
+                <field name="new_sold_tickets" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="show_ticket_sold_graph_view" model="ir.ui.view">
+       <field name="name">show.ticket.sold.graph.view</field>
+       <field name="model">show.ticket.sold</field>
+       <field name="arch" type="xml">
+            <graph string="Sold Tickets">
+                <field name="record_date" type="row"/>
+                <field name="new_sold_tickets" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_show_ticket_sold" model="ir.actions.act_window">
+        <field name="name">Sold Tickets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">show.ticket.sold</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">graph,pivot,tree</field>
+        <field name="search_view_id" ref="show_ticket_sold_search_view"/>
+    </record>
+
+</odoo>

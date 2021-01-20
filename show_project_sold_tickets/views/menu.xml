@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="menu_sold_ticket"
+              name="Sold Tickets"
+              action="action_show_ticket_sold"
+              parent="project.menu_project_report"
+              sequence="20"
+              groups="project.group_project_user"/>
+
+</odoo>

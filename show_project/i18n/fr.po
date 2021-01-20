@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-19 09:20+0000\n"
-"PO-Revision-Date: 2021-01-19 09:20+0000\n"
+"POT-Creation-Date: 2021-01-20 03:29+0000\n"
+"PO-Revision-Date: 2021-01-20 03:29+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,49 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: show_project
+#: model:ir.model.fields,help:show_project.field_project_project__show_place_minor_restriction
+msgid "Check this box if this place has a restriction for minors."
+msgstr "Cocher cette case si ce lieu comporte une restriction pour les mineurs."
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_configuration
+msgid "Configuration of Room"
+msgstr "Configuration de salle"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_distance_from_montreal
+msgid "Distance from Montreal"
+msgstr "Distance de Montréal"
+
+#. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__formula
 msgid "Formula"
 msgstr "Formule"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_maximum_capacity
+msgid "Maximum Capacity"
+msgstr "Capacité maximale"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_minor_restriction
+msgid "Minors Restriction"
+msgstr "Restriction mineurs"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__next_show_id
+msgid "Next Show"
+msgstr "Spectacle suivant"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_notes
+msgid "Notes"
+msgstr "Notes"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__previous_show_id
+msgid "Previous Show"
+msgstr "Spectacle précédent"
 
 #. module: show_project
 #: model:ir.model,name:show_project.model_project_project
@@ -46,12 +86,22 @@ msgid "Show Date"
 msgstr "Date du spectacle"
 
 #. module: show_project
+#: model_terms:ir.ui.view,arch_db:show_project.show_project_edit_project_form
+msgid "Show Venue"
+msgstr "Lieu de spectacle"
+
+#. module: show_project
 #: selection:project.project,project_type:0
 msgid "Standard"
-msgstr ""
+msgstr "Standard"
 
 #. module: show_project
 #: selection:project.project,project_type:0
 msgid "Tour"
 msgstr "Tournée"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_id
+msgid "Venue"
+msgstr "Lieu"
 

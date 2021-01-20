@@ -49,6 +49,24 @@
             <field name="date" position="after">
                 <field name="show_date" attrs="{'invisible': [('project_type', '!=', 'show')], 'required': [('project_type', '=', 'show')]}"/>
             </field>
+
+            <!-- Add new tab `Show Place` when project type is `show` -->
+            <xpath expr="//page[@name='settings']" position="after">
+                <page string="Show Venue" name="show_venue" attrs="{'invisible': [('project_type', '!=', 'show')]}">
+                    <group>
+                        <group>
+                            <field name="show_place_id" attrs="{'required': [('project_type', '=', 'show')]}"/>
+                            <field name="show_place_maximum_capacity"/>
+                            <field name="show_place_configuration"/>
+                            <field name="show_place_minor_restriction"/>
+                            <field name="show_place_distance_from_montreal"/>
+                            <field name="show_place_notes"/>
+                            <field name="previous_show_id"/>
+                            <field name="next_show_id"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
 

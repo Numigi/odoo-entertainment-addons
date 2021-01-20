@@ -16,6 +16,75 @@ class ProjectProject(models.Model):
     )
     formula = fields.Char()
     show_date = fields.Date()
+    show_place_id = fields.Many2one(
+        comodel_name="res.partner",
+        domain="[('type', '=', 'show_site')]",
+        string="Venue",
+    )
+    show_place_maximum_capacity = fields.Integer(
+        related="show_place_id.show_place_maximum_capacity",
+        store=True,
+        string="Maximum Capacity"
+    )
+    show_place_configuration = fields.Char(
+        related="show_place_id.show_place_configuration_id.name",
+        store=True,
+        string="Configuration of Room"
+    )
+    show_place_minor_restriction = fields.Boolean(
+        related="show_place_id.show_place_minor_restriction",
+        store=True,
+        string="Minors Restriction"
+    )
+    show_place_distance_from_montreal = fields.Integer(
+        related="show_place_id.show_place_distance_from_montreal",
+        store=True,
+        string="Distance from Montreal",
+    )
+    show_place_notes = fields.Text(
+        store=True,
+        string="Notes",
+    )
+    previous_show_id = fields.Many2one(
+        comodel_name="project.project",
+        domain="[('parent_id', '=', parent_id), ('project_type', '=', 'show')]",
+        compute="_compute_show_id",
+        store=True,
+    )
+    next_show_id = fields.Many2one(
+        comodel_name="project.project",
+        domain="[('parent_id', '=', parent_id), ('project_type', '=', 'show')]",
+        compute="_compute_show_id",
+        store=True,
+    )
+
+    @api.depends("parent_id", "parent_id.child_ids", "parent_id.child_ids.show_date",
+                 "project_type", "show_date")
+    def _compute_show_id(self):
+        for project in self:
+            if project.project_type == "show" and project.show_date:
+                show_projects = \
+                    (project.parent_id.child_ids - project).filtered(
+                        lambda r: r.project_type == "show" and r.show_date)
+                previous_show_projects = \
+                    show_projects.filtered(
+                        lambda r: r.show_date <= project.show_date
+                    )
+                next_show_projects = \
+                    show_projects.filtered(
+                        lambda r: r.show_date >= project.show_date
+                    )
+                if previous_show_projects:
+                    project.previous_show_id = previous_show_projects.sorted("show_date", reverse=True)[0]
+                else:
+                    project.previous_show_id = False
+                if next_show_projects:
+                    project.next_show_id = next_show_projects.sorted("show_date")[0]
+                else:
+                    project.next_show_id = False
+            else:
+                project.previous_show_id = False
+                project.next_show_id = False
 
     @api.model
     def _set_project_type_vals(self, vals):
@@ -55,3 +124,8 @@ class ProjectProject(models.Model):
             elif self.project_type == "tour":
                 self.parent_id = False
             return {"domain": {"parent_id": domain}}
+
+    @api.onchange("show_place_id")
+    def _onchange_show_place_id(self):
+        if self.show_place_id:
+            self.show_place_notes = self.show_place_id.show_place_notes

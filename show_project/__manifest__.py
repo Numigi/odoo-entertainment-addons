@@ -12,7 +12,9 @@
     "depends": [
         # Numigi-Project
         "project_iteration",
-        "project_form_with_dates"
+        "project_form_with_dates",
+        # Numigi-Entertainment
+        "show_place",
     ],
     "data": [
         # Views

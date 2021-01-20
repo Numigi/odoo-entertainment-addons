@@ -198,12 +198,6 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         raw_revenue = self._new_raw_revenue(upc=self.upc_packshot)
         assert raw_revenue.make_new_revenue().recording_id == self.recording
 
-    def test_2_recordings_with_same_upc(self):
-        self.recording.copy({"upc_packshot": self.recording.upc})
-        raw_revenue = self._new_raw_revenue(upc=self.upc)
-        with pytest.raises(ValidationError):
-            raw_revenue.make_new_revenue()
-
     def test_recording_not_found_with_upc(self):
         raw_revenue = self._new_raw_revenue(upc="wrong-upc-code")
         with pytest.raises(ValidationError):

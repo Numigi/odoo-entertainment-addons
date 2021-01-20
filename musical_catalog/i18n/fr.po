@@ -1,21 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* recording_lang
+#	* musical_catalog
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-07 16:51+0000\n"
-"PO-Revision-Date: 2020-02-07 11:52-0500\n"
+"POT-Creation-Date: 2020-12-29 10:17+0000\n"
+"PO-Revision-Date: 2020-12-29 10:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
 
 #. module: musical_catalog
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__active
@@ -23,9 +21,19 @@ msgid "Active"
 msgstr "Actif"
 
 #. module: musical_catalog
+#: model:musical.catalog,name:musical_catalog.apple_music
+msgid "Apple Music"
+msgstr ""
+
+#. module: musical_catalog
 #: model_terms:ir.ui.view,arch_db:musical_catalog.musical_catalog_search
 msgid "Archived"
 msgstr "Archivé"
+
+#. module: musical_catalog
+#: model:musical.catalog,name:musical_catalog.believe
+msgid "Believe"
+msgstr ""
 
 #. module: musical_catalog
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__catalog_id
@@ -53,12 +61,17 @@ msgstr "Créé le"
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__display_name
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__display_name
 msgid "Display Name"
-msgstr "Nom"
+msgstr "Nom affiché"
 
 #. module: musical_catalog
 #: model_terms:ir.ui.view,arch_db:musical_catalog.musical_catalog_form
 msgid "External Catalog"
 msgstr "Catalogue externe"
+
+#. module: musical_catalog
+#: model:ir.model,name:musical_catalog.model_musical_catalog_reference
+msgid "External Catalog References"
+msgstr "Références de catalogues externes"
 
 #. module: musical_catalog
 #: model:ir.actions.act_window,name:musical_catalog.action_musical_catalog
@@ -71,7 +84,12 @@ msgstr "Catalogues externe"
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__id
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
+
+#. module: musical_catalog
+#: model:ir.model.fields,help:musical_catalog.field_musical_catalog__reference_unique
+msgid "If this box is checked, the Catalog Reference (\"Code\" field) on Recordings must be unique."
+msgstr "Si cette case est cochée, la référence du catalogue (champ \"Code\") sur l’enregistrement doit être unique."
 
 #. module: musical_catalog
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog____last_update
@@ -92,14 +110,14 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: musical_catalog
-#: model:ir.model,name:musical_catalog.model_musical_catalog_reference
-msgid "External Catalog References"
-msgstr "Références de catalogues externes"
-
-#. module: musical_catalog
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__name
 msgid "Name"
 msgstr "Nom"
+
+#. module: musical_catalog
+#: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog__reference_unique
+msgid "Reference Unique"
+msgstr "Référence Unique"
 
 #. module: musical_catalog
 #: model_terms:ir.ui.view,arch_db:musical_catalog.musical_catalog_search
@@ -111,3 +129,17 @@ msgstr "Chercher des catalogues externes"
 #: model:ir.model.fields,field_description:musical_catalog.field_musical_catalog_reference__sequence
 msgid "Sequence"
 msgstr "Séquence"
+
+#. module: musical_catalog
+#: model:musical.catalog,name:musical_catalog.sound_exchange
+msgid "Sound Exchange"
+msgstr ""
+
+#. module: musical_catalog
+#: code:addons/musical_catalog/models/musical_catalog_reference.py:27
+#, python-format
+msgid "The catalogue reference is already used for another Recording, Work or Product.\n"
+"The reference must be unique for this catalog."
+msgstr "La référence de catalogue est déjà utilisé sur un autre Enregistrement, Article ou Oeuvre.\n"
+"Elle doit être unique pour ce catalogue externe."
+

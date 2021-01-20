@@ -1,5 +1,5 @@
-Project Role Show
-=================
+Show Project Sold Tickets
+=========================
 
 Description
 -----------

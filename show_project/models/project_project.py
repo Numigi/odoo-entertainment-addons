@@ -53,7 +53,7 @@ class ProjectProject(models.Model):
 
     @api.depends("parent_id", "parent_id.child_ids", "parent_id.child_ids.show_date",
                  "project_type", "show_date")
-    def _compute_show_id(self):
+    def _compute_previous_and_next_show_id(self):
         for project in self:
             if project.project_type == "show" and project.show_date:
                 show_projects = \

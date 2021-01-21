@@ -23,7 +23,7 @@ class ShowTicketSold(models.Model):
     _sql_constraints = [
         ("record_date_uniq",
          "UNIQUE(record_date)",
-         "This Date already exists!"),
+         "A record already exists on this date for this show!"),
     ]
 
     @api.multi

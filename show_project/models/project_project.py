@@ -58,7 +58,7 @@ class ProjectProject(models.Model):
             if project.project_type == "show" and project.show_date:
                 show_projects = \
                     (project.parent_id.child_ids - project).filtered(
-                        lambda r: r.project_type == "show" and r.show_date)
+                        lambda r: r.show_date)
                 previous_show_projects = \
                     show_projects.filtered(
                         lambda r: r.show_date <= project.show_date

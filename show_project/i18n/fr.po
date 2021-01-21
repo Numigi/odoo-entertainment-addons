@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-20 03:29+0000\n"
-"PO-Revision-Date: 2021-01-20 03:29+0000\n"
+"POT-Creation-Date: 2021-01-21 06:27+0000\n"
+"PO-Revision-Date: 2021-01-21 06:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__expected_parent_show_type
+msgid "Expected Parent Show Type"
+msgstr "Type de Spectacle attendu pour le parent (technical field)"
 
 #. module: show_project
 #: model:ir.model.fields,help:show_project.field_project_project__show_place_minor_restriction
@@ -61,12 +66,17 @@ msgid "Previous Show"
 msgstr "Spectacle précédent"
 
 #. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__parent_id
+msgid "Parent Project"
+msgstr "Projet parent"
+
+#. module: show_project
 #: model:ir.model,name:show_project.model_project_project
 msgid "Project"
 msgstr "Projet"
 
 #. module: show_project
-#: model:ir.model.fields,field_description:show_project.field_project_project__project_type
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_type
 msgid "Project Type"
 msgstr "Type de projet"
 
@@ -76,9 +86,14 @@ msgid "Projects - Show Manager"
 msgstr "Projet - Gestion des spectacles"
 
 #. module: show_project
-#: selection:project.project,project_type:0
+#: selection:project.project,show_type:0
 msgid "Show"
 msgstr "Spectacle"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_type
+msgid "Show Type"
+msgstr "Type de Spectacle"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__show_date
@@ -91,12 +106,12 @@ msgid "Show Venue"
 msgstr "Lieu de spectacle"
 
 #. module: show_project
-#: selection:project.project,project_type:0
+#: selection:project.project,show_type:0
 msgid "Standard"
 msgstr "Standard"
 
 #. module: show_project
-#: selection:project.project,project_type:0
+#: selection:project.project,show_type:0
 msgid "Tour"
 msgstr "Tournée"
 

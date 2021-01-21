@@ -23,7 +23,6 @@ class ProjectProject(models.Model):
     )
     show_place_maximum_capacity = fields.Integer(
         related="show_place_id.show_place_maximum_capacity",
-        store=True,
         string="Maximum Capacity"
     )
     show_place_configuration = fields.Char(

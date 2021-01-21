@@ -35,7 +35,6 @@ class ProjectProject(models.Model):
     )
     show_place_distance_from_montreal = fields.Integer(
         related="show_place_id.show_place_distance_from_montreal",
-        store=True,
         string="Distance from Montreal",
     )
     show_place_notes = fields.Text(

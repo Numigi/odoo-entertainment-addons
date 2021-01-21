@@ -31,7 +31,6 @@ class ProjectProject(models.Model):
     )
     show_place_minor_restriction = fields.Boolean(
         related="show_place_id.show_place_minor_restriction",
-        store=True,
         string="Minors Restriction"
     )
     show_place_distance_from_montreal = fields.Integer(

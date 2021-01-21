@@ -11,6 +11,7 @@ class ShowTicketSold(models.Model):
 
     show_id = fields.Many2one(
         comodel_name="project.project",
+        required=True,
     )
     record_date = fields.Date(
         required=True,

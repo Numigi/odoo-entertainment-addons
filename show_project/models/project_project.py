@@ -27,7 +27,6 @@ class ProjectProject(models.Model):
     )
     show_place_configuration = fields.Char(
         related="show_place_id.show_place_configuration_id.name",
-        store=True,
         string="Configuration of Room"
     )
     show_place_minor_restriction = fields.Boolean(

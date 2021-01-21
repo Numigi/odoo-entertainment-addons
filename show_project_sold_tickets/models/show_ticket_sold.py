@@ -28,6 +28,9 @@ class ShowTicketSold(models.Model):
 
     @api.multi
     def _update_new_sold_tickets(self):
+    """
+    Updates the new_sold_ticket on the current record and the next one.
+    """
         for ticket in self:
             previous_ticket_sold = \
                 self.search([

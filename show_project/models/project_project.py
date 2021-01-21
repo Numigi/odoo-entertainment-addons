@@ -44,7 +44,6 @@ class ProjectProject(models.Model):
         comodel_name="project.project",
         domain="[('parent_id', '=', parent_id), ('project_type', '=', 'show')]",
         compute="_compute_show_id",
-        store=True,
     )
     next_show_id = fields.Many2one(
         comodel_name="project.project",

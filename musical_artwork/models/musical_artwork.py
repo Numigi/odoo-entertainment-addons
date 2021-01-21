@@ -50,7 +50,6 @@ class MusicalArtwork(models.Model):
         track_visibility="onchange",
     )
     catalogue_reference = fields.Char(
-        default="New",
         track_visibility="onchange",
     )
     musical_catalog_reference_ids = fields.One2many(
@@ -81,21 +80,9 @@ class MusicalArtwork(models.Model):
 
     @api.model
     def create(self, vals):
-        if vals.get("catalogue_reference") in ("New", "", None, False):
-            vals["catalogue_reference"] = self.get_reference_sequence()
-        return super().create(vals)
-
-    @api.multi
-    def write(self, vals):
-        if (
-            "catalogue_reference" in vals
-            and vals["catalogue_reference"] in ("New", "", None, False)
-        ):
-            for record in self:
-                vals["catalogue_reference"] = self.get_reference_sequence()
-                super(MusicalArtwork, record).write(vals)
-            return True
-        return super().write(vals)
+        record = super().create(vals)
+        record.catalogue_reference = self.get_reference_sequence()
+        return record
 
     def get_reference_sequence(self):
         sequence_code = "musical.artwork"

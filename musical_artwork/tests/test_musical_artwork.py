@@ -1,13 +1,11 @@
 # © 2019 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
-from odoo.tests.common import SavepointCase
+from odoo.tests import common
 from odoo.exceptions import ValidationError
 
-from odoo.tests.common import post_install
 
-
-class TestMusicalArtworkCatalogueReferenceSequence(SavepointCase):
+class TestMusicalArtworkCatalogueReferenceSequence(common.SavepointCase):
 
     @classmethod
     def setUpClass(cls):
@@ -40,20 +38,6 @@ class TestMusicalArtworkCatalogueReferenceSequence(SavepointCase):
         )
         record = self._create_musical_artwork()
         self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
-
-    def test_write_musical_artwork(self):
-        self._switch_company(self.main_company)
-        record = self._create_musical_artwork()
-        record = self._write_musical_artwork_reference(record, "New")
-        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
-        record = self._write_musical_artwork_reference(record, "")
-        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
-        record = self._write_musical_artwork_reference(record, None)
-        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
-        record = self._write_musical_artwork_reference(record, False)
-        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
-        record = self._write_musical_artwork_reference(record, "special reference")
-        self.assertEqual(record.catalogue_reference, "special reference")
 
     def _check_musical_artwork_catalogue_reference(self, catalogue_reference):
         self.assertTrue(catalogue_reference.startswith("EDTC"))

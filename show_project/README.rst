@@ -13,7 +13,7 @@ In security, Project - Show Manager Group is created to grant access for user on
 
 .. image:: static/description/project_screenshot.png
 
-User can define a list of project member for tour or show project in the **Team** tab
+User can define a list of project members for tour or show project in the **Team** tab
 
 .. image:: static/description/project_member.png
 

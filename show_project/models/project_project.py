@@ -43,7 +43,7 @@ class ProjectProject(models.Model):
     previous_show_id = fields.Many2one(
         comodel_name="project.project",
         domain="[('parent_id', '=', parent_id), ('project_type', '=', 'show')]",
-        compute="_compute_show_id",
+        compute="_compute_previous_and_next_show_id",
     )
     next_show_id = fields.Many2one(
         comodel_name="project.project",

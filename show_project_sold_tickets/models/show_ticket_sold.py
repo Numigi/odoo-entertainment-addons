@@ -21,7 +21,7 @@ class ShowTicketSold(models.Model):
     )
 
     _sql_constraints = [
-        ("record_date_uniq",
+        ("unique_show_id_date",
          "UNIQUE(show_id, record_date)",
          "A record already exists on this date for this show!"),
     ]

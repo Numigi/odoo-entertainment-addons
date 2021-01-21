@@ -49,7 +49,6 @@ class ProjectProject(models.Model):
         comodel_name="project.project",
         domain="[('parent_id', '=', parent_id), ('project_type', '=', 'show')]",
         compute="_compute_show_id",
-        store=True,
     )
 
     @api.depends("parent_id", "parent_id.child_ids", "parent_id.child_ids.show_date",

@@ -42,7 +42,6 @@ class ProjectProject(models.Model):
         string="Distance from Montreal",
     )
     show_place_notes = fields.Text(
-        store=True,
         string="Notes",
     )
     previous_show_id = fields.Many2one(

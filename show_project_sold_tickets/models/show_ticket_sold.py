@@ -57,15 +57,7 @@ class ShowTicketSold(models.Model):
     @api.multi
     def write(self, vals):
         res = super(ShowTicketSold, self).write(vals)
-        if self._context.get("skip_update_new_sold_tickets", True):
-            # Update record of next day of current modified record.
-            show_tickets = self
-            for ticket in self:
-                next_date_ticket_sold = \
-                    self.search([
-                        ('show_id', '=', ticket.show_id.id),
-                        ('record_date', '>', ticket.record_date),
-                    ], order = "record_date", limit=1)
-                show_tickets |= next_date_ticket_sold
-            show_tickets._update_new_sold_tickets()
+        if not self._context.get("skip_update_new_sold_tickets"):
+            ticket._update_new_sold_tickets()
+
         return res

@@ -11,6 +11,8 @@
     "installable": True,
     "depends": [
         "project_iteration",
+        # OCA-server-tool
+        "base_view_inheritance_extension",
     ],
     "data": [
         # Views

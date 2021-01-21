@@ -38,7 +38,15 @@ class ShowTicketSold(models.Model):
                     ('show_id', '=', ticket.show_id.id)
                 ], order = "record_date desc", limit=1)
             new_sold_tickets = ticket.total_sold_tickets - previous_ticket_sold.total_sold_tickets
-            ticket.with_context(skip_update_new_sold_tickets=False).write({"new_sold_tickets": new_sold_tickets})
+            ticket.with_context(skip_update_new_sold_tickets=True).write({"new_sold_tickets": new_sold_tickets})
+            next_date_ticket_sold = 
+                    self.search([
+                        ('show_id', '=', ticket.show_id.id),
+                        ('record_date', '>', ticket.record_date),
+                    ], order = "record_date", limit=1)
+            if next_date_ticket_sold:
+                new_sold_tickets = next_date_ticket_sold.total_sold_tickets - ticket.total_sold_tickets
+                next_date_ticket_sold.with_context(skip_update_new_sold_tickets=True).write({"new_sold_tickets": new_sold_tickets})
 
     @api.model
     def create(self, vals):

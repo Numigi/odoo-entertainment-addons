@@ -6,7 +6,7 @@ from odoo import api, fields, models
 class ProjectProject(models.Model):
     _inherit = "project.project"
 
-    project_type = fields.Selection(
+    show_type = fields.Selection(
         selection=[
             ('standard', 'Standard'),
             ('tour', 'Tour'),
@@ -15,42 +15,37 @@ class ProjectProject(models.Model):
         default='standard',
     )
     formula = fields.Char()
+    expected_parent_show_type = fields.Char(
+        compute="_compute_expected_parent_show_type",
+        store=True,
+    )
+    parent_id = fields.Many2one(
+        domain="[('show_type', '=', expected_parent_show_type)]",
+    )
+
+    @api.depends("show_type")
+    def _compute_expected_parent_show_type(self):
+        for project in self:
+            parent_show_type = ''
+            if project.show_type == "standard":
+                parent_show_type = "standard"
+            elif project.show_type == "show":
+                parent_show_type = "tour"
+            project.expected_parent_show_type = parent_show_type
 
     @api.model
-    def _set_project_type_vals(self, vals):
+    def _set_show_type_vals(self, vals):
         # If project type is `tour`, parent_id should be False
-        if vals.get("project_type") == "tour":
+        if vals.get("show_type") == "tour":
             vals.update({"parent_id": False})
         return vals
 
     @api.model
     def create(self, vals):
-        vals = self._set_project_type_vals(vals)
+        vals = self._set_show_type_vals(vals)
         return super(ProjectProject, self).create(vals)
 
     @api.multi
     def write(self, vals):
-        vals = self._set_project_type_vals(vals)
+        vals = self._set_show_type_vals(vals)
         return super(ProjectProject, self).write(vals)
-
-    @api.model
-    def get_project_domain(self, project_type):
-        domain = [
-            ("project_type", "=", project_type),
-        ]
-        return domain
-
-    @api.onchange("project_type")
-    def _onchange_project_type(self):
-        if self.project_type:
-            domain = []
-            # project type standard can only have standard parent project
-            if self.project_type == "standard":
-                domain = self.get_project_domain("standard")
-            # project type show can only have tour parent project
-            elif self.project_type == "show":
-                domain = self.get_project_domain("tour")
-            # set False when project_type is tour
-            elif self.project_type == "tour":
-                self.parent_id = False
-            return {"domain": {"parent_id": domain}}

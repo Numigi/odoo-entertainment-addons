@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-15 10:04+0000\n"
-"PO-Revision-Date: 2021-01-15 10:04+0000\n"
+"POT-Creation-Date: 2021-01-21 06:27+0000\n"
+"PO-Revision-Date: 2021-01-21 06:27+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,19 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__expected_parent_show_type
+msgid "Expected Parent Show Type"
+msgstr "Type de Spectacle attendu pour le parent (technical field)"
+
+#. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__formula
 msgid "Formula"
 msgstr "Formule"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__parent_id
+msgid "Parent Project"
+msgstr "Projet parent"
 
 #. module: show_project
 #: model:ir.model,name:show_project.model_project_project
@@ -26,27 +36,26 @@ msgid "Project"
 msgstr "Projet"
 
 #. module: show_project
-#: model:ir.model.fields,field_description:show_project.field_project_project__project_type
-msgid "Project Type"
-msgstr "Type de projet"
-
-#. module: show_project
 #: model:res.groups,name:show_project.group_show_manager
 msgid "Projects - Show Manager"
 msgstr "Projet - Gestion des spectacles"
 
 #. module: show_project
-#: selection:project.project,project_type:0
+#: selection:project.project,show_type:0
 msgid "Show"
 msgstr "Spectacle"
 
 #. module: show_project
-#: selection:project.project,project_type:0
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_type
+msgid "Show Type"
+msgstr "Type de Spectacle"
+
+#. module: show_project
+#: selection:project.project,show_type:0
 msgid "Standard"
 msgstr "Standard"
 
 #. module: show_project
-#: selection:project.project,project_type:0
+#: selection:project.project,show_type:0
 msgid "Tour"
 msgstr "Tournée"
-

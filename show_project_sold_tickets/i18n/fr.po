@@ -84,5 +84,5 @@ msgstr "Niveau d'accès utilisateur pour Billets de spectacles"
 
 #. module: show_project_sold_tickets
 #: sql_constraint:show.ticket.sold:0
-msgid "This Date already exists!"
-msgstr "Cette date existe déjà!"
+msgid "A record already exists on this date for this show!"
+msgstr "Un enregistrement existe déjà à cette date pour ce spectacle!"

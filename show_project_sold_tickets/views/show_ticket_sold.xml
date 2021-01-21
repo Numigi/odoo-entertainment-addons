@@ -39,17 +39,6 @@
         </field>
     </record>
 
-    <record id="show_ticket_sold_pivot_view" model="ir.ui.view">
-        <field name="name">show.ticket.sold.pivot.view</field>
-        <field name="model">show.ticket.sold</field>
-        <field name="arch" type="xml">
-            <pivot string="Sold Tickets">
-                <field name="record_date" type="row"/>
-                <field name="new_sold_tickets" type="measure"/>
-            </pivot>
-        </field>
-    </record>
-
     <record id="show_ticket_sold_graph_view" model="ir.ui.view">
        <field name="name">show.ticket.sold.graph.view</field>
        <field name="model">show.ticket.sold</field>

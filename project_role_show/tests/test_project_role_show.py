@@ -28,7 +28,7 @@ class TestProjectRoleShow(SavepointCase):
         })
         cls.tour_project = cls.env["project.project"].create({
             "name": "Tour Project",
-            "project_type": "tour",
+            "show_type": "tour",
         })
 
     def _set_user_groups(self, groups=[]):

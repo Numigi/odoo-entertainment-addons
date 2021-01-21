@@ -12,7 +12,9 @@
     "depends": [
         # Numigi-Project
         "project_iteration",
-        "project_form_with_dates"
+        "project_form_with_dates",
+        # OCA-server-tool
+        "base_view_inheritance_extension",
     ],
     "data": [
         # Views

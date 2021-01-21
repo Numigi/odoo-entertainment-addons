@@ -8,7 +8,7 @@
         <field name="priority">18</field>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='settings']" position="after">
-                <page string="Team" name="team" attrs="{'invisible': [('project_type', '=', 'standard')]}">
+                <page string="Team" name="team" attrs="{'invisible': [('show_type', '=', 'standard')]}">
                     <group>
                         <field name="project_member_ids" nolabel="1">
                             <tree editable="bottom">

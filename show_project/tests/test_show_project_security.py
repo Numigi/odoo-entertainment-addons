@@ -20,17 +20,17 @@ class TestShowProjectSecurity(SavepointCase):
         cls.standard_project = cls.env["project.project"].create(
             {
                 "name": "Standard Project 1",
-                "project_type": "standard"}
+                "show_type": "standard"}
         )
         cls.show_project = cls.env["project.project"].create(
             {
                 "name": "Show Project 1",
-                "project_type": "show"}
+                "show_type": "show"}
         )
         cls.tour_project = cls.env["project.project"].create(
             {
                 "name": "Tour Project 1",
-                "project_type": "tour"}
+                "show_type": "tour"}
         )
         cls.standard_project_task = cls.env["project.task"].create(
             {
@@ -88,7 +88,7 @@ class TestShowProjectSecurity(SavepointCase):
 
     def _create_project(self, type):
         self.env["project.project"].sudo(user=self.project_user).create({
-            "project_type": type,
+            "show_type": type,
             "name": "Project"
         })
 
@@ -137,12 +137,12 @@ class TestShowProjectSecurity(SavepointCase):
     def test_project_user_without_show_manager_group_can_read_all_project(self):
         self._set_user_groups([self.env.ref("project.group_project_user")])
         self.assertEqual(self.standard_project.sudo(user=self.project_user).search_count([]),
-                         self.standard_project.sudo(user=self.project_user).search_count([("project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project.sudo(user=self.project_user).search_count([("show_type", "in", ("tour", "show", "standard"))]))
 
     def test_project_user_without_show_manager_group_can_read_all_project_task(self):
         self._set_user_groups([self.env.ref("project.group_project_user")])
         self.assertEqual(self.standard_project_task.sudo(user=self.project_user).search_count([]),
-                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.show_type", "in", ("tour", "show", "standard"))]))
 
     def test_project_user_without_show_manager_group_can_create_standard_project_task(self):
         self._set_user_groups([self.env.ref("project.group_project_user")])
@@ -180,12 +180,12 @@ class TestShowProjectSecurity(SavepointCase):
     def test_project_manager_without_show_manager_group_can_read_all_project(self):
         self._set_user_groups([self.env.ref("project.group_project_manager")])
         self.assertEqual(self.standard_project.sudo(user=self.project_user).search_count([]),
-                         self.standard_project.sudo(user=self.project_user).search_count([("project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project.sudo(user=self.project_user).search_count([("show_type", "in", ("tour", "show", "standard"))]))
 
     def test_project_manager_without_show_manager_group_can_read_all_project_task(self):
         self._set_user_groups([self.env.ref("project.group_project_manager")])
         self.assertEqual(self.standard_project_task.sudo(user=self.project_user).search_count([]),
-                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.show_type", "in", ("tour", "show", "standard"))]))
 
     def test_project_manager_without_show_manager_group_can_create_standard_project_task(self):
         self._set_user_groups([self.env.ref("project.group_project_manager")])
@@ -284,20 +284,20 @@ class TestShowProjectSecurity(SavepointCase):
         self.standard_project_task.sudo(user=self.project_user).write(
             {"name": "Standard Show Project Task"})
 
-    def test_project_user_with_show_manager_group_can_read_all_project_type(self):
+    def test_project_user_with_show_manager_group_can_read_all_show_type(self):
         self._set_user_groups([self.env.ref("project.group_project_user"),
                                self.env.ref("show_project.group_show_manager")])
         self.assertEqual(self.standard_project.sudo(user=self.project_user).search_count([]),
-                         self.standard_project.sudo(user=self.project_user).search_count([("project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project.sudo(user=self.project_user).search_count([("show_type", "in", ("tour", "show", "standard"))]))
 
     def test_project_user_with_show_manager_group_can_read_all_project_task_type(self):
         self._set_user_groups([self.env.ref("project.group_project_user"),
                                self.env.ref("show_project.group_show_manager")])
         self.assertEqual(self.standard_project_task.sudo(user=self.project_user).search_count([]),
-                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.show_type", "in", ("tour", "show", "standard"))]))
 
     ############## Project Manager Group With Show Manager Group ##############
-    def test_project_manager_with_show_manager_group_can_create_all_project_type(self):
+    def test_project_manager_with_show_manager_group_can_create_all_show_type(self):
         self._set_user_groups([self.env.ref("project.group_project_manager"),
                                self.env.ref("show_project.group_show_manager")])
         self._create_project("standard")
@@ -321,20 +321,20 @@ class TestShowProjectSecurity(SavepointCase):
         self.standard_project_task.sudo(user=self.project_user).write(
             {"name": "Standard Show Project Task"})
 
-    def test_project_manager_with_show_manager_group_can_read_all_project_type(self):
+    def test_project_manager_with_show_manager_group_can_read_all_show_type(self):
         self._set_user_groups([self.env.ref("project.group_project_manager"),
                                self.env.ref("show_project.group_show_manager")])
         self.assertEqual(self.standard_project.sudo(user=self.project_user).search_count([]),
-                         self.standard_project.sudo(user=self.project_user).search_count([("project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project.sudo(user=self.project_user).search_count([("show_type", "in", ("tour", "show", "standard"))]))
 
     def test_project_manager_with_show_manager_group_can_read_all_project_task_type(self):
         self._set_user_groups([self.env.ref("project.group_project_manager"),
                                self.env.ref("show_project.group_show_manager")])
         self.assertEqual(self.standard_project_task.sudo(user=self.project_user).search_count([]),
-                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.project_type", "in", ("tour", "show", "standard"))]))
+                         self.standard_project_task.sudo(user=self.project_user).search_count([("project_id.show_type", "in", ("tour", "show", "standard"))]))
 
     ###### Project User Group, User Timesheet Group With Show Manager Group ######
-    def test_project_user_timesheet_user_with_show_manager_group_can_create_timesheet_all_project_type(self):
+    def test_project_user_timesheet_user_with_show_manager_group_can_create_timesheet_all_show_type(self):
         self._set_user_groups([self.env.ref("project.group_project_user"),
                                self.env.ref("hr_timesheet.group_hr_timesheet_user"),
                                self.env.ref("show_project.group_show_manager")])
@@ -342,7 +342,7 @@ class TestShowProjectSecurity(SavepointCase):
         self._create_timesheet(self.show_project_task)
         self._create_timesheet(self.standard_project_task)
 
-    def test_project_user_timesheet_user_with_show_manager_group_can_edit_timesheet_all_project_type(self):
+    def test_project_user_timesheet_user_with_show_manager_group_can_edit_timesheet_all_show_type(self):
         self._set_user_groups([self.env.ref("project.group_project_user"),
                                self.env.ref("hr_timesheet.group_hr_timesheet_user"),
                                self.env.ref("show_project.group_show_manager")])
@@ -354,7 +354,7 @@ class TestShowProjectSecurity(SavepointCase):
             {"name": "Updated Standard Timesheet"})
 
     ###### Project Manager Group, User Timesheet Group With Show Manager Group ######
-    def test_project_manager_timesheet_user_with_show_manager_group_can_create_timesheet_all_project_type(
+    def test_project_manager_timesheet_user_with_show_manager_group_can_create_timesheet_all_show_type(
         self):
         self._set_user_groups([self.env.ref("project.group_project_manager"),
                                self.env.ref("hr_timesheet.group_hr_timesheet_user"),
@@ -363,7 +363,7 @@ class TestShowProjectSecurity(SavepointCase):
         self._create_timesheet(self.show_project_task)
         self._create_timesheet(self.standard_project_task)
 
-    def test_project_manager_timesheet_user_with_show_manager_group_can_edit_timesheet_all_project_type(self):
+    def test_project_manager_timesheet_user_with_show_manager_group_can_edit_timesheet_all_show_type(self):
         self._set_user_groups([self.env.ref("project.group_project_manager"),
                                self.env.ref("hr_timesheet.group_hr_timesheet_user"),
                                self.env.ref("show_project.group_show_manager")])

@@ -10,7 +10,9 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": [
+        # Numigi-Project
         "project_iteration",
+        "project_form_with_dates",
         # OCA-server-tool
         "base_view_inheritance_extension",
     ],

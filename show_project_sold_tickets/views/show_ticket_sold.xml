@@ -59,4 +59,13 @@
         <field name="search_view_id" ref="show_ticket_sold_search_view"/>
     </record>
 
+    <record id="action_show_ticket_sold_list" model="ir.actions.act_window">
+        <field name="name">Sold Tickets</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">show.ticket.sold</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,graph,pivot</field>
+        <field name="search_view_id" ref="show_ticket_sold_search_view"/>
+    </record>
+
 </odoo>

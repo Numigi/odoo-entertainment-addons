@@ -10,8 +10,8 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": [
-        # Odoo
-        "project",
+        # Numigi-entertainment
+        "show_project",
     ],
     "data": [
         # Security

@@ -8,11 +8,13 @@
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
                 <button class="oe_stat_button"
-                        name="%(show_project_sold_tickets.action_show_ticket_sold)d"
+                        name="%(show_project_sold_tickets.action_show_ticket_sold_list)d"
                         context="{'default_show_id': active_id, 'search_default_show_id': active_id}"
                         type="action"
                         icon="fa-ticket"
                         string="Sold Tickets"
+                        attrs="{'invisible': [('show_type', '!=', 'show')]}"
+                        groups="show_project_sold_tickets.group_show_ticket_manager"
                 />
             </xpath>
         </field>

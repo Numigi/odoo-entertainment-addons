@@ -12,6 +12,7 @@ class ShowTicketSold(models.Model):
     show_id = fields.Many2one(
         comodel_name="project.project",
         required=True,
+        domain="[('show_type', '=', 'show')]",
     )
     record_date = fields.Date(
         required=True,

@@ -22,3 +22,6 @@ class ResPartner(models.Model):
         string="Show Place Minor Restriction",
         help="Check this box if this place has a restriction for minors."
     )
+    show_place_distance_from_montreal = fields.Integer(
+        string="Distance from Montreal",
+    )

@@ -26,6 +26,9 @@
                             <field name="show_place_minor_restriction"
                                    string="Minor Restriction"
                                    />
+                            <field name="show_place_distance_from_montreal"
+                                   string="Distance from Montreal"
+                                   />
                         </group>
                         <group/>
                         <label for="show_place_notes"  string="Notes"/>

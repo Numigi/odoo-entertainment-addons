@@ -15,6 +15,7 @@ class ProjectProject(models.Model):
         default='standard',
     )
     formula = fields.Char()
+    show_date = fields.Date()
     expected_parent_show_type = fields.Char(
         compute="_compute_expected_parent_show_type",
         store=True,

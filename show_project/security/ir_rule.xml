@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Need to open noupdate on native rule to rewrite -->
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', 'in', ['project', 'hr_timesheet']), ('name', 'in', ['task_visibility_rule', 'project_manager_all_project_tasks_rule', 'project_public_members_rule', 'project_project_manager_rule', 'timesheet_line_rule_manager'])]" />
+        </function>
+        <value eval="{'noupdate': False}" />
+    </function>
+
+    <!--########################## PROJECT PROJECT ############################## -->
+    <!-- Override native rule: Project User can full right on standard project task -->
+    <record id="project.project_public_members_rule" model="ir.rule">
+        <field name="domain_force">[
+            ('show_type', '=', 'standard'),
+            '|','|',
+            ('privacy_visibility', '!=', 'followers'),
+            ('message_partner_ids', 'in', [user.partner_id.id]),
+            ('task_ids.message_partner_ids', 'in', [user.partner_id.id]),
+        ]</field>
+    </record>
+
+    <!-- Override Project Manager Rule: Project Manager have full right on task of standard project -->
+    <record id="project.project_project_manager_rule" model="ir.rule">
+        <field name="domain_force">[("show_type", "=", "standard")]</field>
+    </record>
+
+    <!-- Show Manager can be full right on Tour and Show Project  -->
+    <record id="project_project_show_manager_full_access_tour_and_show_project_rule" model="ir.rule">
+        <field name="name">Project - Show Manager Full Right on Tour and Show Project</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="domain_force">[("show_type", "in", ["tour", "show"])]</field>
+        <field name="groups" eval="[(4, ref('show_project.group_show_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Project User can only read on Tour and Show Project Task  -->
+    <record id="project_project_project_user_only_read_tour_and_show_project_rule" model="ir.rule">
+        <field name="name">Project User can only read on Tour and Show Project</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="domain_force">[("show_type", "in", ["tour", "show"])]</field>
+        <field name="groups" eval="[(4, ref('project.group_project_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!--########################## PROJECT TASK ############################## -->
+    <!-- Override native rule: Project User can full right on standard project task -->
+    <record id="project.task_visibility_rule" model="ir.rule">
+        <field name="domain_force">[
+            ('project_id.show_type', '=', 'standard'),
+            '|',
+            ('project_id.privacy_visibility', '!=', 'followers'),
+            '|',
+            ('project_id.message_partner_ids', 'in', [user.partner_id.id]),
+            '|',
+            ('message_partner_ids', 'in', [user.partner_id.id]),
+            # to subscribe check access to the record, follower is not enough at creation
+            ('user_id', '=', user.id)
+        ]</field>
+    </record>
+
+    <!-- Override Project Manager Rule: Project Manager have full right on task of standard project -->
+    <record id="project.project_manager_all_project_tasks_rule" model="ir.rule">
+        <field name="domain_force">[("project_id.show_type", "=", "standard")]</field>
+    </record>
+
+    <!-- Show Manager can be full right on Tour and Show Project Task  -->
+    <record id="project_task_show_manager_full_access_tour_and_show_task_rule" model="ir.rule">
+        <field name="name">Project - Show Manager Full Right on Tour and Show Project Task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="domain_force">[("project_id.show_type", "in", ["tour", "show"])]</field>
+        <field name="groups" eval="[(4, ref('show_project.group_show_manager'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+    <!-- Project User can only read on Tour and Show Project Task  -->
+    <record id="project_task_project_user_only_read_tour_and_show_task_rule" model="ir.rule">
+        <field name="name">Project User can only read on Tour and Show Project Task</field>
+        <field name="model_id" ref="project.model_project_task"/>
+        <field name="domain_force">[("project_id.show_type", "in", ["tour", "show"])]</field>
+        <field name="groups" eval="[(4, ref('project.group_project_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+    </record>
+
+    <!--########################## TIMESHEET ############################## -->
+    <!-- Override native rule: Timesheet User can full right on timesheet of standard project -->
+    <record id="hr_timesheet.timesheet_line_rule_user" model="ir.rule">
+        <field name="domain_force">[('user_id', '=', user.id), ('project_id', '!=', False), ('project_id.show_type', '=', 'standard')]</field>
+    </record>
+
+    <!-- Override Timesheet Manager Rule: Timesheet Manager have full right on timesheet of standard project -->
+    <record id="hr_timesheet.timesheet_line_rule_manager" model="ir.rule">
+        <field name="domain_force">[('project_id', '!=', False), ('project_id.show_type', '=', 'standard')]</field>
+    </record>
+
+    <!-- Show Manager can be full right on Timesheet of Tour and Show Project  -->
+    <record id="timesheet_show_manager_full_access_tour_and_show_project_rule" model="ir.rule">
+        <field name="name">Project - Show Manager Full Right on Timesheet of Tour and Show Project</field>
+        <field name="model_id" ref="analytic.model_account_analytic_line"/>
+        <field name="domain_force">[('project_id', '!=', False), ("project_id.show_type", "in", ["tour", "show"])]</field>
+        <field name="groups" eval="[(4, ref('show_project.group_show_manager'))]"/>
+        <field name="perm_read" eval="False"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+    </record>
+
+</odoo>

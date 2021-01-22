@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="project_tour_role_tree_view" model="ir.ui.view">
+        <field name="name">project.tour.role.tree.view</field>
+        <field name="model">project.tour.role</field>
+        <field name="arch" type="xml">
+            <tree string="Tour Roles" editable="bottom">
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_tour_role_search_view" model="ir.ui.view">
+        <field name="name">project.tour.role.search.view</field>
+        <field name="model">project.tour.role</field>
+        <field name="arch" type="xml">
+            <search string="Tour Roles">
+                <field name="name"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_project_tour_role" model="ir.actions.act_window">
+        <field name="name">Tour Roles</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">project.tour.role</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="project_tour_role_search_view"/>
+    </record>
+
+</odoo>

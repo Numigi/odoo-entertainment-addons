@@ -14,8 +14,6 @@ class ProjectProject(models.Model):
     @api.onchange("parent_id")
     def _onchange_parent_id(self):
         if self.show_type == "show" and self.parent_id:
-            self.project_member_ids = [(5, 0, 0)]
-            # Remove all the old records and add new records from project member list of parent project
             self.project_member_ids = [(5, 0, 0)] + [
                 (0, 0, {"partner_id": pm.partner_id.id, "role_id": pm.role_id.id})
                 for pm in self.parent_id.project_member_ids

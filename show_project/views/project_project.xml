@@ -37,6 +37,20 @@
             <field name="user_id" position="before">
                 <field name="formula" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
             </field>
+
+            <!-- Only show date_start and date fields when project type is standard or tour -->
+            <field name="date_start" position="attributes">
+                <attribute name="attrs">{'invisible': [('show_type', '=', 'show')]}</attribute>
+            </field>
+
+            <field name="date" position="attributes">
+                <attribute name="attrs">{'invisible': [('show_type', '=', 'show')]}</attribute>
+            </field>
+
+            <!-- Add new field show_date under date field -->
+            <field name="date" position="after">
+                <field name="show_date" attrs="{'invisible': [('show_type', '!=', 'show')], 'required': [('show_type', '=', 'show')]}"/>
+            </field>
         </field>
     </record>
 

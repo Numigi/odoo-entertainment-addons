@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="res_partner_birth_city_view_search" model="ir.ui.view">
+        <field name="name">res.partner.birth.city.view.search</field>
+        <field name="model">res.partner.birth.city</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="res_partner_birth_city_view_tree" model="ir.ui.view">
+        <field name="name">res.partner.birth.city.view.tree</field>
+        <field name="model">res.partner.birth.city</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_birth_city_action" model="ir.actions.act_window">
+        <field name="name">Birth City</field>
+        <field name="res_model">res.partner.birth.city</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree</field>
+     </record>
+
+    <menuitem id="res_partner_birth_city_menu"
+              name="Birth Cities"
+              action="res_partner_birth_city_action"
+              parent="contacts.menu_localisation"
+              sequence="4"/>
+
+
+</odoo>

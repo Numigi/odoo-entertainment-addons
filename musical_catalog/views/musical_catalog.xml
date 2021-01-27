@@ -26,6 +26,7 @@
                             <field name="sequence"/>
                         </group>
                         <group name="group_2">
+                            <field name="reference_unique"/>
                         </group>
                     </group>
                     <notebook>
@@ -42,6 +43,7 @@
             <tree string="External Catalogs" editable="top">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
+                <field name="reference_unique"/>
                 <field name="active"/>
             </tree>
         </field>

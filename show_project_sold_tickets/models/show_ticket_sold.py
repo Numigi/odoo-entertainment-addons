@@ -14,29 +14,27 @@ class ShowTicketSold(models.Model):
         required=True,
         domain="[('show_type', '=', 'show')]",
     )
-    record_date = fields.Date(
-        required=True,
-    )
+    record_date = fields.Date(required=True)
     total_sold_tickets = fields.Integer()
-    new_sold_tickets = fields.Integer(
-        readonly=True,
-    )
+    new_sold_tickets = fields.Integer(readonly=True)
 
     _sql_constraints = [
-        ("unique_show_id_date",
-         "UNIQUE(show_id, record_date)",
-         "A record already exists on this date for this show!"),
+        (
+            "unique_show_id_date",
+            "UNIQUE(show_id, record_date)",
+            "A record already exists on this date for this show!",
+        )
     ]
 
     @api.model
     def create(self, vals):
-        res = super(ShowTicketSold, self).create(vals)
+        res = super().create(vals)
         res.show_id._update_new_sold_tickets()
         return res
 
     @api.multi
     def write(self, vals):
-        res = super(ShowTicketSold, self).write(vals)
+        res = super().write(vals)
         if not self._context.get("skip_update_new_sold_tickets"):
             self.mapped("show_id")._update_new_sold_tickets()
         return res
@@ -44,6 +42,6 @@ class ShowTicketSold(models.Model):
     @api.multi
     def unlink(self):
         projects = self.mapped("show_id")
-        res = super(ShowTicketSold, self).unlink()
+        res = super().unlink()
         projects._update_new_sold_tickets()
         return res

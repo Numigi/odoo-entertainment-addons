@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="menu_project_tour_role"
+              name="Tour Roles"
+              action="action_project_tour_role"
+              parent="project.menu_project_config"
+              sequence="20"
+              groups="project.group_project_manager"/>
+
+</odoo>

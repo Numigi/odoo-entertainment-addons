@@ -3,6 +3,12 @@
   includes:
     - url_link_type
 
+- url: https://github.com/Numigi/odoo-project-addons
+  branch: "12.0"
+  includes:
+    - project_form_with_dates
+    - project_iteration
+
 - url: https://github.com/OCA/queue
   branch: "12.0"
   includes:

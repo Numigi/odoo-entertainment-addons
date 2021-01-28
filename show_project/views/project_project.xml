@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="show_project_edit_project_form" model="ir.ui.view">
+        <field name="name">show.project.edit.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="priority">17</field>
+        <field name="arch" type="xml">
+            <!-- Add field project type under Allow Timesheets -->
+            <xpath expr="//notebook" position="before">
+                <div>
+                    <field name="show_type" widget="radio"/>
+                    <field name="expected_parent_show_type" invisible="1"/>
+                </div>
+            </xpath>
+
+            <!-- Hide Parent Project field when project type is tour -->
+            <!-- Parent Project is required when project type is show -->
+            <field name="parent_id" position="attributes">
+                <attribute name="attrs" operation="python_dict" key="invisible">
+                    ['|', ('is_parent', '=', True), ('show_type', '=', 'tour')]
+                </attribute>
+                <attribute name="attrs" operation="python_dict" key="required">
+                    [('show_type', '=', 'show')]
+                </attribute>
+            </field>
+
+            <!-- Hide Customer field when project type is tour -->
+            <field name="partner_id" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': [('show_type', '=', 'tour')]
+                    }</attribute>
+            </field>
+
+            <!-- Show the field Formula in configuration tab and only visible when project type is show -->
+            <field name="user_id" position="before">
+                <field name="formula" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+            </field>
+
+            <!-- Only show date_start and date fields when project type is standard or tour -->
+            <field name="date_start" position="attributes">
+                <attribute name="attrs">{'invisible': [('show_type', '=', 'show')]}</attribute>
+            </field>
+
+            <field name="date" position="attributes">
+                <attribute name="attrs">{'invisible': [('show_type', '=', 'show')]}</attribute>
+            </field>
+
+            <!-- Add new field show_date under date field -->
+            <field name="date" position="after">
+                <field name="show_date" attrs="{'invisible': [('show_type', '!=', 'show')], 'required': [('show_type', '=', 'show')]}"/>
+            </field>
+
+            <!-- Add new tab `Show Place` when project type is `show` -->
+            <xpath expr="//page[@name='settings']" position="after">
+                <page string="Show Venue" name="show_venue" attrs="{'invisible': [('show_type', '!=', 'show')]}">
+                    <group>
+                        <group>
+                            <field name="show_place_id" attrs="{'required': [('show_type', '=', 'show')]}"/>
+                            <field name="show_place_maximum_capacity"/>
+                            <field name="show_place_configuration"/>
+                            <field name="show_place_minor_restriction"/>
+                            <field name="show_place_distance_from_montreal"/>
+                            <field name="show_place_notes"/>
+                            <field name="previous_show_id"/>
+                            <field name="next_show_id"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

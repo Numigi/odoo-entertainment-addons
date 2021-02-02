@@ -6,11 +6,11 @@ from odoo.exceptions import ValidationError
 
 
 class TestMusicalArtworkCatalogueReferenceSequence(common.SavepointCase):
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
         user = cls.env.user
+        cls.sequence = cls.env.ref("musical_artwork.musical_artwork_sequence")
         cls.main_company = cls.env.ref("base.main_company")
         cls.env.ref("base.group_multi_company").write({"users": [(4, user.id)]})
         cls.company_A = cls.env["res.company"].create({"name": "A"})
@@ -18,7 +18,7 @@ class TestMusicalArtworkCatalogueReferenceSequence(common.SavepointCase):
     def test_create_musical_artwork_main_company_pass(self):
         self._switch_company(self.main_company)
         record = self._create_musical_artwork()
-        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
+        assert record.catalogue_reference.startswith(self.sequence.prefix)
 
     def test_create_musical_artwork_new_company_fail(self):
         self._switch_company(self.company_A)
@@ -26,29 +26,22 @@ class TestMusicalArtworkCatalogueReferenceSequence(common.SavepointCase):
             self._create_musical_artwork()
 
     def test_create_musical_artwork_new_company_pass(self):
+        specific_code = "EDTC_2"
         self._switch_company(self.company_A)
         self.env["ir.sequence"].create(
             {
                 "name": "Musical Artwork",
                 "code": "musical.artwork",
-                "prefix": "EDTC",
+                "prefix": specific_code,
                 "padding": "8",
                 "company_id": self.company_A.id,
             }
         )
         record = self._create_musical_artwork()
-        self._check_musical_artwork_catalogue_reference(record.catalogue_reference)
-
-    def _check_musical_artwork_catalogue_reference(self, catalogue_reference):
-        self.assertTrue(catalogue_reference.startswith("EDTC"))
-        self.assertEqual(len(catalogue_reference), 12)
+        assert record.catalogue_reference.startswith(specific_code)
 
     def _switch_company(self, company):
         self.env.user.company_id = company.id
 
     def _create_musical_artwork(self):
         return self.env["musical.artwork"].create({"title": "Test"})
-
-    def _write_musical_artwork_reference(self, musical_artwork, value):
-        musical_artwork.write({"catalogue_reference": value})
-        return musical_artwork

@@ -18,5 +18,5 @@
         # Numigi-Entertainment
         "show_place",
     ],
-    "data": ["views/project_project.xml", "security/res_groups.xml"],
+    "data": ["views/project_project.xml"],
 }

@@ -37,6 +37,7 @@
         "recording_version",
         "show_place",
         "show_project",
+        "show_project_access",
         "show_project_sold_tickets",
     ],
     "installable": True,

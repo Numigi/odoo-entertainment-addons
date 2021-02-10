@@ -7,10 +7,9 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./.log:/var/log/odoo
-      - ./musical_artwork:/mnt/extra-addons/musical_artwork
     ports:
-      - "8070:8069"
-      - "8072:8071"
+      - "8069:8069"
+      - "8071:8071"
     depends_on:
       - db
     command: odoo --workers=0

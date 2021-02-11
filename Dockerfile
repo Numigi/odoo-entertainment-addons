@@ -39,6 +39,7 @@ COPY recording_url_link /mnt/extra-addons/recording_url_link
 COPY recording_version /mnt/extra-addons/recording_version
 COPY show_place /mnt/extra-addons/show_place
 COPY show_project /mnt/extra-addons/show_project
+COPY show_project_access /mnt/extra-addons/show_project_access
 COPY show_project_sold_tickets /mnt/extra-addons/show_project_sold_tickets
 
 COPY .docker_files/main /mnt/extra-addons/main

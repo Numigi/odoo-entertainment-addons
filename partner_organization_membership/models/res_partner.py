@@ -8,29 +8,34 @@ class ResPartner(models.Model):
 
     _inherit = "res.partner"
 
-    is_artist = fields.Boolean(string="Artist / Musician")
-    artisti = fields.Char(string="ARTISTI")
-    guilde = fields.Char(string="GUILDE")
-    sacem = fields.Char(string="SACEM")
-    socan = fields.Char(string="SOCAN")
-    sodrac = fields.Char(string="SODRAC")
-    sound_ex = fields.Char(string="SOUND EX.")
-    soproq = fields.Char(string="SOPROQ")
-    spacq = fields.Char(string="SPACQ")
-    uda = fields.Char(string="UDA")
+    is_artist = fields.Boolean(string="Artist / Musician", prefetch=False)
+    artisti = fields.Char(string="ARTISTI", prefetch=False)
+    guilde = fields.Char(string="GUILDE", prefetch=False)
+    sacem = fields.Char(string="SACEM", prefetch=False)
+    socan = fields.Char(string="SOCAN", prefetch=False)
+    sodrac = fields.Char(string="SODRAC", prefetch=False)
+    sound_ex = fields.Char(string="SOUND EX.", prefetch=False)
+    soproq = fields.Char(string="SOPROQ", prefetch=False)
+    spacq = fields.Char(string="SPACQ", prefetch=False)
+    uda = fields.Char(string="UDA", prefetch=False)
     organization_ids = fields.One2many(
-        "res.partner.organization", "partner_id", string="Other Organizations"
+        "res.partner.organization",
+        "partner_id",
+        string="Other Organizations",
+        prefetch=False,
     )
-    isni = fields.Char(string="ISNI")
-    ipi = fields.Char(string="IPI")
-    ipn = fields.Char(string="IPN")
-    is_canadian_artist = fields.Boolean(string="Canadian Artist")
-    is_resident_qc = fields.Boolean(string="Resident of Quebec")
-    is_emerging_artist = fields.Boolean(string="Emerging Artist")
-    is_closm = fields.Boolean(string="CLOSM")
-    is_autochthon = fields.Boolean(string="Autochthon")
-    is_visible_minority = fields.Boolean(string="Visible Minority")
-    birth_city_id = fields.Many2one("res.partner.birth.city", string="City of Birth")
+    isni = fields.Char(string="ISNI", prefetch=False)
+    ipi = fields.Char(string="IPI", prefetch=False)
+    ipn = fields.Char(string="IPN", prefetch=False)
+    is_canadian_artist = fields.Boolean(string="Canadian Artist", prefetch=False)
+    is_resident_qc = fields.Boolean(string="Resident of Quebec", prefetch=False)
+    is_emerging_artist = fields.Boolean(string="Emerging Artist", prefetch=False)
+    is_closm = fields.Boolean(string="CLOSM", prefetch=False)
+    is_autochthon = fields.Boolean(string="Autochthon", prefetch=False)
+    is_visible_minority = fields.Boolean(string="Visible Minority", prefetch=False)
+    birth_city_id = fields.Many2one(
+        "res.partner.birth.city", string="City of Birth", prefetch=False
+    )
 
     @api.onchange("company_type", "is_artist")
     def _onchange_company_type(self):

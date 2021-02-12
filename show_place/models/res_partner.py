@@ -6,22 +6,27 @@ from odoo import fields, models
 
 class ResPartner(models.Model):
 
-    _inherit = 'res.partner'
+    _inherit = "res.partner"
 
-    type = fields.Selection(selection_add=[('show_site', 'Show Site')])
+    type = fields.Selection(selection_add=[("show_site", "Show Site")])
     show_place_type_id = fields.Many2one(
-        'show.place.type', string="Show Place Type",
+        "show.place.type", string="Show Place Type", prefetch=False
     )
     show_place_configuration_id = fields.Many2one(
-        'show.place.configuration', string="Show Place Configuration",
-        ondelete='restrict',
+        "show.place.configuration",
+        string="Show Place Configuration",
+        ondelete="restrict",
+        prefetch=False,
     )
-    show_place_maximum_capacity = fields.Integer(string="Show Place Maximum capacity")
-    show_place_notes = fields.Text(string="Show Place Notes")
+    show_place_maximum_capacity = fields.Integer(
+        string="Show Place Maximum capacity", prefetch=False
+    )
+    show_place_notes = fields.Text(string="Show Place Notes", prefetch=False)
     show_place_minor_restriction = fields.Boolean(
         string="Show Place Minor Restriction",
-        help="Check this box if this place has a restriction for minors."
+        help="Check this box if this place has a restriction for minors.",
+        prefetch=False,
     )
-    show_place_distance_from_montreal = fields.Integer(
-        string="Distance from Montreal",
+    show_place_distance_from_productor = fields.Integer(
+        string="Distance from Productor", prefetch=False
     )

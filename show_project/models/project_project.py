@@ -34,9 +34,9 @@ class ProjectProject(models.Model):
         related="show_place_id.show_place_minor_restriction",
         string="Minors Restriction",
     )
-    show_place_distance_from_montreal = fields.Integer(
-        related="show_place_id.show_place_distance_from_montreal",
-        string="Distance from Montreal",
+    show_place_distance_from_productor = fields.Integer(
+        related="show_place_id.show_place_distance_from_productor",
+        string="Distance from Productor",
     )
     show_place_notes = fields.Text(string="Notes")
     previous_show_id = fields.Many2one(

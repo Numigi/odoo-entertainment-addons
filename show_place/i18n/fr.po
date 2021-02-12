@@ -203,8 +203,8 @@ msgid ""
 msgstr ""
 
 #. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_distance_from_montreal
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_distance_from_montreal
+#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_distance_from_productor
+#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_distance_from_productor
 #: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-msgid "Distance from Montreal"
-msgstr "Distance de Montréal"
+msgid "Distance from Productor"
+msgstr "Distance du producteur"

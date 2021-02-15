@@ -31,9 +31,9 @@ msgid "Configuration of Room"
 msgstr "Configuration de salle"
 
 #. module: show_project
-#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_distance_from_montreal
-msgid "Distance from Montreal"
-msgstr "Distance de Montréal"
+#: model:ir.model.fields,field_description:show_project.field_project_project__show_place_distance_from_productor
+msgid "Distance from Productor"
+msgstr "Distance du producteur"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__formula

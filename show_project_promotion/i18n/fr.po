@@ -1,0 +1,117 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* show_project_promotion
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-16 20:24+0000\n"
+"PO-Revision-Date: 2021-02-16 20:24+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__description
+msgid "Description"
+msgstr "Description"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_project__distributor_platform_url
+msgid "Distributor Platform"
+msgstr "Plateforme du distributeur"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__id
+msgid "ID"
+msgstr ""
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__notes
+msgid "Notes"
+msgstr "Notes"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__product_id
+msgid "Product"
+msgstr "Article"
+
+#. module: show_project_promotion
+#: model:ir.model,name:show_project_promotion.model_project_project
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__project_id
+msgid "Project"
+msgstr "Projet"
+
+#. module: show_project_promotion
+#: model:ir.model,name:show_project_promotion.model_project_promotional_item
+msgid "Project Promotional Item"
+msgstr "Article promotionnel sur projet"
+
+#. module: show_project_promotion
+#: model_terms:ir.ui.view,arch_db:show_project_promotion.project_form
+msgid "Promotion"
+msgstr "Promotion"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_project__promotional_item_ids
+msgid "Promotional Items"
+msgstr "Articles promotionnels"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_project__show_sale_date
+msgid "Sale Date"
+msgstr "Date de mise en vente"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_project__show_description_url
+msgid "Show Description"
+msgstr "Description du spectable"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_project__show_event_url
+msgid "Show Event"
+msgstr "Événement du spectable"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_project__tour_poster_url
+msgid "Tour Poster"
+msgstr "Affiche du spectacle"

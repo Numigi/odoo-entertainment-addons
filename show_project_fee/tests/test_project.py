@@ -137,7 +137,7 @@ class TestIncompatibleFees(ProjectShowFeeCase):
         self.fee_2.max_sale_amount = 0
         self.fee_2.project_type_id = self.project_type_1
 
-    @data((0, 2, 1, 3), (0, 2, 1, 0), (0, 0, 1, 0))
+    @data((0, 2, 1, 3), (0, 2, 1, 0), (0, 0, 1, 0), (0, 1.01, 1, 0), (0, 1, 0.99, 0))
     @unpack
     def test_overlapped_sale_range(self, min_1, max_1, min_2, max_2):
         self.fee.min_sale_amount = min_1
@@ -147,7 +147,7 @@ class TestIncompatibleFees(ProjectShowFeeCase):
         assert self.fee._overlaps_sale_range(self.fee_2)
         assert self.fee_2._overlaps_sale_range(self.fee)
 
-    @data((0, 1, 2, 3), (0, 2, 2, 3), (0, 2, 2, 0))
+    @data((0, 1, 2, 3), (0, 2, 2, 3), (0, 2, 2, 0), (0, 1, 1.01, 0))
     @unpack
     def test_not_overlapped_sale_range(self, min_1, max_1, min_2, max_2):
         self.fee.min_sale_amount = min_1

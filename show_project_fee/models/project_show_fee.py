@@ -4,6 +4,7 @@
 import sys
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_compare
 
 
 class ProjectShowFee(models.Model):
@@ -99,10 +100,10 @@ class ProjectShowFee(models.Model):
         min_2 = fee.min_sale_amount
         max_2 = fee.max_sale_amount or sys.maxsize
 
-        if min_1 <= min_2 < max_1:
+        if _lte(min_1, min_2) and _lt(min_2, max_1):
             return True
 
-        if min_1 < max_2 <= max_1:
+        if _lt(min_1, max_2) and _lte(max_2, max_1):
             return True
 
         return False
@@ -144,9 +145,19 @@ class ProjectShowFee(models.Model):
 
     def _matches_sale_amount(self, amount):
         if self.max_sale_amount:
-            return self.min_sale_amount <= amount < self.max_sale_amount
+            return _lte(self.min_sale_amount, amount) and _lt(
+                amount, self.max_sale_amount
+            )
         else:
-            return self.min_sale_amount <= amount
+            return _lte(self.min_sale_amount, amount)
 
     def _matches_member(self, member):
         return not self.role_id or member.role_id == self.role_id
+
+
+def _lt(float_1, float_2):
+    return float_compare(float_1, float_2, 2) == -1
+
+
+def _lte(float_1, float_2):
+    return float_compare(float_1, float_2, 2) in (-1, 0)

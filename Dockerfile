@@ -21,7 +21,6 @@ COPY musical_artwork /mnt/extra-addons/musical_artwork
 COPY musical_catalog /mnt/extra-addons/musical_catalog
 COPY partner_organization_membership /mnt/extra-addons/partner_organization_membership
 COPY product_musical_relation /mnt/extra-addons/product_musical_relation
-COPY project_role_show /mnt/extra-addons/project_role_show
 COPY recording /mnt/extra-addons/recording
 COPY recording_analytic /mnt/extra-addons/recording_analytic
 COPY recording_artist /mnt/extra-addons/recording_artist
@@ -40,7 +39,9 @@ COPY recording_version /mnt/extra-addons/recording_version
 COPY show_place /mnt/extra-addons/show_place
 COPY show_project /mnt/extra-addons/show_project
 COPY show_project_access /mnt/extra-addons/show_project_access
+COPY show_project_fee /mnt/extra-addons/show_project_fee
 COPY show_project_promotion /mnt/extra-addons/show_project_promotion
+COPY show_project_role /mnt/extra-addons/show_project_role
 COPY show_project_sold_tickets /mnt/extra-addons/show_project_sold_tickets
 
 COPY .docker_files/main /mnt/extra-addons/main

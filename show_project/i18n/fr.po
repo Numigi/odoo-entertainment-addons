@@ -101,7 +101,7 @@ msgid "Show Type"
 msgstr "Type de Spectacle"
 
 #. module: show_project
-#: model_terms:ir.ui.view,arch_db:show_project.show_project_edit_project_form
+#: model_terms:ir.ui.view,arch_db:show_project.project_form
 msgid "Show Venue"
 msgstr "Lieu de spectacle"
 

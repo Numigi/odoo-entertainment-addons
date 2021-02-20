@@ -15,7 +15,7 @@ In security, Project - Show Manager Group is created to grant access for user on
 
 User can define a list of project members for tour or show project in the **Team** tab
 
-.. image:: static/description/project_member.png
+.. image:: static/description/project_show_member.png
 
 For show project, user can see the new **Show** tab
 

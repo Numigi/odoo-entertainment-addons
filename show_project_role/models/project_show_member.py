@@ -13,7 +13,9 @@ class ProjectShowMember(models.Model):
 
     sequence = fields.Integer()
 
-    project_id = fields.Many2one(comodel_name="project.project", required=True)
+    project_id = fields.Many2one(
+        comodel_name="project.project", required=True, ondelete="cascade", index=True
+    )
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         domain="[('company_type', '=', 'person'), ('is_artist', '=', True)]",

@@ -12,10 +12,9 @@
                     name="show_fees"
                     attrs="{'invisible': [('show_type', 'not in', ('tour', 'show'))]}"
                     >
+                    <button name="compute_show_fees" type="object" string="Compute Fees"/>
                     <group attrs="{'invisible': [('show_type', '!=', 'show')]}">
                         <group>
-                            <button name="compute_show_fees" string="Compute Fees"/>
-                            <newline/>
                             <field name="show_sale_amount" string="Sale Amount"/>
                         </group>
                     </group>
@@ -23,13 +22,26 @@
                     <field name="show_fee_ids" nolabel="1">
                         <tree editable="bottom">
                             <field name="sequence" widget="handle"/>
-                            <field name="partner_id" attrs="{'column_invisible': [('parent.show_type', '!=', 'show')]}"/>
+                            <field name="partner_id"
+                                attrs="{'column_invisible': [('parent.show_type', '!=', 'show')]}"
+                                />
                             <field name="role_id"/>
-                            <field name="project_type_id"/>
-                            <field name="min_sale_amount" string="Min Sales"/>
-                            <field name="max_sale_amount" string="Max Sales"/>
-                            <field name="currency_id" invisible="1"/>
+                            <field name="project_type_id"
+                                attrs="{'column_invisible': [('parent.show_type', '!=', 'tour')]}"
+                                />
+                            <field name="type_"/>
+                            <field name="min_sale_amount" string="Min Sales"
+                                attrs="{'readonly': [('type_', '=', 'fixed')],
+                                        'required': [('type_', '!=', 'fixed')]}"
+                                force_save="1"
+                                />
+                            <field name="max_sale_amount" string="Max Sales"
+                                attrs="{'readonly': [('type_', '=', 'fixed')],
+                                        'required': [('type_', '!=', 'fixed')]}"
+                                force_save="1"
+                                />
                             <field name="amount"/>
+                            <field name="currency_id" invisible="1"/>
                         </tree>
                     </field>
                 </page>

@@ -1,7 +1,6 @@
 # © 2021 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-import sys
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 from odoo.tools import float_compare
@@ -17,6 +16,12 @@ class ProjectShowFee(models.Model):
         "project.project", ondelete="cascade", required=True, index=True
     )
 
+    type_ = fields.Selection(
+        [("fixed", "Fixed"), ("variable", "Variable")],
+        required=True,
+        default="variable",
+    )
+
     sequence = fields.Integer()
 
     partner_id = fields.Many2one("res.partner", ondelete="restrict")
@@ -29,6 +34,41 @@ class ProjectShowFee(models.Model):
     currency_id = fields.Many2one("res.currency", related="project_id.currency_id")
 
     amount = fields.Monetary(required=True)
+
+    @property
+    def is_fixed(self):
+        return self.type_ == "fixed"
+
+    def name_get(self):
+        types = dict(self._fields["type_"]._description_selection(self.env))
+        return [
+            (
+                f.id,
+                "{role} - {project_type} - {type_}".format(
+                    role=f.role_id.display_name,
+                    project_type=f.project_type_id.display_name or "*",
+                    type_=types[f.type_],
+                ),
+            )
+            for f in self
+        ]
+
+    @api.onchange("type_")
+    def _onchange_type(self):
+        if self.is_fixed:
+            self.min_sale_amount = 0
+            self.max_sale_amount = 0
+
+    @api.constrains("min_sale_amount", "max_sale_amount")
+    def _check_min_max_sale_amounts(self):
+        for fee in self:
+            if fee.max_sale_amount and _lt(fee.max_sale_amount, fee.min_sale_amount):
+                raise ValidationError(
+                    _(
+                        "The value entered for the maximum sale amount ({max}) "
+                        "can not be lower than the minimum sale amount ({min})."
+                    ).format(max=fee.max_sale_amount, min=fee.min_sale_amount)
+                )
 
     @api.constrains("role_id", "project_type_id")
     def _check_tour_fees_duplicates(self):
@@ -53,7 +93,7 @@ class ProjectShowFee(models.Model):
             raise ValidationError(
                 _(
                     "{}\n\n"
-                    "If a fee has no project type, "
+                    "If a fee has a project type, "
                     "another fee can not be defined with the same role "
                     "but no project type."
                 ).format(generic_message)
@@ -74,8 +114,8 @@ class ProjectShowFee(models.Model):
         return _(
             "Two fee entries with the same role ({role}) are incompatible "
             "with one another.\n\n"
-            "\t- {fee_1}"
-            "\t- {fee_2}"
+            "\t* {fee_1}\n"
+            "\t* {fee_2}"
         ).format(
             fee_1=self.display_name,
             fee_2=fee.display_name,
@@ -94,48 +134,45 @@ class ProjectShowFee(models.Model):
         return self._overlaps_sale_range(fee)
 
     def _overlaps_sale_range(self, fee):
-        min_1 = self.min_sale_amount
-        max_1 = self.max_sale_amount or sys.maxsize
-
-        min_2 = fee.min_sale_amount
-        max_2 = fee.max_sale_amount or sys.maxsize
-
-        if _lte(min_1, min_2) and _lt(min_2, max_1):
+        if self.is_fixed or fee.is_fixed:
             return True
 
-        if _lt(min_1, max_2) and _lte(max_2, max_1):
+        min_1, max_1 = self.min_sale_amount, self.max_sale_amount
+        min_2, max_2 = fee.min_sale_amount, fee.max_sale_amount
+
+        if _lte(min_1, min_2) and _lte(min_2, max_1):
+            return True
+
+        if _lte(min_1, max_2) and _lte(max_2, max_1):
             return True
 
         return False
 
-    def _make_show_fees(self, show):
-        result = self.browse([])
-
+    def _compute_fees(self, show):
         if self._matches_show(show):
-            result |= self._make_member_fees(show)
-
-        return result
+            return self._make_member_fees(show)
+        else:
+            return []
 
     def _make_member_fees(self, show):
-        result = self.browse([])
+        result = []
 
         for member in show.show_member_ids:
             if self._matches_member(member):
-                result |= self._make_single_member_fee(show, member)
+                result.append(self._make_single_member_fee(show, member))
 
         return result
 
     def _make_single_member_fee(self, show, member):
-        return self.new(
-            {
-                "amount": self.amount,
-                "partner_id": member.partner_id.id,
-                "project_type_id": self.project_type_id.id,
-                "role_id": self.role_id.id,
-                "min_sale_amount": self.min_sale_amount,
-                "max_sale_amount": self.max_sale_amount,
-            }
-        )
+        return {
+            "amount": self.amount,
+            "partner_id": member.partner_id.id,
+            "project_type_id": self.project_type_id.id,
+            "role_id": self.role_id.id,
+            "min_sale_amount": self.min_sale_amount,
+            "max_sale_amount": self.max_sale_amount,
+            "type_": self.type_,
+        }
 
     def _matches_show(self, show):
         if not self._matches_sale_amount(show.show_sale_amount):
@@ -144,20 +181,20 @@ class ProjectShowFee(models.Model):
         return not self.project_type_id or show.project_type_id == self.project_type_id
 
     def _matches_sale_amount(self, amount):
-        if self.max_sale_amount:
-            return _lte(self.min_sale_amount, amount) and _lt(
-                amount, self.max_sale_amount
-            )
-        else:
-            return _lte(self.min_sale_amount, amount)
+        if self.is_fixed:
+            return True
+
+        matches_min_amount = _lte(self.min_sale_amount, amount)
+        matches_max_amount = _lte(amount, self.max_sale_amount)
+        return matches_min_amount and matches_max_amount
 
     def _matches_member(self, member):
         return not self.role_id or member.role_id == self.role_id
 
 
 def _lt(float_1, float_2):
-    return float_compare(float_1, float_2, 2) == -1
+    return float_compare(float_1 or 0, float_2 or 0, 2) == -1
 
 
 def _lte(float_1, float_2):
-    return float_compare(float_1, float_2, 2) in (-1, 0)
+    return float_compare(float_1 or 0, float_2 or 0, 2) in (-1, 0)

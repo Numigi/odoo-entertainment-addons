@@ -1,9 +1,11 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 from odoo import api, fields, models
 
 
 class ShowTicketSold(models.Model):
+
     _name = "show.ticket.sold"
     _rec_name = "record_date"
     _order = "record_date"

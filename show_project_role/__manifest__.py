@@ -18,10 +18,9 @@
     "data": [
         # Security
         "security/ir.model.access.csv",
-
         # Views
         "views/project_project.xml",
-        "views/project_tour_role.xml",
+        "views/project_show_role.xml",
         "views/menu.xml",
     ],
 }

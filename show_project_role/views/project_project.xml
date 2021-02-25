@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
 
-    <record id="project_role_show_edit_project_form" model="ir.ui.view">
-        <field name="name">project.role.show.edit.project.form</field>
+    <record id="project_form" model="ir.ui.view">
+        <field name="name">Project Form: add members</field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="priority">18</field>
@@ -10,8 +10,9 @@
             <xpath expr="//page[@name='settings']" position="after">
                 <page string="Team" name="team" attrs="{'invisible': [('show_type', '=', 'standard')]}">
                     <group>
-                        <field name="project_member_ids" nolabel="1">
+                        <field name="show_member_ids" nolabel="1">
                             <tree editable="bottom">
+                                <field name="sequence" widget="handle"/>
                                 <field name="partner_id"/>
                                 <field name="role_id"/>
                             </tree>

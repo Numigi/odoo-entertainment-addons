@@ -37,6 +37,7 @@
         "show_place",
         "show_project",
         "show_project_access",
+        "show_project_artwork",
         "show_project_fee",
         "show_project_promotion",
         "show_project_role",

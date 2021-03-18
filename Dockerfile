@@ -39,6 +39,7 @@ COPY recording_version /mnt/extra-addons/recording_version
 COPY show_place /mnt/extra-addons/show_place
 COPY show_project /mnt/extra-addons/show_project
 COPY show_project_access /mnt/extra-addons/show_project_access
+COPY show_project_artwork /mnt/extra-addons/show_project_artwork
 COPY show_project_fee /mnt/extra-addons/show_project_fee
 COPY show_project_promotion /mnt/extra-addons/show_project_promotion
 COPY show_project_role /mnt/extra-addons/show_project_role

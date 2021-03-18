@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="project_form" model="ir.ui.view">
+        <field name="name">Project Form: add Artworks tab</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="show_project.project_form"/>
+        <field name="arch" type="xml">
+            <page name="show_venue" position="before">
+                <page
+                    string="Artworks"
+                    name="artworks"
+                    attrs="{'invisible': [('show_type', 'not in', ('tour', 'show'))]}"
+                    >
+                    <field name="artwork_ids" nolabel="1">
+                        <tree>
+                            <field name="display_name"/>
+                        </tree>
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
+
+</odoo>

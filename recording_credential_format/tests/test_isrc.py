@@ -4,11 +4,8 @@
 from odoo.exceptions import ValidationError
 from odoo.tests.common import SavepointCase
 
-from odoo.tests.common import tagged
 
-
-@tagged("post_install")
-class TestRecordingCredentialFormatRecording(SavepointCase):
+class TestIsrc(SavepointCase):
     def test__check_isrc_recording_pass_1(self):
         self._create_recording("ABC123456789")
 
@@ -17,9 +14,6 @@ class TestRecordingCredentialFormatRecording(SavepointCase):
 
     def test__check_isrc_recording_pass_3(self):
         self._create_recording("XYABC0000000")
-
-    def test__check_isrc_recording_pass_4(self):
-        self._create_recording("XYABC0000000XYABC0000000", ttype="group")
 
     def test__check_isrc_recording_pass_5(self):
         self._write_recording("XYABC9999999")
@@ -40,11 +34,18 @@ class TestRecordingCredentialFormatRecording(SavepointCase):
         with self.assertRaises(ValidationError):
             self._write_recording("XYABC999999K")
 
-    def _create_recording(self, isrc, ttype=None):
-        vals = {"name": "Test", "isrc": isrc}
-        if ttype:
-            vals["ttype"] = ttype
-        self.env["recording"].create(vals)
+    def test__create_recording_with_lower_case_isrc(self):
+        recording = self._create_recording("abc123456789")
+        assert recording.isrc == "ABC123456789"
+
+    def test__edit_recording_with_lower_case_isrc(self):
+        recording = self._create_recording(None)
+        recording.isrc = "abc123456789"
+        recording.refresh()
+        assert recording.isrc == "ABC123456789"
+
+    def _create_recording(self, isrc):
+        return self.env["recording"].create({"name": "Test", "isrc": isrc})
 
     def _write_recording(self, isrc):
         self.env["recording"].create({"name": "Test"}).isrc = isrc

@@ -4,11 +4,8 @@
 from odoo.exceptions import ValidationError
 from odoo.tests.common import SavepointCase
 
-from odoo.tests.common import tagged
 
-
-@tagged("post_install")
-class TestRecordingCredentialFormatRecordingOtherIsrc(SavepointCase):
+class TestOtherIsrc(SavepointCase):
     def test__check_isrc_recording_pass_1(self):
         self._create_recording_other_isrc("ABC123456789")
 
@@ -37,9 +34,19 @@ class TestRecordingCredentialFormatRecordingOtherIsrc(SavepointCase):
         with self.assertRaises(ValidationError):
             self._write_recording_other_isrc("XYABC999999K")
 
+    def test__create_line_with_lower_case_isrc(self):
+        line = self._create_recording_other_isrc("abc123456789")
+        assert line.isrc == "ABC123456789"
+
+    def test__edit_line_with_lower_case_isrc(self):
+        line = self._create_recording_other_isrc("ZZ1234567890")
+        line.isrc = "abc123456789"
+        line.refresh()
+        assert line.isrc == "ABC123456789"
+
     def _create_recording_other_isrc(self, isrc):
         recording = self.env["recording"].create({"name": "Test"})
-        self.env["recording.other.isrc"].create(
+        return self.env["recording.other.isrc"].create(
             {"isrc": isrc, "recording_id": recording.id}
         )
 

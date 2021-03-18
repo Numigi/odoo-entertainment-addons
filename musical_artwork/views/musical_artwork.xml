@@ -34,12 +34,10 @@
                         <h1>
                             <field name="catalogue_reference" readonly="1"/>
                         </h1>
-                        <h1>
-                            <field name="title" placeholder="Title"/>
-                        </h1>
                     </div>
                     <group>
                         <group name="group_1">
+                            <field name="title" placeholder="Title"/>
                             <field name="iswc"/>
                             <field name="musical_catalog_reference_ids">
                                 <tree editable="top">

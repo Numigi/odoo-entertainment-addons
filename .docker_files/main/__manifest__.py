@@ -23,6 +23,7 @@
         "recording_analytic",
         "recording_artist",
         "recording_contributor",
+        "recording_credential_format",
         "recording_external_revenue",
         "recording_external_revenue_account",
         "recording_genre",

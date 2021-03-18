@@ -125,6 +125,11 @@ class TestRecordingUniqueConstrains(SavepointCase):
         cls.rec_1 = cls.env["recording"].create({"name": "Rec 1", "ttype": "sound"})
         cls.rec_2 = cls.env["recording"].create({"name": "Rec 2", "ttype": "sound"})
 
+        cls.isrc_1 = "ABC000000001"
+        cls.isrc_2 = "ABC000000002"
+        cls.isrc_3 = "ABC000000003"
+        cls.isrc_4 = "ABC000000004"
+
     def test_unique_upc_pass(self):
         self.rec_1.upc = "AAA"
         self.rec_2.upc = "BBB"
@@ -144,23 +149,25 @@ class TestRecordingUniqueConstrains(SavepointCase):
             self.rec_2.upc_packshot = "AAA"
 
     def test_unique_isrc_pass(self):
-        self.rec_1.isrc = "AAAAAAAAAAAA"
-        self.rec_2.isrc = "BBBBBBBBBBBB"
-        self._add_other_isrc(self.rec_1, "CCCCCCCCCCCC")
-        self._add_other_isrc(self.rec_2, "DDDDDDDDDDDD")
+        self.rec_1.isrc = self.isrc_1
+        self.rec_2.isrc = self.isrc_2
+        self._add_other_isrc(self.rec_1, self.isrc_3)
+        self._add_other_isrc(self.rec_2, self.isrc_4)
 
     def test_unique_isrc_fail(self):
-        self.rec_1.isrc = "AAAAAAAAAAAA"
+        self.rec_1.isrc = self.isrc_1
         with self.assertRaises(ValidationError):
-            self.rec_2.isrc = "AAAAAAAAAAAA"
+            self.rec_2.isrc = self.isrc_1
         with self.assertRaises(ValidationError):
-            self._add_other_isrc(self.rec_1, "AAAAAAAAAAAA")
+            self._add_other_isrc(self.rec_1, self.isrc_1)
         with self.assertRaises(ValidationError):
-            self._add_other_isrc(self.rec_2, "AAAAAAAAAAAA")
+            self._add_other_isrc(self.rec_2, self.isrc_1)
 
     def _add_other_isrc(self, recording, code):
-        self.env['recording.other.isrc'].create({
-            'recording_id': recording.id,
-            'isrc': code,
-            'partner_id': self.env['res.partner'].search([], limit=1).id,
-        })
+        self.env["recording.other.isrc"].create(
+            {
+                "recording_id": recording.id,
+                "isrc": code,
+                "partner_id": self.env["res.partner"].search([], limit=1).id,
+            }
+        )

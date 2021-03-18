@@ -2,9 +2,9 @@ Recording Credential Format
 ===========================
 This modules add constrains to check the value of field `isrc` on model Recording and model Recording Other Isrc
 
-.. image:: static/description/recording_credential_format_recording.png
+.. image:: static/description/isrc.png
 
-.. image:: static/description/recording_credential_format_recording_other_isrc.png
+.. image:: static/description/other_isrc.png
 
 Configuration
 -------------

@@ -16,7 +16,8 @@
                         attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                     <group>
                         <group>
-                            <field name="show_sale_amount" string="Sale Amount"/>
+                            <field name="show_sale_amount" string="Sale Amount"
+                                attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                         </group>
                     </group>
                     <newline/>

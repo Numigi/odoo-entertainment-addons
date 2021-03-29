@@ -32,6 +32,13 @@
                     'invisible': [('show_type', '=', 'tour')]
                     }</attribute>
             </field>
+            
+            <!-- Hide project_type field when project not show -->
+            <field name="project_type_id" position="attributes">
+                <attribute name="attrs">{
+                    'invisible': [('show_type', '!=', 'show')]
+                    }</attribute>
+            </field>
 
             <!-- Show the field Formula in configuration tab and only visible when project type is show -->
             <field name="user_id" position="before">

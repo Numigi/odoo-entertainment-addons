@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-22 19:56+0000\n"
-"PO-Revision-Date: 2021-02-22 15:02-0500\n"
+"POT-Creation-Date: 2021-03-29 19:44+0000\n"
+"PO-Revision-Date: 2021-03-29 15:50-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"Language: fr\n"
 "X-Generator: Poedit 2.0.6\n"
 
 #. module: show_project_fee
@@ -30,14 +30,27 @@ msgstr "Calculer les cachets"
 #. module: show_project_fee
 #: code:addons/show_project_fee/models/project_project.py:38
 #, python-format
-msgid "Could not compute the fees for the show {show}. The computation of fees is based on the data configured in the fees tab of the tour. There is no data defined in the fees tab of the parent project ({tour})."
-msgstr "Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le calcul des cachets est basé sur les données paramétrées dans l'onglet Cachets de la tournée. Aucune donnée n'est configurée dans l'onglet Cachets du projet parent ({tour})."
+msgid ""
+"Could not compute the fees for the show {show}. The computation of fees is "
+"based on the data configured in the fees tab of the tour. There is no data "
+"defined in the fees tab of the parent project ({tour})."
+msgstr ""
+"Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le calcul "
+"des cachets est basé sur les données paramétrées dans l'onglet Cachets de la "
+"tournée. Aucune donnée n'est configurée dans l'onglet Cachets du projet "
+"parent ({tour})."
 
 #. module: show_project_fee
 #: code:addons/show_project_fee/models/project_project.py:28
 #, python-format
-msgid "Could not compute the fees for the show {show}. The computation of fees is based on the type of project, the amount of sales and the members of the show. These data must be filled in."
-msgstr "Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le calcul des cachets est basé la phase du spectacle, le montant des ventes et l'équipe de spectacle. Ces données doivent être renseignées."
+msgid ""
+"Could not compute the fees for the show {show}. The computation of fees is "
+"based on the type of project, the amount of sales and the members of the "
+"show. These data must be filled in."
+msgstr ""
+"Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le calcul "
+"des cachets est basé la phase du spectacle, le montant des ventes et "
+"l'équipe de spectacle. Ces données doivent être renseignées."
 
 #. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__create_uid
@@ -143,58 +156,78 @@ msgstr "Montant de ventes"
 #. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__sequence
 msgid "Sequence"
-msgstr ""
+msgstr "Séquence"
 
 #. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_project__show_fee_ids
 msgid "Show Fees"
-msgstr ""
+msgstr "Cachets de spectacle"
 
 #. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_project__show_sale_amount
 msgid "Show Sale Amount"
-msgstr ""
+msgstr "Montant de vente du spectable"
 
 #. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:70
-#, python-format
-msgid "The value entered for the maximum sale amount ({max}) can not be lower than the minimum sale amount ({min})."
-msgstr ""
-
-#. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:119
+#: code:addons/show_project_fee/models/project_show_fee.py:67
 #, python-format
 msgid ""
-"Two fee entries with the same role ({role}) are incompatible with one another.\n"
+"The value entered for the maximum sale amount ({max}) can not be lower than "
+"the minimum sale amount ({min})."
+msgstr ""
+"La valeur entrée pour le montant maximal de ventes ({max}) ne peut pas être "
+"plus petit que le montant minimum de ventes ({min})."
+
+#. module: show_project_fee
+#: code:addons/show_project_fee/models/project_show_fee.py:114
+#, python-format
+msgid ""
+"Two fee entries with the same role ({role}) are incompatible with one "
+"another.\n"
 "\n"
 "\t* {fee_1}\n"
 "\t* {fee_2}"
 msgstr ""
+"Deux lignes de cachet avec le même rôle ({role}) sont incompatibles l'une "
+"part rapport à l'autre.\n"
+"\n"
+"\t* {fee_1}\n"
+"\t* {fee_2}"
 
 #. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__type_
 msgid "Type "
-msgstr ""
+msgstr "Type"
 
 #. module: show_project_fee
 #: selection:project.show.fee,type_:0
 msgid "Variable"
-msgstr ""
+msgstr "Variable"
 
 #. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:99
+#: code:addons/show_project_fee/models/project_show_fee.py:94
 #, python-format
 msgid ""
 "{}\n"
 "\n"
-"If a fee has a project type, another fee can not be defined with the same role but no project type."
+"If a fee has a project type, another fee can not be defined with the same "
+"role but no project type."
 msgstr ""
+"{}\n"
+"\n"
+"Si un cachet a un type de projet, un autre cachet ne peut pas être défini "
+"avec le même rôle et aucun projet."
 
 #. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:111
+#: code:addons/show_project_fee/models/project_show_fee.py:106
 #, python-format
 msgid ""
 "{}\n"
 "\n"
-"Multiple fees with the same role and project type can not have overlapping ranges of sales (Min / Max)."
+"Multiple fees with the same role and project type can not have overlapping "
+"ranges of sales (Min / Max)."
 msgstr ""
+"{}\n"
+"\n"
+"Deux lignes de cachets avec le même rôle et le même type de projet ne "
+"peuvent pas avoir des montant de ventes (min / max) qui se chevauchent."

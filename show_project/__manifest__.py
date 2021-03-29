@@ -13,6 +13,7 @@
         # Numigi-Project
         "project_iteration",
         "project_form_with_dates",
+        "project_type",
         # OCA-server-tool
         "base_view_inheritance_extension",
         # Numigi-Entertainment

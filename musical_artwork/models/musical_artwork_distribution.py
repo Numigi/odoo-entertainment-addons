@@ -5,7 +5,7 @@ from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 from odoo.tools import float_compare
 
-decimal_precision = (12, 2)
+decimal_precision = (12, 3)
 
 
 class MusicalArtworkDistributionLine(models.Model):
@@ -82,7 +82,7 @@ class MusicalArtworkDistribution(models.Model):
     @api.constrains('total_distribution_key')
     def _check_total_distribution_key(self):
         for record in self:
-            if float_compare(record.total_distribution_key, 100, 2):
+            if float_compare(record.total_distribution_key, 100, 3):
                 raise ValidationError(_(
                     "The sum of the distribution key lines is not equal to 100. "
                     "The distribution key must have a total of 100%."

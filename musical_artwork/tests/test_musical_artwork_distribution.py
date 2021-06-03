@@ -60,7 +60,7 @@ class TestMusicalArtworkDistribution(SavepointCase):
 
     def test_if_distribution_not_100__raise_error(self):
         with pytest.raises(ValidationError):
-            self.distribution.line_ids |= self._new_line(0.01)
+            self.distribution.line_ids |= self._new_line(0.001)
 
     def test_musical_artwork_count(self):
         self.distribution.copy({})

@@ -7,9 +7,7 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./.log:/var/log/odoo
-      - ./show_project:/mnt/extra-addons/show_project
-      - ./show_project_fee:/mnt/extra-addons/show_project_fee
-      - ./show_project_role:/mnt/extra-addons/show_project_role
+      - ./show_project_promotion:/mnt/extra-addons/show_project_promotion
     ports:
       - "8069:8069"
       - "8071:8071"

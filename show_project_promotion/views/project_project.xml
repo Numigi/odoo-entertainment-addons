@@ -19,8 +19,10 @@
                             <field name="show_event_url" widget="url"/>
                         </group>
                         <group>
+                            <field name="photo_gallery_url" widget="url"/>
                             <field name="tour_poster_url" widget="url"/>
                             <field name="show_description_url" widget="url"/>
+                            <field name="biography_url" widget="url"/>
                         </group>
                     </group>
                     <label for="promotional_item_ids"/>

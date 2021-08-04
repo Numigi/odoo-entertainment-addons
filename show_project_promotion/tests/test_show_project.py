@@ -10,12 +10,16 @@ class TestShowProject(SavepointCase):
         super().setUpClass()
         cls.tour_poster_url = "tour.poster.url"
         cls.show_description_url = "show.description.url"
+        cls.tour_biography_url = "tour.biography"
+        cls.tour_photo_gallery_url = "tour.photo.gallery"
         cls.tour = cls.env["project.project"].create(
             {
                 "name": "Tour Project 1",
                 "show_type": "tour",
                 "tour_poster_url": cls.tour_poster_url,
                 "show_description_url": cls.show_description_url,
+                "biography_url": cls.tour_biography_url,
+                "photo_gallery_url": cls.tour_photo_gallery_url,
             }
         )
         cls.product = cls.env["product.product"].search([], limit=1)
@@ -37,6 +41,8 @@ class TestShowProject(SavepointCase):
         self.show._onchange_parent_propagate_promotion_fields()
         assert self.show.tour_poster_url == self.tour_poster_url
         assert self.show.show_description_url == self.show_description_url
+        assert self.show.biography_url == self.tour_biography_url
+        assert self.show.photo_gallery_url == self.tour_photo_gallery_url
 
     def test_promotional_item_propagation(self):
         self.show._onchange_parent_propagate_promotion_fields()

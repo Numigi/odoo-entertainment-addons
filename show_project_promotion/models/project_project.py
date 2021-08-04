@@ -11,8 +11,10 @@ class ProjectProject(models.Model):
     show_sale_date = fields.Date("Sale Date", prefetch=False)
     distributor_platform_url = fields.Char("Distributor Platform", prefetch=False)
     show_event_url = fields.Char("Show Event", prefetch=False)
+    photo_gallery_url = fields.Char("Photo Gallery", prefetch=False)
     tour_poster_url = fields.Char("Tour Poster", prefetch=False)
     show_description_url = fields.Char("Show Description", prefetch=False)
+    biography_url = fields.Char("Biography", prefetch=False)
 
     promotional_item_ids = fields.One2many(
         "project.promotional.item", "project_id", "Promotional Items"
@@ -24,6 +26,9 @@ class ProjectProject(models.Model):
             self.tour_poster_url = self.parent_id.tour_poster_url
             self.show_description_url = self.parent_id.show_description_url
             self.promotional_item_ids = self.parent_id._copy_promotional_items()
+            self.photo_gallery_url = self.parent_id.photo_gallery_url
+            self.show_description_url = self.parent_id.show_description_url
+            self.biography_url = self.parent_id.biography_url
 
     def _copy_promotional_items(self):
         res = self.env["project.promotional.item"]

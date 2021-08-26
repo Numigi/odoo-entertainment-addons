@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="sale_order_form" model="ir.ui.view">
+        <field name="name">sale.order: add show tab</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="show" string="Show" attrs="{'invisible': [('is_show', '=', False)]}">
+                    <field name="is_show" invisible="1"/>
+                    <group>
+                        <group name="show" string="Show">
+                            <field name="artist_id"/>
+                            <field name="show_project_id"
+                                domain="[('show_type', '=', 'show')]"
+                                context="{'default_show_type': 'show'}"/>
+                            <field name="other_artists"/>
+                            <label for="first_part"/>
+                            <div>
+                                <field name="has_first_part" nolabel="1" class="oe_inline"/>
+                                <field name="first_part" nolabel="1" 
+                                    class="oe_inline"
+                                    style="width: calc(100% - 28px) !important;"
+                                    attrs="{'invisible': [('has_first_part', '=', False)],
+                                            'required': [('has_first_part', '=', True)]}"
+                                    />
+                            </div>
+                            <field name="show_date"/>
+                            <field name="show_hour" widget="float_time"/>
+                            <field name="show_duration" widget="float_time"/>
+                            <field name="door_hour" widget="float_time"/>
+                            <field name="artist_start_hour" widget="float_time"/>
+                            <field name="show_notes"/>
+                        </group>
+                        <group name="tickets" string="Tickets">
+                            <field name="artist_favour_tickets"/>
+                            <field name="announcement_date"/>
+                            <field name="selling_date"/>
+
+                            <label for="ticket_price_ids"/>
+                            <field name="ticket_price_ids">
+                                <tree>
+                                    <field name="segment"/>
+                                    <field name="price"/>
+                                </tree>
+                            </field>
+
+                            <label for="service_fee_ids"/>
+                            <field name="service_fee_ids">
+                                <tree>
+                                    <field name="segment"/>
+                                    <field name="price"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group name="organisation" string="Organisation">
+                            <field name="show_place_id"/>
+                            <field name="show_place_maximum_capacity" string="Location Capacity"
+                                readonly="1" force_save="1"/>
+
+                            <field name="has_intermission"/>
+
+                            <label for="accomodation"/>
+                            <div>
+                                <field name="has_accomodation" nolabel="1" class="oe_inline"/>
+                                <field name="accomodation" nolabel="1" 
+                                    class="oe_inline"
+                                    style="width: calc(100% - 28px) !important;"
+                                    attrs="{'invisible': [('has_accomodation', '=', False)],
+                                            'required': [('has_accomodation', '=', True)]}"
+                                    />
+                            </div>
+
+                            <label for="meal"/>
+                            <div>
+                                <field name="has_meal" nolabel="1" class="oe_inline"/>
+                                <field name="meal" nolabel="1" 
+                                    class="oe_inline"
+                                    style="width: calc(100% - 28px) !important;"
+                                    attrs="{'invisible': [('has_meal', '=', False)],
+                                            'required': [('has_meal', '=', True)]}"
+                                    />
+                            </div>
+                        </group>
+                        <group name="variable_remuneration" string="Variable Remuneration">
+                            <field name="has_benefits_sharing"/>
+                            <field name="benefits_sharing_rate"
+                                widget="percentage"
+                                attrs="{'invisible': [('has_benefits_sharing', '=', False)]}"
+                                />
+                            <field name="benefits_sharing_type"
+                                attrs="{'invisible': [('has_benefits_sharing', '=', False)]}"
+                                />
+                            <field name="benefits_sharing_amount_before"
+                                attrs="{
+                                    'invisible': [
+                                        '|',
+                                        ('has_benefits_sharing', '=', False),
+                                        ('benefits_sharing_type', '!=', 'after_fixed_amount'),
+                                    ]
+                                }"/>
+                            <field name="benefits_sharing_forcasted_expense"
+                                attrs="{
+                                    'invisible': [
+                                        '|',
+                                        ('has_benefits_sharing', '=', False),
+                                        ('benefits_sharing_type', '!=', 'after_real_costs'),
+                                    ]
+                                }"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="sale_order_search" model="ir.ui.view">
+        <field name="name">sale.order: add show tab</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <separator position="after">
+                <filter string="Shows" name="shows" domain="[('is_show', '=', True)]"/>
+                <separator/>
+            </separator>
+        </field>
+    </record>
+
+</odoo>

@@ -5,3 +5,4 @@ from . import sale_order
 from . import sale_order_service_fee
 from . import sale_order_ticket_price
 from . import sale_order_type
+from . import project_project

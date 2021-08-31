@@ -13,6 +13,7 @@
     "depends": ["sale_order_type", "show_project"],
     "data": [
         "security/ir.model.access.csv",
+        "views/project.xml",
         "views/sale_order.xml",
         "views/sale_order_type.xml",
     ],

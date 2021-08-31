@@ -19,16 +19,18 @@ class SaleOrder(models.Model):
     has_first_part = fields.Boolean()
     first_part = fields.Char()
 
-    artist_favour_tickets = fields.Integer()
+    artist_favour_tickets = fields.Integer("Artist's Favour Tickets")
     announcement_date = fields.Date()
     selling_date = fields.Date()
     ticket_price_ids = fields.One2many(
         "sale.order.ticket.price",
         "order_id",
+        "Ticket Prices",
     )
     service_fee_ids = fields.One2many(
         "sale.order.service.fee",
         "order_id",
+        "Service Fees",
     )
     show_date = fields.Date()
     show_hour = fields.Float()
@@ -38,9 +40,12 @@ class SaleOrder(models.Model):
     show_notes = fields.Text()
 
     show_place_id = fields.Many2one(
-        "res.partner", ondelete="restrict", string="Show Location"
+        related="show_project_id.show_place_id", string="Show Location", store=True,
     )
-    show_place_maximum_capacity = fields.Integer("Show Location Capacity")
+    show_place_maximum_capacity = fields.Integer(
+        "Show Location Capacity",
+        related="show_project_id.show_place_maximum_capacity", store=True,
+    )
 
     has_intermission = fields.Boolean("Intermission")
 

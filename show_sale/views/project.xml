@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_sale_order_from_project" model="ir.actions.act_window">
+        <field name="name">Sales</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">tree,kanban,calendar,pivot,graph,activity,form</field>
+        <field name="context">{
+            'search_default_show_project_id': active_id,
+        }</field>
+    </record>
+
+    <record id="project_form" model="ir.ui.view">
+        <field name="name">project.project: add Sales smart button</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <button name="toggle_active" position="before">
+                <button name="%(action_sale_order_from_project)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-usd"
+                    attrs="{'invisible': [('show_type', '!=', 'show')]}"
+                    >
+                    <field string="Sale Orders" name="show_sale_order_count" widget="statinfo"/>
+                </button>
+            </button>
+        </field>
+    </record>
+
+</odoo>

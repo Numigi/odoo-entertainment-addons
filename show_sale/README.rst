@@ -37,6 +37,19 @@ When I click on the button, the list of related sale orders is displayed.
 
 .. image:: static/description/project_smart_button_sale_orders.png
 
+Tickets
+-------
+Inside the ``Tickets`` section, there are two fields ``Ticket Prices`` and ``Service Fees``.
+
+.. image:: static/description/ticket_section.png
+
+Both fields allow to select a ``Customer Segment`` and a price.
+
+Members of the group ``Sales / Manager`` can edit customer segments.
+The list of segments can be found under the menu ``Sales / Configuration / Customer Segments``.
+
+.. image:: static/description/customer_segment_menu.png
+
 Organisation
 ------------
 Inside the ``Organisation`` section, the fields ``Show Location`` and ``Location Capacity`` are readonly.

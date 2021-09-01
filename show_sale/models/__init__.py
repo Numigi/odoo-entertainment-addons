@@ -6,3 +6,4 @@ from . import sale_order_service_fee
 from . import sale_order_ticket_price
 from . import sale_order_type
 from . import project_project
+from . import show_customer_segment

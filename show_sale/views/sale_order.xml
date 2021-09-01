@@ -43,16 +43,16 @@
                             <group col="1">
                                 <label for="ticket_price_ids"/>
                                 <field name="ticket_price_ids" nolabel="1">
-                                    <tree>
-                                        <field name="segment"/>
+                                    <tree editable="bottom">
+                                        <field name="segment_id"/>
                                         <field name="price"/>
                                     </tree>
                                 </field>
 
                                 <label for="service_fee_ids"/>
                                 <field name="service_fee_ids" nolabel="1">
-                                    <tree>
-                                        <field name="segment"/>
+                                    <tree editable="bottom">
+                                        <field name="segment_id"/>
                                         <field name="price"/>
                                     </tree>
                                 </field>

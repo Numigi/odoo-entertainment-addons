@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_show_customer_segment"
+        name="Customer Segments"
+        action="action_show_customer_segment"
+        parent="sale.menu_sale_config"
+        sequence="100"
+        />
+
+</odoo>

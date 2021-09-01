@@ -2,22 +2,18 @@
 <odoo>
     <record id="artist_coeur_de_pirate" model="artist">
         <field name="name">Coeur de Pirate</field>
-        <field name="ttype">sound</field>
     </record>
 
     <record id="artist_renaud" model="artist">
         <field name="name">Renaud</field>
-        <field name="ttype">sound</field>
     </record>
 
     <record id="artist_eagles" model="artist">
         <field name="name">Eagles</field>
-        <field name="ttype">group</field>
     </record>
 
     <record id="artist_dire_straits" model="artist">
         <field name="name">Dire Straits</field>
-        <field name="ttype">group</field>
     </record>
 
 </odoo>

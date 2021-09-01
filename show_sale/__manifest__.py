@@ -3,19 +3,22 @@
 
 {
     "name": "Show Sale",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "Numigi",
     "maintainer": "Numigi",
     "website": "https://www.numigi.com",
     "license": "LGPL-3",
     "category": "Entertainment",
     "summary": "Add sales orders of type show",
-    "depends": ["sale_order_type", "show_project"],
+    "depends": ["sale_order_type", "show_project", "artist"],
     "data": [
         "security/ir.model.access.csv",
         "views/project.xml",
         "views/sale_order.xml",
         "views/sale_order_type.xml",
+        "views/sale_order_type.xml",
+        "views/show_customer_segment.xml",
+        "views/menu.xml",
     ],
     "installable": True,
 }

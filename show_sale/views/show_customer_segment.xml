@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="show_customer_segment_form" model="ir.ui.view">
+        <field name="name">Customer Segment Form</field>
+        <field name="model">show.customer.segment</field>
+        <field name="arch" type="xml">
+            <form string="Customer Segment">
+                <header>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object"
+                                class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="group_1">
+                            <field name="sequence"/>
+                        </group>
+                        <group name="group_2">
+                        </group>
+                    </group>
+                    <notebook>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="show_customer_segment_list" model="ir.ui.view">
+        <field name="name">Customer Segment List</field>
+        <field name="model">show.customer.segment</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Segments" editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="show_customer_segment_search" model="ir.ui.view">
+        <field name="name">Customer Segment Search</field>
+        <field name="model">show.customer.segment</field>
+        <field name="arch" type="xml">
+            <search string="Search Customer Segments">
+                <field name="name"/>
+                <separator/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+           </search>
+        </field>
+    </record>
+
+    <record id="action_show_customer_segment" model="ir.actions.act_window">
+        <field name="name">Customer Segments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">show.customer.segment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="show_customer_segment_list"/>
+        <field name="search_view_id" ref="show_customer_segment_search"/>
+    </record>
+
+</odoo>

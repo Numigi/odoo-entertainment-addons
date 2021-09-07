@@ -29,6 +29,9 @@
                             <field name="show_place_distance_from_productor"
                                    string="Distance from Productor"
                                    />
+                            <field name="show_place_stage"
+                                   string="Stage"
+                                   />
                         </group>
                         <group/>
                         <label for="show_place_notes"  string="Notes"/>

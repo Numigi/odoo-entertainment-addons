@@ -11,6 +11,7 @@ class ProjectProject(models.Model):
         selection=[("standard", "Standard"), ("tour", "Tour"), ("show", "Show")],
         default="standard",
     )
+    showcase = fields.Boolean()
     formula = fields.Char()
     show_date = fields.Date()
     expected_parent_show_type = fields.Char(
@@ -39,7 +40,8 @@ class ProjectProject(models.Model):
         related="show_place_id.show_place_distance_from_productor",
         string="Distance from Productor",
     )
-    show_place_notes = fields.Text(string="Notes")
+    show_place_stage = fields.Selection(related="show_place_id.show_place_stage")
+    show_place_notes = fields.Text()
     previous_show_id = fields.Many2one(
         comodel_name="project.project", compute="_compute_previous_and_next_show_id"
     )

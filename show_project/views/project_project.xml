@@ -40,8 +40,9 @@
                     }</attribute>
             </field>
 
-            <!-- Show the field Formula in configuration tab and only visible when project type is show -->
+            <!-- Add fields in configuration tab and only visible when project type is show -->
             <field name="user_id" position="before">
+                <field name="showcase" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="formula" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
             </field>
 
@@ -69,7 +70,8 @@
                             <field name="show_place_configuration"/>
                             <field name="show_place_minor_restriction"/>
                             <field name="show_place_distance_from_productor"/>
-                            <field name="show_place_notes"/>
+                            <field name="show_place_stage" string="Stage"/>
+                            <field name="show_place_notes" string="Notes"/>
                             <field name="previous_show_id"/>
                             <field name="next_show_id"/>
                         </group>

@@ -30,3 +30,9 @@ class ResPartner(models.Model):
     show_place_distance_from_productor = fields.Integer(
         string="Distance from Productor", prefetch=False
     )
+    show_place_stage = fields.Selection(
+        [
+            ("indoor", "Indoor"),
+            ("outdoor", "Outdoor"),
+        ],
+    )

@@ -35,4 +35,5 @@ class ResPartner(models.Model):
             ("indoor", "Indoor"),
             ("outdoor", "Outdoor"),
         ],
+        prefetch=False,
     )

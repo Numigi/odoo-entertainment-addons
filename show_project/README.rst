@@ -21,6 +21,10 @@ For show project, user can see the new **Show** tab
 
 .. image:: static/description/project_show_tab.png
 
+In case the project has show type is "Show", the field `Name` is marked readonly and the value will be set automatically with this format: "{parent_name} - {show_date} - {show_place}"
+
+.. image:: static/description/project_name_type_show.png
+
 Configuration
 -------------
 

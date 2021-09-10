@@ -4,6 +4,7 @@
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields
+from odoo.tests import Form
 from odoo.tests.common import SavepointCase
 
 
@@ -72,3 +73,46 @@ class TestShowProject(SavepointCase):
         )
         self.assertEqual(self.show_project_1.previous_show_id, self.show_project_2)
         self.assertEqual(self.show_project_1.next_show_id, self.show_project_3)
+
+    def test_type_show_name_readonly(self):
+        with self.assertRaises(AssertionError):
+            self._create_project_with_form(
+                {"name": "Show project", "show_type": "show"}
+            )
+
+    def test_type_standard_name_editable(self):
+        form = self._create_project_with_form(
+            {"name": "Standard project", "show_type": "standard"}
+        )
+        self.assertEqual(form.name, "Standard project")
+
+    def test_type_tour_name_editable(self):
+        form = self._create_project_with_form(
+            {"name": "Tour project", "show_type": "tour"}
+        )
+        self.assertEqual(form.name, "Tour project")
+
+    def test_type_show_name_is_set_automatically(self):
+        show_place = self.env["res.partner"].create(
+            {"type": "show_site", "name": "Show Site A"}
+        )
+        form = self._create_project_with_form(
+            {
+                "parent_id": self.tour_project_1,
+                "show_type": "show",
+                "show_date": "2021-01-01",
+                "show_place_id": show_place,
+            }
+        )
+        self.assertEqual(
+            form.name,
+            "{} - {} - {}".format(
+                self.tour_project_1.display_name, "2021-01-01", show_place.display_name
+            ),
+        )
+
+    def _create_project_with_form(self, values):
+        with Form(self.env["project.project"]) as project_form:
+            for k, v in values.items():
+                setattr(project_form, k, v)
+        return project_form

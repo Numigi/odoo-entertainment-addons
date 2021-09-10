@@ -90,6 +90,17 @@ class ProjectProject(models.Model):
                 project.previous_show_id = False
                 project.next_show_id = False
 
+    @api.onchange("show_type", "parent_id", "show_date", "show_place_id")
+    def _onchange_set_show_name(self):
+        if self.show_type == "show":
+            values = [
+                self.parent_id.display_name,
+                fields.Date.to_string(self.show_date),
+                self.show_place_id.display_name,
+            ]
+            values = filter(lambda x: x, values)
+            self.name = " - ".join(values)
+
     @api.model
     def _set_show_type_vals(self, vals):
         # If project type is `tour`, parent_id should be False

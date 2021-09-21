@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_hr_contribution_type"
+        name="Contribution Types"
+        parent="hr_payroll.menu_hr_payroll_configuration"
+        action="action_hr_contribution_type"
+        sequence="50"
+        />
+
+    <menuitem
+        id="menu_hr_contribution_base"
+        name="Contribution Bases"
+        parent="hr_payroll.menu_hr_payroll_configuration"
+        action="action_hr_contribution_base"
+        sequence="51"
+        />
+
+</odoo>

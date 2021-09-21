@@ -13,6 +13,7 @@
     'depends': [
         'recording',
         'url_link_type',
+        'web_list_column_width',
     ],
     'data': [
         'security/ir.model.access.csv',

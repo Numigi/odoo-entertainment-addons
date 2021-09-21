@@ -7,7 +7,6 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./.log:/var/log/odoo
-      - ./artist_recording_limit_note_width:/mnt/extra-addons/artist_recording_limit_note_width
     ports:
       - "8069:8069"
       - "8071:8071"

@@ -13,7 +13,7 @@
                             <tree editable="top">
                                 <field name="type_id"/>
                                 <field name="url" widget="url"/>
-                                <field name="notes"/>
+                                <field name="notes" width="450px"/>
                             </tree>
                         </field>
                     </group>

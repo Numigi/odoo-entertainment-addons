@@ -20,3 +20,8 @@
   branch: "12.0"
   includes:
     - sale_order_type
+
+- url: https://github.com/Numigi/odoo-web-addons
+  branch: "12.0"
+  includes:
+    - web_list_column_width

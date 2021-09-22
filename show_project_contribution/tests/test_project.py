@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 from odoo.tests.common import SavepointCase
 
 
-class TestContributionBase(SavepointCase):
+class TestShowContributions(SavepointCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()

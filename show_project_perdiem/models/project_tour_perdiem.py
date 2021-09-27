@@ -6,7 +6,7 @@ from odoo import fields, models
 
 class ProjectTourPerDiem(models.Model):
 
-    _name = "project.tour.perdiem"
+    _name = "project.tour.perdiem.config"
     _description = "Project Tour Per Diem"
     _order = "sequence"
 
@@ -16,7 +16,7 @@ class ProjectTourPerDiem(models.Model):
         "project.project", ondelete="cascade", required=True, index=True
     )
 
-    perdiem_type_id = fields.Many2one(
+    type_id = fields.Many2one(
         "project.perdiem.type",
         "Type",
         required=True,

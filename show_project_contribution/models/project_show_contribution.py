@@ -35,4 +35,5 @@ class ProjectShowContribution(models.Model):
         required=True,
     )
 
-    base_amount = fields.Float("Base Amount")
+    base_amount = fields.Monetary("Base Amount")
+    currency_id = fields.Many2one(related="project_id.currency_id")

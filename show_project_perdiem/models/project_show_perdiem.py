@@ -21,7 +21,7 @@ class ProjectShowPerDiem(models.Model):
         required=True,
     )
 
-    perdiem_type_id = fields.Many2one(
+    type_id = fields.Many2one(
         "project.perdiem.type",
         "Type",
         required=True,
@@ -29,10 +29,10 @@ class ProjectShowPerDiem(models.Model):
 
     quantity = fields.Float("Quantity")
     unit_amount = fields.Monetary("Unit Amount")
-    amount = fields.Monetary("Amount", compute="_compute_amount", store=True)
+    total = fields.Monetary("Amount", compute="_compute_total", store=True)
     currency_id = fields.Many2one(related="project_id.currency_id")
 
     @api.depends("quantity", "unit_amount")
-    def _compute_amount(self):
+    def _compute_total(self):
         for perdiem in self:
-            perdiem.amount = perdiem.unit_amount * perdiem.quantity
+            perdiem.total = perdiem.unit_amount * perdiem.quantity

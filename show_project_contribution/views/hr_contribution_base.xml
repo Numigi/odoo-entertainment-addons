@@ -19,6 +19,7 @@
                     <group>
                         <group name="group_1">
                             <field name="amount"/>
+                            <field name="currency_id" invisible="1"/>
                             <field name="type_id"/>
                             <label for="description"/>
                             <newline/>
@@ -42,6 +43,7 @@
                 <field name="type_id"/>
                 <field name="amount"/>
                 <field name="active"/>
+                <field name="currency_id" invisible="1"/>
             </tree>
         </field>
     </record>

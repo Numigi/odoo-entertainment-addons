@@ -16,7 +16,7 @@ class ProjectShowPerDiemConfig(models.Model):
         "project.project", ondelete="cascade", required=True, index=True
     )
 
-    perdiem_type_id = fields.Many2one(
+    type_id = fields.Many2one(
         "project.perdiem.type",
         "Type",
         required=True,

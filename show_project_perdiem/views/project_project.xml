@@ -15,14 +15,15 @@
                     <group attrs="{'invisible': [('show_type', '!=', 'tour')]}">
                         <group>
                             <field
-                                name="tour_perdiem_ids"
+                                name="tour_perdiem_config_ids"
                                 nolabel="1"
                                 colspan="1"
                                 >
                                 <tree editable="bottom">
                                     <field name="sequence" widget="handle"/>
-                                    <field name="perdiem_type_id"/>
+                                    <field name="type_id"/>
                                     <field name="unit_amount"/>
+                                    <field name="currency_id" invisible="1"/>
                                 </tree>
                             </field>
                         </group>
@@ -40,7 +41,7 @@
                                 >
                                 <tree editable="bottom">
                                     <field name="sequence" widget="handle"/>
-                                    <field name="perdiem_type_id"/>
+                                    <field name="type_id"/>
                                     <field name="quantity"/>
                                 </tree>
                             </field>
@@ -70,10 +71,11 @@
                             >
                             <tree>
                                 <field name="partner_id"/>
-                                <field name="perdiem_type_id"/>
+                                <field name="type_id"/>
                                 <field name="quantity"/>
                                 <field name="unit_amount"/>
-                                <field name="amount"/>
+                                <field name="total"/>
+                                <field name="currency_id" invisible="1"/>
                             </tree>
                         </field>
                     </group>

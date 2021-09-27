@@ -18,6 +18,7 @@
                             <field name="amount" string="Contribution Base"/>
                             <field name="type_id"/>
                             <field name="description"/>
+                            <field name="currency_id" invisible="1"/>
                         </tree>
                     </field>
 
@@ -36,6 +37,7 @@
                             <field name="register_id"/>
                             <field name="code"/>
                             <field name="base_amount"/>
+                            <field name="currency_id" invisible="1"/>
                         </tree>
                     </field>
                 </page>

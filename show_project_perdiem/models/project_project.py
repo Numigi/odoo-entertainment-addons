@@ -9,6 +9,12 @@ class Project(models.Model):
 
     _inherit = "project.project"
 
+    tour_perdiem_config_ids = fields.One2many(
+        "project.tour.perdiem.config",
+        "project_id",
+        "Configuration of Tour Per Diem",
+    )
+
     show_perdiem_config_ids = fields.One2many(
         "project.show.perdiem.config",
         "project_id",
@@ -21,17 +27,11 @@ class Project(models.Model):
         "Show Per Diem",
     )
 
-    tour_perdiem_ids = fields.One2many(
-        "project.tour.perdiem",
-        "project_id",
-        "Tour Per Diem",
-    )
-
-    @api.constrains("tour_perdiem_ids")
+    @api.constrains("tour_perdiem_config_ids")
     def _check_duplicate_tour_perdiems(self):
         for project in self:
-            types = project.mapped("tour_perdiem_ids.perdiem_type_id")
-            if len(types) != len(project.tour_perdiem_ids):
+            types = project.mapped("tour_perdiem_config_ids.type_id")
+            if len(types) != len(project.tour_perdiem_config_ids):
                 raise ValidationError(_(
                     "You may not select multiple applicable per diem "
                     "of the same type."
@@ -40,7 +40,7 @@ class Project(models.Model):
     @api.constrains("show_perdiem_config_ids")
     def _check_duplicate_show_perdiems(self):
         for project in self:
-            types = project.mapped("show_perdiem_config_ids.perdiem_type_id")
+            types = project.mapped("show_perdiem_config_ids.type_id")
             if len(types) != len(project.show_perdiem_config_ids):
                 raise ValidationError(_(
                     "You may not select multiple applicable per diem "
@@ -65,11 +65,11 @@ class Project(models.Model):
                 yield tour_config, show_config, partner
 
     def _get_tour_perdiem_config(self, show_config):
-        type_ = show_config.perdiem_type_id
+        type_ = show_config.type_id
         tour = self.parent_id
 
         tour_config = next(
-            (p for p in tour.tour_perdiem_ids if p.perdiem_type_id == type_),
+            (p for p in tour.tour_perdiem_config_ids if p.type_id == type_),
             None,
         )
 
@@ -90,6 +90,6 @@ class Project(models.Model):
         return {
             "partner_id": partner.id,
             "quantity": show_config.quantity,
-            "perdiem_type_id": show_config.perdiem_type_id.id,
+            "type_id": show_config.type_id.id,
             "unit_amount": tour_config.unit_amount,
         }

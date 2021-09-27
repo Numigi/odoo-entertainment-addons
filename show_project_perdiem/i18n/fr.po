@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-29 19:44+0000\n"
-"PO-Revision-Date: 2021-03-29 15:50-0400\n"
+"POT-Creation-Date: 2021-09-27 14:24+0000\n"
+"PO-Revision-Date: 2021-09-27 10:39-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -15,219 +15,330 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__amount
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__amount
 msgid "Amount"
 msgstr "Montant"
 
-#. module: show_project_fee
-#: model_terms:ir.ui.view,arch_db:show_project_fee.project_form
-msgid "Compute Fees"
-msgstr "Calculer les cachets"
+#. module: show_project_perdiem
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_perdiem_type_search
+msgid "Archived"
+msgstr "Archivé"
 
-#. module: show_project_fee
-#: code:addons/show_project_fee/models/project_project.py:38
-#, python-format
-msgid ""
-"Could not compute the fees for the show {show}. The computation of fees is "
-"based on the data configured in the fees tab of the tour. There is no data "
-"defined in the fees tab of the parent project ({tour})."
-msgstr ""
-"Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le calcul "
-"des cachets est basé sur les données paramétrées dans l'onglet Cachets de la "
-"tournée. Aucune donnée n'est configurée dans l'onglet Cachets du projet "
-"parent ({tour})."
+#. module: show_project_perdiem
+#: model:project.perdiem.type,name:show_project_perdiem.perdiem_type_breakfast
+msgid "Breakfast"
+msgstr "Déjeuner"
 
-#. module: show_project_fee
-#: code:addons/show_project_fee/models/project_project.py:28
-#, python-format
-msgid ""
-"Could not compute the fees for the show {show}. The computation of fees is "
-"based on the type of project, the amount of sales and the members of the "
-"show. These data must be filled in."
-msgstr ""
-"Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le calcul "
-"des cachets est basé la phase du spectacle, le montant des ventes et "
-"l'équipe de spectacle. Ces données doivent être renseignées."
+#. module: show_project_perdiem
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_form
+msgid "Compute Per Diem To Pay"
+msgstr "Calculer Per Diem à payer"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__create_uid
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_project__show_perdiem_config_ids
+msgid "Configuration of Show Per Diem"
+msgstr "Configuration des Per Diem sur spectacle"
+
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_project__tour_perdiem_config_ids
+msgid "Configuration of Tour Per Diem"
+msgstr "Configuration des Per Diem sur tournée"
+
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__create_uid
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__create_uid
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__create_uid
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__create_date
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__create_date
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__create_date
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__create_date
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Créé le"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__currency_id
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__currency_id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__currency_id
 msgid "Currency"
 msgstr "Devise"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__display_name
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__description
+msgid "Description"
+msgstr "Description"
+
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__display_name
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__display_name
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__display_name
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom affiché"
 
-#. module: show_project_fee
-#: model_terms:ir.ui.view,arch_db:show_project_fee.project_form
-msgid "Fees"
-msgstr "Cachets"
-
-#. module: show_project_fee
-#: selection:project.show.fee,type_:0
-msgid "Fixed"
-msgstr "Fixe"
-
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__id
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee____last_update
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type____last_update
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem____last_update
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config____last_update
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__write_uid
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__write_uid
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__write_uid
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__write_uid
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière modification par"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__write_date
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__write_date
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__write_date
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__write_date
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Dernière mise à jour le"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__max_sale_amount
-msgid "Max Sale Amount"
-msgstr "Montant de ventes max"
+#. module: show_project_perdiem
+#: model:project.perdiem.type,name:show_project_perdiem.perdiem_type_lunch
+msgid "Lunch"
+msgstr "Diner"
 
-#. module: show_project_fee
-#: model_terms:ir.ui.view,arch_db:show_project_fee.project_form
-msgid "Max Sales"
-msgstr "Ventes max"
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_perdiem_type__name
+msgid "Name"
+msgstr "Nom"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__min_sale_amount
-msgid "Min Sale Amount"
-msgstr "Montant de ventes min"
-
-#. module: show_project_fee
-#: model_terms:ir.ui.view,arch_db:show_project_fee.project_form
-msgid "Min Sales"
-msgstr "Ventes min"
-
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__partner_id
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__partner_id
 msgid "Partner"
 msgstr "Partenaire"
 
-#. module: show_project_fee
-#: model:ir.model,name:show_project_fee.model_project_project
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__project_id
+#. module: show_project_perdiem
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_form
+msgid "Per Diem"
+msgstr "Per Diem"
+
+#. module: show_project_perdiem
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_form
+msgid "Per Diem To Apply"
+msgstr "Per Diem à appliquer"
+
+#. module: show_project_perdiem
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_form
+msgid "Per Diem To Pay"
+msgstr "Per Diem à payer"
+
+#. module: show_project_perdiem
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_perdiem_type_form
+msgid "Per Diem Type"
+msgstr "Type de Per Diem"
+
+#. module: show_project_perdiem
+#: model:ir.actions.act_window,name:show_project_perdiem.action_project_perdiem_type
+#: model:ir.ui.menu,name:show_project_perdiem.menu_project_perdiem_type
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_perdiem_type_list
+msgid "Per Diem Types"
+msgstr "Types de Per Diem"
+
+#. module: show_project_perdiem
+#: model:ir.model,name:show_project_perdiem.model_project_project
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__project_id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__project_id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__project_id
 msgid "Project"
 msgstr "Projet"
 
-#. module: show_project_fee
-#: model:ir.model,name:show_project_fee.model_project_show_fee
-msgid "Project Show Fee"
-msgstr "Cachet de spectacle (Projets)"
+#. module: show_project_perdiem
+#: model:ir.model,name:show_project_perdiem.model_project_perdiem_type
+msgid "Project Per Diem Type"
+msgstr "Type de Per Diem"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__project_type_id
-msgid "Project Type"
-msgstr "Type de projet"
+#. module: show_project_perdiem
+#: model:ir.model,name:show_project_perdiem.model_project_show_perdiem
+msgid "Project Show Per Diem"
+msgstr "Per Diem sur spectacle"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__role_id
-msgid "Role"
-msgstr "Rôle"
+#. module: show_project_perdiem
+#: model:ir.model,name:show_project_perdiem.model_project_show_perdiem_config
+msgid "Project Show Per Diem Configuration"
+msgstr "Configuration des Per Diem (spectacle)"
 
-#. module: show_project_fee
-#: model_terms:ir.ui.view,arch_db:show_project_fee.project_form
-msgid "Sale Amount"
-msgstr "Montant de ventes"
+#. module: show_project_perdiem
+#: model:ir.model,name:show_project_perdiem.model_project_tour_perdiem
+#: model:ir.model,name:show_project_perdiem.model_project_tour_perdiem_config
+msgid "Project Tour Per Diem"
+msgstr "Configuration des Per Diem (tournée)"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__sequence
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__quantity
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__quantity
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: show_project_perdiem
+#: model_terms:ir.ui.view,arch_db:show_project_perdiem.project_perdiem_type_search
+msgid "Search Per Diem Types"
+msgstr "Chercher des types de Per Diem"
+
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__sequence
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__sequence
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__sequence
 msgid "Sequence"
 msgstr "Séquence"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_project__show_fee_ids
-msgid "Show Fees"
-msgstr "Cachets de spectacle"
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_project__show_perdiem_ids
+msgid "Show Per Diem"
+msgstr "Per Diem (spectacle)"
 
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_project__show_sale_amount
-msgid "Show Sale Amount"
-msgstr "Montant de vente du spectable"
+#. module: show_project_perdiem
+#: model:project.perdiem.type,name:show_project_perdiem.perdiem_type_supper
+msgid "Supper"
+msgstr "Souper"
 
-#. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:67
+#. module: show_project_perdiem
+#: code:addons/show_project_perdiem/models/project_project.py:78
 #, python-format
 msgid ""
-"The value entered for the maximum sale amount ({max}) can not be lower than "
-"the minimum sale amount ({min})."
+"The type of perdiem {perdiem_type} is not defined on the parent tour "
+"({tour})."
 msgstr ""
-"La valeur entrée pour le montant maximal de ventes ({max}) ne peut pas être "
-"plus petit que le montant minimum de ventes ({min})."
+"Le type de Per Diem {perdiem_type} n'est pas défini sur la tournée parente "
+"({tour})."
 
-#. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:114
-#, python-format
-msgid ""
-"Two fee entries with the same role ({role}) are incompatible with one "
-"another.\n"
-"\n"
-"\t* {fee_1}\n"
-"\t* {fee_2}"
-msgstr ""
-"Deux lignes de cachet avec le même rôle ({role}) sont incompatibles l'une "
-"part rapport à l'autre.\n"
-"\n"
-"\t* {fee_1}\n"
-"\t* {fee_2}"
-
-#. module: show_project_fee
-#: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__type_
-msgid "Type "
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__type_id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem_config__type_id
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__type_id
+msgid "Type"
 msgstr "Type"
 
-#. module: show_project_fee
-#: selection:project.show.fee,type_:0
-msgid "Variable"
-msgstr "Variable"
+#. module: show_project_perdiem
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_show_perdiem__unit_amount
+#: model:ir.model.fields,field_description:show_project_perdiem.field_project_tour_perdiem_config__unit_amount
+msgid "Unit Amount"
+msgstr "Montant unitaire"
 
-#. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:94
+#. module: show_project_perdiem
+#: code:addons/show_project_perdiem/models/project_project.py:35
+#: code:addons/show_project_perdiem/models/project_project.py:45
 #, python-format
-msgid ""
-"{}\n"
-"\n"
-"If a fee has a project type, another fee can not be defined with the same "
-"role but no project type."
+msgid "You may not select multiple applicable per diem of the same type."
 msgstr ""
-"{}\n"
-"\n"
-"Si un cachet a un type de projet, un autre cachet ne peut pas être défini "
-"avec le même rôle et aucun projet."
+"Vous ne pouvez pas sélectionner plusieurs Per Diem applicables du même type."
 
-#. module: show_project_fee
-#: code:addons/show_project_fee/models/project_show_fee.py:106
-#, python-format
-msgid ""
-"{}\n"
-"\n"
-"Multiple fees with the same role and project type can not have overlapping "
-"ranges of sales (Min / Max)."
-msgstr ""
-"{}\n"
-"\n"
-"Deux lignes de cachets avec le même rôle et le même type de projet ne "
-"peuvent pas avoir des montant de ventes (min / max) qui se chevauchent."
+#~ msgid "Compute Fees"
+#~ msgstr "Calculer les cachets"
+
+#~ msgid ""
+#~ "Could not compute the fees for the show {show}. The computation of fees "
+#~ "is based on the data configured in the fees tab of the tour. There is no "
+#~ "data defined in the fees tab of the parent project ({tour})."
+#~ msgstr ""
+#~ "Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le "
+#~ "calcul des cachets est basé sur les données paramétrées dans l'onglet "
+#~ "Cachets de la tournée. Aucune donnée n'est configurée dans l'onglet "
+#~ "Cachets du projet parent ({tour})."
+
+#~ msgid ""
+#~ "Could not compute the fees for the show {show}. The computation of fees "
+#~ "is based on the type of project, the amount of sales and the members of "
+#~ "the show. These data must be filled in."
+#~ msgstr ""
+#~ "Les cachets n'ont pas pu être calculés pour le spectacle {show}. Le "
+#~ "calcul des cachets est basé la phase du spectacle, le montant des ventes "
+#~ "et l'équipe de spectacle. Ces données doivent être renseignées."
+
+#~ msgid "Fees"
+#~ msgstr "Cachets"
+
+#~ msgid "Fixed"
+#~ msgstr "Fixe"
+
+#~ msgid "Max Sale Amount"
+#~ msgstr "Montant de ventes max"
+
+#~ msgid "Max Sales"
+#~ msgstr "Ventes max"
+
+#~ msgid "Min Sale Amount"
+#~ msgstr "Montant de ventes min"
+
+#~ msgid "Min Sales"
+#~ msgstr "Ventes min"
+
+#~ msgid "Role"
+#~ msgstr "Rôle"
+
+#~ msgid "Sale Amount"
+#~ msgstr "Montant de ventes"
+
+#~ msgid "Show Sale Amount"
+#~ msgstr "Montant de vente du spectable"
+
+#~ msgid ""
+#~ "The value entered for the maximum sale amount ({max}) can not be lower "
+#~ "than the minimum sale amount ({min})."
+#~ msgstr ""
+#~ "La valeur entrée pour le montant maximal de ventes ({max}) ne peut pas "
+#~ "être plus petit que le montant minimum de ventes ({min})."
+
+#~ msgid ""
+#~ "Two fee entries with the same role ({role}) are incompatible with one "
+#~ "another.\n"
+#~ "\n"
+#~ "\t* {fee_1}\n"
+#~ "\t* {fee_2}"
+#~ msgstr ""
+#~ "Deux lignes de cachet avec le même rôle ({role}) sont incompatibles l'une "
+#~ "part rapport à l'autre.\n"
+#~ "\n"
+#~ "\t* {fee_1}\n"
+#~ "\t* {fee_2}"
+
+#~ msgid "Variable"
+#~ msgstr "Variable"
+
+#~ msgid ""
+#~ "{}\n"
+#~ "\n"
+#~ "If a fee has a project type, another fee can not be defined with the same "
+#~ "role but no project type."
+#~ msgstr ""
+#~ "{}\n"
+#~ "\n"
+#~ "Si un cachet a un type de projet, un autre cachet ne peut pas être défini "
+#~ "avec le même rôle et aucun projet."
+
+#~ msgid ""
+#~ "{}\n"
+#~ "\n"
+#~ "Multiple fees with the same role and project type can not have "
+#~ "overlapping ranges of sales (Min / Max)."
+#~ msgstr ""
+#~ "{}\n"
+#~ "\n"
+#~ "Deux lignes de cachets avec le même rôle et le même type de projet ne "
+#~ "peuvent pas avoir des montant de ventes (min / max) qui se chevauchent."

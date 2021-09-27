@@ -33,10 +33,10 @@ class TestPerDiem(SavepointCase):
             }
         )
 
-        cls.tour_perdiem = cls.env["project.tour.perdiem"].create(
+        cls.tour_perdiem = cls.env["project.tour.perdiem.config"].create(
             {
                 "project_id": cls.tour.id,
-                "perdiem_type_id": cls.breakfast.id,
+                "type_id": cls.breakfast.id,
                 "unit_amount": 30,
             }
         )
@@ -52,7 +52,7 @@ class TestPerDiem(SavepointCase):
         cls.show_perdiem_config = cls.env["project.show.perdiem.config"].create(
             {
                 "project_id": cls.show.id,
-                "perdiem_type_id": cls.breakfast.id,
+                "type_id": cls.breakfast.id,
                 "quantity": 2,
             }
         )
@@ -71,8 +71,8 @@ class TestPerDiem(SavepointCase):
         assert len(perdiem) == 1
         assert perdiem.unit_amount == 30
         assert perdiem.quantity == 2
-        assert perdiem.amount == 60
-        assert perdiem.perdiem_type_id == self.breakfast
+        assert perdiem.total == 60
+        assert perdiem.type_id == self.breakfast
 
     def test_compute_twice(self):
         self.show.compute_show_perdiems()
@@ -87,12 +87,12 @@ class TestPerDiem(SavepointCase):
 
     def test_tour_with_twice_same_type(self):
         vals = {
-            "tour_perdiem_ids": [
+            "tour_perdiem_config_ids": [
                 (
                     0,
                     0,
                     {
-                        "perdiem_type_id": self.breakfast.id,
+                        "type_id": self.breakfast.id,
                     },
                 )
             ]
@@ -107,7 +107,7 @@ class TestPerDiem(SavepointCase):
                     0,
                     0,
                     {
-                        "perdiem_type_id": self.breakfast.id,
+                        "type_id": self.breakfast.id,
                     },
                 )
             ]

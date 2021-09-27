@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    "name": "Show Project Contribution",
+    "name": "Show Project Per Diem",
     "summary": "Add perdiems on shows",
     "version": "1.0.0",
     "website": "https://bit.ly/numigi-com",

@@ -5,6 +5,8 @@ from odoo import fields, models, api
 
 
 class MusicalArtworkDistributionLine(models.Model):
-    _inherit = 'musical.artwork.distribution.line'
+    _inherit = "musical.artwork.distribution.line"
 
-    musical_artwork_title = fields.Char(related="distribution_id.musical_artwork_id.title", store=True)
+    musical_artwork_title = fields.Char(
+        related="distribution_id.musical_artwork_id.title", store=True
+    )

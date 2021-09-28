@@ -15,6 +15,12 @@
                 </div>
             </xpath>
 
+            <!-- Mark readonly Name field when project type is show -->
+            <field name="name" position="attributes">
+                <attribute name="attrs">{'readonly': [('show_type', '=', 'show')]}</attribute>
+                <attribute name="force_save">1</attribute>
+            </field>
+
             <!-- Hide Parent Project field when project type is tour -->
             <!-- Parent Project is required when project type is show -->
             <field name="parent_id" position="attributes">
@@ -32,7 +38,7 @@
                     'invisible': [('show_type', '=', 'tour')]
                     }</attribute>
             </field>
-            
+
             <!-- Hide project_type field when project not show -->
             <field name="project_type_id" position="attributes">
                 <attribute name="attrs">{

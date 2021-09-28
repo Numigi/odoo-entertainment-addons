@@ -7,10 +7,16 @@ from odoo import fields, models, api
 class Lead(models.Model):
     _inherit = "crm.lead"
 
-    artist = fields.Many2one("artist")
-    artworks = fields.Many2many("musical.artwork", "artwork_lead_rel", "crm_lead_id", "musical_artwork_id")
-    has_rights = fields.Many2many("musical.artwork.distribution.line", compute="_compute_has_rights")
+    artist_id = fields.Many2one("artist")
+    artwork_ids = fields.Many2many("musical.artwork", "artwork_lead_rel", "crm_lead_id", "musical_artwork_id")
+    artwork_distribution_ids = fields.Many2many("musical.artwork.distribution.line", compute="_compute_has_rights")
+    recording_ids = fields.Many2many("recording", "recording_lead_rel", "crm_lead_id", "recording_id")
 
 
+    @api.depends("artwork_ids")
     def _compute_has_rights(self):
-        pass
+        self.artwork_distribution_ids = self.env["musical.artwork.distribution.line"].search(
+            [
+                ("distribution_id.musical_artwork_id", "in", self.artwork_ids.ids),
+            ]
+        )

@@ -9,10 +9,24 @@
                 <page name="management" string="Artistic Management">
                     <group>
                         <group>
-                            <field name="artist"/>
-                            <field name="artworks">
+                            <field name="artist_id"/>
+                            <field name="artwork_ids">
                                 <tree>
                                     <field name="title"/>
+                                </tree>
+                            </field>
+                            <field name="artwork_distribution_ids">
+                                <tree>
+                                    <field name="distribution_id"/>
+                                    <field name="musical_artwork_title"/>
+                                    <field name="partner_id"/>
+                                    <field name="role_id"/>
+                                    <field name="percentage"/>
+                                </tree>
+                            </field>
+                            <field name="recording_ids">
+                                <tree>
+                                    <field name="name"/>
                                 </tree>
                             </field>
                         </group>

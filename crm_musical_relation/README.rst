@@ -1,30 +1,20 @@
-Musical Artwork
-===============
-This module adds the concept of a ``Musical Artwork`` as an Odoo model.
-It also defines the satellite models that enrich musical artwork, such as:
-
-* Roles
+CRM Musical Relation
+====================
+This module adds artist, artwork and recording selection fields to CRM leads.
 
 .. contents:: Table of Contents
 
 
-Musical Artworks
+Usage
 ----------------
-The module defines the list view of a musical artwork.
+Within CRM leads, there is now a new submenu called Artistic Management.
 
-.. image:: static/description/musical_artwork_list.png
+.. image:: static/description/submenu.png
 
-The module defines the form view of a musical artwork.
+You can select an artist, multiple artworks and multiple recordings. 
+The artwork distributions table will update to display the selected artwork's distributions.
 
-.. image:: static/description/musical_artwork_form.png
-
-
-Musical Artwork Roles
----------------------
-The module defines the list view of a musical artwork role.
-
-.. image:: static/description/musical_artwork_role_list.png
-
+.. image:: static/description/fields.png
 
 Contributors
 ------------

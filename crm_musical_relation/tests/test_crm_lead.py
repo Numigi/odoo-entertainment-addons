@@ -35,15 +35,23 @@ class TestCrmLead(SavepointCase):
             }
         )
 
-        cls.distribution = cls.env['musical.artwork.distribution'].create({
-            'musical_artwork_id': cls.artwork.id,
-            'country_group_id': cls.env.ref('base.europe').id,
-            'line_ids': [(0, 0, {
-                'partner_id': cls.partner.id,
-                'role_id': cls.role.id,
-                'percentage': 100,
-            })]
-        })
+        cls.distribution = cls.env["musical.artwork.distribution"].create(
+            {
+                "musical_artwork_id": cls.artwork.id,
+                "country_group_id": cls.env.ref("base.europe").id,
+                "line_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "partner_id": cls.partner.id,
+                            "role_id": cls.role.id,
+                            "percentage": 100,
+                        },
+                    )
+                ],
+            }
+        )
 
         cls.lead = cls.env["crm.lead"].create(
             {
@@ -57,4 +65,7 @@ class TestCrmLead(SavepointCase):
         self.lead.artwork_id = self.artwork
         self.lead._compute_has_rights()
         assert len(self.lead.artwork_distribution_ids) == 1
-        assert self.lead.artwork_distribution_ids[0].distribution_id.musical_artwork_id == self.artwork
+        assert (
+            self.lead.artwork_distribution_ids[0].distribution_id.musical_artwork_id
+            == self.artwork
+        )

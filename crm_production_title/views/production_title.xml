@@ -39,7 +39,7 @@
         <field name="name">Production Title List</field>
         <field name="model">production.title</field>
         <field name="arch" type="xml">
-            <tree string="Production Title">
+            <tree string="Production Titles">
                 <field name="name"/>
                 <field name="production_type_id" string="Type"/>
                 <field name="active"/>

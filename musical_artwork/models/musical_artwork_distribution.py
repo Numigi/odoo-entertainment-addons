@@ -30,6 +30,9 @@ class MusicalArtworkDistributionLine(models.Model):
     distribution_id = fields.Many2one(
         'musical.artwork.distribution', required=True, ondelete='cascade', index=True
     )
+    artwork_id = fields.Many2one(
+        related="distribution_id.musical_artwork_id", store=True
+    )
 
 
 class MusicalArtworkDistribution(models.Model):

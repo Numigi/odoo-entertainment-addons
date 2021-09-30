@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="crm_case_form_view_leads" model="ir.ui.view">
+        <field name="name">crm.lead.form.lead</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+        <field name="arch" type="xml">
+            <page name="extra" position="before">
+                <page name="management" string="Artistic Management">
+                    <group>
+                        <group>
+                            <field name="artist_id"/>
+                            <field name="artwork_ids">
+                                <tree>
+                                    <field name="title"/>
+                                </tree>
+                            </field>
+                            <field name="artwork_distribution_ids">
+                                <tree>
+                                    <field name="distribution_id"/>
+                                    <field name="artwork_id"/>
+                                    <field name="partner_id"/>
+                                    <field name="role_id"/>
+                                    <field name="percentage"/>
+                                </tree>
+                            </field>
+                            <field name="recording_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>

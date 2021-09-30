@@ -20,6 +20,7 @@ COPY contact_birth_city /mnt/extra-addons/contact_birth_city
 COPY crm_production_title /mnt/extra-addons/crm_production_title
 COPY musical_artwork /mnt/extra-addons/musical_artwork
 COPY musical_catalog /mnt/extra-addons/musical_catalog
+COPY crm_musical_relation /mnt/extra-addons/crm_musical_relation
 COPY partner_organization_membership /mnt/extra-addons/partner_organization_membership
 COPY product_musical_relation /mnt/extra-addons/product_musical_relation
 COPY recording /mnt/extra-addons/recording

@@ -18,7 +18,7 @@
                             <field name="artwork_distribution_ids">
                                 <tree>
                                     <field name="distribution_id"/>
-                                    <field name="musical_artwork_title"/>
+                                    <field name="artwork_id"/>
                                     <field name="partner_id"/>
                                     <field name="role_id"/>
                                     <field name="percentage"/>

@@ -7,6 +7,6 @@ from odoo import fields, models
 class MusicalArtworkDistributionLine(models.Model):
     _inherit = "musical.artwork.distribution.line"
 
-    musical_artwork_title = fields.Char(
-        related="distribution_id.musical_artwork_id.title", store=True
+    artwork_id = fields.Many2one(
+        related="distribution_id.musical_artwork_id", store=True, ondelete="restrict"
     )

@@ -10,6 +10,6 @@ class Lead(models.Model):
     production_title_id = fields.Many2one("production.title", ondelete="restrict")
     production_type_id = fields.Many2one(
         "production.type",
-        related="production_title_id.production_type_id",
+        related="production_title_id.type_id",
         readonly=True,
     )

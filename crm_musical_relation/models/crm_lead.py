@@ -20,10 +20,11 @@ class Lead(models.Model):
 
     @api.depends("artwork_ids")
     def _compute_has_rights(self):
-        self.artwork_distribution_ids = self.env[
-            "musical.artwork.distribution.line"
-        ].search(
-            [
-                ("distribution_id.musical_artwork_id", "in", self.artwork_ids.ids),
-            ]
-        )
+        for rec in self:
+            rec.artwork_distribution_ids = rec.env[
+                "musical.artwork.distribution.line"
+            ].search(
+                [
+                    ("distribution_id.musical_artwork_id", "in", rec.artwork_ids.ids),
+                ]
+            )

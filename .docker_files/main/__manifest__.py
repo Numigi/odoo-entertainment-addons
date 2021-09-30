@@ -15,6 +15,7 @@
         "artist",
         "artist_url_link",
         "contact_birth_city",
+        "crm_production_title",
         "musical_artwork",
         "musical_catalog",
         "partner_organization_membership",

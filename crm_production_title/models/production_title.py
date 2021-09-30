@@ -10,6 +10,6 @@ class ProductionTitle(models.Model):
     _order = "name"
 
     name = fields.Text(translate=True)
-    production_type_id = fields.Many2one("production.type", ondelete="restrict")
+    type_id = fields.Many2one("production.type", ondelete="restrict")
     description = fields.Text(translate=True)
     active = fields.Boolean(default=True)

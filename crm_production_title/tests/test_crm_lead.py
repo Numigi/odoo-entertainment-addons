@@ -22,7 +22,7 @@ class TestCrmLead(SavepointCase):
                 "name": "title",
                 "description": "title",
                 "active": True,
-                "production_type_id": cls.production_type.id,
+                "type_id": cls.production_type.id,
             }
         )
 

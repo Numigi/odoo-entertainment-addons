@@ -9,7 +9,10 @@ class Lead(models.Model):
 
     artist_id = fields.Many2one("artist", ondelete="restrict")
     artwork_ids = fields.Many2many(
-        "musical.artwork", "musical_artwork_lead_rel", "crm_lead_id", "musical_artwork_id"
+        "musical.artwork",
+        "musical_artwork_lead_rel",
+        "crm_lead_id",
+        "musical_artwork_id",
     )
     artwork_distribution_ids = fields.Many2many(
         "musical.artwork.distribution.line", compute="_compute_has_rights"

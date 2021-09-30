@@ -1,0 +1,58 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* crm_musical_relation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-28 22:07+0000\n"
+"PO-Revision-Date: 2021-09-28 18:09-0400\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.3\n"
+"Last-Translator: \n"
+"Language: fr\n"
+
+#. module: crm_musical_relation
+#: model:ir.model.fields,field_description:crm_musical_relation.field_crm_lead__artist_id
+msgid "Artist"
+msgstr "Artiste"
+
+#. module: crm_musical_relation
+#: model_terms:ir.ui.view,arch_db:crm_musical_relation.crm_case_form_view_leads
+msgid "Artistic Management"
+msgstr "Gestion Artistique"
+
+#. module: crm_musical_relation
+#: model:ir.model.fields,field_description:crm_musical_relation.field_crm_lead__artwork_ids
+msgid "Artwork"
+msgstr "Oeuvre"
+
+#. module: crm_musical_relation
+#: model:ir.model.fields,field_description:crm_musical_relation.field_crm_lead__artwork_distribution_ids
+msgid "Artwork Distribution"
+msgstr "Distribution d'œuvre"
+
+#. module: crm_musical_relation
+#: model:ir.model,name:crm_musical_relation.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Opportunité"
+
+#. module: crm_musical_relation
+#: model:ir.model,name:crm_musical_relation.model_musical_artwork_distribution_line
+msgid "Musical Artwork Distribution Line"
+msgstr "Ligne de distribution d’œuvre musicale"
+
+#. module: crm_musical_relation
+#: model:ir.model.fields,field_description:crm_musical_relation.field_crm_lead__recording_ids
+msgid "Recording"
+msgstr "Enregistrement"
+
+#. module: crm_musical_relation
+#: model:ir.model.fields,field_description:crm_musical_relation.field_musical_artwork_distribution_line__musical_artwork_title
+msgid "Title"
+msgstr "Titre"

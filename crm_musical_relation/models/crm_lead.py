@@ -7,7 +7,7 @@ from odoo import fields, models, api
 class Lead(models.Model):
     _inherit = "crm.lead"
 
-    artist_id = fields.Many2one("artist")
+    artist_id = fields.Many2one("artist", ondelete="restrict")
     artwork_ids = fields.Many2many(
         "musical.artwork", "musical_artwork_lead_rel", "crm_lead_id", "musical_artwork_id"
     )

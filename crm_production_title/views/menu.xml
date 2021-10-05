@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_action_crm_lead_production_title"
+        name="Production Titles"
+        action="action_crm_lead_production_title_form"
+        parent="crm.crm_menu_config"
+        sequence="30"
+        />
+    <menuitem id="menu_action_crm_lead_production_type"
+        name="Production Types"
+        action="action_crm_lead_production_type_form"
+        parent="crm.crm_menu_config"
+        sequence="31"
+        />
+</odoo>

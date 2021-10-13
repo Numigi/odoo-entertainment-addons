@@ -151,23 +151,8 @@ class TestRecordingUniqueConstrains(SavepointCase):
     def test_unique_isrc_pass(self):
         self.rec_1.isrc = self.isrc_1
         self.rec_2.isrc = self.isrc_2
-        self._add_other_isrc(self.rec_1, self.isrc_3)
-        self._add_other_isrc(self.rec_2, self.isrc_4)
 
     def test_unique_isrc_fail(self):
         self.rec_1.isrc = self.isrc_1
         with self.assertRaises(ValidationError):
             self.rec_2.isrc = self.isrc_1
-        with self.assertRaises(ValidationError):
-            self._add_other_isrc(self.rec_1, self.isrc_1)
-        with self.assertRaises(ValidationError):
-            self._add_other_isrc(self.rec_2, self.isrc_1)
-
-    def _add_other_isrc(self, recording, code):
-        self.env["recording.other.isrc"].create(
-            {
-                "recording_id": recording.id,
-                "isrc": code,
-                "partner_id": self.env["res.partner"].search([], limit=1).id,
-            }
-        )

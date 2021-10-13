@@ -9,6 +9,6 @@ class ProductionType(models.Model):
     _description = "Production Type"
     _order = "name"
 
-    name = fields.Text(translate=True)
+    name = fields.Text(translate=True, required=True)
     description = fields.Text(translate=True)
     active = fields.Boolean(default=True)

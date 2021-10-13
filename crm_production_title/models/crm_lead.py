@@ -12,4 +12,6 @@ class Lead(models.Model):
         "production.type",
         related="production_title_id.type_id",
         readonly=True,
+        store=True,
+        string="Production Type",
     )

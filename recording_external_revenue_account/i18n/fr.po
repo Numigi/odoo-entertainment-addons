@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-10 17:11+0000\n"
-"PO-Revision-Date: 2020-06-10 13:12-0400\n"
+"POT-Creation-Date: 2021-10-13 19:24+0000\n"
+"PO-Revision-Date: 2021-10-13 15:25-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: recording_external_revenue_account
 #: model:ir.model.fields,field_description:recording_external_revenue_account.field_recording_external_revenue__account_move_id
@@ -100,7 +100,7 @@ msgid "Last Updated on"
 msgstr "Dernière mise à jour par"
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:187
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:202
 #, python-format
 msgid ""
 "No fiscal position defined for the country {}, nor for a group of countries "
@@ -141,7 +141,7 @@ msgid "Recording Journal Mapping"
 msgstr ""
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:136
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:148
 #, python-format
 msgid "Revenue {}"
 msgstr "Revenu {}"
@@ -174,13 +174,13 @@ msgstr ""
 "{}"
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:300
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:316
 #, python-format
 msgid "The journal account {} is deprecated."
 msgstr "Le compte de grand livre {} est obsolète."
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:200
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:215
 #, python-format
 msgid ""
 "The revenue indicates that the fiscal position from the partner is "
@@ -190,13 +190,23 @@ msgstr ""
 "Aucune position fiscale n'est définie sur le partenaire {}."
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:101
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:112
+#, python-format
+msgid ""
+"The revenue {revenue} can not be posted. The record {record} is at the "
+"status To Validate."
+msgstr ""
+"Le revenu {revenue} ne peut pas être comptabilité. L'enregistrement {record} "
+"est au statut À valider."
+
+#. module: recording_external_revenue_account
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:102
 #, python-format
 msgid "The revenue {revenue} is already posted (journal entry: {entry})."
 msgstr "Le revenu {revenue} est déja comptabilisé (pièce comptable : {entry})."
 
 #. module: recording_external_revenue_account
-#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:246
+#: code:addons/recording_external_revenue_account/models/recording_external_revenue.py:261
 #, python-format
 msgid "There is no revenue account defined for the product {}."
 msgstr "Aucun compte de revenu n'est défini pour l'article {}."

@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* musical_artwork
+# 	* musical_artwork
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-29 13:05+0000\n"
-"PO-Revision-Date: 2020-12-29 13:05+0000\n"
+"POT-Creation-Date: 2021-10-13 14:32+0000\n"
+"PO-Revision-Date: 2021-10-13 10:32-0400\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.distribution_table_html_template
@@ -80,6 +82,11 @@ msgstr "Archivé"
 #: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Artist"
 msgstr "Artiste"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution_line__artwork_id
+msgid "Artwork"
+msgstr "Œuvre"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_attachment_count
@@ -401,10 +408,14 @@ msgid "No"
 msgstr "Non"
 
 #. module: musical_artwork
-#: code:addons/musical_artwork/models/musical_artwork.py:92
+#: code:addons/musical_artwork/models/musical_artwork.py:80
 #, python-format
-msgid "No ir.sequence has been found for code '%s'. Please make sure a sequence is set for current company."
-msgstr "Aucune ir.sequence n'a été trouvée pour le code '%s'. Veuillez vous assurer qu'une séquence est définie pour la société actuelle."
+msgid ""
+"No ir.sequence has been found for code '%s'. Please make sure a sequence is "
+"set for current company."
+msgstr ""
+"Aucune ir.sequence n'a été trouvée pour le code '%s'. Veuillez vous assurer "
+"qu'une séquence est définie pour la société actuelle."
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__message_needaction_counter
@@ -460,7 +471,6 @@ msgstr "Planifié"
 
 #. module: musical_artwork
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__name
-#: model_terms:ir.ui.view,arch_db:musical_artwork.musical_artwork_form
 msgid "Reference"
 msgstr "Référence"
 
@@ -505,7 +515,8 @@ msgid ""
 "Overdue: Due date is already passed\n"
 "Today: Activity date is today\n"
 "Planned: Future activities."
-msgstr "Statut basé sur les activités\n"
+msgstr ""
+"Statut basé sur les activités\n"
 "En retard : la date d'échéance est déjà dépassée\n"
 "Aujourd'hui : la date d'activité est aujourd'hui\n"
 "Planifiée : activités futures"
@@ -516,7 +527,7 @@ msgid "The catalogue reference has to be unique."
 msgstr "Cette référence de catalogue doit être unique."
 
 #. module: musical_artwork
-#: code:addons/musical_artwork/models/musical_artwork_distribution.py:86
+#: code:addons/musical_artwork/models/musical_artwork_distribution.py:101
 #, python-format
 msgid ""
 "The sum of the distribution key lines is not equal to 100. The distribution "
@@ -548,6 +559,18 @@ msgstr "Messages non lus"
 #: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__message_unread_counter
 msgid "Unread Messages Counter"
 msgstr "Compteur de messages non lus"
+
+#. module: musical_artwork
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork__website_message_ids
+#: model:ir.model.fields,field_description:musical_artwork.field_musical_artwork_distribution__website_message_ids
+msgid "Website Messages"
+msgstr "Messages non lus"
+
+#. module: musical_artwork
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork__website_message_ids
+#: model:ir.model.fields,help:musical_artwork.field_musical_artwork_distribution__website_message_ids
+msgid "Website communication history"
+msgstr ""
 
 #. module: musical_artwork
 #: model_terms:ir.ui.view,arch_db:musical_artwork.distribution_table_html_template

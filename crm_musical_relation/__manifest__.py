@@ -16,6 +16,6 @@
         "recording",
         "artist",
     ],
-    "data": ["views/crm_lead_views.xml"],
+    "data": ["views/crm_lead.xml"],
     "installable": True,
 }

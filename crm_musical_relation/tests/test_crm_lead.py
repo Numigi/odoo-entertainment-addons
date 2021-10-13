@@ -63,9 +63,6 @@ class TestCrmLead(SavepointCase):
 
     def test_compute_has_rights(self):
         self.lead.artwork_id = self.artwork
-        self.lead._compute_has_rights()
-        assert len(self.lead.artwork_distribution_ids) == 1
-        assert (
-            self.lead.artwork_distribution_ids[0].distribution_id.musical_artwork_id
-            == self.artwork
-        )
+        distribution_line = self.lead.artwork_distribution_line_ids
+        assert len(distribution_line) == 1
+        assert distribution_line.distribution_id == self.distribution

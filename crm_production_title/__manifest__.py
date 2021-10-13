@@ -11,7 +11,7 @@
     "category": "Entertainment",
     "depends": ["crm"],
     "data": [
-        "views/crm_lead_views.xml",
+        "views/crm_lead.xml",
         "views/production_type.xml",
         "views/production_title.xml",
         "views/menu.xml",

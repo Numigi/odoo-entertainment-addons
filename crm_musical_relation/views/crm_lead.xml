@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="crm_lead_form" model="ir.ui.view">
+        <field name="name">CRM Lead: add artistic management tab</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+        <field name="arch" type="xml">
+            <page name="extra" position="before">
+                <page name="management" string="Artistic Management">
+                    <group>
+                        <group>
+                            <field name="artist_id"/>
+                            <field name="artwork_ids">
+                                <tree>
+                                    <field name="title"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group colspan="2">
+                            <field name="artwork_distribution_line_ids">
+                                <tree>
+                                    <field name="artwork_id"/>
+                                    <field name="partner_id" string="Beneficiary"/>
+                                    <field name="role_id"/>
+                                    <field name="percentage"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="recording_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="crm_lead_form_opportunity" model="ir.ui.view">
+        <field name="name">CRM Opportunity: add artistic management tab</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="management" string="Artistic Management">
+                    <group>
+                        <group>
+                            <field name="artist_id"/>
+                            <field name="artwork_ids">
+                                <tree>
+                                    <field name="title"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group colspan="2">
+                            <field name="artwork_distribution_line_ids">
+                                <tree>
+                                    <field name="artwork_id"/>
+                                    <field name="partner_id" string="Beneficiary"/>
+                                    <field name="role_id"/>
+                                    <field name="percentage"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <field name="recording_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

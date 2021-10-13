@@ -13,18 +13,28 @@ class Lead(models.Model):
         "musical_artwork_lead_rel",
         "crm_lead_id",
         "musical_artwork_id",
+        string="Artworks",
     )
-    artwork_distribution_ids = fields.Many2many(
-        "musical.artwork.distribution.line", compute="_compute_has_rights"
+    artwork_distribution_line_ids = fields.Many2many(
+        "musical.artwork.distribution.line",
+        "crm_lead_musical_artwork_distribution_line_rel",
+        "lead_id",
+        "line_id",
+        string="Beneficiary",
+        compute="_compute_artwork_distribution_line_ids",
     )
     recording_ids = fields.Many2many(
-        "recording", "recording_lead_rel", "crm_lead_id", "recording_id"
+        "recording",
+        "recording_lead_rel",
+        "crm_lead_id",
+        "recording_id",
+        string="Recordings",
     )
 
     @api.depends("artwork_ids")
-    def _compute_has_rights(self):
+    def _compute_artwork_distribution_line_ids(self):
         for rec in self:
-            rec.artwork_distribution_ids = rec.env[
+            rec.artwork_distribution_line_ids = rec.env[
                 "musical.artwork.distribution.line"
             ].search(
                 [

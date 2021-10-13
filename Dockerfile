@@ -17,10 +17,10 @@ COPY account_recording_dimensions /mnt/extra-addons/account_recording_dimensions
 COPY artist /mnt/extra-addons/artist
 COPY artist_url_link /mnt/extra-addons/artist_url_link
 COPY contact_birth_city /mnt/extra-addons/contact_birth_city
+COPY crm_musical_relation /mnt/extra-addons/crm_musical_relation
 COPY crm_production_title /mnt/extra-addons/crm_production_title
 COPY musical_artwork /mnt/extra-addons/musical_artwork
 COPY musical_catalog /mnt/extra-addons/musical_catalog
-COPY crm_musical_relation /mnt/extra-addons/crm_musical_relation
 COPY partner_organization_membership /mnt/extra-addons/partner_organization_membership
 COPY product_musical_relation /mnt/extra-addons/product_musical_relation
 COPY recording /mnt/extra-addons/recording
@@ -35,6 +35,7 @@ COPY recording_lang /mnt/extra-addons/recording_lang
 COPY recording_lyrics /mnt/extra-addons/recording_lyrics
 COPY recording_musical_artwork /mnt/extra-addons/recording_musical_artwork
 COPY recording_platform /mnt/extra-addons/recording_platform
+COPY recording_status /mnt/extra-addons/recording_status
 COPY recording_subgenre /mnt/extra-addons/recording_subgenre
 COPY recording_tag /mnt/extra-addons/recording_tag
 COPY recording_url_link /mnt/extra-addons/recording_url_link

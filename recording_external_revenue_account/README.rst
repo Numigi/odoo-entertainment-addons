@@ -76,7 +76,16 @@ The ``Date of Operation`` defined on the revenue is used to determine the curren
 
 Other Constraints
 ~~~~~~~~~~~~~~~~~
+
+Deprecated Account
+******************
 If a journal account used for posting a revenue is deprecated, the job will fail with a detailed error message.
+
+Recording Status
+****************
+If the recording is not validated, the job will fail with an error message.
+
+.. image:: static/description/recording_status_not_validated.png
 
 Contributors
 ------------

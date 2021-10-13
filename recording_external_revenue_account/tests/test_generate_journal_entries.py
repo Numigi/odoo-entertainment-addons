@@ -13,6 +13,7 @@ class TestConversion(ExternalRevenueCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        cls.recording.state = "validated"
         cls.partner = cls.believe.with_context(force_company=cls.company.id)
         cls.product = cls.stream.with_context(force_company=cls.company.id)
         cls.operation_date = datetime.now().date() + timedelta(10)
@@ -469,3 +470,8 @@ class TestConversion(ExternalRevenueCase):
 
         receivable_line = self._get_receivable_line(entry)
         assert receivable_line.partner_id == self.partner
+
+    def test_recording_not_validated(self):
+        self.recording.state = "to_validate"
+        with pytest.raises(ValidationError):
+            self.revenue.generate_journal_entry()

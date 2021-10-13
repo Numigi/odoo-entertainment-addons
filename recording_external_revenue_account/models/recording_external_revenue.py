@@ -85,6 +85,7 @@ class RecordingExternalRevenue(models.Model):
     def generate_journal_entry(self):
         self = self.with_context(force_company=self.company_id.id)
         self._check_is_not_already_posted()
+        self._check_recording_is_validated()
 
         with self.env.do_in_onchange():
             move = self._make_new_journal_entry()
@@ -102,6 +103,17 @@ class RecordingExternalRevenue(models.Model):
                     "The revenue {revenue} is already posted (journal entry: {entry})."
                 ).format(
                     revenue=self.display_name, entry=self.account_move_id.display_name
+                )
+            )
+
+    def _check_recording_is_validated(self):
+        if self.recording_id.state != "validated":
+            raise ValidationError(
+                _(
+                    "The revenue {revenue} can not be posted. "
+                    "The record {record} is at the status To Validate."
+                ).format(
+                    revenue=self.display_name, record=self.recording_id.display_name
                 )
             )
 

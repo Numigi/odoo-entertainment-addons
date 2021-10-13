@@ -22,22 +22,3 @@ class RecordingOtherISRC(models.Model):
     def _check_isrc(self):
         for line in self:
             check_isrc_code(line.isrc, line._context)
-
-    @api.constrains("isrc")
-    def _unique_isrc(self):
-        recording_env = self.env["recording"]
-        for record in self:
-            same_isrc_records = self.search(
-                [("isrc", "=", record.isrc), ("id", "!=", record.id)]
-            )
-            same_isrc_recordings = same_isrc_records.mapped("recording_id")
-            same_isrc_recordings |= recording_env.search([("isrc", "=", record.isrc)])
-            if same_isrc_recordings:
-                raise ValidationError(
-                    _(
-                        "This ISRC code ({code}) is already used on another recording ({record}).\n"
-                        "ISRC code must be unique."
-                    ).format(
-                        code=record.isrc, record=same_isrc_recordings[:1].display_name
-                    )
-                )

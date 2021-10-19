@@ -8,12 +8,13 @@ class ContributionBase(models.Model):
 
     _name = "hr.contribution.base"
     _description = "Contribution Base"
-    _order = "type_id, amount"
+    _order = "register_id, amount"
 
     amount = fields.Monetary("Contribution Base", required=True)
     register_id = fields.Many2one(
         "hr.contribution.register", "Contribution Register", required=True
     )
+    main_artist = fields.Boolean()
     active = fields.Boolean(default=True)
     description = fields.Text()
 

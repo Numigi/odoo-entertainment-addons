@@ -60,7 +60,63 @@ class TestShowContributions(SavepointCase):
             }
         )
 
-    def test_compute(self):
+    def test_compute_no_register_enabled(self):
         self.show.compute_show_contributions()
-        lines = self.show.show_contribution_ids
-        assert len(lines) == 2
+        assert len(self.show.show_contribution_ids) == 0
+
+    def test_compute_gmmq__main_artist(self):
+        self.member_1.gmmq = True
+        self.member_1.main_artist = True
+        self.show.compute_show_contributions()
+        line = self.show.show_contribution_ids
+        assert len(line) == 1
+        assert line.code == self.gmmq_type_1.code
+        assert line.base_amount == self.gmmq_base_1.amount
+
+    def test_compute_gmmq__other_artist(self):
+        self.member_1.gmmq = True
+        self.show.compute_show_contributions()
+        line = self.show.show_contribution_ids
+        assert len(line) == 1
+        assert line.code == self.gmmq_type_1.code
+        assert line.base_amount == self.gmmq_base_2.amount
+
+    def test_compute_uda(self):
+        self.member_1.uda = True
+        self.show.compute_show_contributions()
+        line = self.show.show_contribution_ids
+        assert len(line) == 1
+        assert line.code == self.uda_type_1.code
+        assert line.base_amount == self.uda_base.amount
+
+    def test_coefficient(self):
+        self.member_1.gmmq = True
+        self.member_1.coefficient = 0.5
+        self.gmmq_type_1.rate = 0.08
+        self.gmmq_base_2.amount = 100
+        self.show.compute_show_contributions()
+        line = self.show.show_contribution_ids
+        assert line.base_amount == 100
+        assert line.coefficient == 0.5
+        assert line.rate == 0.08
+        assert line.amount == 4  # 100 * 0.5 * 0.08
+
+    def test_onchange_role_id__gmmq(self):
+        self.role_main.gmmq = True
+        self.member_1.onchange_role_id()
+        assert self.member_1.gmmq
+
+    def test_onchange_role_id__uda(self):
+        self.role_main.uda = True
+        self.member_1.onchange_role_id()
+        assert self.member_1.uda
+
+    def test_onchange_role_id__main_artist(self):
+        self.member_1.onchange_role_id()
+        assert self.member_1.main_artist
+
+    def test_onchange_role_id__coefficient(self):
+        self.role_main.coefficient = 0.5
+        self.member_1.onchange_role_id()
+        assert self.member_1.coefficient == 0.5
+

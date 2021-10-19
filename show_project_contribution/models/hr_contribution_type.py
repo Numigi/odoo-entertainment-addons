@@ -15,6 +15,7 @@ class ContributionType(models.Model):
     register_id = fields.Many2one(
         "hr.contribution.register", "Contribution Register", required=True
     )
+    rate = fields.Float()
     active = fields.Boolean(default=True)
     description = fields.Text()
 

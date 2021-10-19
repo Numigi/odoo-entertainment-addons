@@ -21,6 +21,11 @@
                             <field name="amount"/>
                             <field name="currency_id" invisible="1"/>
                             <field name="register_id"/>
+                            <field name="is_gmmq" invisible="1"/>
+                            <field name="is_uda" invisible="1"/>
+                            <field name="main_artist"
+                                attrs="{'invisible': [('is_gmmq', '=', False)]}"
+                                />
                             <label for="description"/>
                             <newline/>
                             <field name="description" nolabel="1" colspan="2"/>

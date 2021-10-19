@@ -8,6 +8,6 @@ class ProjectShowRole(models.Model):
 
     _inherit = "project.show.role"
 
-    gmmq = fields.Boolean()
-    uda = fields.Boolean()
+    gmmq = fields.Boolean("GMMQ")
+    uda = fields.Boolean("UDA")
     coefficient = fields.Float(default=1)

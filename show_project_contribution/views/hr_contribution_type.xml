@@ -24,6 +24,7 @@
                     <group>
                         <group name="group_1">
                             <field name="code"/>
+                            <field name="rate"/>
                             <field name="register_id"/>
                             <label for="description"/>
                             <newline/>
@@ -47,6 +48,7 @@
                 <field name="code"/>
                 <field name="name"/>
                 <field name="register_id"/>
+                <field name="rate"/>
                 <field name="active"/>
             </tree>
         </field>

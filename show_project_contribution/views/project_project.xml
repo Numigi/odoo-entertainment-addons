@@ -4,7 +4,7 @@
     <record id="project_form" model="ir.ui.view">
         <field name="name">Project Form: add contribution bases</field>
         <field name="model">project.project</field>
-        <field name="inherit_id" ref="show_project.project_form"/>
+        <field name="inherit_id" ref="show_project_role.project_form"/>
         <field name="arch" type="xml">
             <page name="show_venue" position="after">
                 <page
@@ -35,6 +35,15 @@
                     </field>
                 </page>
             </page>
+
+            <xpath expr="//field[@name='show_member_ids']//field[@name='main_artist']" position="before">
+                <field name="gmmq"/>
+                <field name="uda"/>
+            </xpath>
+            <xpath expr="//field[@name='show_member_ids']//field[@name='main_artist']" position="after">
+                <field name="coefficient"/>
+            </xpath>
+
         </field>
     </record>
 

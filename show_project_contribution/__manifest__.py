@@ -20,8 +20,8 @@
         "data/hr_contribution_register.xml",
         "views/hr_contribution_base.xml",
         "views/hr_contribution_type.xml",
-        "views/hr_employee.xml",
         "views/project_project.xml",
+        "views/project_show_role.xml",
         "views/menu.xml",
     ],
     "demo": [

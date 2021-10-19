@@ -1,8 +1,8 @@
-id,register_id/id,amount
-uda_base_1,uda_register,126.96
-uda_base_2,uda_register,160.99
-uda_base_3,uda_register,264.95
-gmmq_base_1,gmmq_register,125.0
-gmmq_base_2,gmmq_register,185.0
-gmmq_base_3,gmmq_register,240.0
-gmmq_base_4,gmmq_register,300.0
+id,register_id/id,amount,main_artist
+uda_base_1,uda_register,126.96,0
+uda_base_2,uda_register,160.99,0
+uda_base_3,uda_register,264.95,0
+gmmq_base_1,gmmq_register,125.0,0
+gmmq_base_2,gmmq_register,185.0,0
+gmmq_base_3,gmmq_register,240.0,1
+gmmq_base_4,gmmq_register,300.0,1

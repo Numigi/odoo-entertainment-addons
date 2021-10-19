@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="project_show_role_list" model="ir.ui.view">
+        <field name="name">Project Show Role List: add contribution fields</field>
+        <field name="model">project.show.role</field>
+        <field name="inherit_id" ref="show_project_role.project_show_role_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="main_artist" position="before">
+                <field name="gmmq"/>
+                <field name="uda"/>
+            </field>
+            <field name="main_artist" position="after">
+                <field name="coefficient"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

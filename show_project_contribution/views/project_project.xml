@@ -12,15 +12,9 @@
                     name="show_contributions"
                     attrs="{'invisible': [('show_type', '!=', 'show')]}"
                     >
-                    <label for="contribution_base_ids" string="Applicable Contributions"/>
-                    <field name="contribution_base_ids" nolabel="1" colspan="2">
-                        <tree>
-                            <field name="amount" string="Contribution Base"/>
-                            <field name="type_id"/>
-                            <field name="description"/>
-                            <field name="currency_id" invisible="1"/>
-                        </tree>
-                    </field>
+                    <field name="gmmq_main_artist_base_id"/>
+                    <field name="gmmq_other_artist_base_id"/>
+                    <field name="uda_base_id"/>
 
                     <button
                         name="compute_show_contributions"
@@ -33,7 +27,6 @@
                     <field name="show_contribution_ids" nolabel="1" colspan="2" readonly="1">
                         <tree>
                             <field name="partner_id"/>
-                            <field name="employee_id" string="Related Employee"/>
                             <field name="register_id"/>
                             <field name="code"/>
                             <field name="base_amount"/>

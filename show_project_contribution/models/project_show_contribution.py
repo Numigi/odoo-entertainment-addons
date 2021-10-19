@@ -21,11 +21,6 @@ class ProjectShowContribution(models.Model):
         required=True,
     )
 
-    employee_id = fields.Many2one(
-        "hr.employee",
-        required=True,
-    )
-
     register_id = fields.Many2one(
         "hr.contribution.register", "Contribution Register", required=True
     )

@@ -18,7 +18,7 @@ class TestContributionBase(SavepointCase):
         )
         cls.base = cls.env["hr.contribution.base"].create(
             {
-                "type_id": cls.type_.id,
+                "register_id": cls.register.id,
                 "amount": 100,
             }
         )
@@ -27,4 +27,4 @@ class TestContributionBase(SavepointCase):
         assert self.type_.display_name == f"{self.type_.name} - {self.type_.code}"
 
     def test_contribution_base_display_name(self):
-        assert self.base.display_name == f"{self.type_.display_name} - 100.00"
+        assert self.base.display_name == f"{self.register.display_name} - 100.00"

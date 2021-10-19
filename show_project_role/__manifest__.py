@@ -23,4 +23,7 @@
         "views/project_show_role.xml",
         "views/menu.xml",
     ],
+    "demo": [
+        "demo/project.show.role.csv",
+    ],
 }

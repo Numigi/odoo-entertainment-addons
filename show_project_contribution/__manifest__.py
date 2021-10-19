@@ -17,6 +17,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "data/hr_contribution_register.xml",
         "views/hr_contribution_base.xml",
         "views/hr_contribution_type.xml",
         "views/hr_employee.xml",
@@ -24,7 +25,6 @@
         "views/menu.xml",
     ],
     "demo": [
-        "demo/hr.contribution.register.csv",
         "demo/hr.contribution.type.csv",
         "demo/hr.contribution.base.csv",
     ],

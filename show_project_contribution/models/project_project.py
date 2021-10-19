@@ -9,12 +9,25 @@ class Project(models.Model):
 
     _inherit = "project.project"
 
-    contribution_base_ids = fields.Many2many(
+    gmmq_main_artist_base_id = fields.Many2one(
         "hr.contribution.base",
-        "hr_employee_contribution_base_rel",
-        "employee_id",
-        "base_id",
-        "Contribution Bases",
+        "GMMQ Base For Main Artist",
+        domain=[("is_gmmq", "=", True)],
+        ondelete="restrict",
+    )
+
+    gmmq_other_artist_base_id = fields.Many2one(
+        "hr.contribution.base",
+        "GMMQ Base For Accompanying Artists",
+        domain=[("is_gmmq", "=", True)],
+        ondelete="restrict",
+    )
+
+    uda_base_id = fields.Many2one(
+        "hr.contribution.base",
+        "UDA Base",
+        domain=[("is_uda", "=", True)],
+        ondelete="restrict",
     )
 
     show_contribution_ids = fields.One2many(
@@ -23,62 +36,37 @@ class Project(models.Model):
         "Contributions",
     )
 
-    @api.constrains("contribution_base_ids")
-    def _check_contribution_bases(self):
-        for project in self:
-            types = project.mapped("contribution_base_ids.type_id")
-            if len(types) != len(project.contribution_base_ids):
-                raise ValidationError(_(
-                    "You may not select multiple applicable contributions "
-                    "of the same type."
-                ))
-
     def compute_show_contributions(self):
         self.show_contribution_ids = None
-        for show in self:
-            show._compute_show_contributions()
+        for partner in self.mapped("show_member_ids.partner_id"):
+            self._create_show_contributions(partner)
 
-    def _compute_show_contributions(self):
-        for employee in self._iter_employees_for_contributions():
-            self._compute_employee_contributions(employee)
+    def _create_show_contributions(self, partner):
+        vals_list = []
 
-    def _compute_employee_contributions(self, employee):
-        for base in self._iter_contribution_bases(employee):
-            self._create_show_contribution(base, employee)
+        vals_list.extend(self._iter_uda_contribution_vals(partner))
+        vals_list.extend(self._iter_gmmq_contribution_vals(partner))
 
-    def _create_show_contribution(self, base, employee):
-        vals = self._get_show_contribution_values(base, employee)
-        self.write({"show_contribution_ids": [(0, 0, vals)]})
+        self.write({"show_contribution_ids": [(0, 0, vals) for vals in vals_list]})
 
-    def _get_show_contribution_values(self, base, employee):
+    def _iter_uda_contribution_vals(self, partner):
+        base = self.uda_base_id
+
+        for type_ in base.register_id.type_ids:
+            vals = self._get_show_contribution_values(partner, base, type_)
+            yield vals
+
+    def _iter_gmmq_contribution_vals(self, partner):
+        base = self.gmmq_main_artist_base_id
+
+        for type_ in base.register_id.type_ids:
+            vals = self._get_show_contribution_values(partner, base, type_)
+            yield vals
+
+    def _get_show_contribution_values(self, partner, base, type_):
         return {
-            "partner_id": employee.address_id.id,
-            "employee_id": employee.id,
+            "partner_id": partner.id,
             "base_amount": base.amount,
-            "code": base.type_id.code,
-            "register_id": base.type_id.register_id.id,
+            "code": type_.code,
+            "register_id": base.register_id.id,
         }
-
-    def _iter_contribution_bases(self, employee):
-        for base in self.contribution_base_ids:
-            if base.type_id in employee.contribution_type_ids:
-                yield base
-
-    def _iter_employees_for_contributions(self):
-        partners = self.mapped("show_member_ids.partner_id")
-        for partner in partners:
-            employee = self._get_employee_from_partner(partner)
-            if not employee:
-                raise ValidationError(_(
-                    "All partners must have a related employee "
-                    "in order to compute the contribution bases."
-                    "The partner {} has no related employee."
-                ).format(partner.display_name))
-            yield employee
-
-    def _get_employee_from_partner(self, partner):
-        return self.env["hr.employee"].search(
-            [
-                ("address_id", "=", partner.id),
-            ], limit=1
-        )

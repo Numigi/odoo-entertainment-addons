@@ -11,3 +11,4 @@ class ProjectTourRole(models.Model):
 
     name = fields.Char(translate=True, required=True)
     active = fields.Boolean(default=True)
+    main_artist = fields.Boolean()

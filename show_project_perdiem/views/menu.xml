@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_project_perdiem_type"
+        name="Per Diem Types"
+        parent="project.menu_project_config"
+        action="action_project_perdiem_type"
+        sequence="50"
+        />
+
+</odoo>

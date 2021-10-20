@@ -15,6 +15,7 @@
                                 <field name="sequence" widget="handle"/>
                                 <field name="partner_id"/>
                                 <field name="role_id"/>
+                                <field name="main_artist"/>
                             </tree>
                         </field>
                     </group>

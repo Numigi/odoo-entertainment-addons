@@ -1,29 +1,26 @@
-# © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+# © 2021 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+
 {
-    "name": "Project Role Show",
-    "summary": "Project Role Show",
-    "version": "12.0.1.0.0",
+    "name": "Show Project Per Diem",
+    "summary": "Add perdiems on shows",
+    "version": "1.0.0",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",
     "license": "AGPL-3",
     "installable": True,
     "depends": [
-        # Numigi-entertainment
         "show_project",
-        # Numigi-herpy
-        "partner_organization_membership",
+        "show_project_role",
     ],
     "data": [
-        # Security
         "security/ir.model.access.csv",
-        # Views
+        "views/project_perdiem_type.xml",
         "views/project_project.xml",
-        "views/project_show_role.xml",
         "views/menu.xml",
     ],
     "demo": [
-        "demo/project.show.role.csv",
+        "demo/project.perdiem.type.csv",
     ],
 }

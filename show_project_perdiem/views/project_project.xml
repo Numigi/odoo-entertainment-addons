@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="project_form" model="ir.ui.view">
+        <field name="name">Project Form: add per diems</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="show_project.project_form"/>
+        <field name="arch" type="xml">
+            <page name="show_venue" position="after">
+                <page
+                    string="Per Diem"
+                    name="show_perdiems"
+                    attrs="{'invisible': [('show_type', 'not in', ('show', 'tour'))]}"
+                    >
+                    <group attrs="{'invisible': [('show_type', '!=', 'tour')]}">
+                        <group>
+                            <field
+                                name="tour_perdiem_config_ids"
+                                nolabel="1"
+                                colspan="1"
+                                >
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="type_id"/>
+                                    <field name="unit_amount"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                    <group attrs="{'invisible': [('show_type', '!=', 'show')]}">
+                        <group>
+                            <label
+                                for="show_perdiem_config_ids"
+                                string="Per Diem To Apply"
+                                />
+                            <field
+                                name="show_perdiem_config_ids"
+                                nolabel="1"
+                                colspan="2"
+                                >
+                                <tree editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="type_id"/>
+                                    <field name="quantity"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <newline/>
+
+                        <group>
+                            <button
+                                name="compute_show_perdiems"
+                                type="object"
+                                class="oe_highlight"
+                                string="Compute Per Diem To Pay"
+                                style="margin: 8px 0px"
+                                />
+                        </group>
+                        <newline/>
+
+                        <label
+                            for="show_perdiem_config_ids"
+                            string="Per Diem To Pay"
+                            />
+                        <field
+                            name="show_perdiem_ids"
+                            nolabel="1"
+                            colspan="2"
+                            readonly="1"
+                            >
+                            <tree>
+                                <field name="partner_id"/>
+                                <field name="type_id"/>
+                                <field name="quantity"/>
+                                <field name="unit_amount"/>
+                                <field name="total"/>
+                                <field name="currency_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+</odoo>

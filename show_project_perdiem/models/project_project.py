@@ -78,7 +78,7 @@ class Project(models.Model):
                 _(
                     "The type of perdiem {perdiem_type} is not defined "
                     "on the parent tour ({tour})."
-                ).format(perdiem_type=type_, tour=tour.display_name)
+                ).format(perdiem_type=type_.display_name, tour=tour.display_name)
             )
 
         return tour_config

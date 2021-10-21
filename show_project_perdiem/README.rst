@@ -2,6 +2,8 @@ Show Project Per Diem
 =====================
 This module allows to define ``Per Diem`` on shows.
 
+.. contents:: Table of Contents
+
 Configuration
 -------------
 As ``Project / Manager``, under ``Project / Configuration / Per Diem Types``,

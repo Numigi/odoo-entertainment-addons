@@ -81,7 +81,6 @@ class RecordingExternalRevenue(models.Model):
         for revenues in revenues_to_post:
             revenues.with_delay().generate_journal_entry()
 
-    @job
     def generate_journal_entry(self):
         self = self.with_context(force_company=self.company_id.id)
         self._check_is_not_already_posted()

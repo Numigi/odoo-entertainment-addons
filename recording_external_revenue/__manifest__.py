@@ -23,6 +23,7 @@
         "security/res_groups.xml",
         "security/ir.model.access.csv",
         "security/ir_rule.xml",
+        "data/queue_job_function.xml",
         "views/recording_country_mapping.xml",
         "views/recording_country_state_mapping.xml",
         "views/recording_currency_mapping.xml",

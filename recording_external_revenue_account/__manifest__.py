@@ -18,6 +18,7 @@
     "data": [
         "security/ir.model.access.csv",
         "security/ir_rule.xml",
+        "data/queue_job_function.xml",
         "views/recording_external_revenue.xml",
         "views/recording_journal_mapping.xml",
         "views/menu.xml",

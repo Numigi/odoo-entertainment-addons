@@ -119,6 +119,7 @@ class TestRawRevenueMapping(ExternalRevenueCase):
         assert revenue[field] == raw_revenue[field]
 
     def test_map_revenue_type(self):
+        self.stream.product_tmpl_id.recording_id = False
         raw_revenue = self._new_raw_revenue(revenue_type=self.stream_mapping.label)
         assert raw_revenue.make_new_revenue().product_id == self.stream
 

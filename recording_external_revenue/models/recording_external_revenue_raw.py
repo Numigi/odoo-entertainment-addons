@@ -2,7 +2,6 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo import api, models, fields, _
-from odoo.addons.queue_job.job import job
 from odoo.exceptions import ValidationError
 
 
@@ -124,7 +123,6 @@ class RecordingExternalRevenueRaw(models.Model):
             "gross_amount_per_unit",
         ]
 
-    @job
     def convert(self):
         self._check_not_already_converted()
         new_revenue = self.make_new_revenue()

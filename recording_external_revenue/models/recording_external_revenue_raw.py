@@ -235,6 +235,9 @@ class RecordingExternalRevenueRaw(models.Model):
         if len(product) > 1:
             raise self._multiple_products_found_from_reference_error(product)
 
+        if not product.recording_id:
+            raise self._no_recording_related_to_product(product)
+
         return product
 
     def _no_product_found_from_reference_error(self):
@@ -271,7 +274,17 @@ class RecordingExternalRevenueRaw(models.Model):
         if len(product) > 1:
             raise self._multiple_products_found_from_catalog_error(catalog, product)
 
+        if not product.recording_id:
+            raise self._no_recording_related_to_product(product)
+
         return product
+
+    def _no_recording_related_to_product(self, product):
+        return ValidationError(
+            _("The product {} is not related to a recording.").format(
+                product.display_name
+            )
+        )
 
     def _no_product_found_from_catalog_error(self, catalog):
         raise ValidationError(
@@ -313,13 +326,8 @@ class RecordingExternalRevenueRaw(models.Model):
             return self._map_recording_from_catalog_reference()
 
     def _map_recording_from_product(self, product):
-        recording = product.recording_id
-        if not recording:
-            raise ValidationError(
-                _("The product {} is not related to a recording.").format(
-                    product.display_name
-                )
-            )
+        return product.recording_id
+
         return recording
 
     def _map_recording_from_isrc(self):

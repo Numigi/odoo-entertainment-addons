@@ -5,6 +5,7 @@ from odoo import api, fields, models
 
 
 class ProjectProject(models.Model):
+
     _inherit = "project.project"
 
     show_member_ids = fields.One2many(
@@ -12,9 +13,16 @@ class ProjectProject(models.Model):
     )
 
     @api.onchange("parent_id")
-    def _onchange_parent_id(self):
+    def _onchange_tour_propagate_members(self):
         if self.show_type == "show" and self.parent_id:
             self.show_member_ids = [(5, 0, 0)] + [
-                (0, 0, {"partner_id": pm.partner_id.id, "role_id": pm.role_id.id})
-                for pm in self.parent_id.show_member_ids
+                (0, 0, self._copy_show_member_vals(member))
+                for member in self.parent_id.show_member_ids
             ]
+
+    def _copy_show_member_vals(self, member):
+        return {
+            "partner_id": member.partner_id.id,
+            "role_id": member.role_id.id,
+            "main_artist": member.main_artist,
+        }

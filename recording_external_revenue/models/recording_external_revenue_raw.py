@@ -310,8 +310,8 @@ class RecordingExternalRevenueRaw(models.Model):
         )
 
     def _map_recording(self, product):
-        if product:
-            return self._map_recording_from_product(product)
+        if product.recording_id:
+            return product.recording_id
 
         if self.isrc:
             return self._map_recording_from_isrc()
@@ -324,11 +324,6 @@ class RecordingExternalRevenueRaw(models.Model):
             and self.recording_external_catalog_reference
         ):
             return self._map_recording_from_catalog_reference()
-
-    def _map_recording_from_product(self, product):
-        return product.recording_id
-
-        return recording
 
     def _map_recording_from_isrc(self):
         recording = self.env["recording"].search(

@@ -1,4 +1,4 @@
-id,name
-perdiem_type_breakfast,Breakfast
-perdiem_type_lunch,Lunch
-perdiem_type_supper,Supper
+id,name,code
+perdiem_type_breakfast,Breakfast,BF
+perdiem_type_lunch,Lunch,LN
+perdiem_type_supper,Supper,SU

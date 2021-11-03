@@ -12,3 +12,4 @@ class ProjectPerDiemType(models.Model):
     name = fields.Char(required=True, translate=True)
     active = fields.Boolean(default=True)
     description = fields.Text()
+    code = fields.Char()

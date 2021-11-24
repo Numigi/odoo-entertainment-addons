@@ -18,7 +18,7 @@ class ProjectShowMember(models.Model):
     )
     partner_id = fields.Many2one(
         comodel_name="res.partner",
-        domain="[('company_type', '=', 'person'), ('is_artist', '=', True)]",
+        domain="[('company_type', '=', 'person')]",
         required=True,
     )
     role_id = fields.Many2one(comodel_name="project.show.role", required=True)

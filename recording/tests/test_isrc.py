@@ -50,14 +50,3 @@ class TestRecording(SavepointCase):
     def test_on_write__if_wrong_isrc__error_raised(self):
         with pytest.raises(ValidationError):
             self.record.isrc = '@wrong'
-
-    def test_on_write__if_wrong_other_isrc__error_raised(self):
-        with pytest.raises(ValidationError):
-            self._add_other_isrc(self.record, '@wrong')
-
-    def _add_other_isrc(self, recording, code):
-        self.env['recording.other.isrc'].create({
-            'recording_id': recording.id,
-            'isrc': code,
-            'partner_id': self.env['res.partner'].search([], limit=1).id,
-        })

@@ -17,8 +17,3 @@ class RecordingOtherISRC(models.Model):
     isrc = fields.Char("ISRC", size=12, required=True)
     partner_id = fields.Many2one("res.partner", "Issuer")
     notes = fields.Text()
-
-    @api.constrains("isrc")
-    def _check_isrc(self):
-        for line in self:
-            check_isrc_code(line.isrc, line._context)

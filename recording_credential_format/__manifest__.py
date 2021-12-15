@@ -3,8 +3,8 @@
 
 {
     "name": "Recording Credential Format",
-    "summary": "",
-    "version": "12.0.1.0.0",
+    "summary": "Add constrains on format of the field ISRC on musical records",
+    "version": "1.1.0",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

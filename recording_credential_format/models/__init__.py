@@ -3,4 +3,3 @@
 
 from . import recording_isrc_format
 from . import recording
-from . import recording_other_isrc

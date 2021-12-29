@@ -25,6 +25,19 @@ In case the project has show type is "Show", the field `Name` is marked readonly
 
 .. image:: static/description/project_name_type_show.png
 
+On project form, on the page ``Show Venue``, an new table ``Diffuser's Contacts`` is showed.
+
+As a person who can manage project, I can add a new Diffuser's Contact.
+
+When selecting a Contact, I see that Email and Mobile is automatically filled by selected
+Contact's Email and Mobile and remain editable
+
+When update Venue, I see that the existing Diffuser's Contacts data is replace by Venue's Diffuser's Contacts
+
+The new Diffuser's Contacts remains editable
+
+.. image:: static/description/project_diffuser.png
+
 Configuration
 -------------
 

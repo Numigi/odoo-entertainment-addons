@@ -111,6 +111,20 @@ class TestShowProject(SavepointCase):
             ),
         )
 
+    def test_project_city_is_set_by_related_show_place(self):
+        show_place = self.env["res.partner"].create(
+            {"type": "show_site", "name": "Show Site A", "city": "New York"}
+        )
+        form = self._create_project_with_form(
+            {
+                "parent_id": self.tour_project_1,
+                "show_type": "show",
+                "show_date": "2021-01-01",
+                "show_place_id": show_place,
+            }
+        )
+        self.assertEqual(form.city, show_place.city)
+
     def _create_project_with_form(self, values):
         with Form(self.env["project.project"]) as project_form:
             for k, v in values.items():

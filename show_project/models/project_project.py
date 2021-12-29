@@ -48,6 +48,8 @@ class ProjectProject(models.Model):
     next_show_id = fields.Many2one(
         comodel_name="project.project", compute="_compute_previous_and_next_show_id"
     )
+    recording = fields.Boolean(default=False)
+    producer_id = fields.Many2one(comodel_name="res.partner")
 
     @api.depends("show_type")
     def _compute_expected_parent_show_type(self):

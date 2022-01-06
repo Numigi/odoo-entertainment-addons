@@ -14,6 +14,6 @@ class RecordingOtherISRC(models.Model):
 
     recording_id = fields.Many2one("recording", ondelete="cascade", required=True)
     sequence = fields.Integer()
-    isrc = fields.Char("ISRC", size=12, required=True)
+    isrc = fields.Char("ISRC", required=True)
     partner_id = fields.Many2one("res.partner", "Issuer")
     notes = fields.Text()

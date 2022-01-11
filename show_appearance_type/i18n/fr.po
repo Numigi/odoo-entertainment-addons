@@ -23,7 +23,7 @@ msgstr "Actif"
 #. module: show_appearance_type
 #: model:ir.model.fields,field_description:show_appearance_type.field_project_project__show_appearance_type_id
 msgid "Appearance Type"
-msgstr "Types d’affiche"
+msgstr "Type d’affiche"
 
 #. module: show_appearance_type
 #: model:ir.actions.act_window,name:show_appearance_type.show_appearance_type_action
@@ -84,4 +84,4 @@ msgstr "Projet"
 #. module: show_appearance_type
 #: model:ir.model,name:show_appearance_type.model_show_appearance_type
 msgid "Show Appearance Type"
-msgstr "Afficher le type d'apparence"
+msgstr "Afficher le type d'affiche"

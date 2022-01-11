@@ -72,6 +72,7 @@
                     <group>
                         <group>
                             <field name="show_place_id" attrs="{'required': [('show_type', '=', 'show')]}"/>
+                            <field name="city" />
                             <field name="show_place_maximum_capacity"/>
                             <field name="show_place_configuration"/>
                             <field name="show_place_minor_restriction"/>

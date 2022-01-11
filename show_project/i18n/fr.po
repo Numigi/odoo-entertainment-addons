@@ -132,6 +132,11 @@ msgid "Previous Show"
 msgstr "Spectacle précédent"
 
 #. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__producer_id
+msgid "Producer"
+msgstr "Producteur"
+
+#. module: show_project
 #: model:ir.model,name:show_project.model_project_project
 #: model:ir.model.fields,field_description:show_project.field_project_diffuser__project_id
 msgid "Project"
@@ -141,6 +146,11 @@ msgstr "Projet"
 #: model:ir.model,name:show_project.model_project_diffuser
 msgid "Project Diffuser"
 msgstr "Projet Diffuseur"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__recording
+msgid "Recording"
+msgstr "Captation"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_diffuser__diffuser_role_id

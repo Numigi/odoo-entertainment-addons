@@ -48,6 +48,9 @@ class ProjectProject(models.Model):
     next_show_id = fields.Many2one(
         comodel_name="project.project", compute="_compute_previous_and_next_show_id"
     )
+
+    recording = fields.Boolean(default=False)
+    producer_id = fields.Many2one(comodel_name="res.partner")
     city = fields.Char(related="show_place_id.city")
 
     @api.depends("show_type")

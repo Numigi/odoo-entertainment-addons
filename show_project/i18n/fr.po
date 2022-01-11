@@ -76,9 +76,19 @@ msgid "Previous Show"
 msgstr "Spectacle précédent"
 
 #. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__producer_id
+msgid "Producer"
+msgstr "Producteur"
+
+#. module: show_project
 #: model:ir.model,name:show_project.model_project_project
 msgid "Project"
 msgstr "Projet"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__recording
+msgid "Recording"
+msgstr "Captation"
 
 #. module: show_project
 #: selection:project.project,show_type:0
@@ -134,9 +144,3 @@ msgstr "Tournée"
 #: model:ir.model.fields,field_description:show_project.field_project_project__show_place_id
 msgid "Venue"
 msgstr "Lieu"
-
-#~ msgid "Project Type"
-#~ msgstr "Type de projet"
-
-#~ msgid "Projects - Show Manager"
-#~ msgstr "Projet - Gestion des spectacles"

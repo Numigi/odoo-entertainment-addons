@@ -87,6 +87,9 @@
                             <field name="next_show_id"/>
                         </group>
                     </group>
+                    <group string="Diffuser's Contacts">
+                        <field name="diffuser_ids" nolabel="1"/>
+                    </group>
                 </page>
             </xpath>
         </field>

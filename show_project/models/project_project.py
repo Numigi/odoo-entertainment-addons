@@ -52,6 +52,9 @@ class ProjectProject(models.Model):
     recording = fields.Boolean(default=False)
     producer_id = fields.Many2one(comodel_name="res.partner")
     city = fields.Char(related="show_place_id.city")
+    diffuser_ids = fields.One2many(
+        "project.diffuser", "project_id", string="Diffuser's Contacts"
+    )
 
     @api.depends("show_type")
     def _compute_expected_parent_show_type(self):
@@ -128,3 +131,18 @@ class ProjectProject(models.Model):
     def _onchange_show_place_id(self):
         if self.show_place_id:
             self.show_place_notes = self.show_place_id.show_place_notes
+            diffuser_ids_vals = [(5, 0, 0)]
+            for diffuser in self.show_place_id.diffuser_ids:
+                diffuser_ids_vals.append(
+                    (
+                        0,
+                        0,
+                        {
+                            "partner_id": diffuser.partner_id.id,
+                            "diffuser_role_id": diffuser.diffuser_role_id.id,
+                            "email": diffuser.email,
+                            "mobile": diffuser.mobile,
+                        },
+                    )
+                )
+            self.diffuser_ids = diffuser_ids_vals

@@ -31,9 +31,8 @@ class ResPartner(models.Model):
         string="Distance from Productor", prefetch=False
     )
     show_place_stage = fields.Selection(
-        [
-            ("indoor", "Indoor"),
-            ("outdoor", "Outdoor"),
-        ],
-        prefetch=False,
+        [("indoor", "Indoor"), ("outdoor", "Outdoor")], prefetch=False
+    )
+    diffuser_ids = fields.One2many(
+        "res.partner.diffuser", "inverse_partner_id", string="Diffuser's Contacts"
     )

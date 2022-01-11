@@ -29,6 +29,26 @@ visible only if type of partner is a ``Show Site``.
 
 .. image:: static/description/partner_show_form.png
 
+The Diffuser Roles menu item is available to members of the group ``User types / Internal User``
+through the ``Project / Configuration`` menu.
+
+It shows the list of Diffuser Roles.
+
+.. image:: static/description/diffuser_role_list.png
+
+By clicking on a Diffuser Role, the form view is opened.
+
+.. image:: static/description/diffuser_role_form.png
+
+On partner form, on new page ``Show``, an new table ``Diffuser's Contacts`` is showed.
+
+As a person who can manage contact, I can add a new Diffuser's Contact.
+
+When selecting a Contact, I see that Email and Mobile is automatically filled by selected
+Contact's Email and Mobile and remain editable
+
+.. image:: static/description/res_partner_diffuser.png
+
 Contributors
 ------------
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)

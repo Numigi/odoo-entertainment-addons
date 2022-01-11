@@ -31,9 +31,40 @@ msgid "Configuration of Room"
 msgstr "Configuration de salle"
 
 #. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__partner_id
+msgid "Contact"
+msgstr "Contact"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__diffuser_ids
+#: model_terms:ir.ui.view,arch_db:show_project.project_form
+msgid "Diffuser's Contacts"
+msgstr "Contacts Diffuseur"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__show_place_distance_from_productor
 msgid "Distance from Productor"
 msgstr "Distance du producteur"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__email
+msgid "Email"
+msgstr "Courriel"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__expected_parent_show_type
@@ -46,6 +77,26 @@ msgid "Formula"
 msgstr "Formule"
 
 #. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__id
+msgid "ID"
+msgstr "ID"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__show_place_maximum_capacity
 msgid "Maximum Capacity"
 msgstr "Capacité maximale"
@@ -54,6 +105,11 @@ msgstr "Capacité maximale"
 #: model:ir.model.fields,field_description:show_project.field_project_project__show_place_minor_restriction
 msgid "Minors Restriction"
 msgstr "Restriction mineurs"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__mobile
+msgid "Mobile"
+msgstr "Mobile"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__next_show_id
@@ -82,13 +138,24 @@ msgstr "Producteur"
 
 #. module: show_project
 #: model:ir.model,name:show_project.model_project_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__project_id
 msgid "Project"
 msgstr "Projet"
+
+#. module: show_project
+#: model:ir.model,name:show_project.model_project_diffuser
+msgid "Project Diffuser"
+msgstr "Projet Diffuseur"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__recording
 msgid "Recording"
 msgstr "Captation"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__diffuser_role_id
+msgid "Role"
+msgstr "Rôle"
 
 #. module: show_project
 #: selection:project.project,show_type:0

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="res_partner_diffuser_view_tree" model="ir.ui.view">
+        <field name="name">res.partner.diffuser.view.tree</field>
+        <field name="model">res.partner.diffuser</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="partner_id"/>
+                <field name="diffuser_role_id"/>
+                <field name="email"/>
+                <field name="mobile"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_partner_diffuser_view_form" model="ir.ui.view">
+        <field name="name">res.partner.diffuser.view.form</field>
+        <field name="model">res.partner.diffuser</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="email"/>
+                            <field name="mobile"/>
+                        </group>
+                        <group>
+                            <field name="diffuser_role_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

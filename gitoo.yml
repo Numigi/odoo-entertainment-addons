@@ -14,6 +14,7 @@
   includes:
     - project_form_with_dates
     - project_iteration
+    - project_list
     - project_type
 
 - url: https://github.com/OCA/queue

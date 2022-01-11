@@ -34,6 +34,12 @@
                                    />
                         </group>
                         <group/>
+                    </group>
+                    <group string="Diffuser's Contacts">
+                        <field name="diffuser_ids" nolabel="1"/>
+                    </group>
+                    <group>
+                        <group/>
                         <label for="show_place_notes"  string="Notes"/>
                         <field name="show_place_notes"/>
                     </group>

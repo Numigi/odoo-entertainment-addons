@@ -51,6 +51,10 @@
                 <field name="showcase" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="formula" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
             </field>
+            <field name="partner_id" position="after">
+                <field name="recording" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="producer_id" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+            </field>
 
             <!-- Only show date_start and date fields when project type is standard or tour -->
             <field name="date_start" position="attributes">
@@ -82,6 +86,9 @@
                             <field name="previous_show_id"/>
                             <field name="next_show_id"/>
                         </group>
+                    </group>
+                    <group string="Diffuser's Contacts">
+                        <field name="diffuser_ids" nolabel="1"/>
                     </group>
                 </page>
             </xpath>

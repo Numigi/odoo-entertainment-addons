@@ -19,5 +19,9 @@
         # Numigi-Entertainment
         "show_place",
     ],
-    "data": ["views/project_project.xml"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/project_diffuser.xml",
+        "views/project_project.xml",
+    ],
 }

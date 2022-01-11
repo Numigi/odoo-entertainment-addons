@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_show_appearance_type_user,name_show_appearance_type_user,model_show_appearance_type,project.group_project_user,1,0,0,0
+access_show_appearance_type_manager,name_show_appearance_type_manager,model_show_appearance_type,project.group_project_manager,1,1,1,1

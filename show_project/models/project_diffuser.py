@@ -10,4 +10,4 @@ class ProjectDiffuser(models.Model):
     _inherit = ["diffuser.mixin"]
     _description = "Project Diffuser"
 
-    project_id = fields.Many2one("project.project")
+    project_id = fields.Many2one("project.project", ondelete="cascade")

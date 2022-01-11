@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="project_search" model="ir.ui.view">
+        <field name="name">project.show.list.project.search</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project_project_filter"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_projects']" position="after">
+                <separator/>
+                <filter string="Standard" name="filter_show_type_standard" domain="[('show_type', '=', 'standard')]"/>
+                <filter string="Tours" name="filter_show_type_tour" domain="[('show_type', '=', 'tour')]"/>
+                <filter string="Shows" name="filter_show_type_show" domain="[('show_type', '=', 'show')]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_list" model="ir.ui.view">
+        <field name="name">project.show.list.project.list</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="show_date" />
+                <field name="city" />
+            </field>
+        </field>
+    </record>
+
+    <record id="project_list.open_view_project_all_kanban" model="ir.actions.act_window.view">
+        <field name="sequence">5</field>
+    </record>
+
+</odoo>

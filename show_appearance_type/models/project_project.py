@@ -7,4 +7,8 @@ from odoo import fields, models
 class ProjectProject(models.Model):
     _inherit = "project.project"
 
-    show_appearance_type_id = fields.Many2one("show.appearance.type", "Appearance Type")
+    show_appearance_type_id = fields.Many2one(
+        "show.appearance.type",
+        "Appearance Type",
+        ondelete="restrict",
+    )

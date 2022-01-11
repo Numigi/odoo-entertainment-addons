@@ -1,0 +1,87 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* show_appearance_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-29 19:09+0000\n"
+"PO-Revision-Date: 2021-12-29 19:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__active
+msgid "Active"
+msgstr "Actif"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_project_project__show_appearance_type_id
+msgid "Appearance Type"
+msgstr "Type d’affiche"
+
+#. module: show_appearance_type
+#: model:ir.actions.act_window,name:show_appearance_type.show_appearance_type_action
+#: model:ir.ui.menu,name:show_appearance_type.show_appearance_type_menu
+msgid "Appearance Types"
+msgstr "Types d’affiche"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__description
+msgid "Description"
+msgstr "Description"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__id
+msgid "ID"
+msgstr "ID"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: show_appearance_type
+#: model:ir.model.fields,field_description:show_appearance_type.field_show_appearance_type__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: show_appearance_type
+#: model:ir.model,name:show_appearance_type.model_project_project
+msgid "Project"
+msgstr "Projet"
+
+#. module: show_appearance_type
+#: model:ir.model,name:show_appearance_type.model_show_appearance_type
+msgid "Show Appearance Type"
+msgstr "Afficher le type d'affiche"

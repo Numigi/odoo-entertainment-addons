@@ -38,6 +38,7 @@
         "recording_tag",
         "recording_url_link",
         "recording_version",
+        "show_appearance_type",
         "show_place",
         "show_project",
         "show_project_access",

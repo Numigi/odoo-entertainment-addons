@@ -106,9 +106,7 @@ class TestShowProject(SavepointCase):
         )
         self.assertEqual(
             form.name,
-            "{} - {} - {}".format(
-                self.tour_project_1.display_name, "2021-01-01", show_place.display_name
-            ),
+            "{} - {}".format("2021-01-01", show_place.display_name),
         )
 
     def test_project_city_is_set_by_related_show_place(self):

@@ -33,6 +33,11 @@ class ResPartner(models.Model):
     show_place_stage = fields.Selection(
         [("indoor", "Indoor"), ("outdoor", "Outdoor")], prefetch=False
     )
+    show_configuration_ids = fields.One2many(
+        "res.partner.show.configuration",
+        "partner_id",
+        string="Show Configurations",
+    )
     diffuser_ids = fields.One2many(
         "res.partner.diffuser", "inverse_partner_id", string="Diffuser's Contacts"
     )

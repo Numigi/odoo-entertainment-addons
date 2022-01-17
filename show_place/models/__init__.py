@@ -5,5 +5,6 @@ from . import diffuser_mixin
 from . import diffuser_role
 from . import res_partner
 from . import res_partner_diffuser
+from . import res_partner_show_configuration
 from . import show_place_configuration
 from . import show_place_type

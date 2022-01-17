@@ -103,7 +103,6 @@ class ProjectProject(models.Model):
     def _onchange_set_show_name(self):
         if self.show_type == "show":
             values = [
-                self.parent_id.display_name,
                 fields.Date.to_string(self.show_date),
                 self.show_place_id.display_name,
             ]

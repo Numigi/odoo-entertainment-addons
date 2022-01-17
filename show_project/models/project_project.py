@@ -25,22 +25,22 @@ class ProjectProject(models.Model):
         domain="[('type', '=', 'show_site')]",
         string="Venue",
     )
-    show_place_maximum_capacity = fields.Integer(
-        related="show_place_id.show_place_maximum_capacity", string="Maximum Capacity"
+    show_place_configuration_id = fields.Many2one(
+        "res.partner.show.configuration",
+        ondelete="set null",
+        domain="[('partner_id', '=', show_place_id)]",
     )
+    show_place_maximum_capacity = fields.Integer(string="Maximum Capacity")
     show_place_configuration = fields.Char(
-        related="show_place_id.show_place_configuration_id.name",
         string="Configuration of Room",
     )
     show_place_minor_restriction = fields.Boolean(
-        related="show_place_id.show_place_minor_restriction",
         string="Minors Restriction",
     )
     show_place_distance_from_productor = fields.Integer(
-        related="show_place_id.show_place_distance_from_productor",
         string="Distance from Productor",
     )
-    show_place_stage = fields.Selection(related="show_place_id.show_place_stage")
+    show_place_stage = fields.Selection([("indoor", "Indoor"), ("outdoor", "Outdoor")])
     show_place_notes = fields.Text()
     previous_show_id = fields.Many2one(
         comodel_name="project.project", compute="_compute_previous_and_next_show_id"
@@ -99,6 +99,13 @@ class ProjectProject(models.Model):
                 project.previous_show_id = False
                 project.next_show_id = False
 
+    @api.onchange("show_place_configuration_id")
+    def _onchange_show_place_configuration_id(self):
+        config = self.show_place_configuration_id
+        self.show_place_configuration = config.name
+        self.show_place_maximum_capacity = config.maximum_capacity
+        self.show_place_minor_restriction = config.minor_restriction
+
     @api.onchange("show_type", "parent_id", "show_date", "show_place_id")
     def _onchange_set_show_name(self):
         if self.show_type == "show":
@@ -129,19 +136,33 @@ class ProjectProject(models.Model):
     @api.onchange("show_place_id")
     def _onchange_show_place_id(self):
         if self.show_place_id:
-            self.show_place_notes = self.show_place_id.show_place_notes
-            diffuser_ids_vals = [(5, 0, 0)]
-            for diffuser in self.show_place_id.diffuser_ids:
-                diffuser_ids_vals.append(
-                    (
-                        0,
-                        0,
-                        {
-                            "partner_id": diffuser.partner_id.id,
-                            "diffuser_role_id": diffuser.diffuser_role_id.id,
-                            "email": diffuser.email,
-                            "mobile": diffuser.mobile,
-                        },
-                    )
+            self._update_from_show_place()
+
+        if self.show_place_configuration_id.partner_id != self.show_place_id:
+            self.show_place_configuration_id = None
+
+    def _update_from_show_place(self):
+        place = self.show_place_id
+        self.show_place_distance_from_productor = (
+            place.show_place_distance_from_productor
+        )
+        self.show_place_stage = place.show_place_stage
+        self.show_place_notes = place.show_place_notes
+        self.diffuser_ids = self._get_diffuser_vals()
+
+    def _get_diffuser_vals(self):
+        diffuser_ids_vals = [(5, 0, 0)]
+        for diffuser in self.show_place_id.diffuser_ids:
+            diffuser_ids_vals.append(
+                (
+                    0,
+                    0,
+                    {
+                        "partner_id": diffuser.partner_id.id,
+                        "diffuser_role_id": diffuser.diffuser_role_id.id,
+                        "email": diffuser.email,
+                        "mobile": diffuser.mobile,
+                    },
                 )
-            self.diffuser_ids = diffuser_ids_vals
+            )
+        return diffuser_ids_vals

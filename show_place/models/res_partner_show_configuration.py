@@ -9,6 +9,7 @@ class ResPartnerShowConfiguration(models.Model):
     _name = "res.partner.show.configuration"
     _description = "Partner Show Place Configuration"
 
+    sequence = fields.Integer()
     partner_id = fields.Many2one("res.partner", required=True, ondelete="cascade")
     name = fields.Char(string="Name", required=True, translate=True)
     configuration_id = fields.Many2one("show.place.configuration", required=True)

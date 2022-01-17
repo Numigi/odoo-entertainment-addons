@@ -1,47 +1,40 @@
 Show Project
 ============
 
+.. contents:: Table of Contents
+
+Context
+-------
+The module `project_iteration <https://github.com/Numigi/odoo-project-addons/tree/12.0/project_iteration>`_
+defines the concept of a parent and a child project (a.k.a. the iteration).
+
 Description
 -----------
+This module allows to use the ``Projects`` application to manage musical shows and tours.
 
-This module adds a field Show Type and Formula to the records of the model Project.
-Show Type has the possible values "Standard", "Tour" and "Show".
-Formula is only shown when Show Type has "Tour" value in Settings Tab
+Tours are represented as parent projects and shows are represented as children (iterations) of a tour.
 
-In security, Project - Show Manager Group is created to grant access for user on tour and show project type
+Usage
+-----
+I open the form view of a project in creation mode.
 
+I notice a new selection field.
+It allows to define the project as either, a tour, a show or a standard project.
 
-.. image:: static/description/project_screenshot.png
+.. image:: static/description/project_new.png
 
-User can define a list of project members for tour or show project in the **Team** tab
+Tour
+~~~~
+First, I create a project of type ``Tour``.
 
-.. image:: static/description/project_show_member.png
+Show
+~~~~
+I create a project of type ``Show``.
 
-For show project, user can see the new **Show** tab
+.. image:: static/description/show_create.png
 
-.. image:: static/description/project_show_tab.png
-
-In case the project has show type is "Show", the field `Name` is marked readonly and the value will be set automatically with this format: "{parent_name} - {show_date} - {show_place}"
-
-.. image:: static/description/project_name_type_show.png
-
-On project form, on the page ``Show Venue``, an new table ``Diffuser's Contacts`` is showed.
-
-As a person who can manage project, I can add a new Diffuser's Contact.
-
-When selecting a Contact, I see that Email and Mobile is automatically filled by selected
-Contact's Email and Mobile and remain editable
-
-When update Venue, I see that the existing Diffuser's Contacts data is replace by Venue's Diffuser's Contacts
-
-The new Diffuser's Contacts remains editable
-
-.. image:: static/description/project_diffuser.png
-
-Configuration
--------------
-
-No configuration required apart from module installation.
+For projects of type ``Show``, the field ``Parent`` is mandatory.
+You may only select a parent project of type ``Tour``.
 
 Contributors
 ------------

@@ -1,1 +1,2 @@
 ddt==1.2.0
+git+https://github.com/OCA/openupgradelib@master

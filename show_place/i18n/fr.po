@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* show_place
+# 	* show_place
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-29 13:32+0000\n"
-"PO-Revision-Date: 2021-12-29 13:32+0000\n"
+"POT-Creation-Date: 2022-01-17 19:37+0000\n"
+"PO-Revision-Date: 2022-01-17 14:39-0500\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 2.3\n"
 
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__active
@@ -29,16 +31,20 @@ msgid "Address Type"
 msgstr "Type d'adresse"
 
 #. module: show_place
-#: model:ir.model.fields,help:show_place.field_res_partner__show_place_minor_restriction
-#: model:ir.model.fields,help:show_place.field_res_users__show_place_minor_restriction
+#: model:ir.model.fields,help:show_place.field_res_partner_show_configuration__minor_restriction
 msgid "Check this box if this place has a restriction for minors."
 msgstr ""
 "Cocher cette case si ce lieu comporte une restriction pour les mineurs."
 
 #. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__configuration_id
 msgid "Configuration"
 msgstr "Configuration"
+
+#. module: show_place
+#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
+msgid "Configurations"
+msgstr "Configurations"
 
 #. module: show_place
 #: model:ir.model,name:show_place.model_res_partner
@@ -56,6 +62,7 @@ msgstr "Contact Diffuseur"
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__create_uid
 #: model:ir.model.fields,field_description:show_place.field_res_partner_diffuser__create_uid
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__create_uid
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration__create_uid
 #: model:ir.model.fields,field_description:show_place.field_show_place_type__create_uid
 msgid "Created by"
@@ -64,6 +71,7 @@ msgstr "Créé par"
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__create_date
 #: model:ir.model.fields,field_description:show_place.field_res_partner_diffuser__create_date
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__create_date
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration__create_date
 #: model:ir.model.fields,field_description:show_place.field_show_place_type__create_date
 msgid "Created on"
@@ -102,6 +110,7 @@ msgstr "Contacts Diffuseur"
 #: model:ir.model.fields,field_description:show_place.field_diffuser_mixin__display_name
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__display_name
 #: model:ir.model.fields,field_description:show_place.field_res_partner_diffuser__display_name
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__display_name
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration__display_name
 #: model:ir.model.fields,field_description:show_place.field_show_place_type__display_name
 msgid "Display Name"
@@ -124,6 +133,7 @@ msgstr "Courriel"
 #: model:ir.model.fields,field_description:show_place.field_diffuser_mixin__id
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__id
 #: model:ir.model.fields,field_description:show_place.field_res_partner_diffuser__id
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__id
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration__id
 #: model:ir.model.fields,field_description:show_place.field_show_place_type__id
 msgid "ID"
@@ -148,6 +158,7 @@ msgstr "Adresse de facturation"
 #: model:ir.model.fields,field_description:show_place.field_diffuser_mixin____last_update
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role____last_update
 #: model:ir.model.fields,field_description:show_place.field_res_partner_diffuser____last_update
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration____last_update
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration____last_update
 #: model:ir.model.fields,field_description:show_place.field_show_place_type____last_update
 msgid "Last Modified on"
@@ -156,6 +167,7 @@ msgstr "Dernière modification le"
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__write_uid
 #: model:ir.model.fields,field_description:show_place.field_res_partner_diffuser__write_uid
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__write_uid
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration__write_uid
 #: model:ir.model.fields,field_description:show_place.field_show_place_type__write_uid
 msgid "Last Updated by"
@@ -164,18 +176,19 @@ msgstr "Dernière mise à jour par"
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__write_date
 #: model:ir.model.fields,field_description:show_place.field_res_partner_diffuser__write_date
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__write_date
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration__write_date
 #: model:ir.model.fields,field_description:show_place.field_show_place_type__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
-msgid "Maximum Capacity"
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__maximum_capacity
+msgid "Maximum capacity"
 msgstr "Capacité maximale​"
 
 #. module: show_place
-#: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__minor_restriction
 msgid "Minor Restriction"
 msgstr "Restriction mineurs"
 
@@ -187,6 +200,7 @@ msgstr "Mobile"
 
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_diffuser_role__name
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__name
 #: model:ir.model.fields,field_description:show_place.field_show_place_configuration__name
 #: model:ir.model.fields,field_description:show_place.field_show_place_type__name
 msgid "Name"
@@ -208,6 +222,16 @@ msgid "Outdoor"
 msgstr "Extérieur"
 
 #. module: show_place
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: show_place
+#: model:ir.model,name:show_place.model_res_partner_show_configuration
+msgid "Partner Show Place Configuration"
+msgstr "Configuration lieux de spectable sur partenaire"
+
+#. module: show_place
 #: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
 msgid "Place Type"
 msgstr "Type de lieu"
@@ -224,6 +248,11 @@ msgid "Role"
 msgstr "Rôle"
 
 #. module: show_place
+#: model:ir.model.fields,field_description:show_place.field_res_partner_show_configuration__sequence
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: show_place
 #: selection:res.partner,type:0
 msgid "Shipping address"
 msgstr "Adresse d'expédition"
@@ -234,9 +263,15 @@ msgid "Show"
 msgstr "Spectacle"
 
 #. module: show_place
+#: model:ir.model.fields,field_description:show_place.field_res_partner__show_configuration_ids
+#: model:ir.model.fields,field_description:show_place.field_res_users__show_configuration_ids
+#, fuzzy
+#| msgid "Show Place Configurations"
+msgid "Show Configurations"
+msgstr "Configurations de lieux de spectacles"
+
+#. module: show_place
 #: model:ir.model,name:show_place.model_show_place_configuration
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_configuration_id
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_configuration_id
 msgid "Show Place Configuration"
 msgstr "Configuration lieux de spectable"
 
@@ -245,18 +280,6 @@ msgstr "Configuration lieux de spectable"
 #: model:ir.ui.menu,name:show_place.show_place_configuration_menu
 msgid "Show Place Configurations"
 msgstr "Configurations de lieux de spectacles"
-
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_maximum_capacity
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_maximum_capacity
-msgid "Show Place Maximum capacity"
-msgstr "Lieu de spectable - Capacité maximale​"
-
-#. module: show_place
-#: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_minor_restriction
-#: model:ir.model.fields,field_description:show_place.field_res_users__show_place_minor_restriction
-msgid "Show Place Minor Restriction"
-msgstr "Lieu de spectable - Restraint aux mineurs​"
 
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_notes

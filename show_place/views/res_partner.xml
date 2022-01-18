@@ -15,17 +15,6 @@
                                    string="Place Type"
                                    attrs="{'required': [('type','=','show_site')]}"
                                    />
-                            <field name="show_place_configuration_id"
-                                   string="Configuration"
-                                   attrs="{'required': [('type','=','show_site')]}"
-                                   />
-                            <field name="show_place_maximum_capacity"
-                                   string="Maximum Capacity"
-                                   attrs="{'required': [('type','=','show_site')]}"
-                                   />
-                            <field name="show_place_minor_restriction"
-                                   string="Minor Restriction"
-                                   />
                             <field name="show_place_distance_from_productor"
                                    string="Distance from Productor"
                                    />
@@ -34,6 +23,17 @@
                                    />
                         </group>
                         <group/>
+                    </group>
+                    <group string="Configurations">
+                        <field name="show_configuration_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="name"/>
+                                <field name="configuration_id"/>
+                                <field name="maximum_capacity"/>
+                                <field name="minor_restriction"/>
+                            </tree>
+                        </field>
                     </group>
                     <group string="Diffuser's Contacts">
                         <field name="diffuser_ids" nolabel="1"/>

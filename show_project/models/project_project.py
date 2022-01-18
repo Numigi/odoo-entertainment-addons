@@ -99,12 +99,15 @@ class ProjectProject(models.Model):
                 project.previous_show_id = False
                 project.next_show_id = False
 
-    @api.onchange("show_place_configuration_id")
-    def _onchange_show_place_configuration_id(self):
-        config = self.show_place_configuration_id
-        self.show_place_configuration = config.name
-        self.show_place_maximum_capacity = config.maximum_capacity
-        self.show_place_minor_restriction = config.minor_restriction
+    @api.model
+    def create(self, vals):
+        vals = self._set_show_type_vals(vals)
+        return super(ProjectProject, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        vals = self._set_show_type_vals(vals)
+        return super(ProjectProject, self).write(vals)
 
     @api.onchange("show_type", "parent_id", "show_date", "show_place_id")
     def _onchange_set_show_name(self):
@@ -123,16 +126,6 @@ class ProjectProject(models.Model):
             vals.update({"parent_id": False})
         return vals
 
-    @api.model
-    def create(self, vals):
-        vals = self._set_show_type_vals(vals)
-        return super(ProjectProject, self).create(vals)
-
-    @api.multi
-    def write(self, vals):
-        vals = self._set_show_type_vals(vals)
-        return super(ProjectProject, self).write(vals)
-
     @api.onchange("show_place_id")
     def _onchange_show_place_id(self):
         if self.show_place_id:
@@ -140,6 +133,13 @@ class ProjectProject(models.Model):
 
         if self.show_place_configuration_id.partner_id != self.show_place_id:
             self.show_place_configuration_id = None
+
+    @api.onchange("show_place_configuration_id")
+    def _onchange_show_place_configuration_id(self):
+        config = self.show_place_configuration_id
+        self.show_place_configuration = config.name
+        self.show_place_maximum_capacity = config.maximum_capacity
+        self.show_place_minor_restriction = config.minor_restriction
 
     def _update_from_show_place(self):
         place = self.show_place_id

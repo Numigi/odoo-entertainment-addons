@@ -59,7 +59,7 @@ class TestShowConfiguration(SavepointCase):
         project = self._new_project()
         project.show_place_id = self.place
         project.show_place_configuration_id = self.config_line
-        project._onchange_show_configuration_id()
+        project._onchange_show_place_configuration_id()
         assert project.show_place_maximum_capacity == self.maximum_capacity
         assert project.show_place_minor_restriction is True
         assert project.show_place_configuration == self.config_line.name

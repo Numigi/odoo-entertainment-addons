@@ -229,7 +229,7 @@ msgstr "Partenaire"
 #. module: show_place
 #: model:ir.model,name:show_place.model_res_partner_show_configuration
 msgid "Partner Show Place Configuration"
-msgstr "Configuration lieux de spectable sur partenaire"
+msgstr "Configuration lieux de spectacle sur partenaire"
 
 #. module: show_place
 #: model_terms:ir.ui.view,arch_db:show_place.res_partner_view_form_inherit_show
@@ -273,7 +273,7 @@ msgstr "Configurations de lieux de spectacles"
 #. module: show_place
 #: model:ir.model,name:show_place.model_show_place_configuration
 msgid "Show Place Configuration"
-msgstr "Configuration lieux de spectable"
+msgstr "Configuration lieux de spectacle"
 
 #. module: show_place
 #: model:ir.actions.act_window,name:show_place.show_place_configuration_action
@@ -285,13 +285,13 @@ msgstr "Configurations de lieux de spectacles"
 #: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_notes
 #: model:ir.model.fields,field_description:show_place.field_res_users__show_place_notes
 msgid "Show Place Notes"
-msgstr "Lieu de spectable - Notes"
+msgstr "Lieu de spectacle - Notes"
 
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_stage
 #: model:ir.model.fields,field_description:show_place.field_res_users__show_place_stage
 msgid "Show Place Stage"
-msgstr "Lieu de spectable - Notes"
+msgstr "Lieu de spectacle - Notes"
 
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_type_id

@@ -296,7 +296,7 @@ msgstr ""
 #~ msgstr "Montant de ventes"
 
 #~ msgid "Show Sale Amount"
-#~ msgstr "Montant de vente du spectable"
+#~ msgstr "Montant de vente du spectacle"
 
 #~ msgid ""
 #~ "The value entered for the maximum sale amount ({max}) can not be lower "

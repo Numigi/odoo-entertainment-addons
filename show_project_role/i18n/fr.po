@@ -109,7 +109,7 @@ msgstr "Projet"
 #. module: show_project_role
 #: model:ir.model,name:show_project_role.model_project_show_member
 msgid "Project Show Member"
-msgstr "Membre du spectable"
+msgstr "Membre du spectacle"
 
 #. module: show_project_role
 #: model:ir.model,name:show_project_role.model_project_show_role
@@ -129,7 +129,7 @@ msgstr "Séquence"
 #. module: show_project_role
 #: model:ir.model.fields,field_description:show_project_role.field_project_project__show_member_ids
 msgid "Show Member"
-msgstr "Membre du spectable"
+msgstr "Membre du spectacle"
 
 #. module: show_project_role
 #: model_terms:ir.ui.view,arch_db:show_project_role.project_form

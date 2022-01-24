@@ -291,7 +291,7 @@ msgstr "Lieu de spectacle - Notes"
 #: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_stage
 #: model:ir.model.fields,field_description:show_place.field_res_users__show_place_stage
 msgid "Show Place Stage"
-msgstr "Lieu de spectacle - Notes"
+msgstr "Lieu de spectacle - Scène"
 
 #. module: show_place
 #: model:ir.model.fields,field_description:show_place.field_res_partner__show_place_type_id

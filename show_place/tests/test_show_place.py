@@ -27,3 +27,15 @@ class TestShowPlace(SavepointCase):
                 line.diffuser_role_id = role
                 self.assertEqual(line.email, individual.email)
                 self.assertEqual(line.mobile, individual.mobile)
+
+    def test_configuration_display_name(self):
+        config = self.env["show.place.configuration"].create({"name": "/"})
+        config_line = self.env["res.partner.show.configuration"].create(
+            {
+                "partner_id": self.env.user.partner_id.id,
+                "name": "Cabaret",
+                "configuration_id": config.id,
+                "maximum_capacity": 80,
+            }
+        )
+        assert config_line.display_name == "Cabaret - 80"

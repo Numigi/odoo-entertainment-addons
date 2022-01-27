@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_ticket_price_read_access,project_ticket_price_read_access,model_project_ticket_price,base.group_user,1,0,0,0
+project_ticket_price_user_access,project_ticket_price_user_access,model_project_ticket_price,project.group_project_user,1,1,1,1
+project_service_fee_read_access,project_service_fee_read_access,model_project_service_fee,base.group_user,1,0,0,0
+project_service_fee_user_access,project_service_fee_user_access,model_project_service_fee,project.group_project_user,1,1,1,1

@@ -45,6 +45,7 @@
         "show_project_fee",
         "show_project_promotion",
         "show_project_role",
+        "show_project_sale",
         "show_project_sold_tickets",
     ],
     "installable": True,

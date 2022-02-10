@@ -327,7 +327,7 @@ msgstr "Date du spectacle"
 #. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_sale_order__show_duration
 msgid "Show Duration"
-msgstr "Durée du spectable"
+msgstr "Durée du spectacle"
 
 #. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_sale_order__show_hour
@@ -421,7 +421,7 @@ msgstr "Rémunération variable"
 #~ msgstr "Configurations de lieux de spectacles"
 
 #~ msgid "Show Place Minor Restriction"
-#~ msgstr "Lieu de spectable - Restraint aux mineurs​"
+#~ msgstr "Lieu de spectacle - Restraint aux mineurs​"
 
 #~ msgid "Show Place Types"
 #~ msgstr "Types de lieux de spectacles"

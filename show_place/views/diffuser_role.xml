@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="diffuser_role_view_search" model="ir.ui.view">
+        <field name="name">diffuser.role.view.search</field>
+        <field name="model">diffuser.role</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="diffuser_role_view_tree" model="ir.ui.view">
+        <field name="name">diffuser.role.view.tree</field>
+        <field name="model">diffuser.role</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="diffuser_role_view_form" model="ir.ui.view">
+        <field name="name">diffuser.role.view.form</field>
+        <field name="model">diffuser.role</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="diffuser_role_action" model="ir.actions.act_window">
+        <field name="name">Diffuser Roles</field>
+        <field name="res_model">diffuser.role</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="diffuser_role_menu"
+              name="Diffuser Roles"
+              action="diffuser_role_action"
+              parent="project.menu_project_config"
+              sequence="6"
+    />
+
+</odoo>

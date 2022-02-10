@@ -3,7 +3,7 @@
 {
     "name": "Show Project",
     "summary": "Show Project",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",
@@ -19,5 +19,9 @@
         # Numigi-Entertainment
         "show_place",
     ],
-    "data": ["views/project_project.xml"],
+    "data": [
+        "security/ir.model.access.csv",
+        "views/project_diffuser.xml",
+        "views/project_project.xml",
+    ],
 }

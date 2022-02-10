@@ -9,6 +9,6 @@ class ShowPlaceConfiguration(models.Model):
     _name = 'show.place.configuration'
     _description = 'Show Place Configuration'
 
-    name = fields.Char(string='Name', required=True, translate=True)
+    name = fields.Char(string='Name', translate=True)
     description = fields.Text(string='Description', translate=True)
     active = fields.Boolean(string='Active', default=True)

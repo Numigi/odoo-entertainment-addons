@@ -166,7 +166,7 @@ msgstr "Cachets de spectacle"
 #. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_project__show_sale_amount
 msgid "Show Sale Amount"
-msgstr "Montant de vente du spectable"
+msgstr "Montant de vente du spectacle"
 
 #. module: show_project_fee
 #: code:addons/show_project_fee/models/project_show_fee.py:67

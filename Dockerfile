@@ -40,11 +40,13 @@ COPY recording_subgenre /mnt/extra-addons/recording_subgenre
 COPY recording_tag /mnt/extra-addons/recording_tag
 COPY recording_url_link /mnt/extra-addons/recording_url_link
 COPY recording_version /mnt/extra-addons/recording_version
+COPY show_appearance_type /mnt/extra-addons/show_appearance_type
 COPY show_place /mnt/extra-addons/show_place
 COPY show_project /mnt/extra-addons/show_project
 COPY show_project_access /mnt/extra-addons/show_project_access
 COPY show_project_artwork /mnt/extra-addons/show_project_artwork
 COPY show_project_fee /mnt/extra-addons/show_project_fee
+COPY show_project_list /mnt/extra-addons/show_project_list
 COPY show_project_promotion /mnt/extra-addons/show_project_promotion
 COPY show_project_role /mnt/extra-addons/show_project_role
 COPY show_project_sale /mnt/extra-addons/show_project_sale

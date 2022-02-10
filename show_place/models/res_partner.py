@@ -12,28 +12,18 @@ class ResPartner(models.Model):
     show_place_type_id = fields.Many2one(
         "show.place.type", string="Show Place Type", prefetch=False
     )
-    show_place_configuration_id = fields.Many2one(
-        "show.place.configuration",
-        string="Show Place Configuration",
-        ondelete="restrict",
-        prefetch=False,
-    )
-    show_place_maximum_capacity = fields.Integer(
-        string="Show Place Maximum capacity", prefetch=False
-    )
     show_place_notes = fields.Text(string="Show Place Notes", prefetch=False)
-    show_place_minor_restriction = fields.Boolean(
-        string="Show Place Minor Restriction",
-        help="Check this box if this place has a restriction for minors.",
-        prefetch=False,
-    )
     show_place_distance_from_productor = fields.Integer(
         string="Distance from Productor", prefetch=False
     )
     show_place_stage = fields.Selection(
-        [
-            ("indoor", "Indoor"),
-            ("outdoor", "Outdoor"),
-        ],
-        prefetch=False,
+        [("indoor", "Indoor"), ("outdoor", "Outdoor")], prefetch=False
+    )
+    show_configuration_ids = fields.One2many(
+        "res.partner.show.configuration",
+        "partner_id",
+        string="Show Configurations",
+    )
+    diffuser_ids = fields.One2many(
+        "res.partner.diffuser", "inverse_partner_id", string="Diffuser's Contacts"
     )

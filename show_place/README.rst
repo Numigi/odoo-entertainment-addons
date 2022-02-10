@@ -3,31 +3,84 @@ Show Place Types/Configuration
 
 This module allows to manage Show Place Types/Configuration.
 
-Usage
------
+.. contents:: Table of Contents
 
-The Show Place Types menu item is available to members of the group ``Sales / Manager``
+Configuration
+-------------
+
+Show Place Types
+~~~~~~~~~~~~~~~~
+The Show Place Types are available to members of the group ``Sales / Manager``
 through the ``Contacts / Configuration`` menu.
-
-It shows the list of Show Place Types.
 
 .. image:: static/description/place_type_list.png
 
-The Show Place Configuration menu item is available to members of the group ``Sales / Manager``
+Show Place Configurations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+The Show Place Configurations are available to members of the group ``Sales / Manager``
 through the ``Contacts / Configuration`` menu.
-
-It shows the list of Show Place Configuration.
 
 .. image:: static/description/place_configuration_list.png
 
-By clicking on a Place Configuration, the form view is opened.
-
 .. image:: static/description/place_configuration_form.png
 
-This module also add a new type of partner ``Show Site`` and a new page ``Show`` on partner form
-visible only if type of partner is a ``Show Site``.
+Diffuser Roles
+~~~~~~~~~~~~~~
+The Diffuser Roles are available to members of the group ``User types / Internal User``
+through the ``Project / Configuration`` menu.
 
-.. image:: static/description/partner_show_form.png
+.. image:: static/description/diffuser_role_list.png
+
+.. image:: static/description/diffuser_role_form.png
+
+Usage
+-----
+
+Show Site
+~~~~~~~~~
+I create a new contact.
+
+I notice a new type of contact ``Show Site``.
+
+.. image:: static/description/contact_new.png
+
+After selecting ``Show Site``, a new tab ``Show`` appears.
+
+.. image:: static/description/contact_show_tab.png
+
+I select a type of place.
+
+.. image:: static/description/contact_show_place.png
+
+In the field ``Stage``, I can define whether the scene is indoor or outdoor.
+
+.. image:: static/description/contact_show_stage.png
+
+Configuration
+~~~~~~~~~~~~~
+Below in the same tab, I see a list of ``Configurations``.
+
+It allows to define different possible configurations for the scene.
+
+.. image:: static/description/contact_show_configurations.png
+
+The ``Minor Restriction`` box allows to define whether this configuration is restricted to minors.
+
+.. image:: static/description/contact_show_minor_restriction.png
+
+Diffusers
+~~~~~~~~~
+Below in the same tab, I see a list of ``Diffuser's Contacts``.
+
+.. image:: static/description/contact_show_diffusers.png
+
+When selecting a contact, the email and mobile numbers are filled.
+
+.. image:: static/description/contact_diffuser_email_filled.png
+
+I select a role for this contact.
+
+.. image:: static/description/contact_diffuser_role.png
 
 Contributors
 ------------

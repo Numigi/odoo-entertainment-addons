@@ -106,10 +106,57 @@ class TestShowProject(SavepointCase):
         )
         self.assertEqual(
             form.name,
-            "{} - {} - {}".format(
-                self.tour_project_1.display_name, "2021-01-01", show_place.display_name
-            ),
+            "{} - {}".format("2021-01-01", show_place.display_name),
         )
+
+    def test_project_city_is_set_by_related_show_place(self):
+        show_place = self.env["res.partner"].create(
+            {"type": "show_site", "name": "Show Site A", "city": "New York"}
+        )
+        form = self._create_project_with_form(
+            {
+                "parent_id": self.tour_project_1,
+                "show_type": "show",
+                "show_date": "2021-01-01",
+                "show_place_id": show_place,
+            }
+        )
+        self.assertEqual(form.city, show_place.city)
+
+    def test_set_project_show_place_auto_fill_diffusers(self):
+        individual = self.env["res.partner"].create({"name": "Individual"})
+        role = self.env["diffuser.role"].create({"name": "Test DR"})
+        show_place = self.env["res.partner"].create(
+            {
+                "name": "Name",
+                "diffuser_ids": [
+                    (
+                        0,
+                        0,
+                        {
+                            "partner_id": individual.id,
+                            "diffuser_role_id": role.id,
+                            "email": "test@email.com",
+                            "mobile": "0123456789",
+                        },
+                    )
+                ],
+            }
+        )
+        f = Form(self.env["project.project"])
+        f.name = "Project"
+        f.show_place_id = show_place
+        project = f.save()
+        generated_diffuser = project.diffuser_ids[0]
+        self.assertEqual(
+            generated_diffuser.partner_id, show_place.diffuser_ids[0].partner_id
+        )
+        self.assertEqual(
+            generated_diffuser.diffuser_role_id,
+            show_place.diffuser_ids[0].diffuser_role_id,
+        )
+        self.assertEqual(generated_diffuser.email, show_place.diffuser_ids[0].email)
+        self.assertEqual(generated_diffuser.mobile, show_place.diffuser_ids[0].mobile)
 
     def _create_project_with_form(self, values):
         with Form(self.env["project.project"]) as project_form:

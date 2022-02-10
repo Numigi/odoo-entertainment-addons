@@ -116,12 +116,12 @@ msgstr "Séquence"
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__show_description_url
 msgid "Show Description"
-msgstr "Description du spectable"
+msgstr "Description du spectacle"
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__show_event_url
 msgid "Show Event"
-msgstr "Événement du spectable"
+msgstr "Événement du spectacle"
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__tour_poster_url

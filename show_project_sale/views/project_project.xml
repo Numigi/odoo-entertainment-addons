@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="show_project_sale_form" model="ir.ui.view">
+        <field name="name">Show Project Sale Form Inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="show_project.project_form"/>
+        <field name="arch" type="xml">
+            <field name="show_date" position="after">
+                <field name="sale_currency_id" invisible="1"/>
+                <field name="show_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="show_duration" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="door_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="artist_start_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="other_artists" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <label for="has_intermission" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <div attrs="{'invisible': [('show_type', '!=', 'show')]}" class="o_row">
+                    <field name="has_intermission" class="oe_inline"/>
+                    <field name="accomodation" attrs="{'invisible': [('has_intermission', '=', False)], 'required': [('has_intermission', '=', True)]}"/>
+                </div>
+                <label for="has_meal" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <div attrs="{'invisible': [('show_type', '!=', 'show')]}" class="o_row">
+                    <field name="has_meal" attrs="{'invisible': [('show_type', '!=', 'show')]}" class="oe_inline"/>
+                    <field name="meals" attrs="{'invisible': [('has_meal', '=', False)], 'required': [('has_meal', '=', True)]}"/>
+                </div>
+            </field>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Sale" name="sale_tab" attrs="{'invisible': [('show_type', '!=', 'show')]}">
+                    <group>
+                        <group string="Tickets" col="1">
+                            <group>
+                                <field name="artist_favour_tickets"/>
+                                <field name="diffisor_favour_tickets"/>
+                                <field name="announcement_date"/>
+                                <field name="selling_date"/>
+                                <field name="artist_favour_tickets"/>
+                            </group>
+                            <group col="1">
+                                <label for="ticket_price_ids"/>
+                                <field name="ticket_price_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="segment_id"/>
+                                        <field name="price"/>
+                                        <field name="currency_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                                <label for="service_fee_ids"/>
+                                <field name="service_fee_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="segment_id"/>
+                                        <field name="price"/>
+                                        <field name="currency_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <group string="Variable Income">
+                            <field name="has_benefits_sharing"/>
+                            <field name="benefits_sharing_rate"
+                                string="Applicable Rate"
+                                widget="percentage"
+                                attrs="{'invisible': [('has_benefits_sharing', '=', False)],
+                                        'required': [('has_benefits_sharing', '=', True)]}"/>
+                            <field name="benefits_sharing_type"
+                                attrs="{'invisible': [('has_benefits_sharing', '=', False)],
+                                        'required': [('has_benefits_sharing', '=', True)]}"/>
+                            <field name="benefits_sharing_amount_before"
+                                attrs="{
+                                    'invisible': [
+                                        '|',
+                                        ('has_benefits_sharing', '=', False),
+                                        ('benefits_sharing_type', '!=', 'after_fixed_amount'),
+                                    ],
+                                    'required': [
+                                        ('has_benefits_sharing', '=', True),
+                                        ('benefits_sharing_type', '=', 'after_fixed_amount'),
+                                    ],
+                                }"/>
+                            <field name="benefits_sharing_forcasted_expense"
+                                attrs="{
+                                    'invisible': [
+                                        '|',
+                                        ('has_benefits_sharing', '=', False),
+                                        ('benefits_sharing_type', '!=', 'after_real_costs'),
+                                    ],
+                                    'required': [
+                                        ('has_benefits_sharing', '=', True),
+                                        ('benefits_sharing_type', '=', 'after_real_costs'),
+                                    ],
+                                }"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

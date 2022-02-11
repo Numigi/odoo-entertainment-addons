@@ -49,7 +49,9 @@ COPY show_project_fee /mnt/extra-addons/show_project_fee
 COPY show_project_list /mnt/extra-addons/show_project_list
 COPY show_project_promotion /mnt/extra-addons/show_project_promotion
 COPY show_project_role /mnt/extra-addons/show_project_role
+COPY show_project_sale /mnt/extra-addons/show_project_sale
 COPY show_project_sold_tickets /mnt/extra-addons/show_project_sold_tickets
+COPY show_sale /mnt/extra-addons/show_sale
 
 COPY .docker_files/main /mnt/extra-addons/main
 COPY .docker_files/odoo.conf /etc/odoo

@@ -26,6 +26,7 @@
                             <field name="sequence"/>
                         </group>
                         <group name="group_2">
+                            <field name="code"/>
                         </group>
                     </group>
                     <notebook>

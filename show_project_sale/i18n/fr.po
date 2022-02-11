@@ -1,0 +1,261 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* show_project_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-27 03:57+0000\n"
+"PO-Revision-Date: 2022-01-27 03:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__accomodation
+msgid "Accomodation"
+msgstr "Hébergement"
+
+#. module: show_project_sale
+#: selection:project.project,benefits_sharing_type:0
+msgid "After Fixed Expense Amount"
+msgstr "Après montant fixe de dépenses"
+
+#. module: show_project_sale
+#: selection:project.project,benefits_sharing_type:0
+msgid "After Real Costs"
+msgstr "Après frais réels"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__announcement_date
+msgid "Announcement Date"
+msgstr "Date d’annonce"
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.show_project_sale_form
+msgid "Applicable Rate"
+msgstr "Taux applicable (%)"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__benefits_sharing_rate
+msgid "Applicable Rate (%)"
+msgstr "Taux applicable (%)"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__artist_start_hour
+msgid "Artist Start Time"
+msgstr "Heure de début Artiste"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__artist_favour_tickets
+msgid "Artist's Favour Tickets"
+msgstr "Billets de faveur pour l’artiste"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__has_benefits_sharing
+msgid "Benefits Sharing"
+msgstr "Partage de profits"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__create_uid
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__create_date
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_price_mixin__currency_id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__sale_currency_id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__currency_id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__currency_id
+msgid "Currency"
+msgstr "Devise"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_price_mixin__segment_id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__segment_id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__segment_id
+msgid "Customer Segment"
+msgstr "Segment client"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__diffisor_favour_tickets
+msgid "Diffusor's Favor Tickets"
+msgstr "Billets de faveur du Diffuseur"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_price_mixin__display_name
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__display_name
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__door_hour
+msgid "Door Time"
+msgstr "Heure de la porte"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__benefits_sharing_amount_before
+msgid "Expenses Amount Before Sharing"
+msgstr "Montant de dépenses avant répartition"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__benefits_sharing_forcasted_expense
+msgid "Forecasted Expenses Amount"
+msgstr "Montant prévisionnel de dépenses"
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_service_fee_search
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_ticket_price_search
+msgid "Group By"
+msgstr "Regrouper par"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_price_mixin__id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__id
+msgid "ID"
+msgstr ""
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__has_intermission
+msgid "Intermission"
+msgstr "Entracte"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_price_mixin____last_update
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee____last_update
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__write_uid
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__write_date
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__has_meal
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__meals
+msgid "Meals"
+msgstr "Repas"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__other_artists
+msgid "Other Artists"
+msgstr "Autres artistes"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_price_mixin__price
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__price
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__price
+msgid "Price"
+msgstr "Prix"
+
+#. module: show_project_sale
+#: model:ir.model,name:show_project_sale.model_project_project
+#: model:ir.model.fields,field_description:show_project_sale.field_project_price_mixin__project_id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_service_fee__project_id
+#: model:ir.model.fields,field_description:show_project_sale.field_project_ticket_price__project_id
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_service_fee_search
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_ticket_price_search
+msgid "Project"
+msgstr "Projet"
+
+#. module: show_project_sale
+#: model:ir.model,name:show_project_sale.model_project_price_mixin
+msgid "Project Price Mixin"
+msgstr ""
+
+#. module: show_project_sale
+#: model:ir.model,name:show_project_sale.model_project_service_fee
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_service_fee_form
+msgid "Project Service Fee"
+msgstr ""
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_service_fee_search
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_service_fee_tree
+msgid "Project Service Fees"
+msgstr ""
+
+#. module: show_project_sale
+#: model:ir.model,name:show_project_sale.model_project_ticket_price
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_ticket_price_form
+msgid "Project Ticket Price"
+msgstr ""
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_ticket_price_search
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_ticket_price_tree
+msgid "Project Ticket Prices"
+msgstr ""
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.show_project_sale_form
+msgid "Sale"
+msgstr "Vente"
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_service_fee_search
+#: model_terms:ir.ui.view,arch_db:show_project_sale.project_ticket_price_search
+msgid "Segment"
+msgstr ""
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__selling_date
+msgid "Selling Date"
+msgstr "Date de mise en vente"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__service_fee_ids
+msgid "Service Fees"
+msgstr "Frais de service"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__show_duration
+msgid "Show Duration"
+msgstr "Durée du spectacle"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__show_hour
+msgid "Show Time"
+msgstr "Heure du spectacle"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__ticket_price_ids
+msgid "Ticket Prices"
+msgstr "Prix des billets"
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.show_project_sale_form
+msgid "Tickets"
+msgstr "Billets"
+
+#. module: show_project_sale
+#: model:ir.model.fields,field_description:show_project_sale.field_project_project__benefits_sharing_type
+msgid "Type of Sharing"
+msgstr "Type de partage de profits"
+
+#. module: show_project_sale
+#: model_terms:ir.ui.view,arch_db:show_project_sale.show_project_sale_form
+msgid "Variable Income"
+msgstr "Rémunération variable"
+

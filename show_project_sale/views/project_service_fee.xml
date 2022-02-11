@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="project_service_fee_form" model="ir.ui.view">
+        <field name="name">Project Service Fee Form</field>
+        <field name="model">project.service.fee</field>
+        <field name="arch" type="xml">
+            <form string="Project Service Fee">
+                <sheet>
+                    <group>
+                        <group name="group_1">
+                            <field name="project_id"/>
+                            <field name="segment_id"/>
+                        </group>
+                        <group name="group_2">
+                            <field name="price"/>
+                            <field name="currency_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="project_service_fee_tree" model="ir.ui.view">
+        <field name="name">Project Service Fee Tree</field>
+        <field name="model">project.service.fee</field>
+        <field name="arch" type="xml">
+            <tree string="Project Service Fees">
+                <field name="project_id"/>
+                <field name="segment_id"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="project_service_fee_search" model="ir.ui.view">
+        <field name="name">Project Service Fee Search</field>
+        <field name="model">project.service.fee</field>
+        <field name="arch" type="xml">
+            <search string="Project Service Fees">
+                <field name="segment_id"/>
+                <field name="project_id"/>
+                <group expand="1" string="Group By">
+                    <filter name="groupby_project" context="{'group_by' : 'project_id'}" string="Project"/>
+                    <filter name="groupby_segment" context="{'group_by' : 'segment_id'}" string="Segment"/>
+                </group>
+           </search>
+        </field>
+    </record>
+
+</odoo>

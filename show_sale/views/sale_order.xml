@@ -8,7 +8,11 @@
         <field name="arch" type="xml">
             <field name="partner_shipping_id" position="after">
                 <field name="is_show" invisible="1"/>
-                <field name="show_project_id" domain="[('show_type', '=', 'show')]" context="{'default_show_type': 'show'}"/>
+                <field name="show_project_id" 
+                       domain="[('show_type', '=', 'show')]" 
+                       context="{'default_show_type': 'show'}"
+                       attrs="{'invisible': [('type_id.is_show', '!=', True)]}"
+                       />
             </field>
         </field>
     </record>

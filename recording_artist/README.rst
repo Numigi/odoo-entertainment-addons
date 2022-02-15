@@ -35,7 +35,7 @@ When clicking on ``Roles``, I see the list view (member) of artist roles.
 
 Record Companies
 ~~~~~~~~~~~~~~~~
-Under ``Record / Configuration`` a menu entry ``Record Companies`` is added.
+Under ``Recordung / Configuration`` a menu entry ``Record Companies`` is added.
 
 .. image:: static/description/recording_company_menu.png
 

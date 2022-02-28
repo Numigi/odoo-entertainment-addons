@@ -13,7 +13,7 @@ It shows the list of catalogs.
 
 .. image:: static/description/musical_catalog_list.png
 
-By clicking on a create button you can create a new language.
+By clicking on a create button you can create a new catalog.
 
 Module Design
 -------------

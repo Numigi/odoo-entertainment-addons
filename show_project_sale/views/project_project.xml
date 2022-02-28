@@ -34,7 +34,6 @@
                                 <field name="diffisor_favour_tickets"/>
                                 <field name="announcement_date"/>
                                 <field name="selling_date"/>
-                                <field name="artist_favour_tickets"/>
                             </group>
                             <group col="1">
                                 <label for="ticket_price_ids"/>

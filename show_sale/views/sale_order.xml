@@ -11,7 +11,7 @@
                 <field name="show_project_id" 
                        domain="[('show_type', '=', 'show')]" 
                        context="{'default_show_type': 'show'}"
-                       attrs="{'invisible': [('type_id.is_show', '!=', True)]}"
+                       attrs="{'invisible': [('is_show', '=', False)]}"
                        />
             </field>
         </field>

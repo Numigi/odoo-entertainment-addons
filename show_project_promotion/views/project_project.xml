@@ -25,16 +25,21 @@
                             <field name="biography_url" widget="url"/>
                         </group>
                     </group>
-                    <label for="promotional_item_ids"/>
-                    <newline/>
-                    <field name="promotional_item_ids" nolabel="1">
-                        <tree editable="1">
-                            <field name="sequence" widget="handle"/>
-                            <field name="product_id"/>
-                            <field name="description"/>
-                            <field name="notes"/>
-                        </tree>
-                    </field>
+                    <group>
+                        <label for="promotional_item_ids"/>
+                        <newline/>
+                        <field name="promotional_item_ids" nolabel="1">
+                            <tree editable="1">
+                                <field name="sequence" widget="handle"/>
+                                <field name="product_id"/>
+                                <field name="description"/>
+                                <field name="notes"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group name="notes">
+                                <field name="notes" nolabel="1" placeholder="Notes"/>
+                    </group>
                 </page>
             </page>
         </field>

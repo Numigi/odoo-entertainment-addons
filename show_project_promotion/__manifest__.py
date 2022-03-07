@@ -4,7 +4,7 @@
 {
     "name": "Show Project Promotion",
     "summary": "Add promotion tab to projects",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

@@ -12,6 +12,7 @@ class ProjectProject(models.Model):
     artist_start_hour = fields.Float(string="Artist Start Time")
     other_artists = fields.Char()
     has_intermission = fields.Boolean("Intermission")
+    has_accomodation = fields.Boolean("Accomodation")
     accomodation = fields.Char()
     has_meal = fields.Boolean("Meals")
     meals = fields.Char()

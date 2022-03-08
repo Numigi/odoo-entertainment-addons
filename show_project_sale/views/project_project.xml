@@ -13,10 +13,11 @@
                 <field name="door_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="artist_start_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="other_artists" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
-                <label for="has_intermission" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="has_intermission" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <label for="has_accomodation" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <div attrs="{'invisible': [('show_type', '!=', 'show')]}" class="o_row">
-                    <field name="has_intermission" class="oe_inline"/>
-                    <field name="accomodation" attrs="{'invisible': [('has_intermission', '=', False)], 'required': [('has_intermission', '=', True)]}"/>
+                    <field name="has_accomodation" class="oe_inline"/>
+                    <field name="accomodation" attrs="{'invisible': [('has_accomodation', '=', False)], 'required': [('has_accomodation', '=', True)]}"/>
                 </div>
                 <label for="has_meal" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <div attrs="{'invisible': [('show_type', '!=', 'show')]}" class="o_row">

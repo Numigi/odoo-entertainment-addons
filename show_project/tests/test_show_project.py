@@ -105,8 +105,7 @@ class TestShowProject(SavepointCase):
             }
         )
         self.assertEqual(
-            form.name,
-            "{} - {}".format("2021-01-01", show_place.display_name),
+            form.name, "{} - {}".format("2021-01-01", show_place.display_name)
         )
 
     def test_project_city_is_set_by_related_show_place(self):
@@ -138,6 +137,7 @@ class TestShowProject(SavepointCase):
                             "diffuser_role_id": role.id,
                             "email": "test@email.com",
                             "mobile": "0123456789",
+                            "phone": "123",
                         },
                     )
                 ],
@@ -157,6 +157,7 @@ class TestShowProject(SavepointCase):
         )
         self.assertEqual(generated_diffuser.email, show_place.diffuser_ids[0].email)
         self.assertEqual(generated_diffuser.mobile, show_place.diffuser_ids[0].mobile)
+        self.assertEqual(generated_diffuser.phone, show_place.diffuser_ids[0].phone)
 
     def _create_project_with_form(self, values):
         with Form(self.env["project.project"]) as project_form:

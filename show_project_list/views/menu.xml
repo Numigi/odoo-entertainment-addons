@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="project.menu_projects" model="ir.ui.menu">
+        <field name="action" eval="False"/>
+    </record>
+
+    <menuitem id="menu_all_projects"
+              name="All Projects"
+              parent="project.menu_projects"
+              action="project.open_view_project_all"
+              sequence="10"
+    />
+
+    <menuitem id="menu_shows"
+              name="Shows"
+              parent="project.menu_projects"
+              action="show_project_list.action_project_shows"
+              sequence="20"
+    />
+
+</odoo>

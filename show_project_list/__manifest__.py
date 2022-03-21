@@ -10,5 +10,5 @@
     "license": "LGPL-3",
     "installable": True,
     "depends": ["project_list", "show_project"],
-    "data": ["views/project_project.xml"],
+    "data": ["views/project_project.xml", "views/menu.xml"],
 }

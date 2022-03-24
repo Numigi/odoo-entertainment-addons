@@ -14,6 +14,7 @@
                     >
                     <group>
                         <group attrs="{'invisible': [('show_type', '!=', 'show')]}">
+                            <field name="announcement_date"/>
                             <field name="show_sale_date"/>
                             <field name="distributor_platform_url" widget="url"/>
                             <field name="show_event_url" widget="url"/>

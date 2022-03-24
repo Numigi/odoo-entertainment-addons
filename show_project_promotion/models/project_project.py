@@ -15,6 +15,7 @@ class ProjectProject(models.Model):
     tour_poster_url = fields.Char("Tour Poster", prefetch=False)
     show_description_url = fields.Char("Show Description", prefetch=False)
     biography_url = fields.Char("Biography", prefetch=False)
+    announcement_date = fields.Date("Announcement Date", prefetch=False)
 
     promotional_item_ids = fields.One2many(
         "project.promotional.item", "project_id", "Promotional Items"

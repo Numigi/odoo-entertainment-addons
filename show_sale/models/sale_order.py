@@ -10,7 +10,9 @@ class SaleOrder(models.Model):
 
     is_show = fields.Boolean("Is Show", related="type_id.is_show", store=True)
     show_project_id = fields.Many2one(
-        "project.project", "Show", ondelete="restrict",
+        "project.project",
+        "Show",
+        ondelete="restrict",
     )
 
     @api.onchange("show_place_id")

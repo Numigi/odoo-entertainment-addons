@@ -1,26 +1,19 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* show
+#	* show_sale
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-01 20:06+0000\n"
-"PO-Revision-Date: 2021-09-01 16:07-0400\n"
+"POT-Creation-Date: 2022-03-24 15:38+0000\n"
+"PO-Revision-Date: 2022-03-24 15:38+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.3\n"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__accomodation
-msgid "Accomodation"
-msgstr "Hébergement"
 
 #. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__active
@@ -31,29 +24,7 @@ msgstr "Actif"
 #: model:ir.model.fields,help:show_sale.field_sale_order__is_show
 #: model:ir.model.fields,help:show_sale.field_sale_order_type__is_show
 msgid "Adds a tab Show on the sale order that allows to manage show settings."
-msgstr ""
-"Ajoute un onglet Spectacle sur le bon de vente pour gérer les données de "
-"ventes des spectacles."
-
-#. module: show_sale
-#: selection:sale.order,benefits_sharing_type:0
-msgid "After Fixed Expense Amount"
-msgstr "Après montant fixe de dépenses"
-
-#. module: show_sale
-#: selection:sale.order,benefits_sharing_type:0
-msgid "After Real Costs"
-msgstr "Après frais réels"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__announcement_date
-msgid "Announcement Date"
-msgstr "Date d’annonce"
-
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Applicable Rate"
-msgstr "Taux applicable (%)"
+msgstr "Ajoute un onglet Spectacle sur le bon de vente pour gérer les données de ventes des spectacles."
 
 #. module: show_sale
 #: model_terms:ir.ui.view,arch_db:show_sale.show_customer_segment_search
@@ -61,63 +32,21 @@ msgid "Archived"
 msgstr "Archivé"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__artist_id
-msgid "Artist"
-msgstr "Artiste"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__artist_start_hour
-msgid "Artist Start Hour"
-msgstr "Heure de début Artiste"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__artist_favour_tickets
-msgid "Artist's Favour Tickets"
-msgstr "Billets de faveur pour l’artiste"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__has_benefits_sharing
-msgid "Benefits Sharing"
-msgstr "Partage de profits"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__benefits_sharing_rate
-msgid "Benefits Sharing Rate"
-msgstr "Taux de partage de profits"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__benefits_sharing_type
-msgid "Benefits Sharing Type"
-msgstr "Type de partage de profits"
-
-#. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__code
 msgid "Code"
 msgstr "Code"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__create_uid
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__create_uid
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__create_uid
 msgid "Created by"
 msgstr "Créé par"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__create_date
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__create_date
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__create_date
 msgid "Created on"
 msgstr "Créé le"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__currency_id
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__currency_id
-msgid "Currency"
-msgstr "Devise"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__segment_id
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__segment_id
 #: model_terms:ir.ui.view,arch_db:show_sale.show_customer_segment_form
 msgid "Customer Segment"
 msgstr "Segment client"
@@ -130,64 +59,14 @@ msgid "Customer Segments"
 msgstr "Segments client"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__display_name
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__display_name
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__door_hour
-msgid "Door Hour"
-msgstr "Heure de la porte"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__benefits_sharing_amount_before
-msgid "Expense Amount Before Sharing"
-msgstr "Montant de dépenses avant répartition"
-
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Expenses Amount Before Sharing"
-msgstr "Montant de dépenses avant répartition"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__first_part
-msgid "First Part"
-msgstr "1ère partie"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__benefits_sharing_forcasted_expense
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Forecasted Expenses Amount"
-msgstr "Montant prévisionnel de dépenses"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__has_accomodation
-msgid "Has Accomodation"
-msgstr "A de l'hébergement"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__has_first_part
-msgid "Has First Part"
-msgstr "A une 1ère partie"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__has_meal
-msgid "Has Meal"
-msgstr "A des repas"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__id
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__id
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__id
 msgid "ID"
-msgstr "ID"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__has_intermission
-msgid "Intermission"
-msgstr "Entracte"
+msgstr ""
 
 #. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_sale_order__is_show
@@ -195,67 +74,24 @@ msgid "Is Show"
 msgstr "Spectacle"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee____last_update
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price____last_update
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment____last_update
 msgid "Last Modified on"
-msgstr "Dernière Modification le"
+msgstr "Dernière modification le"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__write_uid
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__write_uid
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__write_uid
 msgid "Last Updated by"
 msgstr "Dernière mise à jour par"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__write_date
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__write_date
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__write_date
 msgid "Last Updated on"
 msgstr "Dernière mise à jour le"
 
 #. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Location Capacity"
-msgstr "Capacité de la salle"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__meal
-msgid "Meal"
-msgstr "Repas"
-
-#. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__name
 msgid "Name"
 msgstr "Nom"
-
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Notes"
-msgstr "Notes"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__order_id
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__order_id
-msgid "Order"
-msgstr "Commande"
-
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Organisation"
-msgstr "Organisation"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__other_artists
-msgid "Other Artists"
-msgstr "Autres artistes"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_service_fee__price
-#: model:ir.model.fields,field_description:show_sale.field_sale_order_ticket_price__price
-msgid "Price"
-msgstr "Prix"
 
 #. module: show_sale
 #: model:ir.model,name:show_sale.model_project_project
@@ -265,17 +101,7 @@ msgstr "Projet"
 #. module: show_sale
 #: model:ir.model,name:show_sale.model_sale_order
 msgid "Sale Order"
-msgstr "Commande de vente"
-
-#. module: show_sale
-#: model:ir.model,name:show_sale.model_sale_order_service_fee
-msgid "Sale Order Service Fee"
-msgstr "Frais de service sur commande de vente"
-
-#. module: show_sale
-#: model:ir.model,name:show_sale.model_sale_order_ticket_price
-msgid "Sale Order Ticket Price"
-msgstr "Prix des billets sur commande de vente"
+msgstr "Bon de commande"
 
 #. module: show_sale
 #: model_terms:ir.ui.view,arch_db:show_sale.project_form
@@ -293,24 +119,13 @@ msgid "Search Customer Segments"
 msgstr "Chercher des segments client"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__selling_date
-msgid "Selling Date"
-msgstr "Date de mise en vente"
-
-#. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__sequence
 msgid "Sequence"
 msgstr "Séquence"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__service_fee_ids
-msgid "Service Fees"
-msgstr "Frais de service"
-
-#. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_sale_order__show_project_id
 #: model:ir.model.fields,field_description:show_sale.field_sale_order_type__is_show
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
 msgid "Show"
 msgstr "Spectacle"
 
@@ -318,36 +133,6 @@ msgstr "Spectacle"
 #: model:ir.model,name:show_sale.model_show_customer_segment
 msgid "Show Customer Segment"
 msgstr "Segment client (spectacle)"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__show_date
-msgid "Show Date"
-msgstr "Date du spectacle"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__show_duration
-msgid "Show Duration"
-msgstr "Durée du spectacle"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__show_hour
-msgid "Show Hour"
-msgstr "Heure du spectacle"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__show_place_id
-msgid "Show Location"
-msgstr "Lieu du spectacle"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__show_place_maximum_capacity
-msgid "Show Location Capacity"
-msgstr "Capacité de la salle"
-
-#. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__show_notes
-msgid "Show Notes"
-msgstr "Notes pour le spectacle"
 
 #. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_project_project__show_sale_order_ids
@@ -365,66 +150,7 @@ msgid "Shows"
 msgstr "Spectacles"
 
 #. module: show_sale
-#: model:ir.model.fields,field_description:show_sale.field_sale_order__ticket_price_ids
-msgid "Ticket Prices"
-msgstr "Prix des billets"
-
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Tickets"
-msgstr "Billets"
-
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Type of Sharing"
-msgstr "Type de partage de profits"
-
-#. module: show_sale
 #: model:ir.model,name:show_sale.model_sale_order_type
 msgid "Type of sale order"
-msgstr "Type de commande de vente"
+msgstr "Type de bon de commande"
 
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Variable Remuneration"
-msgstr "Rémunération variable"
-
-#~ msgid "Address Type"
-#~ msgstr "Type d'adresse"
-
-#~ msgid "Check this box if this place has a restriction for minors."
-#~ msgstr ""
-#~ "Cocher cette case si ce lieu comporte une restriction pour les mineurs."
-
-#~ msgid "Configuration"
-#~ msgstr "Configuration"
-
-#~ msgid "Description"
-#~ msgstr "Description"
-
-#~ msgid "Invoice address"
-#~ msgstr "Adresse de facturation"
-
-#~ msgid "Place Type"
-#~ msgstr "Type de lieu"
-
-#~ msgid "Private Address"
-#~ msgstr "Adresse personnelle"
-
-#~ msgid "Minor Restriction"
-#~ msgstr "Restriction mineurs"
-
-#~ msgid "Shipping address"
-#~ msgstr "Adresse d'expédition"
-
-#~ msgid "Show Place Configurations"
-#~ msgstr "Configurations de lieux de spectacles"
-
-#~ msgid "Show Place Minor Restriction"
-#~ msgstr "Lieu de spectacle - Restraint aux mineurs​"
-
-#~ msgid "Show Place Types"
-#~ msgstr "Types de lieux de spectacles"
-
-#~ msgid "Distance from Productor"
-#~ msgstr "Distance du producteur"

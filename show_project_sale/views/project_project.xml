@@ -66,6 +66,7 @@
                                 attrs="{'invisible': [('has_benefits_sharing', '=', False)],
                                         'required': [('has_benefits_sharing', '=', True)]}"/>
                             <field name="benefits_sharing_amount_before"
+                                   widget="monetary" options="{'currency_field': 'sale_currency_id'}"
                                 attrs="{
                                     'invisible': [
                                         '|',
@@ -78,6 +79,7 @@
                                     ],
                                 }"/>
                             <field name="benefits_sharing_forcasted_expense"
+                                   widget="monetary" options="{'currency_field': 'sale_currency_id'}"
                                 attrs="{
                                     'invisible': [
                                         '|',

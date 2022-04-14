@@ -32,11 +32,6 @@ msgid "After Real Costs"
 msgstr "Après frais réels"
 
 #. module: show_project_sale
-#: model:ir.model.fields,field_description:show_project_sale.field_project_project__announcement_date
-msgid "Announcement Date"
-msgstr "Date d’annonce"
-
-#. module: show_project_sale
 #: model_terms:ir.ui.view,arch_db:show_project_sale.show_project_sale_form
 msgid "Applicable Rate"
 msgstr "Taux applicable (%)"

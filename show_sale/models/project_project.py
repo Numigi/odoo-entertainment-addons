@@ -13,9 +13,7 @@ class Project(models.Model):
         "show_project_id",
     )
 
-    show_sale_order_count = fields.Integer(
-        compute="_compute_show_sale_order_count"
-    )
+    show_sale_order_count = fields.Integer(compute="_compute_show_sale_order_count")
 
     def _compute_show_sale_order_count(self):
         for project in self:

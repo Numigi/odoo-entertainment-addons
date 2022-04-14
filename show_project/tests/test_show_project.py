@@ -53,49 +53,33 @@ class TestShowProject(SavepointCase):
         self.show_project_1.parent_id = self.tour_project_1
         self.assertEqual(self.show_project_1.previous_show_id, self.empty_project)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
-        self.show_project_2 = self._create_project(
-            "Show Project 2", "show", self.tour_project_1.id
-        )
+        self.show_project_2 = self._create_project("Show Project 2", "show", self.tour_project_1.id)
         self.assertEqual(self.show_project_1.previous_show_id, self.empty_project)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
-        self._update_show_date(
-            self.show_project_2, fields.Date.today() - relativedelta(days=1)
-        )
+        self._update_show_date(self.show_project_2, fields.Date.today() - relativedelta(days=1))
         self.assertEqual(self.show_project_1.previous_show_id, self.show_project_2)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
-        self.show_project_3 = self._create_project(
-            "Show Project 3", "show", self.tour_project_1.id
-        )
+        self.show_project_3 = self._create_project("Show Project 3", "show", self.tour_project_1.id)
         self.assertEqual(self.show_project_1.previous_show_id, self.show_project_2)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
-        self._update_show_date(
-            self.show_project_3, fields.Date.today() + relativedelta(days=1)
-        )
+        self._update_show_date(self.show_project_3, fields.Date.today() + relativedelta(days=1))
         self.assertEqual(self.show_project_1.previous_show_id, self.show_project_2)
         self.assertEqual(self.show_project_1.next_show_id, self.show_project_3)
 
     def test_type_show_name_readonly(self):
         with self.assertRaises(AssertionError):
-            self._create_project_with_form(
-                {"name": "Show project", "show_type": "show"}
-            )
+            self._create_project_with_form({"name": "Show project", "show_type": "show"})
 
     def test_type_standard_name_editable(self):
-        form = self._create_project_with_form(
-            {"name": "Standard project", "show_type": "standard"}
-        )
+        form = self._create_project_with_form({"name": "Standard project", "show_type": "standard"})
         self.assertEqual(form.name, "Standard project")
 
     def test_type_tour_name_editable(self):
-        form = self._create_project_with_form(
-            {"name": "Tour project", "show_type": "tour"}
-        )
+        form = self._create_project_with_form({"name": "Tour project", "show_type": "tour"})
         self.assertEqual(form.name, "Tour project")
 
     def test_type_show_name_is_set_automatically(self):
-        show_place = self.env["res.partner"].create(
-            {"type": "show_site", "name": "Show Site A"}
-        )
+        show_place = self.env["res.partner"].create({"type": "show_site", "name": "Show Site A"})
         form = self._create_project_with_form(
             {
                 "parent_id": self.tour_project_1,
@@ -148,9 +132,7 @@ class TestShowProject(SavepointCase):
         f.show_place_id = show_place
         project = f.save()
         generated_diffuser = project.diffuser_ids[0]
-        self.assertEqual(
-            generated_diffuser.partner_id, show_place.diffuser_ids[0].partner_id
-        )
+        self.assertEqual(generated_diffuser.partner_id, show_place.diffuser_ids[0].partner_id)
         self.assertEqual(
             generated_diffuser.diffuser_role_id,
             show_place.diffuser_ids[0].diffuser_role_id,

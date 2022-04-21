@@ -39,7 +39,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="sequence" widget="handle"/>
-<!--                <field name="artist_id" />-->
+                <field name="artist_id" />
                 <field name="parent_id" />
                 <field name="show_date" />
                 <field name="city" />
@@ -59,6 +59,9 @@
         <field name="domain">[("show_type", "=", "show")]</field>
         <field name="context">{'default_show_type': 'show'}</field>
         <field name="view_mode">tree,kanban,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('show_project_list.project_show_list')}),
+        ]"/>
         <field name="search_view_id" ref="show_project_list.project_search"/>
         <field name="target">main</field>
     </record>

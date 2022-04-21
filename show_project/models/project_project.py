@@ -17,7 +17,9 @@ class ProjectProject(models.Model):
     expected_parent_show_type = fields.Char(
         compute="_compute_expected_parent_show_type", store=True
     )
-    parent_id = fields.Many2one(domain="[('show_type', '=', expected_parent_show_type)]")
+    parent_id = fields.Many2one(
+        domain="[('show_type', '=', expected_parent_show_type)]"
+    )
     show_place_id = fields.Many2one(
         comodel_name="res.partner",
         domain="[('type', '=', 'show_site')]",
@@ -29,14 +31,10 @@ class ProjectProject(models.Model):
         domain="[('partner_id', '=', show_place_id)]",
     )
     show_place_maximum_capacity = fields.Integer(string="Maximum Capacity")
-    show_place_configuration = fields.Char(
-        string="Configuration of Room",
-    )
-    show_place_minor_restriction = fields.Boolean(
-        string="Minors Restriction",
-    )
+    show_place_configuration = fields.Char(string="Configuration of Room")
+    show_place_minor_restriction = fields.Boolean(string="Minors Restriction")
     show_place_distance_from_productor = fields.Integer(
-        string="Distance from Productor",
+        string="Distance from Productor"
     )
     show_place_stage = fields.Selection([("indoor", "Indoor"), ("outdoor", "Outdoor")])
     show_place_notes = fields.Text()
@@ -50,7 +48,10 @@ class ProjectProject(models.Model):
     recording = fields.Boolean(default=False)
     producer_id = fields.Many2one(comodel_name="res.partner")
     city = fields.Char(related="show_place_id.city")
-    diffuser_ids = fields.One2many("project.diffuser", "project_id", string="Diffuser's Contacts")
+    diffuser_ids = fields.One2many(
+        "project.diffuser", "project_id", string="Diffuser's Contacts"
+    )
+    artist_id = fields.Many2one(comodel_name="artist")
 
     @api.depends("show_type")
     def _compute_expected_parent_show_type(self):
@@ -139,7 +140,9 @@ class ProjectProject(models.Model):
 
     def _update_from_show_place(self):
         place = self.show_place_id
-        self.show_place_distance_from_productor = place.show_place_distance_from_productor
+        self.show_place_distance_from_productor = (
+            place.show_place_distance_from_productor
+        )
         self.show_place_stage = place.show_place_stage
         self.show_place_notes = place.show_place_notes
         self.diffuser_ids = self._get_diffuser_vals()

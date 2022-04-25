@@ -138,8 +138,8 @@ msgstr "Extérieur"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__parent_id
-msgid "Parent Project"
-msgstr "Projet parent"
+msgid "Tour"
+msgstr "Tournée"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__previous_show_id

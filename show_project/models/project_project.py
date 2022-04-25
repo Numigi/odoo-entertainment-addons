@@ -18,7 +18,7 @@ class ProjectProject(models.Model):
         compute="_compute_expected_parent_show_type", store=True
     )
     parent_id = fields.Many2one(
-        domain="[('show_type', '=', expected_parent_show_type)]"
+        string="Tour", domain="[('show_type', '=', expected_parent_show_type)]"
     )
     show_place_id = fields.Many2one(
         comodel_name="res.partner",

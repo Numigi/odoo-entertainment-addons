@@ -17,6 +17,7 @@
         # OCA-server-tool
         "base_view_inheritance_extension",
         # Numigi-Entertainment
+        "artist",
         "show_place",
     ],
     "data": [

@@ -6,12 +6,16 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="show_project.project_form"/>
         <field name="arch" type="xml">
+            <field name="artist_id" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
             <field name="show_date" position="after">
                 <field name="sale_currency_id" invisible="1"/>
                 <field name="show_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="show_duration" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="door_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="artist_start_hour" widget="float_time" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="artist_id" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="other_artists" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <field name="has_intermission" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <label for="has_accomodation" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>

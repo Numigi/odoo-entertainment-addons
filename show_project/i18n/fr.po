@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-21 10:45+0000\n"
-"PO-Revision-Date: 2022-03-21 10:45+0000\n"
+"POT-Creation-Date: 2022-04-21 10:24+0000\n"
+"PO-Revision-Date: 2022-04-21 10:24+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_project__artist_id
+msgid "Artist"
+msgstr "Artiste"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__city
@@ -133,8 +138,8 @@ msgstr "Extérieur"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__parent_id
-msgid "Parent Project"
-msgstr "Projet parent"
+msgid "Tour"
+msgstr "Tournée"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_diffuser__phone
@@ -231,4 +236,3 @@ msgstr "Tournée"
 #: model:ir.model.fields,field_description:show_project.field_project_project__show_place_id
 msgid "Venue"
 msgstr "Lieu"
-

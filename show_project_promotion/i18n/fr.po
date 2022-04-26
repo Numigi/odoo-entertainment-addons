@@ -1,21 +1,24 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* show_project_promotion
+#	* show_project_promotion
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-04 19:38+0000\n"
-"PO-Revision-Date: 2021-08-04 15:40-0400\n"
+"POT-Creation-Date: 2022-03-24 09:13+0000\n"
+"PO-Revision-Date: 2022-03-24 09:13+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 2.3\n"
+
+#. module: show_project_promotion
+#: model:ir.model.fields,field_description:show_project_promotion.field_project_project__announcement_date
+msgid "Announcement Date"
+msgstr "Date d'annonce"
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__biography_url
@@ -35,12 +38,12 @@ msgstr "Créé le"
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__description
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__display_name
 msgid "Display Name"
-msgstr "Nom d'affichage"
+msgstr "Nom affiché"
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__distributor_platform_url
@@ -50,27 +53,27 @@ msgstr "Plateforme du distributeur"
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item____last_update
 msgid "Last Modified on"
-msgstr "Modifié la dernière fois le"
+msgstr "Dernière modification le"
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__write_uid
 msgid "Last Updated by"
-msgstr "Mis à jour la dernière fois par"
+msgstr "Dernière mise à jour par"
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__write_date
 msgid "Last Updated on"
-msgstr "Mis à jour pour la dernière fois le"
+msgstr "Dernière mise à jour le"
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_promotional_item__notes
 msgid "Notes"
-msgstr "Notes"
+msgstr ""
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__photo_gallery_url
@@ -96,7 +99,7 @@ msgstr "Article promotionnel sur projet"
 #. module: show_project_promotion
 #: model_terms:ir.ui.view,arch_db:show_project_promotion.project_form
 msgid "Promotion"
-msgstr "Promotion"
+msgstr ""
 
 #. module: show_project_promotion
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__promotional_item_ids
@@ -127,3 +130,4 @@ msgstr "Événement du spectacle"
 #: model:ir.model.fields,field_description:show_project_promotion.field_project_project__tour_poster_url
 msgid "Tour Poster"
 msgstr "Affiche du spectacle"
+

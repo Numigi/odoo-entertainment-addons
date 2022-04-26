@@ -79,7 +79,7 @@ msgstr "Formule"
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_diffuser__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: show_project
 #: selection:project.project,show_place_stage:0
@@ -232,5 +232,3 @@ msgstr "Tournée"
 msgid "Venue"
 msgstr "Lieu"
 
-#~ msgid "Check this box if this place has a restriction for minors."
-#~ msgstr "Cocher cette case si ce lieu comporte une restriction pour les mineurs."

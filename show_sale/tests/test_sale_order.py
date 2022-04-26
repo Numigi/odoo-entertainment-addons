@@ -5,14 +5,15 @@ from odoo.tests.common import SavepointCase
 
 
 class TestRecordings(SavepointCase):
-
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.show = cls.env["project.project"].create({
-            "name": "My Show",
-            "show_type": "show",
-        })
+        cls.show = cls.env["project.project"].create(
+            {
+                "name": "My Show",
+                "show_type": "show",
+            }
+        )
 
         cls.order = cls.env["sale.order"].create(
             {

@@ -9,12 +9,8 @@ class ProjectPriceMixin(models.AbstractModel):
     _name = "project.price.mixin"
     _description = "Project Price Mixin"
 
-    project_id = fields.Many2one(
-        "project.project", required=True, index=True, ondelete="cascade"
-    )
-    segment_id = fields.Many2one(
-        "show.customer.segment", "Customer Segment", required=True
-    )
+    project_id = fields.Many2one("project.project", required=True, index=True, ondelete="cascade")
+    segment_id = fields.Many2one("show.customer.segment", "Customer Segment", required=True)
     price = fields.Monetary()
     currency_id = fields.Many2one(
         "res.currency",

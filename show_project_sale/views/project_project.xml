@@ -33,8 +33,6 @@
                             <group>
                                 <field name="artist_favour_tickets"/>
                                 <field name="diffisor_favour_tickets"/>
-                                <field name="announcement_date"/>
-                                <field name="selling_date"/>
                             </group>
                             <group col="1">
                                 <label for="ticket_price_ids"/>
@@ -66,6 +64,7 @@
                                 attrs="{'invisible': [('has_benefits_sharing', '=', False)],
                                         'required': [('has_benefits_sharing', '=', True)]}"/>
                             <field name="benefits_sharing_amount_before"
+                                   widget="monetary" options="{'currency_field': 'sale_currency_id'}"
                                 attrs="{
                                     'invisible': [
                                         '|',
@@ -78,6 +77,7 @@
                                     ],
                                 }"/>
                             <field name="benefits_sharing_forcasted_expense"
+                                   widget="monetary" options="{'currency_field': 'sale_currency_id'}"
                                 attrs="{
                                     'invisible': [
                                         '|',

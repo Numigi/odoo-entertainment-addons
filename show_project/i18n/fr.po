@@ -142,6 +142,11 @@ msgid "Tour"
 msgstr "Tournée"
 
 #. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__phone
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__previous_show_id
 msgid "Previous Show"
 msgstr "Spectacle précédent"

@@ -18,6 +18,7 @@ class ProjectProject(models.Model):
     meals = fields.Char()
     artist_favour_tickets = fields.Integer("Artist's Favour Tickets")
     diffisor_favour_tickets = fields.Integer("Diffusor's Favor Tickets")
+    selling_date = fields.Date()
     ticket_price_ids = fields.One2many(
         "project.ticket.price",
         "project_id",

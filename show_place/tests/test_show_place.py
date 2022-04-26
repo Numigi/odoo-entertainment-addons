@@ -17,7 +17,12 @@ class TestShowPlace(SavepointCase):
 
     def test_create_partner_diffuser(self):
         individual = self.env["res.partner"].create(
-            {"name": "Individual", "email": "test@gmail.com", "mobile": "0123456789"}
+            {
+                "name": "Individual",
+                "email": "test@gmail.com",
+                "mobile": "0123456789",
+                "phone": "123",
+            }
         )
         role = self.test_create_diffuser_role()
         with Form(self.env["res.partner"]) as partner_form:
@@ -27,6 +32,7 @@ class TestShowPlace(SavepointCase):
                 line.diffuser_role_id = role
                 self.assertEqual(line.email, individual.email)
                 self.assertEqual(line.mobile, individual.mobile)
+                self.assertEqual(line.phone, individual.phone)
 
     def test_configuration_display_name(self):
         config = self.env["show.place.configuration"].create({"name": "/"})

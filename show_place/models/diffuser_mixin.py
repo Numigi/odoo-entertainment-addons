@@ -18,8 +18,10 @@ class DiffuserMixin(models.AbstractModel):
     diffuser_role_id = fields.Many2one("diffuser.role", string="Role", required=True)
     email = fields.Char()
     mobile = fields.Char()
+    phone = fields.Char()
 
     @api.onchange("partner_id")
     def _onchange_partner_id(self):
         self.email = self.partner_id.email
         self.mobile = self.partner_id.mobile
+        self.phone = self.partner_id.phone

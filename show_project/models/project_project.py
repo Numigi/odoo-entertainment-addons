@@ -159,6 +159,7 @@ class ProjectProject(models.Model):
                         "diffuser_role_id": diffuser.diffuser_role_id.id,
                         "email": diffuser.email,
                         "mobile": diffuser.mobile,
+                        "phone": diffuser.phone,
                     },
                 )
             )

@@ -8,8 +8,9 @@
             <tree editable="bottom">
                 <field name="partner_id"/>
                 <field name="diffuser_role_id"/>
-                <field name="email"/>
+                <field name="phone"/>
                 <field name="mobile"/>
+                <field name="email"/>
             </tree>
         </field>
     </record>
@@ -23,8 +24,9 @@
                     <group>
                         <group>
                             <field name="partner_id"/>
-                            <field name="email"/>
+                            <field name="phone"/>
                             <field name="mobile"/>
+                            <field name="email"/>
                         </group>
                         <group>
                             <field name="diffuser_role_id"/>

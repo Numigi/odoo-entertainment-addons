@@ -29,14 +29,10 @@ class ProjectProject(models.Model):
         domain="[('partner_id', '=', show_place_id)]",
     )
     show_place_maximum_capacity = fields.Integer(string="Maximum Capacity")
-    show_place_configuration = fields.Char(
-        string="Configuration of Room",
-    )
-    show_place_minor_restriction = fields.Boolean(
-        string="Minors Restriction",
-    )
+    show_place_configuration = fields.Char(string="Configuration of Room")
+    show_place_minor_restriction = fields.Boolean(string="Minors Restriction")
     show_place_distance_from_productor = fields.Integer(
-        string="Distance from Productor",
+        string="Distance from Productor"
     )
     show_place_stage = fields.Selection([("indoor", "Indoor"), ("outdoor", "Outdoor")])
     show_place_notes = fields.Text()
@@ -156,6 +152,7 @@ class ProjectProject(models.Model):
                         "diffuser_role_id": diffuser.diffuser_role_id.id,
                         "email": diffuser.email,
                         "mobile": diffuser.mobile,
+                        "phone": diffuser.phone,
                     },
                 )
             )

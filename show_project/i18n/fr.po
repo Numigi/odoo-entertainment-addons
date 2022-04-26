@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-24 15:40+0000\n"
-"PO-Revision-Date: 2022-03-24 15:40+0000\n"
+"POT-Creation-Date: 2022-03-21 10:45+0000\n"
+"PO-Revision-Date: 2022-03-21 10:45+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -135,6 +135,11 @@ msgstr "Extérieur"
 #: model:ir.model.fields,field_description:show_project.field_project_project__parent_id
 msgid "Parent Project"
 msgstr "Projet parent"
+
+#. module: show_project
+#: model:ir.model.fields,field_description:show_project.field_project_diffuser__phone
+msgid "Phone"
+msgstr "Téléphone"
 
 #. module: show_project
 #: model:ir.model.fields,field_description:show_project.field_project_project__previous_show_id

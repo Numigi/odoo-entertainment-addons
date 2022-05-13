@@ -23,7 +23,7 @@
                 <label for="has_meal" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
                 <div attrs="{'invisible': [('show_type', '!=', 'show')]}" class="o_row">
                     <field name="has_meal" attrs="{'invisible': [('show_type', '!=', 'show')]}" class="oe_inline"/>
-                    <field name="meals" attrs="{'invisible': [('has_meal', '=', False)], 'required': [('has_meal', '=', True)]}"/>
+                    <field name="meals" attrs="{'invisible': [('has_meal', '=', False)]}"/>
                 </div>
             </field>
 

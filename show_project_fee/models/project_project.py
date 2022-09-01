@@ -22,7 +22,6 @@ class ProjectProject(models.Model):
         if (
             not self.project_type_id
             or not self.show_member_ids
-            or not self.show_sale_amount
         ):
             raise ValidationError(
                 _(

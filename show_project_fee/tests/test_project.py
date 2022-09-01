@@ -151,11 +151,6 @@ class TestComputeShowFees(ProjectShowFeeCase):
         with pytest.raises(ValidationError):
             self._compute_show_fees()
 
-    def test_sale_amount_not_set(self):
-        self.show.show_sale_amount = 0
-        with pytest.raises(ValidationError):
-            self._compute_show_fees()
-
     def test_no_fees_defined_on_tour(self):
         self.fee.unlink()
         with pytest.raises(ValidationError):

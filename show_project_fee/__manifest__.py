@@ -4,7 +4,7 @@
 {
     "name": "Show Project Fee",
     "summary": "Add management of show fees on projects",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

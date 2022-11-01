@@ -68,7 +68,7 @@
             <!-- Add new field show_date under date field -->
             <field name="date" position="after">
                 <field name="show_date" attrs="{'invisible': [('show_type', '!=', 'show')], 'required': [('show_type', '=', 'show')]}"/>
-                <field name="artist_id" attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <field name="artist_id" attrs="{'required': [('show_type', '=', 'show')]}"/>
             </field>
 
             <!-- Add new tab `Show Place` when project type is `show` -->

@@ -13,6 +13,9 @@ class TestShowProject(SavepointCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.empty_project = cls.env["project.project"]
+        cls.artist = cls.env["artist"].create(
+            {"name": "artist"}
+        )
         cls.standard_project_1 = cls.env["project.project"].create(
             {"name": "Standard Project 1", "show_type": "standard"}
         )
@@ -20,11 +23,15 @@ class TestShowProject(SavepointCase):
             {"name": "Tour Project 1", "show_type": "tour"}
         )
         cls.show_project_1 = cls.env["project.project"].create(
-            {"name": "Show Project 1", "show_type": "show"}
+            {"name": "Show Project 1",
+             "show_type": "show",
+             "artist": cls.artist.id
+             }
         )
 
-    def _create_project(self, name, show_type=None, parent_id=None):
-        vals = {"name": name, "show_type": show_type, "parent_id": parent_id}
+    def _create_project(self, name, show_type=None, parent_id=None, artist=None):
+        vals = {"name": name, "show_type": show_type, "parent_id": parent_id,
+                "artist_id": artist}
         return self.env["project.project"].create(vals)
 
     def _update_show_date(self, project, show_date):
@@ -53,13 +60,21 @@ class TestShowProject(SavepointCase):
         self.show_project_1.parent_id = self.tour_project_1
         self.assertEqual(self.show_project_1.previous_show_id, self.empty_project)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
-        self.show_project_2 = self._create_project("Show Project 2", "show", self.tour_project_1.id)
+        self.show_project_2 = self._create_project("Show Project 2",
+                                                   "show",
+                                                   self.tour_project_1.id,
+                                                   self.artist.id,
+                                                   )
         self.assertEqual(self.show_project_1.previous_show_id, self.empty_project)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
         self._update_show_date(self.show_project_2, fields.Date.today() - relativedelta(days=1))
         self.assertEqual(self.show_project_1.previous_show_id, self.show_project_2)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
-        self.show_project_3 = self._create_project("Show Project 3", "show", self.tour_project_1.id)
+        self.show_project_3 = self._create_project("Show Project 3",
+                                                   "show",
+                                                   self.tour_project_1.id,
+                                                   self.artist.id,
+                                                   )
         self.assertEqual(self.show_project_1.previous_show_id, self.show_project_2)
         self.assertEqual(self.show_project_1.next_show_id, self.empty_project)
         self._update_show_date(self.show_project_3, fields.Date.today() + relativedelta(days=1))
@@ -68,7 +83,12 @@ class TestShowProject(SavepointCase):
 
     def test_type_show_name_readonly(self):
         with self.assertRaises(AssertionError):
-            self._create_project_with_form({"name": "Show project", "show_type": "show"})
+            self._create_project_with_form(
+                {"name": "Show project",
+                 "show_type": "show",
+                 "artist_id": self.artist,
+                 }
+            )
 
     def test_type_standard_name_editable(self):
         form = self._create_project_with_form({"name": "Standard project", "show_type": "standard"})
@@ -84,6 +104,7 @@ class TestShowProject(SavepointCase):
             {
                 "parent_id": self.tour_project_1,
                 "show_type": "show",
+                "artist_id": self.artist,
                 "show_date": "2021-01-01",
                 "show_place_id": show_place,
             }
@@ -100,6 +121,7 @@ class TestShowProject(SavepointCase):
             {
                 "parent_id": self.tour_project_1,
                 "show_type": "show",
+                "artist_id": self.artist,
                 "show_date": "2021-01-01",
                 "show_place_id": show_place,
             }

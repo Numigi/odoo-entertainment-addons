@@ -11,10 +11,17 @@
     </record>
 
     <record id="project_form" model="ir.ui.view">
-        <field name="name">project.project: add Sales smart button</field>
+        <field name="name">project.project: add Create Sale button and Sales smart button </field>
         <field name="model">project.project</field>
         <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_create_sale_order_show"
+                        type="object"
+                        string="Create Sale"
+                        class="btn btn-secondary"
+                        attrs="{'invisible': ['|', ('show_type', '!=', 'show'), ('check_so_exist', '=', True)]}"/>
+            </xpath>
             <button name="toggle_active" position="before">
                 <button name="%(action_sale_order_from_project)d"
                     type="action"
@@ -25,6 +32,9 @@
                     <field string="Sale Orders" name="show_sale_order_count" widget="statinfo"/>
                 </button>
             </button>
+            <field name="partner_id" position="after">
+                <field name="check_so_exist" invisible="1"/>
+            </field>
         </field>
     </record>
 

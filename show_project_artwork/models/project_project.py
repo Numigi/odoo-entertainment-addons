@@ -15,6 +15,7 @@ class ProjectProject(models.Model):
         "artwork_id",
         "Artworks",
     )
+    artwork_note = fields.Text(string="Notes")
 
     @api.onchange("parent_id")
     def _onchange_parent_propagate_artworks(self):

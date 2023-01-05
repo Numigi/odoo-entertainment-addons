@@ -8,46 +8,60 @@
         <field name="arch" type="xml">
             <page name="show_venue" position="after">
                 <page
-                    string="Fees"
-                    name="show_fees"
-                    attrs="{'invisible': [('show_type', 'not in', ('tour', 'show'))]}"
-                    >
+                        string="Fees"
+                        name="show_fees"
+                        attrs="{'invisible': [('show_type', 'not in', ('tour', 'show'))]}">
                     <button name="compute_show_fees" type="object" string="Compute Fees"
-                        attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
-                    <group>
-                        <group>
-                            <field name="show_sale_amount" string="Sale Amount"
-                                attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
-                        </group>
-                    </group>
+                            attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+
                     <newline/>
                     <field name="show_fee_ids" nolabel="1">
                         <tree editable="bottom">
                             <field name="sequence" widget="handle"/>
                             <field name="partner_id"
-                                attrs="{'column_invisible': [('parent.show_type', '!=', 'show')]}"
-                                />
+                                   attrs="{'column_invisible': [('parent.show_type', '!=', 'show')]}"
+                            />
                             <field name="role_id"/>
                             <field name="project_type_id"
-                                attrs="{'column_invisible': [('parent.show_type', '!=', 'tour')]}"
-                                />
+                                   attrs="{'column_invisible': [('parent.show_type', '!=', 'tour')]}"
+                            />
                             <field name="type_"/>
                             <field name="min_sale_amount" string="Min Sales"
-                                attrs="{'readonly': [('type_', '=', 'fixed')],
+                                   attrs="{'readonly': [('type_', '=', 'fixed')],
                                         'required': [('type_', '!=', 'fixed')]}"
-                                force_save="1"
-                                />
+                                   force_save="1"
+                            />
                             <field name="max_sale_amount" string="Max Sales"
-                                attrs="{'readonly': [('type_', '=', 'fixed')],
+                                   attrs="{'readonly': [('type_', '=', 'fixed')],
                                         'required': [('type_', '!=', 'fixed')]}"
-                                force_save="1"
-                                />
+                                   force_save="1"
+                            />
                             <field name="amount"/>
                             <field name="currency_id" invisible="1"/>
                         </tree>
                     </field>
+                    <label for="show_fee_note"/>
+                    <newline/>
+                    <field name="show_fee_note"/>
                 </page>
             </page>
+
+        </field>
+    </record>
+    <record id="show_project_sales_tab_form" model="ir.ui.view">
+        <field name="name">Project Form: Add Sales Amount in Sales Tab</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="show_project_sale.show_project_sale_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='has_benefits_sharing']/parent::group" position="attributes">
+                <attribute name="string"></attribute>
+            </xpath>
+            <xpath expr="//field[@name='has_benefits_sharing']" position="before">
+                <separator string="Sale"/>
+                <field name="show_sale_amount" string="Sale Amount"
+                       attrs="{'invisible': [('show_type', '!=', 'show')]}"/>
+                <separator string="Variable Income"/>
+            </xpath>
         </field>
     </record>
 

@@ -26,6 +26,7 @@ class Project(models.Model):
         "project_id",
         "Show Per Diem",
     )
+    show_perdiem_note = fields.Text(string="Notes")
 
     @api.constrains("tour_perdiem_config_ids")
     def _check_duplicate_tour_perdiems(self):

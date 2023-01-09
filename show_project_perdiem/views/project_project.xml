@@ -67,7 +67,6 @@
                             name="show_perdiem_ids"
                             nolabel="1"
                             colspan="2"
-                            readonly="1"
                             >
                             <tree>
                                 <field name="partner_id"/>

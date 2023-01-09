@@ -4,7 +4,7 @@
 {
     "name": "Show Project Per Diem",
     "summary": "Add perdiems on shows",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

@@ -19,6 +19,9 @@
                             </tree>
                         </field>
                     </group>
+                    <label for="show_members_note"/>
+                    <newline/>
+                    <field name="show_members_note"/>
                 </page>
             </xpath>
         </field>

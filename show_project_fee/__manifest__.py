@@ -10,6 +10,6 @@
     "maintainer": "Numigi",
     "license": "AGPL-3",
     "installable": True,
-    "depends": ["show_project", "show_project_role", "project_type"],
+    "depends": ["show_project", "show_project_role", "show_project_sale", "project_type"],
     "data": ["views/project_project.xml", "security/ir.model.access.csv"],
 }

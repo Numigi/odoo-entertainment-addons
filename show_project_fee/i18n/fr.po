@@ -73,6 +73,11 @@ msgid "Display Name"
 msgstr ""
 
 #. module: show_project_fee
+#: model_terms:ir.ui.view,arch_db:show_project_fee.show_project_sales_tab_form
+msgid "Sale"
+msgstr "Vente"
+
+#. module: show_project_fee
 #: model_terms:ir.ui.view,arch_db:show_project_fee.project_form
 msgid "Fees"
 msgstr "Cachets"
@@ -123,6 +128,11 @@ msgid "Min Sales"
 msgstr "Ventes min"
 
 #. module: show_project_fee
+#: model:ir.model.fields,field_description:show_project_fee.field_project_project__show_fee_note
+msgid "Notes"
+msgstr "Notes"
+
+#. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__partner_id
 msgid "Partner"
 msgstr "Partenaire"
@@ -149,9 +159,9 @@ msgid "Role"
 msgstr "Rôle"
 
 #. module: show_project_fee
-#: model_terms:ir.ui.view,arch_db:show_project_fee.project_form
+#: model_terms:ir.ui.view,arch_db:show_project_fee.show_project_sales_tab_form
 msgid "Sale Amount"
-msgstr "Montant de ventes"
+msgstr "Montant de vente"
 
 #. module: show_project_fee
 #: model:ir.model.fields,field_description:show_project_fee.field_project_show_fee__sequence
@@ -218,6 +228,7 @@ msgstr ""
 "Si un cachet a un type de projet, un autre cachet ne peut pas être défini "
 "avec le même rôle et aucun projet."
 
+
 #. module: show_project_fee
 #: code:addons/show_project_fee/models/project_show_fee.py:106
 #, python-format
@@ -231,3 +242,8 @@ msgstr ""
 "\n"
 "Deux lignes de cachets avec le même rôle et le même type de projet ne "
 "peuvent pas avoir des montant de ventes (min / max) qui se chevauchent."
+
+#. module: show_project_fee
+#: model_terms:ir.ui.view,arch_db:show_project_fee.show_project_sales_tab_form
+msgid "Variable Income"
+msgstr "Rémunération variable"

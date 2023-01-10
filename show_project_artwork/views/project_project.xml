@@ -17,6 +17,9 @@
                             <field name="display_name"/>
                         </tree>
                     </field>
+                    <label for="artwork_note"/>
+                    <newline/>
+                    <field name="artwork_note"/>
                 </page>
             </page>
         </field>

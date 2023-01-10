@@ -67,7 +67,6 @@
                             name="show_perdiem_ids"
                             nolabel="1"
                             colspan="2"
-                            readonly="1"
                             >
                             <tree>
                                 <field name="partner_id"/>
@@ -79,6 +78,9 @@
                             </tree>
                         </field>
                     </group>
+                    <label for="show_perdiem_note"/>
+                    <newline/>
+                    <field name="show_perdiem_note"/>
                 </page>
             </page>
         </field>

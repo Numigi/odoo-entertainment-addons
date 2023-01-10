@@ -293,7 +293,7 @@ msgstr ""
 #~ msgstr "Rôle"
 
 #~ msgid "Sale Amount"
-#~ msgstr "Montant de ventes"
+#~ msgstr "Montant de vente"
 
 #~ msgid "Show Sale Amount"
 #~ msgstr "Montant de vente du spectacle"

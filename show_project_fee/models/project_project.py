@@ -12,6 +12,7 @@ class ProjectProject(models.Model):
     show_sale_amount = fields.Monetary()
 
     show_fee_ids = fields.One2many("project.show.fee", "project_id", "Show Fees")
+    show_fee_note = fields.Text(string="Notes")
 
     def compute_show_fees(self):
         for project in self:

@@ -92,6 +92,13 @@
                                 }"/>
                         </group>
                     </group>
+                    <label for="sales_note"/>
+                    <newline/>
+                    <field name="sales_note"/>
+                    <newline/>
+                    <label for="other_contract_terms"/>
+                    <newline/>
+                    <field name="other_contract_terms"/>
                 </page>
             </xpath>
         </field>

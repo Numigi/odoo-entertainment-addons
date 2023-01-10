@@ -11,6 +11,7 @@ class ProjectProject(models.Model):
     show_member_ids = fields.One2many(
         comodel_name="project.show.member", inverse_name="project_id"
     )
+    show_members_note = fields.Text(string="Notes")
 
     @api.onchange("parent_id")
     def _onchange_tour_propagate_members(self):

@@ -49,3 +49,6 @@ class ProjectProject(models.Model):
     sale_currency_id = fields.Many2one(
         related="show_sale_order_ids.pricelist_id.currency_id",
     )
+    sales_note = fields.Text(string="Notes")
+    other_contract_terms = fields.Text(string="Other terms of the contract")
+

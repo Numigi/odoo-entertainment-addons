@@ -58,6 +58,25 @@ It is computed based on the show date and venue.
 
 .. image:: static/description/show_title.png
 
+When you select a parent project ``Tour``, the fields ``Artist``
+and ``Analytic Account`` are automatically filled with the
+values of the fields ``Artist`` and ``Analytic Account``
+of the parent project ``Tour`` respectively.
+
+.. image:: static/description/tour_artist_analytic_account.png
+
+The project of type ``Show``.
+
+.. image:: static/description/show_artist_analytic_account.png
+
+The analytic account/customer constraint is deleted
+in case of project type ``Show`` or ``Tour``.
+
+.. image:: static/description/delete_constraint_analytic_account_customer.png
+
+.. image:: static/description/analytic_account_customer.png
+
+
 Show Configuration
 ~~~~~~~~~~~~~~~~~~
 In the ``Venue`` tab, the field ``Configuration`` allows to select a site configuration for this show.
@@ -75,6 +94,8 @@ After selecting a configuration, I notice that the fields below were automatical
 Other fields are populated based on values defined on the show venue.
 
 .. image:: static/description/show_with_venue_fields.png
+
+
 
 Contributors
 ------------

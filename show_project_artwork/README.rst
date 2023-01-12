@@ -29,6 +29,10 @@ I notice that the artworks were propagated from the parent tour.
 
 I can optionnaly add or remove artworks from the show.
 
+New field **Notes** is created in "Artworks" tab.
+
+.. image:: static/description/notes_artwork_page.png
+
 Contributors
 ------------
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)

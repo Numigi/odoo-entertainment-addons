@@ -79,7 +79,7 @@ class RecordingExternalRevenue(models.Model):
             lambda r: r.company_id == company
         )
         for revenues in revenues_to_post:
-            revenues.with_delay().generate_journal_entry()
+            revenues.generate_journal_entry()
 
     def generate_journal_entry(self):
         self = self.with_context(force_company=self.company_id.id)
@@ -131,9 +131,10 @@ class RecordingExternalRevenue(models.Model):
 
         self._set_tax_base_amount(revenue_line)
         self._add_tax_move_lines(move)
+        print(move.line_ids.mapped('account_id.name'))
         self._set_revenue_amount(revenue_line)
         self._add_receivable_move_line(move)
-
+        print(move.line_ids.mapped('account_id.name'))
         self._check_no_deprecated_journal_account(move)
 
         return move
@@ -168,7 +169,7 @@ class RecordingExternalRevenue(models.Model):
         line.recompute_tax_line = True
         line.tax_ids = self._get_revenue_line_taxes()
         line.analytic_account_id = self.analytic_account_id
-        line.currency_id = line.account_id.currency_id
+        line.currency_id = line.account_id.currency_id or self.currency_id
         line.recording_id = self.recording_id
         line.artist_id = self.artist_id
         line.partner_id = self.partner_id
@@ -232,10 +233,14 @@ class RecordingExternalRevenue(models.Model):
     def _set_tax_base_amount(self, revenue_line):
         amount = self[self.tax_base]
         amount_in_company_currency = self._convert_amount_in_company_currency(amount)
+        revenue_line.amount_currency = amount if amount < 0 else 0
+        revenue_line.amount_currency = -amount if amount > 0 else 0
         self._set_move_line_credit(revenue_line, amount_in_company_currency)
 
     def _set_revenue_amount(self, revenue_line):
         amount = self.net_amount
+        revenue_line.amount_currency = amount if amount < 0 else 0
+        revenue_line.amount_currency = -amount if amount > 0 else 0
         amount_in_company_currency = self._convert_amount_in_company_currency(amount)
         self._set_move_line_credit(revenue_line, amount_in_company_currency)
 
@@ -291,7 +296,7 @@ class RecordingExternalRevenue(models.Model):
         line = self.env["account.move.line"].new()
         line.name = "/"
         line.account_id = self._map_receivable_account()
-        line.currency_id = line.account_id.currency_id
+        line.currency_id = line.account_id.currency_id or self.currency_id
         line.date_maturity = due_date
         line.partner_id = self.partner_id
         self._set_move_line_credit(line, -amount)

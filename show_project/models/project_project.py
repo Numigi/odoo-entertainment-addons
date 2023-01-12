@@ -106,8 +106,9 @@ class ProjectProject(models.Model):
         vals = self._set_show_type_vals(vals)
         return super(ProjectProject, self).write(vals)
 
-    @api.onchange("show_type", "parent_id", "show_date", "show_place_id")
-    def _onchange_set_show_name(self):
+    @api.onchange("show_type", "parent_id", "show_date", "show_place_id", "parent_id.artist_id",
+                  "parent_id.analytic_account_id")
+    def _onchange_set_show_info(self):
         if self.show_type == "show":
             values = [
                 fields.Date.to_string(self.show_date),
@@ -115,6 +116,10 @@ class ProjectProject(models.Model):
             ]
             values = filter(lambda x: x, values)
             self.name = " - ".join(values)
+            if self.parent_id.artist_id:
+                self.artist_id = self.parent_id.artist_id.id
+            if self.parent_id.analytic_account_id:
+                self.analytic_account_id = self.parent_id.analytic_account_id.id
 
     @api.model
     def _set_show_type_vals(self, vals):
@@ -137,6 +142,11 @@ class ProjectProject(models.Model):
         self.show_place_configuration = config.name
         self.show_place_maximum_capacity = config.maximum_capacity
         self.show_place_minor_restriction = config.minor_restriction
+    @api.onchange('partner_id', 'show_type')
+    def _onchange_partner_id(self):
+        if self.show_type not in ('show', 'tour'):
+            return super()._onchange_partner_id()
+        return {'domain': {'analytic_account_id': []}}
 
     def _update_from_show_place(self):
         place = self.show_place_id

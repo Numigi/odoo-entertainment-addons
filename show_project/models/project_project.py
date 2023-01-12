@@ -142,11 +142,13 @@ class ProjectProject(models.Model):
         self.show_place_configuration = config.name
         self.show_place_maximum_capacity = config.maximum_capacity
         self.show_place_minor_restriction = config.minor_restriction
+
     @api.onchange('partner_id', 'show_type')
     def _onchange_partner_id(self):
-        if self.show_type not in ('show', 'tour'):
-            return super()._onchange_partner_id()
-        return {'domain': {'analytic_account_id': []}}
+        res = super(ProjectProject, self)._onchange_partner_id()
+        if self.show_type in ('show', 'tour'):
+            res['domain']['analytic_account_id'] = []
+        return res
 
     def _update_from_show_place(self):
         place = self.show_place_id

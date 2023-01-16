@@ -9,8 +9,9 @@
     "website": "https://www.numigi.com",
     "license": "LGPL-3",
     "category": "Entertainment",
-    "summary": "Modify the project view",
+    "summary": "Change order of tabs and fields in the form view of project.",
     "depends": [
+        "show_appearance_type",
         "show_place",
         "show_project_artwork",
         "show_project_fee",

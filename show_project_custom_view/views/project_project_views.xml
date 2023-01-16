@@ -5,15 +5,50 @@
         <field name="model">project.project</field>
         <field name="inherit_id" ref="show_project_role.project_form"/>
         <field name="arch" type="xml">
-            <page name="team" position="before">
+            <xpath expr="//page[@name='team']" position="before">
                 <page name="show_venue" position="move"/>
                 <page name="sale_tab" position="move"/>
                 <page name="show_promotion" position="move"/>
-            </page>
-            <page name="artworks" position="before">
-                <page name="show_perdiems" position="move"/>
+            </xpath>
+            <xpath expr="//page[@name='artworks']" position="before">
                 <page name="show_fees" position="move"/>
-            </page>
+                <page name="show_perdiems" position="move"/>
+                <page name="show_contributions" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='project_type_id']" position="before">
+                <field name="artist_id" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='showcase']" position="before">
+                <field name="show_appearance_type_id" position="move"/>
+                <field name="formula" position="move"/>
+                <field name="door_hour" position="move"/>
+                <field name="show_hour" position="move"/>
+                <field name="artist_start_hour" position="move"/>
+                <field name="show_duration" position="move"/>
+                <field name="other_artists" position="move"/>
+                <field name="has_intermission" position="move"/>
+                <label for="has_accomodation" position="move"/>
+                <xpath expr="//field[@name='has_accomodation']/parent::div" position="move"/>
+                <label for="has_meal" position="move"/>
+                <xpath expr="//field[@name='has_meal']/parent::div" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="recording" position="move"/>
+                <field name="producer_id" position="move"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_invoice_custom_view_form" model="ir.ui.view">
+        <field name="name">Inherit project form : Custom view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="hr_timesheet.project_invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_type_id']" position="before">
+                <field name="analytic_account_id" position="move"/>
+                <field name="partner_id" position="move"/>
+                <field name="show_date" position="move"/>
+            </xpath>
         </field>
     </record>
 </odoo>

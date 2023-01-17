@@ -6,6 +6,7 @@ Description
 
 This module change order of tabs and fields in the project form view.
 
+.. image:: static/description/project_change_tabs_fields_order.png
 
 Configuration
 -------------

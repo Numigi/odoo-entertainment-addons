@@ -3,7 +3,7 @@
 
 {
     "name": "Recording External Revenue",
-    "tag": "1.0.0",
+    "tag": "1.0.1",
     "author": "Numigi",
     "maintainer": "Numigi",
     "website": "https://www.numigi.com",
@@ -24,6 +24,7 @@
         "security/ir.model.access.csv",
         "security/ir_rule.xml",
         "data/queue_job_function.xml",
+        "data/external_revenue_data.xml",
         "views/recording_country_mapping.xml",
         "views/recording_country_state_mapping.xml",
         "views/recording_currency_mapping.xml",

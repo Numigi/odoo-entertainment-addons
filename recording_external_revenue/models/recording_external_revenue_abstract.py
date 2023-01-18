@@ -3,6 +3,7 @@
 
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
+from odoo.addons import decimal_precision as dp
 
 date_to_string = fields.Date.to_string
 
@@ -30,8 +31,12 @@ class RecordingExternalRevenueAbstract(models.AbstractModel):
     period_end_date = fields.Date(required=True)
 
     quantity = fields.Float()
-    gross_amount_per_unit = fields.Float()
-    gross_amount = fields.Float()
+    gross_amount_per_unit = fields.Float(
+        digits=dp.get_precision('External Revenues')
+    )
+    gross_amount = fields.Float(
+        digits=dp.get_precision('External Revenues')
+    )
     tax_base = fields.Selection(
         [
             ("net_amount", "Net Amount Before Tax"),
@@ -40,8 +45,14 @@ class RecordingExternalRevenueAbstract(models.AbstractModel):
         required=True,
     )
 
-    commission_amount = fields.Float("Total Commissions Amount")
-    net_amount = fields.Float("Total Net Amount (Untaxed)")
+    commission_amount = fields.Float(
+        "Total Commissions Amount",
+        digits=dp.get_precision('External Revenues')
+    )
+    net_amount = fields.Float(
+        "Total Net Amount (Untaxed)",
+        digits=dp.get_precision('External Revenues')
+    )
 
     @api.multi
     def name_get(self):

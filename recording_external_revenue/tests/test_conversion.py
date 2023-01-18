@@ -2,7 +2,8 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 import pytest
-from datetime import datetime
+import decimal
+
 from ddt import ddt, data
 from odoo.exceptions import ValidationError
 from .common import ExternalRevenueCase
@@ -119,3 +120,10 @@ class TestConversion(ExternalRevenueCase):
         self.raw_revenues.convert()
         with pytest.raises(ValidationError):
             self.raw_revenues.unlink()
+
+    def test_external_revenue_decimal_precision(self):
+        self.raw_revenues.write({"commission_amount": 10.19934})
+        revenue = self.raw_revenues.convert()
+        d = decimal.Decimal(str(revenue.commission_amount))
+        assert abs(d.as_tuple().exponent) <= 2
+

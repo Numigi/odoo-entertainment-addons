@@ -138,6 +138,13 @@ Recordings are also mapped using a specialized logic.
 
     .. image:: static/description/recording_references.png
 
+Since version 1.0.1, amount fields on gross income allows 5 decimal,
+on the other hand, the converted income remains on 2 decimal places.
+
 Contributors
 ------------
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+
+More information
+----------------
+* Meet us at https://bit.ly/numigi-com

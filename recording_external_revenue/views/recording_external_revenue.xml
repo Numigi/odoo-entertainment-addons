@@ -62,10 +62,10 @@
                                 </group>
                                 <group name="right">
                                     <field name="quantity"/>
-                                    <field name="gross_amount_per_unit"/>
-                                    <field name="gross_amount"/>
-                                    <field name="commission_amount"/>
-                                    <field name="net_amount"/>
+                                    <field name="gross_amount_per_unit" options="{'digits':[16,2]}"/>
+                                    <field name="gross_amount" options="{'digits':[16,2]}"/>
+                                    <field name="commission_amount" options="{'digits':[16,2]}"/>
+                                    <field name="net_amount" options="{'digits':[16,2]}"/>
                                 </group>
                             </group>
                         </page>

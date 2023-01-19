@@ -49,3 +49,15 @@ class TestSoldTickets(SavepointCase):
                 "total_sold_tickets": total_sold_tickets,
             }
         )
+
+    def test_compute_favour_tickets(self):
+        self.project.artist_favour_tickets = 10
+        self.project.diffisor_favour_tickets = 20
+        assert self.ticket_2.favour_tickets == 30
+
+    def test_compute_sold_tickets(self):
+        self.project.show_place_maximum_capacity = 100
+        self.project.artist_favour_tickets = 5
+        self.project.diffisor_favour_tickets = 1
+        assert self.ticket_1.sold_tickets == 0.11  # 10 /(100-5-1)
+        assert self.ticket_2.sold_tickets == 0.21  # 20 /(100-5-1)

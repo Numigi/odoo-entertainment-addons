@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-20 09:36+0000\n"
-"PO-Revision-Date: 2021-01-20 09:36+0000\n"
+"POT-Creation-Date: 2022-12-20 16:36+0000\n"
+"PO-Revision-Date: 2022-12-20 16:36+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,70 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__sold_tickets
+msgid "% Sold Tickets"
+msgstr "% Billets vendus"
+
+#. module: show_project_sold_tickets
+#: sql_constraint:show.ticket.sold:0
+msgid "A record already exists on this date for this show!"
+msgstr "Un enregistrement existe déjà à cette date pour ce spectacle!"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__artist_id
+#: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_search_view
+msgid "Artist"
+msgstr "Artiste"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__city
+msgid "City"
+msgstr "Ville spectacle"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: show_project_sold_tickets
 #: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__display_name
 msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__favour_tickets
+msgid "Favour Tickets"
+msgstr "Billet faveurs"
+
+#. module: show_project_sold_tickets
 #: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_search_view
 msgid "Group By"
 msgstr "Regrouper par"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__id
+msgid "ID"
+msgstr ""
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold____last_update
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
 
 #. module: show_project_sold_tickets
 #: model:res.groups,name:show_project_sold_tickets.group_show_ticket_manager
@@ -34,6 +90,11 @@ msgstr "Gestionnaire"
 #: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__new_sold_tickets
 msgid "New Sold Tickets"
 msgstr "Nouveaux billets vendus"
+
+#. module: show_project_sold_tickets
+#: model:ir.model,name:show_project_sold_tickets.model_project_project
+msgid "Project"
+msgstr "Projet"
 
 #. module: show_project_sold_tickets
 #: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__record_date
@@ -58,9 +119,28 @@ msgid "Show Ticket Sold"
 msgstr "Billets vendus"
 
 #. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__show_date
+#: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_search_view
+msgid "Show date"
+msgstr "Date du spectacle"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__show_place_id
+#: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_search_view
+msgid "Show place"
+msgstr "Lieu de spectacle"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__show_place_maximum_capacity
+msgid "Show place capacity"
+msgstr "Capacité de la salle "
+
+#. module: show_project_sold_tickets
 #: model:ir.actions.act_window,name:show_project_sold_tickets.action_show_ticket_sold
+#: model:ir.actions.act_window,name:show_project_sold_tickets.action_show_ticket_sold_list
 #: model:ir.ui.menu,name:show_project_sold_tickets.menu_sold_ticket
 #: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_project_sold_tickets_edit_project_form
+#: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_form_view
 #: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_graph_view
 #: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_pivot_view
 #: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_tree_view
@@ -73,16 +153,23 @@ msgid "Sold tickets"
 msgstr "Billets vendus"
 
 #. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_project_project__ticket_ids
+msgid "Ticket"
+msgstr "Billet"
+
+#. module: show_project_sold_tickets
 #: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__total_sold_tickets
 msgid "Total Sold Tickets"
 msgstr "Total billets vendus"
+
+#. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__show_parent_id
+#: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_search_view
+msgid "Tour"
+msgstr "Tournée"
 
 #. module: show_project_sold_tickets
 #: model:ir.module.category,description:show_project_sold_tickets.module_category_show_ticket
 msgid "User access level for Show Ticket"
 msgstr "Niveau d'accès utilisateur pour Billets de spectacles"
 
-#. module: show_project_sold_tickets
-#: sql_constraint:show.ticket.sold:0
-msgid "A record already exists on this date for this show!"
-msgstr "Un enregistrement existe déjà à cette date pour ce spectacle!"

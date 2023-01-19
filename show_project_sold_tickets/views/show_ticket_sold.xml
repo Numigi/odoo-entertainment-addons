@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="show_ticket_sold_form_view" model="ir.ui.view">
+        <field name="name">show.ticket.sold.form.view</field>
+        <field name="model">show.ticket.sold</field>
+        <field name="arch" type="xml">
+            <form string="Sold Tickets">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="show_id"/>
+                        <h1>
+                            <field name="show_id"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="record_date"/>
+                            <field name="total_sold_tickets"/>
+                            <field name="artist_id"/>
+                            <field name="show_parent_id"/>
+                            <field name="show_place_id"/>
+                            <field name="city"/>
+                        </group>
+                        <group>
+                            <field name="show_date"/>
+                            <field name="show_place_maximum_capacity"/>
+                            <field name="favour_tickets"/>
+                            <field name="sold_tickets" widget="percentage"/>
+                            <field name="new_sold_tickets"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <record id="show_ticket_sold_tree_view" model="ir.ui.view">
         <field name="name">show.ticket.sold.tree.view</field>
@@ -9,10 +42,19 @@
                 <field name="show_id"/>
                 <field name="record_date"/>
                 <field name="total_sold_tickets"/>
+                <field name="artist_id"/>
+                <field name="show_parent_id"/>
+                <field name="show_place_id"/>
+                <field name="city"/>
+                <field name="show_date"/>
+                <field name="show_place_maximum_capacity"/>
+                <field name="favour_tickets"/>
+                <field name="sold_tickets" widget="percentage"/>
                 <field name="new_sold_tickets"/>
             </tree>
         </field>
     </record>
+
 
     <record id="show_ticket_sold_search_view" model="ir.ui.view">
         <field name="name">show.ticket.sold.search.view</field>
@@ -23,6 +65,10 @@
                 <group expand="1" string="Group By">
                     <filter string="Show" name="show" context="{'group_by':'show_id'}"/>
                     <filter string="Record Date" name="record_date" context="{'group_by':'record_date'}"/>
+                    <filter string="Artist" name="artist_id" context="{'group_by':'artist_id'}"/>
+                    <filter string="Tour" name="show_parent_id" context="{'group_by':'show_parent_id'}"/>
+                    <filter string="Show place" name="show_place_id" context="{'group_by':'show_place_id'}"/>
+                    <filter string="Show date" name="show_date" context="{'group_by':'show_date'}"/>
                 </group>
             </search>
         </field>
@@ -34,15 +80,16 @@
         <field name="arch" type="xml">
             <pivot string="Sold Tickets">
                 <field name="record_date" type="row"/>
+                <field name="sold_tickets" type="measure" widget="percentage"/>
                 <field name="new_sold_tickets" type="measure"/>
             </pivot>
         </field>
     </record>
 
     <record id="show_ticket_sold_graph_view" model="ir.ui.view">
-       <field name="name">show.ticket.sold.graph.view</field>
-       <field name="model">show.ticket.sold</field>
-       <field name="arch" type="xml">
+        <field name="name">show.ticket.sold.graph.view</field>
+        <field name="model">show.ticket.sold</field>
+        <field name="arch" type="xml">
             <graph string="Sold Tickets">
                 <field name="record_date" type="row"/>
                 <field name="new_sold_tickets" type="measure"/>

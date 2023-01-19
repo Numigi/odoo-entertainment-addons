@@ -25,13 +25,17 @@ class Project(models.Model):
     def _compute_check_so_exist(self):
         for p in self:
             p.check_so_exist = (
-                len(p.show_sale_order_ids.filtered(lambda s: s.state != "cancel")) > 0
+                    len(p.show_sale_order_ids.filtered(lambda s: s.state != "cancel")) > 0
             )
 
     @api.multi
     def action_create_sale_order_show(self):
+        self.ensure_one()
         SaleOrderType = self.env["sale.order.type"]
-        type_id = SaleOrderType.search([("is_show", "=", True)], limit=1)
+        type_id = SaleOrderType.search(
+            [("is_show", "=", True),
+             ('company_id', 'in', [self.env.user.company_id.id, False])]
+            , limit=1)
         if not type_id:
             raise UserError(
                 _(

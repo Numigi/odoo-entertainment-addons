@@ -37,6 +37,31 @@ When I click on the button, the list of related sale orders is displayed.
 
 .. image:: static/description/project_smart_button_sale_orders.png
 
+When it is no uncancelled sale order related to project with type ``Show``, I notice a new button ``Create Sale``.
+
+.. image:: static/description/create_so_button.png
+
+If it is no sale order type with the field ``Show`` checked and I click on ``Create Sale`` button, an error message appears.
+
+.. image:: static/description/so_type_not_found_popup.png
+
+Once I create a sale order from the project,
+I notice that the fields of this so ``Customer``, ``Analytic Account``, ``Show`` and ``Type`` are filled automatically.
+
+Project form view:
+
+.. image:: static/description/project_fields.png
+
+Sale form view:
+
+.. image:: static/description/so_fields.png
+
+After saving the so, I go to the sale menu to create a new sale order and I select the previous project in the field ``Show``,
+then a popup appears when I save.
+
+.. image:: static/description/popup_so_form.png
+
+
 Tickets
 -------
 Inside the ``Tickets`` section, there are two fields ``Ticket Prices`` and ``Service Fees``.

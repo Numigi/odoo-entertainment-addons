@@ -10,6 +10,8 @@ This module adds a menu Tour Role under Project -> Configuration which will allo
 Project Member model is created as well. Project Manager can add project member into project when project type is tour or show.
 .. image:: static/description/project_show_member.png
 
+New field **Notes** is created in "Team" tab of the project model.
+.. image:: static/description/notes_team_page.png
 
 Configuration
 -------------

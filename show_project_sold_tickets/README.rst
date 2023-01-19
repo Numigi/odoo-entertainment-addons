@@ -13,6 +13,8 @@ Show Ticket Sold model is created as well. Only user with **Show Ticket / Manage
 New menu **Sold Ticket** is created under Project -> Reporting menu
 .. image:: static/description/new_menu.png
 
+New fields are created in the show ticket sold model.
+.. image:: static/description/fields_show_sold_ticket.png
 
 Configuration
 -------------

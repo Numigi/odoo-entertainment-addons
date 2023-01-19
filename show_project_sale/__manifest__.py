@@ -3,7 +3,7 @@
 
 {
     "name": "Show Project Sale",
-    "version": "1.1.3",
+    "version": "1.1.4",
     "author": "Numigi",
     "maintainer": "Numigi",
     "website": "https://www.numigi.com",

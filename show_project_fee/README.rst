@@ -70,6 +70,14 @@ The fees for this show are computed.
 
 .. image:: static/description/show_fees_computed.png
 
+New field **Notes** is created in "Fees" tab.
+
+.. image:: static/description/notes_fee_page.png
+
+Since version ``1.1.1`` of the module, "sale amount" field is moved before "Variable Income" group.
+
+.. image:: static/description/sale_amount_field_moved.png
+
 Contributors
 ------------
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)

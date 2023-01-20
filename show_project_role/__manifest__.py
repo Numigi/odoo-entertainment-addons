@@ -3,7 +3,7 @@
 {
     "name": "Show Project Role",
     "summary": "Add member roles for tour/show projects",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

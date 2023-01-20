@@ -10,10 +10,17 @@
                 <page name="sale_tab" position="move"/>
                 <page name="show_promotion" position="move"/>
             </xpath>
-            <xpath expr="//page[@name='artworks']" position="before">
-                <page name="show_fees" position="move"/>
+
+            <xpath expr="//page[@name='show_fees']" position="after">
+                <page name="artworks" position="move"/>
+            </xpath>
+
+            <xpath expr="//page[@name='team']" position="after">
                 <page name="show_perdiems" position="move"/>
-                <page name="show_contributions" position="move"/>
+            </xpath>
+
+            <xpath expr="//page[@name='show_perdiems']" position="before">
+                <page name="show_fees" position="move"/>
             </xpath>
             <xpath expr="//field[@name='project_type_id']" position="before">
                 <field name="artist_id" position="move"/>

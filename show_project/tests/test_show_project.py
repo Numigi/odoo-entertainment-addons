@@ -180,8 +180,8 @@ class TestShowProject(SavepointCase):
                  "parent_id":self.tour_project_1.id
                  }
             )
-        assert project_form.artist_id == self.tour_project_1.artist_id
-        assert project_form.analytic_account_id == self.tour_project_1.analytic_account_id
+        assert project_form.artist_id == self.tour_project_1.artist_id.id
+        assert project_form.analytic_account_id == self.tour_project_1.analytic_account_id.id
 
     def _create_project_with_form(self, values):
         with Form(self.env["project.project"]) as project_form:

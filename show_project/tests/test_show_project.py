@@ -173,15 +173,10 @@ class TestShowProject(SavepointCase):
         })
         self.tour_project_1.artist_id = self.artist.id
         self.tour_project_1.analytic_account_id = analytic_account_id.id
-        project_form = self._create_project_with_form(
-                {
-                 "name": "Show project",
-                 "show_type": "show",
-                 "parent_id":self.tour_project_1.id
-                 }
-            )
-        assert project_form.artist_id == self.tour_project_1.artist_id.id
-        assert project_form.analytic_account_id == self.tour_project_1.analytic_account_id.id
+        self.show_project_1.parent_id = self.tour_project_1.id
+        self.show_project_1._onchange_set_show_info()
+        assert self.show_project_1.artist_id == self.tour_project_1.artist_id.id
+        assert self.show_project_1.analytic_account_id == self.tour_project_1.analytic_account_id.id
 
     def _create_project_with_form(self, values):
         with Form(self.env["project.project"]) as project_form:

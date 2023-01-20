@@ -13,8 +13,12 @@ class TestShowProject(SavepointCase):
     def setUpClass(cls):
         super().setUpClass()
         cls.empty_project = cls.env["project.project"]
+
         cls.artist = cls.env["artist"].create(
             {"name": "artist"}
+        )
+        cls.artist2 = cls.env["artist"].create(
+            {"name": "artist2"}
         )
         cls.standard_project_1 = cls.env["project.project"].create(
             {"name": "Standard Project 1", "show_type": "standard"}
@@ -28,6 +32,7 @@ class TestShowProject(SavepointCase):
              "artist": cls.artist.id
              }
         )
+
 
     def _create_project(self, name, show_type=None, parent_id=None, artist=None):
         vals = {"name": name, "show_type": show_type, "parent_id": parent_id,
@@ -163,8 +168,23 @@ class TestShowProject(SavepointCase):
         self.assertEqual(generated_diffuser.mobile, show_place.diffuser_ids[0].mobile)
         self.assertEqual(generated_diffuser.phone, show_place.diffuser_ids[0].phone)
 
+    def test_onchange_set_show_info(self):
+        partner_id = self.env["res.partner"].create({"name": "Partner", "is_company": True})
+        analytic_account_id = self.env['account.analytic.account'].create({
+            'name': 'Analytic Account',
+            'code': partner_id.vat,
+            'partner_id': partner_id.id,
+        })
+        self.tour_project_1.artist_id = self.artist2.id
+        self.tour_project_1.analytic_account_id = analytic_account_id.id
+        self.show_project_1.parent_id = self.tour_project_1.id
+        self.show_project_1._onchange_set_show_info()
+        assert self.show_project_1.artist_id == self.tour_project_1.artist_id
+        assert self.show_project_1.analytic_account_id == self.tour_project_1.analytic_account_id
+
     def _create_project_with_form(self, values):
         with Form(self.env["project.project"]) as project_form:
             for k, v in values.items():
                 setattr(project_form, k, v)
         return project_form
+

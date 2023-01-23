@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-24 15:38+0000\n"
-"PO-Revision-Date: 2022-03-24 15:38+0000\n"
+"POT-Creation-Date: 2022-12-23 23:03+0000\n"
+"PO-Revision-Date: 2022-12-23 23:03+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,24 +24,7 @@ msgstr "Actif"
 #: model:ir.model.fields,help:show_sale.field_sale_order__is_show
 #: model:ir.model.fields,help:show_sale.field_sale_order_type__is_show
 msgid "Adds a tab Show on the sale order that allows to manage show settings."
-msgstr ""
-"Ajoute un onglet Spectacle sur le bon de vente pour gérer les données de "
-"ventes des spectacles."
-
-#. module: show_sale
-#: selection:sale.order,benefits_sharing_type:0
-msgid "After Fixed Expense Amount"
-msgstr "Après montant fixe de dépenses"
-
-#. module: show_sale
-#: selection:sale.order,benefits_sharing_type:0
-msgid "After Real Costs"
-msgstr "Après frais réels"
-
-#. module: show_sale
-#: model_terms:ir.ui.view,arch_db:show_sale.sale_order_form
-msgid "Applicable Rate"
-msgstr "Taux applicable (%)"
+msgstr "Ajoute un onglet Spectacle sur le bon de vente pour gérer les données de ventes des spectacles."
 
 #. module: show_sale
 #: model_terms:ir.ui.view,arch_db:show_sale.show_customer_segment_search
@@ -49,9 +32,21 @@ msgid "Archived"
 msgstr "Archivé"
 
 #. module: show_sale
+#: model:ir.model.fields,field_description:show_sale.field_project_project__check_so_exist
+msgid "Check So Exist"
+msgstr ""
+
+#. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__code
 msgid "Code"
-msgstr "Code"
+msgstr ""
+
+#. module: show_sale
+#: code:addons/show_sale/models/project_project.py:53
+#: model_terms:ir.ui.view,arch_db:show_sale.project_form
+#, python-format
+msgid "Create Sale"
+msgstr "Créer une vente"
 
 #. module: show_sale
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__create_uid
@@ -109,6 +104,12 @@ msgstr "Dernière mise à jour le"
 #: model:ir.model.fields,field_description:show_sale.field_show_customer_segment__name
 msgid "Name"
 msgstr "Nom"
+
+#. module: show_sale
+#: code:addons/show_sale/models/project_project.py:37
+#, python-format
+msgid "No Sale Type with Show option existing. Create one before using this function."
+msgstr "Aucun type de vente Spectacle n’est existant. Veuillez en créer un avant d’utiliser cette fonction."
 
 #. module: show_sale
 #: model:ir.model,name:show_sale.model_project_project
@@ -171,3 +172,8 @@ msgstr "Spectacles"
 msgid "Type of sale order"
 msgstr "Type de bon de commande"
 
+#. module: show_sale
+#: code:addons/show_sale/models/sale_order.py:41
+#, python-format
+msgid "You can only link a single sale to a show."
+msgstr "Vous ne pouvez associer qu’une seule vente à un même spectacle."

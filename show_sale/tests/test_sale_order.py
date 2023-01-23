@@ -37,4 +37,4 @@ class TestSaleOrder(TestRecordings):
         I check that the creation will not fail
         """
         self.order.action_cancel()
-        assert type(self.check_create_so().id) is int
+        assert isinstance(self.check_create_so().id, int)

@@ -35,10 +35,14 @@ class ShowTicketSold(models.Model):
         related="show_id.show_place_maximum_capacity",
         readonly=True,
         store=True,
+        group_operator="avg",
         string="Show place capacity",
     )
     favour_tickets = fields.Integer(
-        compute="_compute_favour_tickets", store=True, string="Favour Tickets"
+        compute="_compute_favour_tickets",
+        store=True,
+        group_operator="avg",
+        string="Favour Tickets"
     )
     sold_tickets = fields.Float(
         compute="_compute_sold_tickets",
@@ -87,18 +91,6 @@ class ShowTicketSold(models.Model):
         if not self._context.get("skip_update_new_sold_tickets"):
             self.mapped("show_id")._update_new_sold_tickets()
         return res
-
-    @api.model
-    def read_group(
-        self, domain, fields, groupby, offset=0, limit=None, orderby=False, lazy=True
-    ):
-        lst_fields = ["show_place_maximum_capacity", "favour_tickets"]
-        for f in lst_fields:
-            if f in fields:
-                fields.remove(f)
-        return super(ShowTicketSold, self).read_group(
-            domain, fields, groupby, offset, limit, orderby, lazy
-        )
 
     @api.multi
     def unlink(self):

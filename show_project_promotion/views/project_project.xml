@@ -36,9 +36,6 @@
                             <field name="notes"/>
                         </tree>
                     </field>
-                    <label for="note"/>
-                    <newline/>
-                    <field name="note"/>
                 </page>
             </page>
         </field>

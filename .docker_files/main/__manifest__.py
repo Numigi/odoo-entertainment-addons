@@ -43,6 +43,7 @@
         "show_project",
         "show_project_access",
         "show_project_artwork",
+        "show_project_custom_view",
         "show_project_fee",
         "show_project_list",
         "show_project_promotion",

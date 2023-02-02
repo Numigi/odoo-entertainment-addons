@@ -3,7 +3,7 @@
 {
     "name": "Show Project",
     "summary": "Show Project",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

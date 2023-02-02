@@ -5,7 +5,6 @@ from odoo import api, fields, models
 
 
 class ShowTicketSold(models.Model):
-
     _name = "show.ticket.sold"
     _rec_name = "record_date"
     _order = "record_date"
@@ -19,6 +18,39 @@ class ShowTicketSold(models.Model):
     record_date = fields.Date(required=True)
     total_sold_tickets = fields.Integer()
     new_sold_tickets = fields.Integer(readonly=True)
+    artist_id = fields.Many2one(
+        related="show_id.artist_id", readonly=True, store=True, string="Artist"
+    )
+    show_parent_id = fields.Many2one(
+        related="show_id.parent_id", readonly=True, store=True, string="Tour"
+    )
+    show_place_id = fields.Many2one(
+        related="show_id.show_place_id", readonly=True, store=True, string="Show place"
+    )
+    city = fields.Char(related="show_id.city", readonly=True, string="City")
+    show_date = fields.Date(
+        related="show_id.show_date", readonly=True, string="Show date"
+    )
+    show_place_maximum_capacity = fields.Integer(
+        related="show_id.show_place_maximum_capacity",
+        readonly=True,
+        store=True,
+        group_operator="avg",
+        string="Show place capacity",
+    )
+    favour_tickets = fields.Integer(
+        compute="_compute_favour_tickets",
+        store=True,
+        group_operator="avg",
+        string="Favour Tickets"
+    )
+    sold_tickets = fields.Float(
+        compute="_compute_sold_tickets",
+        store=True,
+        string="% Sold Tickets",
+        group_operator="avg",
+        digits=(12, 2),
+    )
 
     _sql_constraints = [
         (
@@ -27,6 +59,25 @@ class ShowTicketSold(models.Model):
             "A record already exists on this date for this show!",
         )
     ]
+
+    @api.multi
+    @api.depends("show_id.artist_favour_tickets", "show_id.diffisor_favour_tickets")
+    def _compute_favour_tickets(self):
+        for t in self:
+            show_id = t.show_id
+            t.favour_tickets = (
+                show_id.artist_favour_tickets + show_id.diffisor_favour_tickets
+            )
+
+    @api.multi
+    @api.depends("show_place_maximum_capacity", "favour_tickets", "total_sold_tickets")
+    def _compute_sold_tickets(self):
+        for t in self:
+            sold_tickets = 0
+            salable_tickets = t.show_place_maximum_capacity - t.favour_tickets
+            if salable_tickets != 0:
+                sold_tickets = t.total_sold_tickets / salable_tickets
+            t.sold_tickets = sold_tickets
 
     @api.model
     def create(self, vals):

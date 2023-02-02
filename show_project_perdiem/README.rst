@@ -27,6 +27,10 @@ This table allows to define unit amounts to pay for a given type of per diem.
 
     It is not possible to define multiple lines with the same per diem type.
 
+New field **Notes** is created in "Per Diem" tab.
+
+.. image:: static/description/notes_perdiem_page.png
+
 Usage
 -----
 As ``Project / Manager``, I go to a project of type ``Show``.

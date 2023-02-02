@@ -13,6 +13,11 @@ Add new tab "Sale" when Project Type is Show
 
 .. image:: static/description/project_sale_tab.png
 
+Add New fields **Notes** and **Other terms of the contract** in "Sale" tab
+
+.. image:: static/description/notes_terms_Sale_page.png
+
+
 Configuration
 -------------
 

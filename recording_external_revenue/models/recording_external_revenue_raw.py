@@ -3,6 +3,7 @@
 
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
+from odoo.tools import float_round
 
 
 class RecordingExternalRevenueRaw(models.Model):
@@ -168,7 +169,8 @@ class RecordingExternalRevenueRaw(models.Model):
     def _execute_aggregated_fields_mapping(self, revenue):
         aggregated_fields = self.get_aggregated_fields()
         for field in aggregated_fields:
-            revenue[field] = sum(r[field] or 0 for r in self)
+            revenue[field] = float_round(sum(r[field] or 0 for r in self),
+                                         precision_digits=2)
 
     def get_aggregated_fields(self):
         return ["commission_amount", "gross_amount", "net_amount", "quantity"]

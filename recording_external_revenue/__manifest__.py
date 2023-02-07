@@ -3,7 +3,7 @@
 
 {
     "name": "Recording External Revenue",
-    "tag": "1.0.1",
+    "version": "1.0.1",
     "author": "Numigi",
     "maintainer": "Numigi",
     "website": "https://www.numigi.com",

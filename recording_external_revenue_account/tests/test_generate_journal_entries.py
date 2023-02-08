@@ -342,8 +342,8 @@ class TestConversion(ExternalRevenueCase):
 
         tax_line = self._get_tax_line(entry)
         assert tax_line.credit == 3.75  # net_amount * 10% / 0.8
-        assert tax_line.amount_currency == 0
-        assert not tax_line.currency_id
+        assert tax_line.amount_currency == -3
+        assert tax_line.currency_id == self.eur
 
         receivable_line = self._get_receivable_line(entry)
         assert receivable_line.debit == 41.25
@@ -357,7 +357,7 @@ class TestConversion(ExternalRevenueCase):
         self.revenue.currency_id = self.eur
         entry = self.revenue.generate_journal_entry()
         revenue_line = self._get_revenue_line(entry)
-        assert revenue_line[0].credit == 60  # net_amount / 0.5
+        assert revenue_line.credit == 37.5  # net_amount / 0.5
 
     def _set_currency_rate(self, currency, rate, date=None):
         values = {

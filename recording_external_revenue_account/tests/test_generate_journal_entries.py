@@ -357,7 +357,7 @@ class TestConversion(ExternalRevenueCase):
         self.revenue.currency_id = self.eur
         entry = self.revenue.generate_journal_entry()
         revenue_line = self._get_revenue_line(entry)
-        assert revenue_line.credit == 60  # net_amount / 0.5
+        assert revenue_line[0].credit == 60  # net_amount / 0.5
 
     def _set_currency_rate(self, currency, rate, date=None):
         values = {

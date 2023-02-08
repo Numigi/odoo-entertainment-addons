@@ -2,7 +2,6 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl).
 
 from odoo import api, models, fields, _
-from odoo.addons.queue_job.job import job
 from odoo.exceptions import ValidationError
 
 
@@ -168,7 +167,7 @@ class RecordingExternalRevenue(models.Model):
         line.recompute_tax_line = True
         line.tax_ids = self._get_revenue_line_taxes()
         line.analytic_account_id = self.analytic_account_id
-        line.currency_id = line.account_id.currency_id
+        line.currency_id = self.currency_id
         line.recording_id = self.recording_id
         line.artist_id = self.artist_id
         line.partner_id = self.partner_id
@@ -231,26 +230,33 @@ class RecordingExternalRevenue(models.Model):
 
     def _set_tax_base_amount(self, revenue_line):
         amount = self[self.tax_base]
-        amount_in_company_currency = self._convert_amount_in_company_currency(amount)
-        self._set_move_line_credit(revenue_line, amount_in_company_currency)
+        aml_obj = self.env['account.move.line'].with_context(
+            check_move_validity=False)
+        debit, credit, amount_currency, currency_id = \
+            aml_obj.with_context(date=self.period_end_date
+                                 )._compute_amount_fields(
+                amount,
+                self.currency_id,
+                self.company_id.currency_id)
+        revenue_line.credit = credit
+        revenue_line.debit = debit
+        revenue_line.amount_currency = amount_currency
+        revenue_line.currency_id = currency_id
 
     def _set_revenue_amount(self, revenue_line):
         amount = self.net_amount
-        amount_in_company_currency = self._convert_amount_in_company_currency(amount)
-        self._set_move_line_credit(revenue_line, amount_in_company_currency)
-
-    def _convert_amount_in_company_currency(self, amount):
-        return self.currency_id._convert(
-            amount, self._company_currency, self.company_id, self.operation_date
-        )
-
-    @property
-    def _is_revenue_in_company_currency(self):
-        return self.currency_id == self._company_currency
-
-    @property
-    def _company_currency(self):
-        return self.company_id.currency_id
+        aml_obj = self.env['account.move.line'].with_context(
+            check_move_validity=False)
+        debit, credit, amount_currency, currency_id = \
+            aml_obj.with_context(
+                date=self.period_end_date)._compute_amount_fields(
+                amount,
+                self.currency_id,
+                self.company_id.currency_id)
+        revenue_line.credit = credit
+        revenue_line.debit = debit
+        revenue_line.amount_currency = amount_currency
+        revenue_line.currency_id = currency_id
 
     def _map_revenue_account(self):
         product_template = self.product_id.product_tmpl_id
@@ -291,7 +297,7 @@ class RecordingExternalRevenue(models.Model):
         line = self.env["account.move.line"].new()
         line.name = "/"
         line.account_id = self._map_receivable_account()
-        line.currency_id = line.account_id.currency_id
+        line.currency_id = self.currency_id
         line.date_maturity = due_date
         line.partner_id = self.partner_id
         self._set_move_line_credit(line, -amount)

@@ -47,7 +47,7 @@ class ProjectProject(models.Model):
 
     recording = fields.Boolean(default=False)
     producer_id = fields.Many2one(comodel_name="res.partner")
-    city = fields.Char(related="show_place_id.city")
+    city = fields.Char(related="show_place_id.city", store=True)
     diffuser_ids = fields.One2many(
         "project.diffuser", "project_id", string="Diffuser's Contacts"
     )

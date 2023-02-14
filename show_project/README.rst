@@ -96,9 +96,13 @@ Other fields are populated based on values defined on the show venue.
 .. image:: static/description/show_with_venue_fields.png
 
 
+Show/Tour Project Search view
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Since version ``2.0.4`` of the module, when I access the ``Project`` application, I can search by ``Artist`` and ``City`` from the search bar.
 
-Contributors
-------------
+.. image:: static/description/search_project_city_artist.png
+
+
 * Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 * Komit (https://komit-consulting.com)
 

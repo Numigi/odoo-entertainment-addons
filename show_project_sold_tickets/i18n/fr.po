@@ -21,6 +21,12 @@ msgid "% Sold Tickets"
 msgstr "% Billets vendus"
 
 #. module: show_project_sold_tickets
+#: model:ir.model.fields,field_description:show_project_sold_tickets.field_show_ticket_sold__last_entry
+#: model_terms:ir.ui.view,arch_db:show_project_sold_tickets.show_ticket_sold_search_view
+msgid "Last Entry"
+msgstr "Dernière entrée"
+
+#. module: show_project_sold_tickets
 #: sql_constraint:show.ticket.sold:0
 msgid "A record already exists on this date for this show!"
 msgstr "Un enregistrement existe déjà à cette date pour ce spectacle!"

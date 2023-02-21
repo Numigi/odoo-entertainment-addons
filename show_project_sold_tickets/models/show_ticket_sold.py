@@ -1,7 +1,11 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+import logging
+
 from odoo import api, fields, models
+
+_logger = logging.getLogger(__name__)
 
 
 class ShowTicketSold(models.Model):
@@ -51,6 +55,11 @@ class ShowTicketSold(models.Model):
         group_operator="avg",
         digits=(12, 2),
     )
+    last_entry = fields.Boolean(
+        string='Last Entry',
+        compute='_compute_last_entry',
+        store=True
+    )
 
     _sql_constraints = [
         (
@@ -61,12 +70,25 @@ class ShowTicketSold(models.Model):
     ]
 
     @api.multi
+    @api.depends("record_date", "show_id.ticket_ids", "show_id.ticket_ids.record_date")
+    def _compute_last_entry(self):
+        for t in self:
+            ticket_ids = t.show_id.ticket_ids.filtered(lambda st: st.record_date)
+            sold_ticket_ids = ticket_ids.sorted('record_date', reverse=True)
+            if sold_ticket_ids:
+                last_entry = (t.record_date and t.record_date >= sold_ticket_ids[0].record_date) \
+                             or False
+            else:
+                last_entry = True
+            t.last_entry = last_entry
+
+    @api.multi
     @api.depends("show_id.artist_favour_tickets", "show_id.diffisor_favour_tickets")
     def _compute_favour_tickets(self):
         for t in self:
             show_id = t.show_id
             t.favour_tickets = (
-                show_id.artist_favour_tickets + show_id.diffisor_favour_tickets
+                    show_id.artist_favour_tickets + show_id.diffisor_favour_tickets
             )
 
     @api.multi

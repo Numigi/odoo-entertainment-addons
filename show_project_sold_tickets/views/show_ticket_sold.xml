@@ -27,6 +27,7 @@
                             <field name="favour_tickets"/>
                             <field name="sold_tickets" widget="percentage"/>
                             <field name="new_sold_tickets"/>
+                            <field name="last_entry" invisible="1"/>
                         </group>
                     </group>
                 </sheet>
@@ -51,7 +52,7 @@
                 <field name="favour_tickets"/>
                 <field name="sold_tickets" widget="percentage"/>
                 <field name="new_sold_tickets"/>
-                <field name="last_entry"/>
+                <field name="last_entry" invisible="1"/>
             </tree>
         </field>
     </record>

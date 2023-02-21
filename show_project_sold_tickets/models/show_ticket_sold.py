@@ -1,10 +1,9 @@
 # © 2020 - today Numigi (tm) and all its contributors (https://bit.ly/numigiens)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
 import logging
-import datetime
-from odoo.tools import DEFAULT_SERVER_DATE_FORMAT
+
+from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -77,7 +76,8 @@ class ShowTicketSold(models.Model):
             ticket_ids = t.show_id.ticket_ids.filtered(lambda st: st.record_date)
             sold_ticket_ids = ticket_ids.sorted('record_date', reverse=True)
             if sold_ticket_ids:
-                last_entry = (t.record_date and t.record_date >= sold_ticket_ids[0].record_date) or False
+                last_entry = (t.record_date and t.record_date >= sold_ticket_ids[0].record_date) \
+                             or False
             else:
                 last_entry = True
             t.last_entry = last_entry

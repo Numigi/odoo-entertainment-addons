@@ -74,7 +74,7 @@ class ShowTicketSold(models.Model):
     @api.depends("record_date", "show_id.ticket_ids", "show_id.ticket_ids.record_date")
     def _compute_last_entry(self):
         for t in self:
-            ticket_ids = t.show_id.ticket_ids.filtered(lambda st: st.show_id.show_type == 'show' and st.record_date)
+            ticket_ids = t.show_id.ticket_ids.filtered(lambda st: st.record_date)
             sold_ticket_ids = ticket_ids.sorted('record_date', reverse=True)
             if sold_ticket_ids:
                 last_entry = (t.record_date and t.record_date >= sold_ticket_ids[0].record_date) or False

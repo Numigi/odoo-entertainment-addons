@@ -51,6 +51,7 @@
                 <field name="favour_tickets"/>
                 <field name="sold_tickets" widget="percentage"/>
                 <field name="new_sold_tickets"/>
+                <field name="last_entry"/>
             </tree>
         </field>
     </record>
@@ -62,6 +63,8 @@
         <field name="arch" type="xml">
             <search string="Sold tickets">
                 <field name="show_id"/>
+                <separator/>
+                <filter string="Last Entry" name="show_last_entry" domain="[('last_entry', '=', True)]"/>
                 <group expand="1" string="Group By">
                     <filter string="Show" name="show" context="{'group_by':'show_id'}"/>
                     <filter string="Record Date" name="record_date" context="{'group_by':'record_date'}"/>

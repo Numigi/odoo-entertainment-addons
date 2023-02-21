@@ -13,6 +13,7 @@ class TestSoldTickets(SavepointCase):
 
         cls.date_1 = datetime.now().date()
         cls.date_2 = datetime.now().date() + timedelta(30)
+        cls.date_3 = datetime.now().date() + timedelta(50)
 
         cls.ticket_1 = cls._add_ticket_sold(cls.date_1, 10)
         cls.ticket_2 = cls._add_ticket_sold(cls.date_2, 20)
@@ -61,3 +62,12 @@ class TestSoldTickets(SavepointCase):
         self.project.diffisor_favour_tickets = 1
         assert self.ticket_1.sold_tickets == 0.11  # 10 /(100-5-1)
         assert self.ticket_2.sold_tickets == 0.21  # 20 /(100-5-1)
+
+    def test_lastEntry_onCreation(self):
+        assert not self.ticket_1.last_entry
+        assert self.ticket_2.last_entry
+
+    def test_lastEntry_afterModifyRecordDate(self):
+        self.ticket_1.write({'record_date': self.date_3})
+        assert self.ticket_1.last_entry
+        assert not self.ticket_2.last_entry

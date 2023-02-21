@@ -13,6 +13,7 @@
         # Numigi-entertainment
         "show_project",
         "show_project_sale",
+
     ],
     "data": [
         # Security

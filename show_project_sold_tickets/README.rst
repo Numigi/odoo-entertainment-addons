@@ -16,7 +16,7 @@ New menu **Sold Ticket** is created under Project -> Reporting menu
 New fields are created in the show ticket sold model.
 .. image:: static/description/fields_show_sold_ticket.png
 
-New filter are added in the show ticket sold search bar.
+New filter is added in the show ticket sold search bar.
 .. image:: static/description/last_entry.png
 
 Configuration

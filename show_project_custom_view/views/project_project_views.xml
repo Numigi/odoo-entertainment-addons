@@ -22,9 +22,6 @@
             <xpath expr="//page[@name='show_perdiems']" position="before">
                 <page name="show_fees" position="move"/>
             </xpath>
-            <xpath expr="//field[@name='project_type_id']" position="before">
-                <field name="artist_id" position="move"/>
-            </xpath>
             <xpath expr="//field[@name='showcase']" position="before">
                 <field name="show_appearance_type_id" position="move"/>
                 <field name="formula" position="move"/>
@@ -55,6 +52,16 @@
                 <field name="analytic_account_id" position="move"/>
                 <field name="partner_id" position="move"/>
                 <field name="show_date" position="move"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="show_project_custom_view_form" model="ir.ui.view">
+        <field name="name">Inherit show project form : Custom view</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="show_project.project_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_type_id']" position="before">
+                <field name="artist_id" position="move"/>
             </xpath>
         </field>
     </record>

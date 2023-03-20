@@ -3,10 +3,9 @@
 
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
-import logging
-_logger = logging.getLogger(__name__)
-class RecordingExternalRevenue(models.Model):
 
+
+class RecordingExternalRevenue(models.Model):
     _inherit = "recording.external.revenue"
 
     is_posted = fields.Boolean(readonly=True, copy=False)
@@ -101,7 +100,8 @@ class RecordingExternalRevenue(models.Model):
                 _(
                     "The revenue {revenue} is already posted (journal entry: {entry})."
                 ).format(
-                    revenue=self.display_name, entry=self.account_move_id.display_name
+                    revenue=self.display_name,
+                    entry=self.account_move_id.display_name
                 )
             )
 
@@ -112,7 +112,8 @@ class RecordingExternalRevenue(models.Model):
                     "The revenue {revenue} can not be posted. "
                     "The record {record} is at the status To Validate."
                 ).format(
-                    revenue=self.display_name, record=self.recording_id.display_name
+                    revenue=self.display_name,
+                    record=self.recording_id.display_name
                 )
             )
 
@@ -153,9 +154,11 @@ class RecordingExternalRevenue(models.Model):
         for line in tax_lines:
             line.currency_id = self.currency_id
             if line.credit:
-                line.amount_currency = self._convert_amount_in_src_currency(-line.credit)
+                line.amount_currency = self._convert_amount_in_src_currency(
+                    -line.credit)
             elif line.debit:
-                line.amount_currency = self._convert_amount_in_src_currency(line.debit)
+                line.amount_currency = self._convert_amount_in_src_currency(
+                    line.debit)
 
     def _add_receivable_move_line(self, move):
         receivable_amount = sum(-l.balance for l in move.line_ids)
@@ -239,13 +242,15 @@ class RecordingExternalRevenue(models.Model):
 
     def _set_tax_base_amount(self, revenue_line):
         amount = self[self.tax_base]
-        amount_in_company_currency = self._convert_amount_in_company_currency(amount)
+        amount_in_company_currency = self._convert_amount_in_company_currency(
+            amount)
         self._set_move_line_credit(revenue_line, amount_in_company_currency)
         self._set_amount_currency(revenue_line, amount)
 
     def _set_revenue_amount(self, revenue_line):
         amount = self.net_amount
-        amount_in_company_currency = self._convert_amount_in_company_currency(amount)
+        amount_in_company_currency = self._convert_amount_in_company_currency(
+            amount)
         self._set_move_line_credit(revenue_line, amount_in_company_currency)
         self._set_amount_currency(revenue_line, amount)
 
@@ -265,7 +270,8 @@ class RecordingExternalRevenue(models.Model):
 
     def _convert_amount_in_company_currency(self, amount):
         return self.currency_id._convert(
-            amount, self._company_currency, self.company_id, self.period_end_date
+            amount, self._company_currency, self.company_id,
+            self.period_end_date
         )
 
     @property
@@ -296,12 +302,16 @@ class RecordingExternalRevenue(models.Model):
         payment_term = self._map_payment_term()
 
         if payment_term:
-            return self._make_receivable_lines_from_payment_term(amount, payment_term)
+            return self._make_receivable_lines_from_payment_term(amount,
+                                                                 payment_term)
         else:
-            return self._make_single_receivable_move_line(amount, self.period_end_date)
+            return self._make_single_receivable_move_line(amount,
+                                                          self.period_end_date)
 
-    def _make_receivable_lines_from_payment_term(self, total_amount, payment_term):
-        payment_term = payment_term.with_context(currency_id=self.currency_id.id)
+    def _make_receivable_lines_from_payment_term(self, total_amount,
+                                                 payment_term):
+        payment_term = payment_term.with_context(
+            currency_id=self.currency_id.id)
         invoice_date = self.period_end_date
         result = self.env["account.move.line"]
 

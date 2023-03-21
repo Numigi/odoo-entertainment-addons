@@ -4,7 +4,6 @@
 from odoo import api, models, fields, _
 from odoo.exceptions import ValidationError
 
-
 class RecordingExternalRevenue(models.Model):
     _inherit = "recording.external.revenue"
 
@@ -88,6 +87,7 @@ class RecordingExternalRevenue(models.Model):
             move = self._make_new_journal_entry()
 
         move_vals = self._extract_account_move_vals(move)
+        move_vals = self.env["account.move"]._convert_to_write(move_vals)
         move = self.env["account.move"].create(move_vals)
         move.post()
         self.write({"is_posted": True, "account_move_id": move.id})

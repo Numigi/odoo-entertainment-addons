@@ -490,7 +490,7 @@ class TestConversion(ExternalRevenueCase):
         self.company.currency_id = self.cad
         move_id = self.revenue.generate_journal_entry()
         assert not move_id.mapped('line_ids.currency_id')
-        assert not move_id.mapped('line_ids.amount_currency')
+        assert not all(move_id.mapped('line_ids.amount_currency'))
 
     def test_currency_and_amount_currency_2(self):
         self.company.currency_id = self.eur

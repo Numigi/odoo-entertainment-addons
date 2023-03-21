@@ -42,6 +42,21 @@ Once the jobs have passed, I find a new journal entry for each revenue.
 
 .. image:: static/description/journal_entry_list.png
 
+Since version ``1.0.1`` of the module, In case the journal entry has to be created in the company's currency,
+the currency and amount currency fields of the journal entry lines are left empty.
+
+.. image:: static/description/your_company_currency.png
+
+We create a new revenue  with a currency that is different from the company's currency.
+
+.. image:: static/description/new_revenue.png
+
+The fields ``Currency`` and ``Amount currency`` in journal entry lines generated are empty.
+
+.. image:: static/description/journal_entry_currency_amount_curr.png
+
+
+
 How Does It Work
 ----------------
 

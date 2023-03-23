@@ -5,7 +5,8 @@ import pytest
 from datetime import datetime, timedelta
 from ddt import ddt, data, unpack
 from odoo.exceptions import ValidationError
-from odoo.addons.recording_external_revenue.tests.common import ExternalRevenueCase
+from odoo.addons.recording_external_revenue.tests.common import \
+    ExternalRevenueCase
 
 
 @ddt
@@ -164,7 +165,8 @@ class TestConversion(ExternalRevenueCase):
         )
 
     @classmethod
-    def _create_fiscal_position_account_rule(cls, position, src_account, dest_account):
+    def _create_fiscal_position_account_rule(cls, position, src_account,
+                                             dest_account):
         return cls.env["account.fiscal.position.account"].create(
             {
                 "position_id": position.id,
@@ -205,7 +207,8 @@ class TestConversion(ExternalRevenueCase):
         )
 
     def test_schedule_generate_journal_entries(self):
-        self.env["recording.external.revenue"].schedule_generate_journal_entries(
+        self.env[
+            "recording.external.revenue"].schedule_generate_journal_entries(
             self.company
         )
         assert len(self._find_jobs(self.revenue)) == 1
@@ -294,7 +297,8 @@ class TestConversion(ExternalRevenueCase):
             self.other_revenue_account,
         )
         entry = self.revenue.generate_journal_entry()
-        assert self._get_revenue_line(entry).account_id == self.other_revenue_account
+        assert self._get_revenue_line(
+            entry).account_id == self.other_revenue_account
 
     def test_no_available_fiscal_position(self):
         self.revenue.state_id = False
@@ -304,7 +308,8 @@ class TestConversion(ExternalRevenueCase):
 
     def test_fiscal_position_defined_on_partner(self):
         self.revenue.write(
-            {"fiscal_position": "partner", "country_id": False, "state_id": False}
+            {"fiscal_position": "partner", "country_id": False,
+             "state_id": False}
         )
         self.revenue.partner_id.write(
             {"country_id": self.canada.id, "state_id": self.quebec.id}
@@ -315,11 +320,13 @@ class TestConversion(ExternalRevenueCase):
             self.other_revenue_account,
         )
         entry = self.revenue.generate_journal_entry()
-        assert self._get_revenue_line(entry).account_id == self.other_revenue_account
+        assert self._get_revenue_line(
+            entry).account_id == self.other_revenue_account
 
     def test_no_fiscal_position_found_for_the_partner(self):
         self.revenue.write(
-            {"fiscal_position": "partner", "country_id": False, "state_id": False}
+            {"fiscal_position": "partner", "country_id": False,
+             "state_id": False}
         )
         self.partner.state_id = False
         self.partner.country_id = self.env.ref("base.fr")
@@ -369,14 +376,17 @@ class TestConversion(ExternalRevenueCase):
 
     def _get_revenue_line(self, move):
         return move.line_ids.filtered(
-            lambda l: l.account_id in self.revenue_account | self.other_revenue_account
+            lambda
+                l: l.account_id in self.revenue_account | self.other_revenue_account
         )
 
     def _get_receivable_line(self, move):
-        return move.line_ids.filtered(lambda l: l.account_id == self.receivable_account)
+        return move.line_ids.filtered(
+            lambda l: l.account_id == self.receivable_account)
 
     def _get_tax_line(self, move):
-        return move.line_ids.filtered(lambda l: l.account_id == self.tax_account)
+        return move.line_ids.filtered(
+            lambda l: l.account_id == self.tax_account)
 
     def test_due_date_with_no_payment_term(self):
         self.partner.property_payment_term_id = None
@@ -475,3 +485,17 @@ class TestConversion(ExternalRevenueCase):
         self.recording.state = "to_validate"
         with pytest.raises(ValidationError):
             self.revenue.generate_journal_entry()
+
+    def test_currency_and_amount_currency_1(self):
+        self.company.currency_id = self.cad
+        move_id = self.revenue.generate_journal_entry()
+        assert not move_id.mapped('line_ids.currency_id')
+        assert all([l.amount_currency == 0 for l in
+                    move_id.mapped('line_ids')])
+
+    def test_currency_and_amount_currency_2(self):
+        self.company.currency_id = self.eur
+        move_id = self.revenue.generate_journal_entry()
+        assert all(
+            [l.currency_id == self.cad and l.amount_currency != 0 for l in
+             move_id.mapped('line_ids')])

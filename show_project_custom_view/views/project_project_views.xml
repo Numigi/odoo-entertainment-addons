@@ -3,7 +3,8 @@
     <record id="project_custom_view_form" model="ir.ui.view">
         <field name="name">show.project.custom.view.form</field>
         <field name="model">project.project</field>
-        <field name="inherit_id" ref="show_project_role.project_form"/>
+        <field name="priority">100</field>
+        <field name="inherit_id" ref="project.edit_project"/>
         <field name="arch" type="xml">
             <xpath expr="//page[@name='team']" position="before">
                 <page name="show_venue" position="move"/>
@@ -40,29 +41,14 @@
                 <field name="recording" position="move"/>
                 <field name="producer_id" position="move"/>
             </xpath>
-        </field>
-    </record>
-
-    <record id="project_invoice_custom_view_form" model="ir.ui.view">
-        <field name="name">Inherit project form : Custom view</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id" ref="hr_timesheet.project_invoice_form"/>
-        <field name="arch" type="xml">
             <xpath expr="//field[@name='project_type_id']" position="before">
+                <field name="artist_id" position="move"/>
                 <field name="analytic_account_id" position="move"/>
                 <field name="partner_id" position="move"/>
                 <field name="show_date" position="move"/>
+
             </xpath>
         </field>
     </record>
-    <record id="show_project_custom_view_form" model="ir.ui.view">
-        <field name="name">Inherit show project form : Custom view</field>
-        <field name="model">project.project</field>
-        <field name="inherit_id" ref="show_project.project_form"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='project_type_id']" position="before">
-                <field name="artist_id" position="move"/>
-            </xpath>
-        </field>
-    </record>
+
 </odoo>

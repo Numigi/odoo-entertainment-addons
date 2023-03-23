@@ -3,7 +3,7 @@
 
 {
     "name": "Show Project Custom View",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.2",
     "author": "Numigi",
     "maintainer": "Numigi",
     "website": "https://www.numigi.com",
@@ -19,6 +19,7 @@
         "show_project_promotion",
         "show_project_role",
         "show_project_sale",
+        "hr_timesheet",
     ],
     "data": [
         # views

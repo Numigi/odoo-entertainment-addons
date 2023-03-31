@@ -31,9 +31,9 @@ class ShowTicketSold(models.Model):
     show_place_id = fields.Many2one(
         related="show_id.show_place_id", readonly=True, store=True, string="Show place"
     )
-    city = fields.Char(related="show_id.city", readonly=True, string="City")
+    city = fields.Char(related="show_id.city", readonly=True, store=True, string="City")
     show_date = fields.Date(
-        related="show_id.show_date", readonly=True, string="Show date"
+        related="show_id.show_date", readonly=True, store=True, string="Show date"
     )
     show_place_maximum_capacity = fields.Integer(
         related="show_id.show_place_maximum_capacity",

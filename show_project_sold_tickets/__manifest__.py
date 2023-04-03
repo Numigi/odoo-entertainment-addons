@@ -3,7 +3,7 @@
 {
     "name": "Show Project Sold Tickets",
     "summary": "Show Project Sold Tickets",
-    "version": "12.0.1.1.1",
+    "version": "12.0.1.1.2",
     "website": "https://bit.ly/numigi-com",
     "author": "Numigi",
     "maintainer": "Numigi",

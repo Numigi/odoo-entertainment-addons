@@ -18,9 +18,8 @@ No configuration required apart from module installation.
 
 Contributors
 ------------
-* Numigi (tm) and all its contributors (https://bit.ly/numigiens)
+
+The `Numigi <https://numigi.com/r/home>`_ team is the contributor to this project. We help Quebec companies implement Odoo and Konvergo ERP.
 * Komit (https://komit-consulting.com)
 
-More information
-----------------
-* Meet us at https://bit.ly/numigi-com
+
